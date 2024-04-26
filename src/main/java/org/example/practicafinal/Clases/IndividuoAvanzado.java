@@ -1,2 +1,4 @@
-package org.example.practicafinal.Clases;public class IndividuoAvanzado {
+package org.example.practicafinal.Clases;
+
+public class IndividuoAvanzado extends Individuo {
 }

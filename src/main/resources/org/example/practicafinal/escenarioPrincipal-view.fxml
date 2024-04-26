@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="practicaFinal.EscenarioPrincipalController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="403.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioPrincipalController">
+   <children>
+      <ScrollPane layoutX="396.0" layoutY="-1.0" prefHeight="403.0" prefWidth="242.0">
+         <content>
+            <TabPane prefHeight="202.0" prefWidth="234.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Individuos">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="128.0">
+                           <opaqueInsets>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </opaqueInsets>
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dcdcdc" height="177.0" layoutX="-2.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="238.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Entorno">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dcdcdc" height="180.0" layoutX="-3.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="241.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Tablero">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dcdcdc" height="180.0" layoutX="-3.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="241.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </content>
+      </ScrollPane>
+      <Pane layoutX="16.0" layoutY="15.0" prefHeight="261.0" prefWidth="283.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb973" height="261.0" stroke="BLACK" strokeType="INSIDE" width="283.0" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

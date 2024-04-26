@@ -5,13 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/Individuo.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoAvanzado.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoBasico.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoNormal.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/EscenarioPrincipalController.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/HelloApplication.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/HelloController.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/MainApplication.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoAvanzado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoBasico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoNormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioPrincipalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,25 +65,63 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2falAoAme0IcAHuQXvF3c277h1e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniela/OneDrive - Universidad de Alcala/Escritorio/metodologia/PracticaFinal/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.practicafinal" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
+      <module name="PracticaFinal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.practicafinal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -57,7 +137,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714046930697</updated>
-      <workItem from="1714046931768" duration="1000" />
+      <workItem from="1714046931768" duration="1985000" />
+      <workItem from="1714064624534" duration="511000" />
     </task>
     <servers />
   </component>

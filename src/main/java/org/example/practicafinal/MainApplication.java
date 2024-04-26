@@ -1,4 +1,4 @@
-package practicaFinal;
+package org.example.practicafinal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("escenarioPrincipal-view.fxml"));
-        Scene uScene = new Scene(fxmlLoader.load(), 1000, 700);
+        Scene uScene = new Scene(fxmlLoader.load(), 900, 700);
         primaryStage.setScene(uScene);
         primaryStage.show();
     }

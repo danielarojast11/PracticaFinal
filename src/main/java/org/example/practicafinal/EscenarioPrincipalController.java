@@ -1,4 +1,4 @@
-package practicaFinal;
+package org.example.practicafinal;
 
 public class EscenarioPrincipalController {
 }
