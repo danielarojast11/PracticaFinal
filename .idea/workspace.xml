@@ -4,38 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/Individuo.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoAvanzado.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoBasico.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/IndividuoNormal.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/Clases/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/EscenarioPrincipalController.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/HelloApplication.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/HelloController.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/MainApplication.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exportToHTML/org/example/practicafinal/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoAvanzado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoBasico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/IndividuoNormal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hello-view.fxml" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="2604">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -69,28 +48,32 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2falAoAme0IcAHuQXvF3c277h1e" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniela/OneDrive - Universidad de Alcala/Escritorio/metodologia/PracticaFinal/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.MainApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Daniela/OneDrive - Universidad de Alcala/Escritorio/metodologia/PracticaFinal/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
@@ -139,10 +122,49 @@
       <updated>1714046930697</updated>
       <workItem from="1714046931768" duration="1985000" />
       <workItem from="1714064624534" duration="511000" />
+      <workItem from="1714119710898" duration="598000" />
+      <workItem from="1714151891685" duration="2369000" />
     </task>
+    <task id="LOCAL-00001" summary="2604">
+      <option name="closed" value="true" />
+      <created>1714120104176</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714120104176</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="2604" />
+    <option name="LAST_COMMIT_MESSAGE" value="2604" />
   </component>
 </project>
