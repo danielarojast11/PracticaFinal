@@ -21,6 +21,7 @@ public class EscenarioCargarController {
     void salir() {
         controladorEscenarios.cargarEscenarioInicio();
     }
+
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
     }

@@ -16,6 +16,7 @@ public class EscenariosController {
         this.stagePrincipal = stage;
         cargarEscenario();
     }
+
     public void cargarEscenario(){
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -42,6 +43,7 @@ public class EscenariosController {
 
         }
     }
+
     public void cargarEscenarioJugar(){
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -54,6 +56,7 @@ public class EscenariosController {
 
         }
     }
+
     public void cargarEscenarioCargar(){
         try {
             FXMLLoader loader = new FXMLLoader();

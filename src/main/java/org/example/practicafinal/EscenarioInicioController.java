@@ -24,6 +24,7 @@ public class EscenarioInicioController {
     void nuevaPartida() {
         controladorEscenarios.cargarEscenarioJugar();
     }
+
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
     }
