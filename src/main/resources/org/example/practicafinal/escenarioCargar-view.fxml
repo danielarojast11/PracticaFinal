@@ -4,12 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioCargarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioCargarController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6084a6" height="200.0" layoutX="37.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fffdb" height="200.0" layoutX="253.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Button fx:id="btnJugar" layoutX="471.0" layoutY="146.0" mnemonicParsing="false" onAction="#jugar" prefHeight="26.0" prefWidth="92.0" text="Jugar" />
-      <Button fx:id="btnSalir" layoutX="471.0" layoutY="186.0" mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="92.0" text="Salir" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6084a6" height="200.0" layoutX="178.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fffdb" height="200.0" layoutX="394.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Button fx:id="btnJugar" layoutX="612.0" layoutY="256.0" mnemonicParsing="false" onAction="#jugar" prefHeight="26.0" prefWidth="92.0" text="Jugar" />
+      <Button fx:id="btnSalir" layoutX="612.0" layoutY="296.0" mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="92.0" text="Salir" />
    </children>
 </AnchorPane>
