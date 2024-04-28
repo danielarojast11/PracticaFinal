@@ -12,11 +12,9 @@ public class Partida {
     int turnosVida;
 
         //CONSTRUCTORS
-    public Partida(int turno, int probReproduccion, int probClonacion, int id, int turnosVida) {
-        this.turno = turno;
+    public Partida(int probReproduccion, int probClonacion, int turnosVida) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
-        this.id = id;
         this.turnosVida = turnosVida;
     }
 

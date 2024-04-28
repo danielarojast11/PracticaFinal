@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -19,23 +18,23 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#68b2a9" height="450.0" layoutX="29.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" width="459.0" />
       <Button fx:id="btnSalir" layoutX="29.0" layoutY="529.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="134.0" text="Start" />
-      <TabPane fx:id="tabPane" layoutX="535.0" layoutY="66.0" prefHeight="450.0" prefWidth="299.0" style="-fx-region-background: #68b2a9;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" layoutX="535.0" layoutY="66.0" prefHeight="450.0" prefWidth="299.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tabIndividuos" style="-fx-background-color: #68b2a9;" text="Individuos">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;">
                      <children>
-                        <Slider fx:id="sliderClonacion" layoutX="43.0" layoutY="203.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderClonacion" layoutX="43.0" layoutY="203.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderReproduccion" layoutX="43.0" layoutY="123.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderReproduccion" layoutX="43.0" layoutY="123.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderVida" layoutX="43.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderVida" layoutX="43.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -43,9 +42,9 @@
                         <Label fx:id="lblVida" layoutX="110.0" layoutY="14.0" text="Turnos de Vida" />
                         <Label fx:id="lblReproduccion" layoutX="78.0" layoutY="93.0" text="Probabilidad Reproducción" />
                         <Label fx:id="lblClonacion" layoutX="88.0" layoutY="173.0" text="Probabilidad Clonación" />
-                        <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="374.0" mnemonicParsing="false" onAction="#restablecer" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
+                        <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="374.0" mnemonicParsing="false" onAction="#restablecerIndividuos" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
                         <Button fx:id="btnAceptarParIndividuo" layoutX="81.0" layoutY="339.0" mnemonicParsing="false" onAction="#aceptarParIndividuo" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
-                        <Slider fx:id="sliderNumeroIndividuos" layoutX="43.0" layoutY="283.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderNumeroIndividuos" layoutX="43.0" layoutY="283.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="20.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -89,40 +88,37 @@
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Button fx:id="btnRestablecer1" layoutX="81.0" layoutY="372.0" mnemonicParsing="false" onAction="#restablecer" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
+                        <Button fx:id="btnRestablecer1" layoutX="81.0" layoutY="372.0" mnemonicParsing="false" onAction="#restablecerEntorno" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
                         <Button fx:id="btnAceptarParEntorno" layoutX="81.0" layoutY="334.0" mnemonicParsing="false" onAction="#aceptarParEntorno" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
                         <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="11.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@hamburguesa.png" />
+                              <Image url="@hamburguesaa.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="59.0" fitWidth="57.0" layoutX="3.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="12.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@montaña.png" />
+                              <Image url="@montañaa.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="36.0" fitWidth="35.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="36.0" fitWidth="35.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@agua.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="46.0" fitWidth="51.0" layoutX="6.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="10.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@tesoro.png" />
+                              <Image url="@cofre.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="11.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@libros.png" />
+                              <Image url="@libro.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="46.0" fitWidth="40.0" layoutX="14.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="14.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@pozo.png" />
+                              <Image url="@pozoo.png" />
                            </image>
-                           <effect>
-                              <ColorAdjust brightness="-1.0" />
-                           </effect>
                         </ImageView>
                      </children></AnchorPane>
                </content>
@@ -148,13 +144,57 @@
             </DropShadow>
          </effect>
       </TabPane>
-      <ToolBar prefHeight="26.0" prefWidth="882.0">
+      <ToolBar prefHeight="36.0" prefWidth="882.0" style="-fx-background-color: #876A4D;">
         <items>
-          <Button mnemonicParsing="false" onAction="#cargarPartida" text="Cargar Partida" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Guardar" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Ayuda" />
-            <Button mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="100.0" text="Menú principal" />
+          <Button mnemonicParsing="false" onAction="#cargarPartida" style="-fx-background-color: #DAD5B5;" text="Cargar Partida">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect></Button>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #DAD5B5;" text="Guardar">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect></Button>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #DAD5B5;" text="Ayuda">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect></Button>
+            <Button mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #DAD5B5;" text="Menú principal">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect></Button>
         </items>
+         <effect>
+            <InnerShadow choke="0.14" height="40.88" radius="26.082500000000003" width="65.45">
+               <color>
+                  <Color red="0.28421053290367126" green="0.21628069877624512" blue="0.15684211254119873" />
+               </color>
+            </InnerShadow>
+         </effect>
       </ToolBar>
    </children>
 </AnchorPane>

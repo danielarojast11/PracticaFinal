@@ -2,9 +2,11 @@ package org.example.practicafinal;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.example.practicafinal.Clases.Partida.Partida;
 
 public class EscenarioJugarController {
     EscenariosController controladorEscenarios;
+    private Partida partida;
 
     @FXML
     private TabPane tabPane;
@@ -63,9 +65,10 @@ public class EscenarioJugarController {
     @FXML
     private Button btnSalir;
 
+
     @FXML
     public void aceptarParIndividuo() {
-
+        crearPartida();
     }
 
     @FXML
@@ -74,7 +77,15 @@ public class EscenarioJugarController {
     }
 
     @FXML
-    public void restablecer() {
+    public void restablecerIndividuos() {
+        sliderReproduccion.setValue(70);
+        sliderClonacion.setValue(50);
+        sliderVida.setValue(10);
+        sliderNumeroIndividuos.setValue(20);
+    }
+
+    @FXML
+    private void restablecerEntorno(){
 
     }
 
@@ -90,7 +101,10 @@ public class EscenarioJugarController {
 
     @FXML
     private void start() {
-
+        crearPartida();
+    }
+    public void crearPartida(){
+        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue());
     }
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;

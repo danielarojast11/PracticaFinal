@@ -14,7 +14,7 @@ public class EscenariosController {
         //PARAMETERS
     private Stage stagePrincipal;
     private BorderPane borderPane;
-    private Partida partida;
+
 
         //CONSTRUCTOR
     public EscenariosController(Stage stage) {
