@@ -11,12 +11,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" style="-fx-background-color: #D4E5E3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioJugarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" style="-fx-background-color: #68b2a9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioJugarController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#68b2a9" height="450.0" layoutX="29.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" width="459.0" />
       <Button fx:id="btnSalir" layoutX="29.0" layoutY="529.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="134.0" text="Start" />
       <TabPane fx:id="tabPane" layoutX="535.0" layoutY="66.0" prefHeight="450.0" prefWidth="299.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -125,7 +124,23 @@
             </Tab>
             <Tab fx:id="tabTablero" style="-fx-background-color: #68b2a9;" text="Tablero">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;">
+                     <children>
+                        <Slider fx:id="sliderColumnas" layoutX="43.0" layoutY="65.0" majorTickUnit="1.0" max="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="5.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Slider>
+                        <Slider fx:id="sliderFilas" layoutX="43.0" layoutY="172.0" majorTickUnit="1.0" max="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="5.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Slider>
+                        <Label fx:id="lblColumnas" layoutX="92.0" layoutY="28.0" text="Número de Columnas" />
+                        <Label fx:id="lblFilas" layoutX="106.0" layoutY="135.0" text="Número de Filas" />
+                        <Button fx:id="btnRestablecerTablero" layoutX="82.0" layoutY="277.0" mnemonicParsing="false" onAction="#restablecerTablero" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
+                        <Button fx:id="btnAceptarTablero" layoutX="82.0" layoutY="231.0" mnemonicParsing="false" onAction="#aceptarTablero" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
+                     </children></AnchorPane>
                </content>
             </Tab>
         </tabs>
@@ -170,7 +185,7 @@
                      </color>
                   </InnerShadow>
                </effect></Button>
-            <Button mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
                <effect>
                   <InnerShadow>
                      <color>
@@ -196,5 +211,6 @@
             </InnerShadow>
          </effect>
       </ToolBar>
+      <Pane fx:id="paneTablero" layoutX="29.0" layoutY="64.0" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #68b2a9;" />
    </children>
 </AnchorPane>

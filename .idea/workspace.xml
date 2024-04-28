@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="escenarios">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/cofre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/cubo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hamburguesaa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/libro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/montañaa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/pozoo.png" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="algunas funciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/aguaa.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/comida.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hamburguesa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/libros.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/montaña.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/pozo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/tesoro.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +122,7 @@
       <workItem from="1714119710898" duration="598000" />
       <workItem from="1714151891685" duration="2369000" />
       <workItem from="1714322792306" duration="259000" />
-      <workItem from="1714323072815" duration="6892000" />
+      <workItem from="1714323072815" duration="14402000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -154,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714327304347</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="algunas funciones">
+      <option name="closed" value="true" />
+      <created>1714330849569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714330849569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +181,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="2604" />
     <MESSAGE value="escenarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="escenarios" />
+    <MESSAGE value="algunas funciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="algunas funciones" />
   </component>
 </project>

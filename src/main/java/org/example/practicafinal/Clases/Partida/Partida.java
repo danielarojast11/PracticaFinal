@@ -10,12 +10,22 @@ public class Partida {
     int probClonacion;
     int id;
     int turnosVida;
+    int columnas;
+    int filas;
 
         //CONSTRUCTORS
     public Partida(int probReproduccion, int probClonacion, int turnosVida) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
+    }
+
+    public Partida(int probReproduccion, int probClonacion, int turnosVida, int columnas, int filas) {
+        this.probReproduccion = probReproduccion;
+        this.probClonacion = probClonacion;
+        this.turnosVida = turnosVida;
+        this.columnas = columnas;
+        this.filas = filas;
     }
 
     public Partida() {
@@ -60,6 +70,13 @@ public class Partida {
 
     public void setTurnosVida(int turnosVida) {
         this.turnosVida = turnosVida;
+    }
+
+    public void setColumnas(int columnas){
+        this.columnas = columnas;
+    }
+    public void setFilas(int filas){
+        this.filas = filas;
     }
 
         //CREATE INDIVIDUALS

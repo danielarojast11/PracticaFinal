@@ -2,7 +2,14 @@ package org.example.practicafinal;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import org.example.practicafinal.Clases.Partida.Partida;
+
+import static javafx.scene.paint.Color.*;
 
 public class EscenarioJugarController {
     EscenariosController controladorEscenarios;
@@ -10,6 +17,12 @@ public class EscenarioJugarController {
 
     @FXML
     private TabPane tabPane;
+
+    @FXML
+    private Pane paneTablero;
+
+    @FXML
+    private Button btnStart;
 
         //Modificar Parametros Individuos
 
@@ -63,8 +76,25 @@ public class EscenarioJugarController {
     private Tab tabTablero;
 
     @FXML
-    private Button btnSalir;
+    private Label lblColumnas;
 
+    @FXML
+    private Label lblFilas;
+
+    @FXML
+    private Slider sliderColumnas;
+
+    @FXML
+    private Slider sliderFilas;
+
+    @FXML
+    private Button btnAceptarTablero;
+
+    @FXML
+    private Button btnRestablecerTablero;
+
+
+    private GridPane tablero = new GridPane();
 
     @FXML
     public void aceptarParIndividuo() {
@@ -74,6 +104,17 @@ public class EscenarioJugarController {
     @FXML
     public void aceptarParEntorno() {
 
+    }
+
+    @FXML
+    public void aceptarTablero(){
+        crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
+    }
+
+    @FXML
+    public void restablecerTablero(){
+        sliderColumnas.setValue(5);
+        sliderFilas.setValue(5);
     }
 
     @FXML
@@ -103,10 +144,32 @@ public class EscenarioJugarController {
     private void start() {
         crearPartida();
     }
+
+    public void crearTablero (int columnas, int filas){
+        double a = paneTablero.getWidth();
+        double b = paneTablero.getHeight();
+        for (int i = 0; i < columnas; i++){
+            for (int j = 0; j < filas; j++){
+                Pane casilla = new Pane();
+                casilla.setMinSize((double) a/columnas,(double) b/filas);
+                casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
+                tablero.add(casilla,i,j);
+            }
+        }
+    }
+
+    public void eliminarTablero(){
+
+    }
     public void crearPartida(){
         this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue());
     }
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
+    }
+
+    public void initialize(){
+        paneTablero.getChildren().addAll(tablero);
+        tablero.setGridLinesVisible(true);
     }
 }
