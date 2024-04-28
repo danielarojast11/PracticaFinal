@@ -5,18 +5,24 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.example.practicafinal.Clases.Partida.Partida;
 
 import java.io.IOException;
 
 public class EscenariosController {
+
+        //PARAMETERS
     private Stage stagePrincipal;
     private BorderPane borderPane;
+    private Partida partida;
 
+        //CONSTRUCTOR
     public EscenariosController(Stage stage) {
         this.stagePrincipal = stage;
         cargarEscenario();
     }
 
+        //UPLOAD DIFFERENT SCENES/STAGES
     public void cargarEscenario(){
         try{
             FXMLLoader loader = new FXMLLoader();

@@ -4,17 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="2604">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="escenarios">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/agua.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/aguaa.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/comida.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hamburguesa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/libros.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/montaña.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/pozo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/tesoro.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoAvanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoAvanzado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoBasico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoBasico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +51,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -58,7 +74,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.FuncionamientoPartida.executor": "Run",
     "Application.MainApplication.executor": "Run",
+    "Application.Partida.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -124,6 +142,8 @@
       <workItem from="1714064624534" duration="511000" />
       <workItem from="1714119710898" duration="598000" />
       <workItem from="1714151891685" duration="2369000" />
+      <workItem from="1714322792306" duration="259000" />
+      <workItem from="1714323072815" duration="3897000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />

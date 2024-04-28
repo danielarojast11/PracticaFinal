@@ -1,13 +1,17 @@
 package org.example.practicafinal.Clases.Individuo;
 
 public class Individuo {
-    private int id;
-    private int generacion;
+
+        //PARAMETERS
+    protected int id;
+    protected int generacion;
     private int turnosVida;
     private int probReproduccion;
     private int probClonacion;
-    private int probMuerte = 1-probReproduccion;
+    private int probMuerte;
 
+
+        //CONSTRUCTORS
     public Individuo() {
     }
 
@@ -17,8 +21,11 @@ public class Individuo {
         this.turnosVida = turnosVida;
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
+        this.setProbMuerte();
     }
 
+
+        //GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -49,6 +56,7 @@ public class Individuo {
 
     public void setProbReproduccion(int probReproduccion) {
         this.probReproduccion = probReproduccion;
+        this.setProbMuerte();
     }
 
     public int getProbClonacion() {
@@ -63,7 +71,18 @@ public class Individuo {
         return probMuerte;
     }
 
-    public void setProbMuerte(int probMuerte) {
-        this.probMuerte = probMuerte;
+    protected void setProbMuerte() {
+        this.probMuerte = 100-probReproduccion;
     }
+
+
+        //METHODS
+    public void modificarReprod(){
+        this.setProbReproduccion(probReproduccion-(10*probReproduccion/100));
+    }
+
+    public void modificarClonacion(){
+        this.setProbClonacion(probClonacion-(10*probClonacion/100));
+    }
+
 }
