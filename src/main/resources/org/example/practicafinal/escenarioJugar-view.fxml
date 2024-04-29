@@ -13,10 +13,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" style="-fx-background-color: #68b2a9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioJugarController">
    <children>
-      <Button fx:id="btnSalir" layoutX="29.0" layoutY="529.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="134.0" text="Start" />
+      <Button fx:id="btnStart" layoutX="29.0" layoutY="529.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="134.0" text="Start" />
       <TabPane fx:id="tabPane" layoutX="535.0" layoutY="66.0" prefHeight="450.0" prefWidth="299.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tabIndividuos" style="-fx-background-color: #68b2a9;" text="Individuos">
@@ -33,7 +34,7 @@
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderVida" layoutX="43.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Slider fx:id="sliderVida" layoutX="43.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -43,7 +44,7 @@
                         <Label fx:id="lblClonacion" layoutX="88.0" layoutY="173.0" text="Probabilidad Clonación" />
                         <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="374.0" mnemonicParsing="false" onAction="#restablecerIndividuos" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
                         <Button fx:id="btnAceptarParIndividuo" layoutX="81.0" layoutY="339.0" mnemonicParsing="false" onAction="#aceptarParIndividuo" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
-                        <Slider fx:id="sliderNumeroIndividuos" layoutX="43.0" layoutY="283.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="20.0">
+                        <Slider fx:id="sliderNumeroIndividuos" layoutX="43.0" layoutY="283.0" min="1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="20.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -126,20 +127,27 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;">
                      <children>
-                        <Slider fx:id="sliderColumnas" layoutX="43.0" layoutY="65.0" majorTickUnit="1.0" max="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="5.0">
+                        <Slider fx:id="sliderColumnas" blockIncrement="1.0" layoutX="43.0" layoutY="65.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" onDragDetected="#changeStateOfLabelColumnas" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderFilas" layoutX="43.0" layoutY="172.0" majorTickUnit="1.0" max="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="5.0">
+                        <Slider fx:id="sliderFilas" layoutX="42.0" layoutY="162.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" onDragDetected="#changeStateOfLabelFilas" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Label fx:id="lblColumnas" layoutX="92.0" layoutY="28.0" text="Número de Columnas" />
-                        <Label fx:id="lblFilas" layoutX="106.0" layoutY="135.0" text="Número de Filas" />
-                        <Button fx:id="btnRestablecerTablero" layoutX="82.0" layoutY="277.0" mnemonicParsing="false" onAction="#restablecerTablero" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
-                        <Button fx:id="btnAceptarTablero" layoutX="82.0" layoutY="231.0" mnemonicParsing="false" onAction="#aceptarTablero" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
+                        <Label fx:id="lblColumnas" layoutX="85.0" layoutY="28.0" text="Número de Columnas: 5" />
+                        <Label fx:id="lblFilas" layoutX="99.0" layoutY="124.0" text="Número de Filas: 5" />
+                        <Button fx:id="btnRestablecerTablero" layoutX="82.0" layoutY="363.0" mnemonicParsing="false" onAction="#restablecerTablero" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
+                        <Button fx:id="btnAceptarTablero" layoutX="82.0" layoutY="317.0" mnemonicParsing="false" onAction="#aceptarTablero" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
+                        <Label fx:id="lblContadorColumnas" layoutX="29.0" layoutY="28.0" />
+                        <Slider fx:id="sliderVelocidad" layoutX="42.0" layoutY="258.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Slider>
+                        <Label fx:id="lblVelocidad" layoutX="122.0" layoutY="221.0" text="Velocidad" />
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -161,6 +169,11 @@
       </TabPane>
       <ToolBar prefHeight="36.0" prefWidth="882.0" style="-fx-background-color: #876A4D;">
         <items>
+            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="314.0" text="Turno: " textFill="WHITE">
+               <font>
+                  <Font name="Britannic Bold" size="17.0" />
+               </font>
+            </Label>
           <Button mnemonicParsing="false" onAction="#cargarPartida" style="-fx-background-color: #DAD5B5;" text="Cargar Partida">
                <effect>
                   <InnerShadow>
@@ -177,23 +190,6 @@
                      </color>
                   </InnerShadow>
                </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #DAD5B5;" text="Ayuda">
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
-                     </color>
-                  </InnerShadow>
-               </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
-                     </color>
-                  </InnerShadow>
-               </effect>
-            </Button>
             <Button mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #DAD5B5;" text="Menú principal">
                <effect>
                   <InnerShadow>
@@ -202,6 +198,24 @@
                      </color>
                   </InnerShadow>
                </effect></Button>
+            <Button fx:id="btnAyuda" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #DAD5B5;" text="Ayuda">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="btnCaracteristicas" mnemonicParsing="false" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
         </items>
          <effect>
             <InnerShadow choke="0.14" height="40.88" radius="26.082500000000003" width="65.45">
@@ -212,5 +226,7 @@
          </effect>
       </ToolBar>
       <Pane fx:id="paneTablero" layoutX="29.0" layoutY="64.0" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #68b2a9;" />
+      <Button fx:id="btnPause" layoutX="187.0" layoutY="529.0" mnemonicParsing="false" onAction="#pause" prefHeight="26.0" prefWidth="134.0" text="Pause" />
+      <Button fx:id="btnEnd" layoutX="344.0" layoutY="529.0" mnemonicParsing="false" onAction="#endGame" prefHeight="26.0" prefWidth="134.0" text="End Game" />
    </children>
 </AnchorPane>

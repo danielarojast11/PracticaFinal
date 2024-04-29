@@ -12,5 +12,6 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         new EscenariosController(primaryStage);
+        primaryStage.setResizable(false);
     }
 }

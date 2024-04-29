@@ -1,19 +1,34 @@
 package org.example.practicafinal;
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Circle;
+import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Partida.Partida;
 
-import static javafx.scene.paint.Color.*;
+import java.util.ArrayList;
 
 public class EscenarioJugarController {
     EscenariosController controladorEscenarios;
     private Partida partida;
+
+    private GridPane tablero = new GridPane();
+
+    private Boolean tableroCreado = false;
+
+    private Boolean partidaCreada = false;
+
+    private ArrayList<Individuo> listaIndividuos;
+
+    @FXML
+    private Label lblTurno;
 
     @FXML
     private TabPane tabPane;
@@ -23,6 +38,15 @@ public class EscenarioJugarController {
 
     @FXML
     private Button btnStart;
+
+    @FXML
+    private Button btnPause;
+
+    @FXML
+    private Button btnEnd;
+
+    @FXML
+    private Button btnCaracteristicas;
 
         //Modificar Parametros Individuos
 
@@ -77,6 +101,8 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblColumnas;
+    @FXML
+    private Label lblContadorColumnas;
 
     @FXML
     private Label lblFilas;
@@ -93,9 +119,10 @@ public class EscenarioJugarController {
     @FXML
     private Button btnRestablecerTablero;
 
+    ////////////////////////////////////////////////////////////////////////////
 
-    private GridPane tablero = new GridPane();
-
+        /* ACEPTAR Y RESTABLECER CAMBIOS
+            * Objetivo: guardar los valores establecidos por el individuo en los diferentes parámetros del juego */
     @FXML
     public void aceptarParIndividuo() {
         crearPartida();
@@ -108,18 +135,20 @@ public class EscenarioJugarController {
 
     @FXML
     public void aceptarTablero(){
+        this.tableroCreado = true;
+        eliminarTablero();      //Limpiar tablero anterior y volver a dibujarlo
         crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
     }
 
     @FXML
     public void restablecerTablero(){
-        sliderColumnas.setValue(5);
+        sliderColumnas.setValue(5);     //Valores predeterminados
         sliderFilas.setValue(5);
     }
 
     @FXML
     public void restablecerIndividuos() {
-        sliderReproduccion.setValue(70);
+        sliderReproduccion.setValue(70);        //Valores predeterminados
         sliderClonacion.setValue(50);
         sliderVida.setValue(10);
         sliderNumeroIndividuos.setValue(20);
@@ -130,6 +159,14 @@ public class EscenarioJugarController {
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+
+        /* FUNCIONES MENÚ
+            * Objetivo: dar al usuario las opciones de:
+            *                   - Cargar Partida Existente
+            *                   - Guardar Partida Actual
+            *                   - Salir a la Pantalla de Inicio
+         */
     @FXML
     public void cargarPartida(){
         controladorEscenarios.cargarEscenarioCargar();
@@ -140,29 +177,129 @@ public class EscenarioJugarController {
         controladorEscenarios.cargarEscenarioInicio();
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+
+        /* BOTONES MANEJAR PARTIDA
+            * Objetivo: comenzar, pausar o finalizar la partida
+         */
+        AnimationTimer animationTimer = new AnimationTimer() {
+            int i = 50;
+            @Override
+            public void handle(long now) {
+                if (i%50==0) {
+                    listaIndividuos = partida.getListaIndividuos();
+                    partida.modificarTurno();
+                    lblTurno.setText("Turno: " + partida.getTurno());
+                }
+                i++;
+            }
+        };
+
     @FXML
     private void start() {
-        crearPartida();
+        if (tableroCreado){
+            if (!partidaCreada){
+                crearPartida();
+                partida.individuosInicio();
+                partidaCreada = true;
+            }
+            //Disable Bottoms
+            btnStart.setDisable(true);
+            btnPause.setDisable(false);
+            btnEnd.setDisable(false);
+            //Disable Sliders
+            desabilitarSliders(true);
+
+            //Empezar Juego
+            animationTimer.start();
+        } else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);     //Si el tablero no está creado, da un aviso
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No has creado el Tablero");
+            alert.showAndWait();
+        }
     }
 
+    @FXML
+    private void pause(){
+        btnPause.setDisable(true);
+        btnEnd.setDisable(false);
+        btnStart.setDisable(false);
+        desabilitarSliders(false);
+        animationTimer.stop();
+    }
+
+    @FXML
+    private void endGame(){
+        btnEnd.setDisable(true);
+        btnPause.setDisable(true);
+        btnStart.setDisable(true);
+        desabilitarSliders(true);
+        animationTimer.stop();
+    }
+
+    private void desabilitarSliders(Boolean a){
+        sliderColumnas.setDisable(a);
+        sliderFilas.setDisable(a);
+        sliderVida.setDisable(a);
+        sliderReproduccion.setDisable(a);
+        sliderClonacion.setDisable(a);
+        sliderNumeroIndividuos.setDisable(a);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+        /* CREAR TABLERO
+            * Objetivo: crear y eliminar el tablero
+         */
     public void crearTablero (int columnas, int filas){
         double a = paneTablero.getWidth();
         double b = paneTablero.getHeight();
         for (int i = 0; i < columnas; i++){
             for (int j = 0; j < filas; j++){
-                Pane casilla = new Pane();
+                Casilla casilla = new Casilla(i,j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
                 tablero.add(casilla,i,j);
             }
         }
+
     }
 
     public void eliminarTablero(){
-
+        tablero.getChildren().clear();
     }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+        //OTRAS FUNCIONES
+    public void changeStateOfLabelColumnas() {
+        sliderColumnas.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number>
+                                        observable, Number oldValue, Number newValue) {
+                lblColumnas.textProperty().setValue("Número de Columnas: "+(int) sliderColumnas.getValue());
+            }
+        });
+    }
+
+    public void changeStateOfLabelFilas() {
+        sliderFilas.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number>
+                                        observable, Number oldValue, Number newValue) {
+                lblFilas.textProperty().setValue("Número de Filas: "+(int) sliderFilas.getValue());
+            }
+        });
+    }
+
+    public int getNumeroIndividuos(){
+        return (int) sliderNumeroIndividuos.getValue();
+    }
+
     public void crearPartida(){
-        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue());
+        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue(), (int)sliderNumeroIndividuos.getValue());
     }
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
@@ -171,5 +308,9 @@ public class EscenarioJugarController {
     public void initialize(){
         paneTablero.getChildren().addAll(tablero);
         tablero.setGridLinesVisible(true);
+        changeStateOfLabelColumnas();
+        changeStateOfLabelFilas();
+        btnPause.setDisable(true);
+        btnEnd.setDisable(true);
     }
 }
