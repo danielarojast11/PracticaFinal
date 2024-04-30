@@ -145,6 +145,9 @@ public class Partida {
             } else {
                 hijo = this.crearBasico();
             }
+            Casilla casilla = hijo.getCasilla();
+            casilla.setColumna(a.getCasilla().getColumna());
+            casilla.setFila(a.getCasilla().getFila());
             return hijo;
         }
 

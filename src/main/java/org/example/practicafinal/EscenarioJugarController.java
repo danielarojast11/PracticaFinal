@@ -30,6 +30,8 @@ public class EscenarioJugarController {
     private ArrayList<Individuo> listaIndividuos;
     private ArrayList<Casilla> listaCasillas = new ArrayList<>();
 
+    private int velocidad = 50;
+
     @FXML
     private Label lblTurno;
 
@@ -105,7 +107,7 @@ public class EscenarioJugarController {
     @FXML
     private Label lblColumnas;
     @FXML
-    private Label lblContadorColumnas;
+    private Label lblVelocidad;
 
     @FXML
     private Label lblFilas;
@@ -115,6 +117,9 @@ public class EscenarioJugarController {
 
     @FXML
     private Slider sliderFilas;
+
+    @FXML
+    private Slider sliderVelocidad;
 
     @FXML
     private Button btnAceptarTablero;
@@ -141,12 +146,14 @@ public class EscenarioJugarController {
         this.tableroCreado = true;
         eliminarTablero();      //Limpiar tablero anterior y volver a dibujarlo
         crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
+        cambiarVelocidad();
     }
 
     @FXML
     public void restablecerTablero(){
         sliderColumnas.setValue(5);     //Valores predeterminados
         sliderFilas.setValue(5);
+        sliderVelocidad.setValue(1);
     }
 
     @FXML
@@ -186,10 +193,10 @@ public class EscenarioJugarController {
             * Objetivo: comenzar, pausar o finalizar la partida
          */
         AnimationTimer animationTimer = new AnimationTimer() {
-            int i = 50;
+            int i = velocidad;
             @Override
             public void handle(long now) {
-                if (i%50==0) {
+                if (i%velocidad==0) {
                     listaIndividuos = partida.getListaIndividuos();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
@@ -280,6 +287,28 @@ public class EscenarioJugarController {
     ////////////////////////////////////////////////////////////////////////////
 
         //OTRAS FUNCIONES
+
+    @FXML
+    void cambiarVelocidad() {
+        if (sliderVelocidad.getValue()==0.25){
+            this.velocidad = 125;
+        } else if (sliderVelocidad.getValue()==0.5){
+            this.velocidad = 100;
+        } else if(sliderVelocidad.getValue()==0.75){
+            this.velocidad = 75;
+        } else if (sliderVelocidad.getValue()==1.25) {
+            this.velocidad = 40;
+        } else if (sliderVelocidad.getValue()==1.5) {
+            this.velocidad = 30;
+        } else if (sliderVelocidad.getValue()==1.75) {
+            this.velocidad = 20;
+        } else if (sliderVelocidad.getValue()==2) {
+            this.velocidad = 10;
+        } else{
+            this.velocidad = 50;
+        }
+    }
+
     public void changeStateOfLabelColumnas() {
         sliderColumnas.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -296,6 +325,19 @@ public class EscenarioJugarController {
             public void changed(ObservableValue<? extends Number>
                                         observable, Number oldValue, Number newValue) {
                 lblFilas.textProperty().setValue("Número de Filas: "+(int) sliderFilas.getValue());
+            }
+        });
+    }
+
+    public void changeStateOfLabelVelocidad() {
+        sliderVelocidad.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number>
+                                        observable, Number oldValue, Number newValue) {
+                double x = sliderVelocidad.getValue();
+                if ((x == 0.25)||(x == 0.5)||(x==0.75)||(x == 1)||(x == 1.25)||(x == 1.5) || (x == 1.75) || (x == 2)){
+                    lblVelocidad.textProperty().setValue("Velocidad: x"+(double) sliderVelocidad.getValue());
+                }
             }
         });
     }
@@ -366,24 +408,8 @@ public class EscenarioJugarController {
         tablero.setGridLinesVisible(true);
         changeStateOfLabelColumnas();
         changeStateOfLabelFilas();
+        changeStateOfLabelVelocidad();
         btnPause.setDisable(true);
         btnEnd.setDisable(true);
     }
-
-
-   /* for (Individuo individuo:listaIndividuos){
-        Circle circulo = new Circle(getTamanoIndividuos());
-        int rango = individuo.getRango();
-        if (rango==3){
-            Color color = Color.CORAL;
-            circulo.setStroke(color);
-            Casilla casilla = individuo.getCasilla();
-            for (Casilla lugar:listaCasillas){
-                if (casilla.getId()==lugar.getId()){
-                    casilla.getChildren().addAll(circulo);
-                }
-            }
-        }
-    }
-    listaCasillas.add(casilla);*/
 }
