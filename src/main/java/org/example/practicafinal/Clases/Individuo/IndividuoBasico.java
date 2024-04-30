@@ -1,6 +1,8 @@
 package org.example.practicafinal.Clases.Individuo;
 
 public class IndividuoBasico extends Individuo {
+
+    private int rango = 1;
     public IndividuoBasico (){
 
     }
@@ -9,6 +11,10 @@ public class IndividuoBasico extends Individuo {
     }
     public void mover(){
 
+    }
+
+    public int getRango(){
+        return rango;
     }
     public IndividuoBasico reproducir(){
         IndividuoBasico hijo = new IndividuoBasico();

@@ -1,10 +1,14 @@
 package org.example.practicafinal.Clases.Tablero;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import org.example.practicafinal.EscenarioJugarController;
 
-public class Casilla extends Pane {
+public class Casilla extends BorderPane {
     int columna;
     int fila;
+
+    EscenarioJugarController escenario;
     public Casilla(){
 
     }
@@ -30,7 +34,14 @@ public class Casilla extends Pane {
         this.fila = fila;
     }
 
-    public void generarAleatoria(int columna, int fila){
 
+    public int filaAleatoria(int top){
+        int fila = (int) (Math.random()*top);
+        return fila;
+    }
+
+    public int columnaAleatoria(int top){
+        int columna = (int) (Math.random()*top);
+        return columna;
     }
 }

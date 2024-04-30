@@ -3,6 +3,7 @@ import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
+import org.example.practicafinal.Clases.Tablero.Casilla;
 
 import java.util.ArrayList;
 
@@ -100,12 +101,16 @@ public class Partida {
             IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(basico);
+            Casilla casilla = basico.getCasilla();
+            basico.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
             return basico;
         }
         public IndividuoNormal crearNormal(){
             IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(normal);
+            Casilla casilla = normal.getCasilla();
+            normal.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
             return normal;
         }
 
@@ -113,6 +118,8 @@ public class Partida {
             IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(avanzado);
+            Casilla casilla = avanzado.getCasilla();
+            avanzado.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
             return avanzado;
         }
 
@@ -140,6 +147,7 @@ public class Partida {
             }
             return hijo;
         }
+
 
             //MODIFY PARAMETERS
         public void modificarId(){

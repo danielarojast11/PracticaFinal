@@ -8,12 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Partida.Partida;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EscenarioJugarController {
     EscenariosController controladorEscenarios;
@@ -26,6 +28,7 @@ public class EscenarioJugarController {
     private Boolean partidaCreada = false;
 
     private ArrayList<Individuo> listaIndividuos;
+    private ArrayList<Casilla> listaCasillas = new ArrayList<>();
 
     @FXML
     private Label lblTurno;
@@ -201,6 +204,8 @@ public class EscenarioJugarController {
             if (!partidaCreada){
                 crearPartida();
                 partida.individuosInicio();
+                listaIndividuos = partida.getListaIndividuos();
+                mostrarEnCasilla();
                 partidaCreada = true;
             }
             //Disable Bottoms
@@ -262,6 +267,7 @@ public class EscenarioJugarController {
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
                 tablero.add(casilla,i,j);
+                listaCasillas.add(casilla);
             }
         }
 
@@ -298,8 +304,58 @@ public class EscenarioJugarController {
         return (int) sliderNumeroIndividuos.getValue();
     }
 
+    public int getNumeroColumnas(){
+        return (int)sliderColumnas.getValue();
+    }
+
+    public int getNumeroFilas(){
+        return (int)sliderFilas.getValue();
+    }
+
     public void crearPartida(){
-        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue(), (int)sliderNumeroIndividuos.getValue());
+        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue(), (int)sliderNumeroIndividuos.getValue(), (int)sliderColumnas.getValue(),(int)sliderFilas.getValue());
+    }
+
+    public double getTamanoIndividuos(){
+        double a = paneTablero.getHeight();
+        double casillas = a / sliderColumnas.getValue();
+        double diametro = casillas / 3;
+        return diametro/2;
+    }
+
+    public void mostrarEnCasilla(){
+        for (Individuo individuo:listaIndividuos){
+            Circle circulo = new Circle(getTamanoIndividuos());
+            int rango = individuo.getRango();
+            if (rango==3){
+                circulo.setStroke(Color.rgb(255, 74, 123));
+                circulo.setFill(Color.rgb(255,74,123));
+                Casilla casilla = individuo.getCasilla();
+                for (Casilla lugar:listaCasillas){
+                    if (Objects.equals(casilla.getId(), lugar.getId())){
+                        lugar.setCenter(circulo);
+                    }
+                }
+            } else if (rango == 2) {
+                circulo.setStroke(Color.rgb(241, 241, 70));
+                circulo.setFill(Color.rgb(241, 241, 70));
+                Casilla casilla = individuo.getCasilla();
+                for (Casilla lugar:listaCasillas){
+                    if (Objects.equals(casilla.getId(), lugar.getId())){
+                        lugar.setCenter(circulo);
+                    }
+                }
+            } else{
+                circulo.setStroke(Color.rgb(169, 250, 70));
+                circulo.setFill(Color.rgb(169, 250, 70));
+                Casilla casilla = individuo.getCasilla();
+                for (Casilla lugar:listaCasillas){
+                    if (Objects.equals(casilla.getId(), lugar.getId())){
+                        lugar.setCenter(circulo);
+                    }
+                }
+            }
+        }
     }
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
@@ -313,4 +369,21 @@ public class EscenarioJugarController {
         btnPause.setDisable(true);
         btnEnd.setDisable(true);
     }
+
+
+   /* for (Individuo individuo:listaIndividuos){
+        Circle circulo = new Circle(getTamanoIndividuos());
+        int rango = individuo.getRango();
+        if (rango==3){
+            Color color = Color.CORAL;
+            circulo.setStroke(color);
+            Casilla casilla = individuo.getCasilla();
+            for (Casilla lugar:listaCasillas){
+                if (casilla.getId()==lugar.getId()){
+                    casilla.getChildren().addAll(circulo);
+                }
+            }
+        }
+    }
+    listaCasillas.add(casilla);*/
 }

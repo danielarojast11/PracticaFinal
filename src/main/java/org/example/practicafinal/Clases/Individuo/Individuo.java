@@ -1,5 +1,7 @@
 package org.example.practicafinal.Clases.Individuo;
 
+import org.example.practicafinal.Clases.Tablero.Casilla;
+
 public class Individuo {
 
         //PARAMETERS
@@ -9,6 +11,9 @@ public class Individuo {
     private int probReproduccion;
     private int probClonacion;
     private int probMuerte;
+    protected int rango;
+
+    private Casilla casilla = new Casilla();
 
 
         //CONSTRUCTORS
@@ -75,6 +80,10 @@ public class Individuo {
         this.probMuerte = 100-probReproduccion;
     }
 
+    public int getRango(){
+        return rango;
+    }
+
 
         //METHODS
     public void modificarReprod(){
@@ -84,5 +93,14 @@ public class Individuo {
     public void modificarClonacion(){
         this.setProbClonacion(probClonacion-(10*probClonacion/100));
     }
+
+    public void setCasilla(int columna, int fila){
+        this.casilla = new Casilla(columna,fila);
+    }
+
+    public Casilla getCasilla(){
+        return casilla;
+    }
+
 
 }
