@@ -12,6 +12,7 @@ public class Casilla extends BorderPane {
     public Casilla(){
 
     }
+
     public Casilla(int columna, int fila){
         this.columna=columna;
         this.fila=fila;

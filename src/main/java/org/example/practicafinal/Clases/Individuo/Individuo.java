@@ -2,6 +2,8 @@ package org.example.practicafinal.Clases.Individuo;
 
 import org.example.practicafinal.Clases.Tablero.Casilla;
 
+import java.util.List;
+
 public class Individuo {
 
         //PARAMETERS
@@ -12,6 +14,8 @@ public class Individuo {
     private int probClonacion;
     private int probMuerte;
     protected int rango;
+    private List<Individuo> padres;
+    private List<Individuo> hijos;
 
     private Casilla casilla = new Casilla();
 
@@ -82,6 +86,26 @@ public class Individuo {
 
     public int getRango(){
         return rango;
+    }
+
+    public void setRango(int rango){
+        this.rango = rango;
+    }
+
+    public List<Individuo> getPadres() {
+        return padres;
+    }
+
+    public void addPadre(Individuo padre){
+        this.padres.add(padre);
+    }
+
+    public List<Individuo> getHijos() {
+        return hijos;
+    }
+
+    public void addHijo(Individuo hijo){
+        this.hijos.add(hijo);
     }
 
 

@@ -1,6 +1,7 @@
 package org.example.practicafinal.Clases.Entorno;
 
 public class Montaña extends Elementos{
+
     private int alteracion = -2;
 
     public Montaña(int tiempoActividad) {
@@ -9,7 +10,13 @@ public class Montaña extends Elementos{
 
     public Montaña() {
     }
+
     public int getAlteracion(){
         return this.alteracion;
     }
+
+    public void setAlteracion(int alteracion){
+        this.alteracion = alteracion;
+    }
+
 }

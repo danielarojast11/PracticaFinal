@@ -5,9 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Partida.Partida;
 
 import java.io.IOException;
+import java.util.List;
 
 public class EscenariosController {
 
@@ -46,7 +48,7 @@ public class EscenariosController {
             EscenarioInicioController c = loader.getController();
             c.setControladorEscenarios(this);
         } catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -59,7 +61,7 @@ public class EscenariosController {
             EscenarioJugarController c = loader.getController();
             c.setControladorEscenarios(this);
         } catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -72,7 +74,21 @@ public class EscenariosController {
             EscenarioCargarController c = loader.getController();
             c.setControladorEscenarios(this);
         } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
+    public void cargarArbolFinal(List<Individuo> listaIndividuos){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("arbolGenealogico-view.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
+            borderPane.setCenter(pane);
+            ArbolGenealogicoController a = loader.getController();
+            a.setControladorEscenarios(this);
+            a.mostrarIndividuos(listaIndividuos);
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

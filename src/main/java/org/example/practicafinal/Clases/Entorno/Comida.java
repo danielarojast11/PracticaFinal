@@ -1,6 +1,7 @@
 package org.example.practicafinal.Clases.Entorno;
 
 public class Comida extends Elementos{
+
     private int alteracion = 1;
 
     public Comida(int tiempoActividad) {
@@ -13,4 +14,9 @@ public class Comida extends Elementos{
     public int getAlteracion() {
         return alteracion;
     }
+
+    public void setAlteracion(int alteracion) {
+        this.alteracion = alteracion;
+    }
+
 }

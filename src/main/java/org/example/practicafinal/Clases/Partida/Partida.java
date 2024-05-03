@@ -89,9 +89,11 @@ public class Partida {
     public void setColumnas(int columnas){
         this.columnas = columnas;
     }
+
     public void setFilas(int filas){
         this.filas = filas;
     }
+
     public ArrayList<Individuo> getListaIndividuos(){
         return listaIndividuos;
     }
@@ -150,7 +152,6 @@ public class Partida {
             casilla.setFila(a.getCasilla().getFila());
             return hijo;
         }
-
 
             //MODIFY PARAMETERS
         public void modificarId(){

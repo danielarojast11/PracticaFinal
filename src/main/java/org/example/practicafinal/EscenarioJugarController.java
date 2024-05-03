@@ -106,6 +106,7 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblColumnas;
+    
     @FXML
     private Label lblVelocidad;
 
@@ -244,6 +245,7 @@ public class EscenarioJugarController {
 
     @FXML
     private void endGame(){
+        controladorEscenarios.cargarArbolFinal(listaIndividuos);
         btnEnd.setDisable(true);
         btnPause.setDisable(true);
         btnStart.setDisable(true);
@@ -399,6 +401,7 @@ public class EscenarioJugarController {
             }
         }
     }
+
     public void setControladorEscenarios(EscenariosController controlador){
         this.controladorEscenarios = controlador;
     }
