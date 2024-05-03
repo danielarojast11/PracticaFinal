@@ -1,0 +1,219 @@
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Elementos {\r\n    private int tiempoActividad;\r\n\r\n    public Elementos(int tiempoActividad) {\r\n        this.tiempoActividad = tiempoActividad;\r\n    }\r\n\r\n    public Elementos() {\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java	
+@@ -1,6 +1,7 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Elementos {
++
+     private int tiempoActividad;
+ 
+     public Elementos(int tiempoActividad) {
+@@ -9,4 +10,5 @@
+ 
+     public Elementos() {
+     }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Comida extends Elementos{\r\n    private int alteracion = 1;\r\n\r\n    public Comida(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Comida() {\r\n    }\r\n\r\n    public int getAlteracion() {\r\n        return alteracion;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java	
+@@ -1,6 +1,7 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Comida extends Elementos{
++
+     private int alteracion = 1;
+ 
+     public Comida(int tiempoActividad) {
+@@ -13,4 +14,9 @@
+     public int getAlteracion() {
+         return alteracion;
+     }
++
++    public void setAlteracion(int alteracion) {
++        this.alteracion = alteracion;
++    }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java b/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java	
+@@ -0,0 +1,6 @@
++package org.example.practicafinal.Clases.BuclesDeControl;
++
++public class Bucles {
++
++
++}
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Biblioteca extends Elementos{\r\n    private int alteracion;\r\n    public Biblioteca(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Biblioteca() {\r\n    }\r\n    public int getAlteracion(){\r\n        return alteracion;\r\n    }\r\n    public void setAlteracion(int valor){\r\n        this.alteracion=valor;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java	
+@@ -1,7 +1,9 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Biblioteca extends Elementos{
++
+     private int alteracion;
++
+     public Biblioteca(int tiempoActividad) {
+         super(tiempoActividad);
+     }
+@@ -11,7 +13,9 @@
+     public int getAlteracion(){
+         return alteracion;
+     }
++
+     public void setAlteracion(int valor){
+         this.alteracion=valor;
+     }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Tesoro extends Elementos{\r\n    private int alteracion;\r\n    public Tesoro(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Tesoro() {\r\n    }\r\n    public int getAlteracion(){\r\n        return alteracion;\r\n    }\r\n    public void setAlteracion(int valor){\r\n        this.alteracion=valor;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java	
+@@ -1,17 +1,22 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Tesoro extends Elementos{
++
+     private int alteracion;
++
+     public Tesoro(int tiempoActividad) {
+         super(tiempoActividad);
+     }
+ 
+     public Tesoro() {
+     }
++
+     public int getAlteracion(){
+         return alteracion;
+     }
++
+     public void setAlteracion(int valor){
+         this.alteracion=valor;
+     }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Montaña extends Elementos{\r\n    private int alteracion = -2;\r\n\r\n    public Montaña(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Montaña() {\r\n    }\r\n    public int getAlteracion(){\r\n        return this.alteracion;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java	
+@@ -1,6 +1,7 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Montaña extends Elementos{
++
+     private int alteracion = -2;
+ 
+     public Montaña(int tiempoActividad) {
+@@ -9,7 +10,13 @@
+ 
+     public Montaña() {
+     }
++
+     public int getAlteracion(){
+         return this.alteracion;
+     }
++
++    public void setAlteracion(int alteracion){
++        this.alteracion = alteracion;
++    }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Agua extends Elementos{\r\n    private int alteracion = 2;\r\n    public Agua(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Agua() {\r\n    }\r\n    public int getAlteracion(){\r\n        return alteracion;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java	
+@@ -1,14 +1,22 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Agua extends Elementos{
++
+     private int alteracion = 2;
++
+     public Agua(int tiempoActividad) {
+         super(tiempoActividad);
+     }
+ 
+     public Agua() {
+     }
++
+     public int getAlteracion(){
+         return alteracion;
+     }
++
++    public void setAlteracion(int alteracion) {
++        this.alteracion = alteracion;
++    }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Entorno;\r\n\r\npublic class Pozo extends Elementos {\r\n    public Pozo(int tiempoActividad) {\r\n        super(tiempoActividad);\r\n    }\r\n\r\n    public Pozo() {\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java b/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java
+--- a/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java	
+@@ -1,10 +1,12 @@
+ package org.example.practicafinal.Clases.Entorno;
+ 
+ public class Pozo extends Elementos {
++
+     public Pozo(int tiempoActividad) {
+         super(tiempoActividad);
+     }
+ 
+     public Pozo() {
+     }
++
+ }

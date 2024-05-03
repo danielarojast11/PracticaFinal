@@ -1,0 +1,89 @@
+Index: src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Individuo;\r\n\r\npublic class IndividuoNormal extends Individuo {\r\n    public IndividuoNormal(){\r\n\r\n    }\r\n    public IndividuoNormal(int id, int generacion, int turnosVida, int probReproduccion, int probClonacion) {\r\n        super(id, generacion, turnosVida, probReproduccion, probClonacion);\r\n    }\r\n\r\n    public IndividuoNormal reproducir(){\r\n        IndividuoNormal hijo = new IndividuoNormal();\r\n        return hijo;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java b/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java
+--- a/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java	
+@@ -1,9 +1,11 @@
+ package org.example.practicafinal.Clases.Individuo;
+ 
+ public class IndividuoNormal extends Individuo {
++
+     public IndividuoNormal(){
+ 
+     }
++
+     public IndividuoNormal(int id, int generacion, int turnosVida, int probReproduccion, int probClonacion) {
+         super(id, generacion, turnosVida, probReproduccion, probClonacion);
+     }
+@@ -12,4 +14,5 @@
+         IndividuoNormal hijo = new IndividuoNormal();
+         return hijo;
+     }
++
+ }
+Index: src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.practicafinal.Clases.Tablero;\r\n\r\nimport javafx.scene.layout.Pane;\r\n\r\npublic class Casilla extends Pane {\r\n    int columna;\r\n    int fila;\r\n    public Casilla(){\r\n\r\n    }\r\n    public Casilla(int columna, int fila){\r\n        this.columna=columna;\r\n        this.fila=fila;\r\n        this.setId(\"casilla(\"+columna+\",\"+fila+\")\");\r\n    }\r\n\r\n    public int getColumna() {\r\n        return columna;\r\n    }\r\n\r\n    public void setColumna(int columna) {\r\n        this.columna = columna;\r\n    }\r\n\r\n    public int getFila() {\r\n        return fila;\r\n    }\r\n\r\n    public void setFila(int fila) {\r\n        this.fila = fila;\r\n    }\r\n\r\n    public void generarAleatoria(int columna, int fila){\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java b/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java
+--- a/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java	
++++ b/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java	
+@@ -3,11 +3,13 @@
+ import javafx.scene.layout.Pane;
+ 
+ public class Casilla extends Pane {
++
+     int columna;
+     int fila;
+     public Casilla(){
+ 
+     }
++
+     public Casilla(int columna, int fila){
+         this.columna=columna;
+         this.fila=fila;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"477561aa-a7f7-45e6-baad-6378207ee9a6\" name=\"Changes\" comment=\"simulacion\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExportToHTMLSettings\">\r\n    <option name=\"printScope\" value=\"4\" />\r\n    <option name=\"OUTPUT_DIRECTORY\" value=\"$PROJECT_DIR$/exportToHTML\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2falAoAme0IcAHuQXvF3c277h1e\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;Application.FuncionamientoPartida.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.Partida.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniela/OneDrive - Universidad de Alcala/Escritorio/metodologia/PracticaFinal/src/main/resources&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Daniela\\OneDrive - Universidad de Alcala\\Escritorio\\metodologia\\PracticaFinal\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Daniela\\OneDrive - Universidad de Alcala\\Escritorio\\metodologia\\PracticaFinal\\src\\main\\resources\\org\\example\\practicafinal\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"org.example.practicafinal\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"MainApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.practicafinal.MainApplication\" />\r\n      <module name=\"PracticaFinal\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.example.practicafinal.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.MainApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"477561aa-a7f7-45e6-baad-6378207ee9a6\" name=\"Changes\" comment=\"\" />\r\n      <created>1714046930697</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714046930697</updated>\r\n      <workItem from=\"1714046931768\" duration=\"1985000\" />\r\n      <workItem from=\"1714064624534\" duration=\"511000\" />\r\n      <workItem from=\"1714119710898\" duration=\"598000\" />\r\n      <workItem from=\"1714151891685\" duration=\"2369000\" />\r\n      <workItem from=\"1714322792306\" duration=\"259000\" />\r\n      <workItem from=\"1714323072815\" duration=\"14507000\" />\r\n      <workItem from=\"1714377558996\" duration=\"626000\" />\r\n      <workItem from=\"1714381430341\" duration=\"6415000\" />\r\n      <workItem from=\"1714391823618\" duration=\"91000\" />\r\n      <workItem from=\"1714395796048\" duration=\"2164000\" />\r\n      <workItem from=\"1714409018047\" duration=\"469000\" />\r\n      <workItem from=\"1714409503986\" duration=\"192000\" />\r\n      <workItem from=\"1714409762635\" duration=\"9140000\" />\r\n      <workItem from=\"1714463934079\" duration=\"82000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"2604\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714120104176</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714120104176</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"escenarios\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714327304347</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714327304347</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"algunas funciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714330849569</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714330849569</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"algunas funciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714340937937</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714340937937</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"simulacion\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714426196453</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714426196453</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"2604\" />\r\n    <MESSAGE value=\"escenarios\" />\r\n    <MESSAGE value=\"algunas funciones\" />\r\n    <MESSAGE value=\"simulacion\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"simulacion\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,7 +5,17 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="simulacion">
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -32,7 +42,7 @@
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+-        <option name="mavenHome" value="Use Maven wrapper" />
++        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+       </MavenGeneralSettings>
+     </option>
+   </component>
