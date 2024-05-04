@@ -10,6 +10,7 @@ public class Biblioteca extends Elementos{
 
     public Biblioteca() {
     }
+
     public int getAlteracion(){
         return alteracion;
     }

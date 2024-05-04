@@ -19,6 +19,7 @@ public class IndividuoAvanzado extends Individuo {
     public void mover(){
 
     }
+
     public IndividuoAvanzado reproducir(){
         IndividuoAvanzado hijo = new IndividuoAvanzado();
         return hijo;
