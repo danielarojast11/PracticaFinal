@@ -26,6 +26,12 @@ public class ArbolGenealogicoController {
         this.controladorEscenarios = controladorEscenarios;
     }
 
+    public int getRandom(int min, int max){
+        int range = (max - min) + 1;
+        int random = (int) ((range * Math.random()) + min);
+        return random;
+    }
+
     public void mostrarIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
             Circle circulo = new Circle();
@@ -40,9 +46,9 @@ public class ArbolGenealogicoController {
                 circulo.setStroke(Color.rgb(169, 250, 70));
                 circulo.setFill(Color.rgb(169, 250, 70));
             }
-            circulo.setRadius(15);
-            circulo.setCenterX(450);
-            circulo.setCenterY(50);
+            circulo.setRadius(20);
+            circulo.setCenterX(getRandom(50, 800));
+            circulo.setCenterY(getRandom(50, 550));
             paneArbol.getChildren().add(circulo);
             System.out.println(individuo);
         }
