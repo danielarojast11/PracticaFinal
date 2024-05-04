@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.ArbolGenealogicoController">
     <children>
-        <Pane fx:id="paneArbol" layoutX="0" layoutY="0" prefHeight="1000" prefWidth="1000" style="-fx-background-color: #68b2a9;" />
+        <Pane fx:id="paneArbol" layoutX="0" layoutY="0" prefHeight="580" prefWidth="890" style="-fx-background-color: #68b2a9;" />
         <Button fx:id="btnEnd" layoutX="375.0" layoutY="529.0" mnemonicParsing="false" onAction="#salir" prefHeight="26.0" prefWidth="134.0" text="End" />
     </children>
 </AnchorPane>

@@ -2,6 +2,7 @@ package org.example.practicafinal.Clases.Individuo;
 
 import org.example.practicafinal.Clases.Tablero.Casilla;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Individuo {
@@ -14,8 +15,8 @@ public class Individuo {
     private int probClonacion;
     private int probMuerte;
     protected int rango;
-    private List<Individuo> padres;
-    private List<Individuo> hijos;
+    private List<Individuo> padres = new ArrayList<>();
+    private List<Individuo> hijos = new ArrayList<>();
 
     private Casilla casilla = new Casilla();
 
