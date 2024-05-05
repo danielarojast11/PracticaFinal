@@ -11,4 +11,11 @@ public class Elementos {
     public Elementos() {
     }
 
+    public int getTiempoActividad() {
+        return tiempoActividad;
+    }
+
+    public void setTiempoActividad(int tiempoActividad) {
+        this.tiempoActividad = tiempoActividad;
+    }
 }

@@ -17,6 +17,7 @@ public class Individuo {
     protected int rango;
     private List<Individuo> padres = new ArrayList<>();
     private List<Individuo> hijos = new ArrayList<>();
+    private List<Individuo> individuos = new ArrayList<>();
 
     private Casilla casilla = new Casilla();
 
@@ -109,7 +110,15 @@ public class Individuo {
         this.hijos.add(hijo);
     }
 
-        //METHODS
+    public List<Individuo> getIndividuos() {
+        return individuos;
+    }
+
+    public void addIndividuo(Individuo individuo){
+        this.individuos.add(individuo);
+    }
+
+    //METHODS
     public void modificarReprod(){
         this.setProbReproduccion(probReproduccion - (10* probReproduccion /100));
     }

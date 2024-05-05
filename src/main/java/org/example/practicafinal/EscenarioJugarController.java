@@ -349,7 +349,7 @@ public class EscenarioJugarController {
                 Casilla casilla = new Casilla(i,j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
-                casilla.addEventFilter();
+                //casilla.addEventFilter();
                 tablero.add(casilla,i,j);
                 listaCasillas.add(casilla);
             }
