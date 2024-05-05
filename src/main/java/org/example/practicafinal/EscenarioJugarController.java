@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class EscenarioJugarController {
+
+    //Parameters
     EscenariosController controladorEscenarios;
     private Partida partida;
 
@@ -28,9 +30,12 @@ public class EscenarioJugarController {
     private Boolean partidaCreada = false;
 
     private ArrayList<Individuo> listaIndividuos;
+
     private ArrayList<Casilla> listaCasillas = new ArrayList<>();
 
     private int velocidad = 50;
+
+    //Methods
 
     @FXML
     private Label lblTurno;
@@ -62,9 +67,6 @@ public class EscenarioJugarController {
     private Label lblClonacion;
 
     @FXML
-    private Label lblNumeroInidividuos;
-
-    @FXML
     private Label lblReproduccion;
 
     @FXML
@@ -72,9 +74,6 @@ public class EscenarioJugarController {
 
     @FXML
     private Slider sliderClonacion;
-
-    @FXML
-    private Slider sliderNumeroIndividuos;
 
     @FXML
     private Slider sliderReproduccion;
@@ -88,10 +87,57 @@ public class EscenarioJugarController {
     @FXML
     private Button btnRestablecer;
 
+        //Modificar Tipo Individuos
+
+    @FXML
+    private Tab tabTipoIndiviudos;
+
+    @FXML
+    private Label lblBasico;
+
+    @FXML
+    private Label lblNormal;
+
+    @FXML
+    private Label lblAvanzado;
+
+    @FXML
+    private Slider sliderBasico;
+
+    @FXML
+    private Slider sliderNormal;
+
+    @FXML
+    private Slider sliderAvanzado;
+
+    @FXML
+    private Button btnRestablecerTipoIndividuo;
+
+    @FXML
+    private Button btnAceptarTipoIndividuo;
+
         //Modificar Parametros Entorno
 
     @FXML
     private Tab tabEntorno;
+
+    @FXML
+    private Slider sliderAgua;
+
+    @FXML
+    private Slider sliderComida;
+
+    @FXML
+    private Slider sliderMontana;
+
+    @FXML
+    private Slider sliderCofre;
+
+    @FXML
+    private Slider sliderBiblioteca;
+
+    @FXML
+    private Slider sliderPozo;
 
     @FXML
     private Button btnAceptarParEntorno;
@@ -132,14 +178,20 @@ public class EscenarioJugarController {
 
         /* ACEPTAR Y RESTABLECER CAMBIOS
             * Objetivo: guardar los valores establecidos por el individuo en los diferentes parámetros del juego */
+
     @FXML
     public void aceptarParIndividuo() {
         crearPartida();
     }
 
     @FXML
-    public void aceptarParEntorno() {
+    public void aceptarTipoIndividuo(){
+        crearPartida();
+    }
 
+    @FXML
+    public void aceptarParEntorno() {
+        crearPartida();
     }
 
     @FXML
@@ -162,12 +214,23 @@ public class EscenarioJugarController {
         sliderReproduccion.setValue(70);        //Valores predeterminados
         sliderClonacion.setValue(50);
         sliderVida.setValue(10);
-        sliderNumeroIndividuos.setValue(20);
+    }
+
+    @FXML
+    public void restablecerTipoIndividuo(){
+        sliderBasico.setValue(30);
+        sliderNormal.setValue(20);
+        sliderAvanzado.setValue(10);
     }
 
     @FXML
     private void restablecerEntorno(){
-
+        sliderAgua.setValue(2);
+        sliderComida.setValue(10);
+        sliderMontana.setValue(20);
+        sliderCofre.setValue(15);
+        sliderBiblioteca.setValue(30);
+        sliderPozo.setValue(15);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -178,6 +241,7 @@ public class EscenarioJugarController {
             *                   - Guardar Partida Actual
             *                   - Salir a la Pantalla de Inicio
          */
+
     @FXML
     public void cargarPartida(){
         controladorEscenarios.cargarEscenarioCargar();
@@ -193,6 +257,7 @@ public class EscenarioJugarController {
         /* BOTONES MANEJAR PARTIDA
             * Objetivo: comenzar, pausar o finalizar la partida
          */
+
         AnimationTimer animationTimer = new AnimationTimer() {
             int i = velocidad;
             @Override
@@ -259,7 +324,16 @@ public class EscenarioJugarController {
         sliderVida.setDisable(a);
         sliderReproduccion.setDisable(a);
         sliderClonacion.setDisable(a);
-        sliderNumeroIndividuos.setDisable(a);
+        sliderBasico.setDisable(a);
+        sliderNormal.setDisable(a);
+        sliderAvanzado.setDisable(a);
+        sliderAgua.setDisable(a);
+        sliderComida.setDisable(a);
+        sliderMontana.setDisable(a);
+        sliderCofre.setDisable(a);
+        sliderBiblioteca.setDisable(a);
+        sliderPozo.setDisable(a);
+
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -275,11 +349,11 @@ public class EscenarioJugarController {
                 Casilla casilla = new Casilla(i,j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
+                casilla.addEventFilter();
                 tablero.add(casilla,i,j);
                 listaCasillas.add(casilla);
             }
         }
-
     }
 
     public void eliminarTablero(){
@@ -344,8 +418,40 @@ public class EscenarioJugarController {
         });
     }
 
-    public int getNumeroIndividuos(){
-        return (int) sliderNumeroIndividuos.getValue();
+    public int getIndividuoBasico(){
+        return (int) sliderBasico.getValue();
+    }
+
+    public int getIndividuoNormal(){
+        return (int) sliderNormal.getValue();
+    }
+
+    public int getIndividuoAvanzado(){
+        return (int) sliderAvanzado.getValue();
+    }
+
+    public int getAgua(){
+        return (int) sliderAgua.getValue();
+    }
+
+    public int getComida(){
+        return (int) sliderComida.getValue();
+    }
+
+    public int getMontana(){
+        return (int) sliderMontana.getValue();
+    }
+
+    public int getCofre(){
+        return (int) sliderCofre.getValue();
+    }
+
+    public int getBiblioteca(){
+        return (int) sliderBiblioteca.getValue();
+    }
+
+    public int getPozo(){
+        return (int) sliderPozo.getValue();
     }
 
     public int getNumeroColumnas(){
@@ -357,7 +463,21 @@ public class EscenarioJugarController {
     }
 
     public void crearPartida(){
-        this.partida = new Partida((int)sliderReproduccion.getValue(), (int)sliderClonacion.getValue(), (int)sliderVida.getValue(), (int)sliderNumeroIndividuos.getValue(), (int)sliderColumnas.getValue(),(int)sliderFilas.getValue());
+        this.partida = new Partida(
+                (int) sliderReproduccion.getValue(),
+                (int) sliderClonacion.getValue(),
+                (int) sliderVida.getValue(),
+                (int) sliderBasico.getValue(),
+                (int) sliderNormal.getValue(),
+                (int) sliderAvanzado.getValue(),
+                (int) sliderAgua.getValue(),
+                (int) sliderComida.getValue(),
+                (int) sliderMontana.getValue(),
+                (int) sliderCofre.getValue(),
+                (int) sliderBiblioteca.getValue(),
+                (int) sliderPozo.getValue(),
+                (int) sliderColumnas.getValue(),
+                (int) sliderFilas.getValue());
     }
 
     public double getTamanoIndividuos(){

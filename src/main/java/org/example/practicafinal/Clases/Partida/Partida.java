@@ -13,31 +13,70 @@ public class Partida {
     int probClonacion;
     int id;
     int turnosVida;
-    int numeroIndividuos;
+    int numeroIndividuosBasicos;
+    int numeroIndividuosNormal;
+    int numeroIndividuosAvanzados;
+    int agua;
+    int comida;
+    int montana;
+    int cofre;
+    int biblioteca;
+    int pozo;
     int columnas;
     int filas;
 
     ArrayList<Individuo> listaIndividuos = new ArrayList<>();
 
         //CONSTRUCTORS
-    public Partida(int probReproduccion, int probClonacion, int turnosVida) {
+    public Partida(int probReproduccion,
+                   int probClonacion,
+                   int turnosVida
+                   ) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
     }
 
-    public Partida(int probReproduccion, int probClonacion, int turnosVida, int numeroIndividuos) {
+    public Partida(int probReproduccion,
+                   int probClonacion,
+                   int turnosVida,
+                   int numeroIndividuosBasicos,
+                   int numeroIndividuosNormal,
+                   int numeroIndividuosAvanzados) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
-        this.numeroIndividuos = numeroIndividuos;
+        this.numeroIndividuosBasicos = numeroIndividuosBasicos;
+        this.numeroIndividuosNormal = numeroIndividuosNormal;
+        this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
-    public Partida(int probReproduccion, int probClonacion, int turnosVida, int numeroIndividuos, int columnas, int filas) {
+    public Partida(int probReproduccion,
+                   int probClonacion,
+                   int turnosVida,
+                   int numeroIndividuosBasicos,
+                   int numeroIndividuosNormal,
+                   int numeroIndividuosAvanzados,
+                   int agua,
+                   int comida,
+                   int montana,
+                   int cofre,
+                   int biblioteca,
+                   int pozo,
+                   int columnas,
+                   int filas) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
-        this.numeroIndividuos = numeroIndividuos;
+        this.numeroIndividuosBasicos = numeroIndividuosBasicos;
+        this.numeroIndividuosNormal = numeroIndividuosNormal;
+        this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
+        this.agua = agua;
+        this.comida = comida;
+        this.montana = montana;
+        this.cofre = cofre;
+        this.biblioteca = biblioteca;
+        this.pozo = pozo;
         this.columnas = columnas;
         this.filas = filas;
     }
@@ -107,6 +146,7 @@ public class Partida {
             basico.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
             return basico;
         }
+
         public IndividuoNormal crearNormal(){
             IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
@@ -126,15 +166,14 @@ public class Partida {
         }
 
         public void individuosInicio(){
-            for (int i = 0; i < numeroIndividuos; i++){
-                int a = (int)Math.floor(Math.random()*3+1);
-                if (a==3){
-                    crearAvanzado();
-                } else if (a==2) {
-                    crearNormal();
-                } else{
-                    crearBasico();
-                }
+            for (int i = 0; i < numeroIndividuosBasicos; i++){
+                crearBasico();
+            }
+            for (int i = 0; i < numeroIndividuosNormal; i++){
+                crearNormal();
+            }
+            for (int i = 0; i < numeroIndividuosAvanzados; i++){
+                crearAvanzado();
             }
         }
 

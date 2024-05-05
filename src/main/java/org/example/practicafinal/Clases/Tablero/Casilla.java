@@ -4,7 +4,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.EscenarioJugarController;
 
-public class Casilla extends BorderPane {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class Casilla extends BorderPane implements MouseListener {
     int columna;
     int fila;
 
@@ -44,5 +49,30 @@ public class Casilla extends BorderPane {
     public int columnaAleatoria(int top){
         int columna = (int) (Math.random()*top);
         return columna;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Mouse Clicked");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
