@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import org.controlsfx.control.cell.ImageGridCell?>
-<DialogPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
+<DialogPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
     <content>
-        <GridPane hgap="5" vgap="5">
-            <Label text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField fx:id="lblBasico" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <GridPane hgap="5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="5">
 
-            <Label text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField fx:id="lblNormal" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label prefHeight="18.0" prefWidth="96.0" text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="lblBasico" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-            <Label text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField fx:id="lblAvanzado" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="lblNormal" prefHeight="26.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-            <ImageView fitHeight="36.0" fitWidth="35.0" GridPane.columnIndex="0" GridPane.rowIndex="3" pickOnBounds="true" preserveRatio="true">
+            <Label text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="lblAvanzado" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <Image url="@agua.png" />
             </ImageView>
-            <TextField fx:id="lblAgua" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <TextField fx:id="lblAgua" prefHeight="26.0" prefWidth="391.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-            <ImageView fitHeight="42.0" fitWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="4" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
                 <Image url="@hamburguesaa.png" />
             </ImageView>
-            <TextField fx:id="lblComida" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            <TextField fx:id="lblComida" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-            <ImageView fitHeight="42.0" fitWidth="39.0" GridPane.columnIndex="0" GridPane.rowIndex="5" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
                     <Image url="@montañaa.png" />
             </ImageView>
-            <TextField fx:id="lblMontana" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <TextField fx:id="lblMontana" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-            <ImageView fitHeight="45.0" fitWidth="44.0" GridPane.columnIndex="0" GridPane.rowIndex="6" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
                 <Image url="@cofre.png" />
             </ImageView>
-            <TextField fx:id="lblCofre" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <TextField fx:id="lblCofre" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-            <ImageView fitHeight="42.0" fitWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="7" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="7">
                 <Image url="@libro.png" />
             </ImageView>
-            <TextField fx:id="lblLibro" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+            <TextField fx:id="lblLibro" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-            <ImageView fitHeight="42.0" fitWidth="39.0" GridPane.columnIndex="0" GridPane.rowIndex="8" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="8">
                 <Image url="@pozoo.png" />
             </ImageView>
-            <TextField fx:id="lblPozo" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+            <TextField fx:id="lblPozo" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
             <columnConstraints>
-                <ColumnConstraints/>
-                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints halignment="CENTER" maxWidth="197.0" minWidth="115.0" prefWidth="177.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="459.2" minWidth="377.2" prefWidth="397.2" />
             </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
 
         </GridPane>
     </content>
 
     <buttonTypes>
-        <ButtonType fx:id="btnCerrar" text="Cerrar" buttonData="CANCEL_CLOSE"/>
-        <ButtonType fx:id="btnAceptar" text="Aceptar" buttonData="OK_DONE"/>
+        <ButtonType fx:id="btnCerrar" buttonData="CANCEL_CLOSE" text="Cerrar" />
+        <ButtonType fx:id="btnAceptar" buttonData="OK_DONE" text="Aceptar" />
     </buttonTypes>
 </DialogPane>
