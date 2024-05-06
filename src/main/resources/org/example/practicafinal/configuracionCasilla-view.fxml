@@ -6,33 +6,64 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import org.controlsfx.control.cell.ImageGridCell?>
 <DialogPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             prefHeight="400.0" prefWidth="600.0">
 
     <content>
         <GridPane hgap="5" vgap="5">
-            <Label text="Адрес на хост:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField fx:id="hostnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="lblBasico" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-            <Label text="База данни:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField fx:id="databaseTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="lblNormal" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-            <Label text="Потребителско име:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField fx:id="usernameTextField" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.fillWidth="false"/>
+            <Label text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="lblAvanzado" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-            <Label text="Парола:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <PasswordField fx:id="passwordField" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.fillWidth="false"/>
+            <ImageView fitHeight="36.0" fitWidth="35.0" GridPane.columnIndex="0" GridPane.rowIndex="3" pickOnBounds="true" preserveRatio="true">
+                <Image url="@agua.png" />
+            </ImageView>
+            <TextField fx:id="lblAgua" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <ImageView fitHeight="42.0" fitWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="4" pickOnBounds="true" preserveRatio="true">
+                <Image url="@hamburguesaa.png" />
+            </ImageView>
+            <TextField fx:id="lblComida" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <ImageView fitHeight="42.0" fitWidth="39.0" GridPane.columnIndex="0" GridPane.rowIndex="5" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@montañaa.png" />
+            </ImageView>
+            <TextField fx:id="lblMontana" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <ImageView fitHeight="45.0" fitWidth="44.0" GridPane.columnIndex="0" GridPane.rowIndex="6" pickOnBounds="true" preserveRatio="true">
+                <Image url="@cofre.png" />
+            </ImageView>
+            <TextField fx:id="lblCofre" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+            <ImageView fitHeight="42.0" fitWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="7" pickOnBounds="true" preserveRatio="true">
+                <Image url="@libro.png" />
+            </ImageView>
+            <TextField fx:id="lblLibro" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+            <ImageView fitHeight="42.0" fitWidth="39.0" GridPane.columnIndex="0" GridPane.rowIndex="8" pickOnBounds="true" preserveRatio="true">
+                <Image url="@pozoo.png" />
+            </ImageView>
+            <TextField fx:id="lblPozo" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
             <columnConstraints>
                 <ColumnConstraints/>
                 <ColumnConstraints hgrow="ALWAYS"/>
             </columnConstraints>
+
         </GridPane>
     </content>
 
     <buttonTypes>
-        <ButtonType fx:id="connectButtonType" text="Свързване" buttonData="OK_DONE"/>
-        <ButtonType text="Затвори" buttonData="CANCEL_CLOSE"/>
+        <ButtonType fx:id="btnCerrar" text="Cerrar" buttonData="CANCEL_CLOSE"/>
+        <ButtonType fx:id="btnAceptar" text="Aceptar" buttonData="OK_DONE"/>
     </buttonTypes>
 </DialogPane>

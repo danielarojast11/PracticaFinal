@@ -4,10 +4,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.EscenarioJugarController;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class Casilla extends BorderPane {
     int columna;
