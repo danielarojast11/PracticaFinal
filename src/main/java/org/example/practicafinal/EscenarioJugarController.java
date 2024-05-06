@@ -4,8 +4,12 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -13,9 +17,11 @@ import javafx.scene.shape.Circle;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Partida.Partida;
+import org.example.practicafinal.Dialogs.CasillaDialog;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
 public class EscenarioJugarController {
 
@@ -349,7 +355,15 @@ public class EscenarioJugarController {
                 Casilla casilla = new Casilla(i,j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
-                //casilla.addEventFilter();
+                casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+                            Dialog<Casilla> casillaDialog = new CasillaDialog(casilla);
+                            Optional<Casilla> result = casillaDialog.showAndWait();
+                        }
+                    }
+                });
                 tablero.add(casilla,i,j);
                 listaCasillas.add(casilla);
             }
