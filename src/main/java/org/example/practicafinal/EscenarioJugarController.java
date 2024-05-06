@@ -7,6 +7,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -14,11 +17,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Window;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Dialogs.CasillaDialog;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
@@ -360,6 +365,8 @@ public class EscenarioJugarController {
                     public void handle(MouseEvent mouseEvent) {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                             Dialog<Casilla> casillaDialog = new CasillaDialog(casilla);
+                            Window window = casillaDialog.getDialogPane().getScene().getWindow();
+                            window.setOnCloseRequest(event -> window.hide());
                             Optional<Casilla> result = casillaDialog.showAndWait();
                         }
                     }
