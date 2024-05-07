@@ -1,8 +1,8 @@
 package org.example.practicafinal.Dialogs;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.*;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 
 import java.io.IOException;
@@ -28,5 +28,51 @@ public class CasillaDialog extends Dialog<Casilla> {
             e.printStackTrace();
         }
     }
+
+    //Parametros Tipos de Individuos
+    @FXML
+    private Label lblBasico;
+
+    @FXML
+    private Label lblNormal;
+
+    @FXML
+    private Label lblAvanzado;
+
+    @FXML
+    private Slider sliderBasico;
+
+    @FXML
+    private Slider sliderNormal;
+
+    @FXML
+    private Slider sliderAvanzado;
+
+    //Parametros Entorno
+    @FXML
+    private Slider sliderAgua;
+
+    @FXML
+    private Slider sliderComida;
+
+    @FXML
+    private Slider sliderMontana;
+
+    @FXML
+    private Slider sliderCofre;
+
+    @FXML
+    private Slider sliderBiblioteca;
+
+    @FXML
+    private Slider sliderPozo;
+
+    //Botones
+    @FXML
+    private Button btnCerrar;
+
+    @FXML
+    private Button btnAceptar;
+
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -9,49 +10,86 @@
     <content>
         <GridPane hgap="5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="5">
 
-            <Label prefHeight="18.0" prefWidth="96.0" text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <TextField fx:id="lblBasico" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label fx:id="lblBasico" prefHeight="18.0" prefWidth="96.0" text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Slider fx:id="sliderBasico" maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
-            <Label text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <TextField fx:id="lblNormal" prefHeight="26.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblNormal" text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Slider fx:id="sliderNormal" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
-            <Label text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <TextField fx:id="lblAvanzado" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblAvanzado" text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Slider fx:id="sliderAvanzado" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <Image url="@agua.png" />
             </ImageView>
-            <TextField fx:id="lblAgua" prefHeight="26.0" prefWidth="391.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="sliderAgua" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
                 <Image url="@hamburguesaa.png" />
             </ImageView>
-            <TextField fx:id="lblComida" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Slider fx:id="sliderComida" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
                     <Image url="@montañaa.png" />
             </ImageView>
-            <TextField fx:id="lblMontana" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Slider fx:id="sliderMontana" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
                 <Image url="@cofre.png" />
             </ImageView>
-            <TextField fx:id="lblCofre" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Slider fx:id="sliderCofre" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="7">
                 <Image url="@libro.png" />
             </ImageView>
-            <TextField fx:id="lblLibro" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Slider fx:id="sliderBiblioteca" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="8">
                 <Image url="@pozoo.png" />
             </ImageView>
-            <TextField fx:id="lblPozo" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Slider fx:id="sliderPozo" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </Slider>
 
             <columnConstraints>
-                <ColumnConstraints halignment="CENTER" maxWidth="197.0" minWidth="115.0" prefWidth="177.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="459.2" minWidth="377.2" prefWidth="397.2" />
+                <ColumnConstraints halignment="CENTER" maxWidth="252.6" minWidth="115.0" prefWidth="228.6" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="459.2" minWidth="322.6000000000001" prefWidth="346.6000000000001" />
             </columnConstraints>
+
          <rowConstraints>
             <RowConstraints />
             <RowConstraints />
