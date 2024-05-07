@@ -2,29 +2,46 @@ package org.example.practicafinal.Clases.BuclesDeControl;
 
 import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
+import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
+import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Bucles {
+public class Bucles extends Partida {
 
-    //Parameters
-    private List<Individuo> listaIndividuos;
-    private List<Elementos> listaElementos;
-    private List<Casilla> tablero;
+        //Parameters
+    private ArrayList<Individuo> listaIndividuos;
+    private ArrayList<Elementos> listaElementos;
+    private ArrayList<Casilla> tablero;
     private Individuo individuo;
 
-    //Methods
-    public List<Individuo> actualizarTiempoVida(List<Individuo> listaIndividuos){
-        for (Individuo individuo : listaIndividuos){
-            individuo.setTurnosVida(individuo.getTurnosVida()-1);
-            if (individuo.getTurnosVida() == 0){
-                listaIndividuos.remove(individuo);
-            }
-        }
-        return listaIndividuos;
+        //Constructor
+    public Bucles(){}
+    public Bucles (ArrayList<Individuo> listaIndividuos, ArrayList<Elementos> listaElementos){
+        this.listaIndividuos = listaIndividuos;
+        this.listaElementos = listaElementos;
     }
 
+        //1-Actualizar y Eliminar Individuos
+    public void modificarIndividuo(Individuo individuo){
+        individuo.modificarTurnosVida();
+        individuo.modificarReprod();
+        individuo.modificarClonacion();
+    }
+
+    public void eliminarIndividuo(Individuo individuo){
+        if (individuo.getTurnosVida()==0){
+            listaIndividuos.remove(individuo);
+        } else if (individuo.getProbReproduccion()==0) {
+            listaIndividuos.remove(individuo);
+        }
+    }
+
+        //2-Actualizar y Eliminar Recursos
     public List<Elementos> actualizarElementos(List<Elementos> listaElementos){
         for (Elementos elemento : listaElementos){
             elemento.setTiempoActividad(elemento.getTiempoActividad() -1);
@@ -45,5 +62,23 @@ public class Bucles {
             }
         }
         return listaIndividuos;
+    }
+
+        //5-Reproduccion
+    public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
+        Individuo hijo = null;
+        if (a.getClass()== IndividuoAvanzado.class||b.getClass()== IndividuoAvanzado.class){
+            hijo = this.crearAvanzado();
+        } else if (a.getClass()== IndividuoNormal.class||b.getClass()== IndividuoNormal.class) {
+            hijo = this.crearNormal();
+        } else {
+            hijo = this.crearBasico();
+        }
+        a.addHijo(hijo);
+        b.addHijo(hijo);
+        Casilla casilla = hijo.getCasilla();
+        casilla.setColumna(a.getCasilla().getColumna());
+        casilla.setFila(a.getCasilla().getFila());
+        return hijo;
     }
 }

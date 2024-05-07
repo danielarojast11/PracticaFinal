@@ -1,16 +1,11 @@
 package org.example.practicafinal;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -19,11 +14,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Partida.Partida;
+import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Dialogs.CasillaDialog;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
@@ -192,10 +186,6 @@ public class EscenarioJugarController {
         crearPartida();
     }
 
-    @FXML
-    public void aceptarTipoIndividuo(){
-        crearPartida();
-    }
 
     @FXML
     public void aceptarParEntorno() {
@@ -222,10 +212,6 @@ public class EscenarioJugarController {
         sliderReproduccion.setValue(70);        //Valores predeterminados
         sliderClonacion.setValue(50);
         sliderVida.setValue(10);
-    }
-
-    @FXML
-    public void restablecerTipoIndividuo(){
         sliderBasico.setValue(30);
         sliderNormal.setValue(20);
         sliderAvanzado.setValue(10);
@@ -333,12 +319,12 @@ public class EscenarioJugarController {
 
     @FXML
     private void endGame(){
-        controladorEscenarios.cargarArbolFinal(listaIndividuos);
         btnEnd.setDisable(true);
         btnPause.setDisable(true);
         btnStart.setDisable(true);
         desabilitarSliders(true);
         animationTimer.stop();
+        controladorEscenarios.cargarArbolFinal(listaIndividuos);
     }
 
     private void desabilitarSliders(Boolean a){
@@ -520,7 +506,7 @@ public class EscenarioJugarController {
     public double getTamanoIndividuos(){
         double a = paneTablero.getHeight();
         double casillas = a / sliderColumnas.getValue();
-        double diametro = casillas / 3;
+        double diametro = casillas / partida.getMaximoCasilla();
         return diametro/2;
     }
 

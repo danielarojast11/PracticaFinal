@@ -94,6 +94,7 @@ public class Individuo {
         this.rango = rango;
     }
 
+        //FAMILY TREE
     public List<Individuo> getPadres() {
         return padres;
     }
@@ -118,7 +119,7 @@ public class Individuo {
         this.individuos.add(individuo);
     }
 
-    //METHODS
+        //METHODS MODIFY EACH TURN
     public void modificarReprod(){
         this.setProbReproduccion(probReproduccion - (10* probReproduccion /100));
     }
@@ -127,6 +128,11 @@ public class Individuo {
         this.setProbClonacion(probClonacion - (10* probClonacion /100));
     }
 
+    public void modificarTurnosVida(){
+        this.setTurnosVida(turnosVida-1);
+    }
+
+        //METHODS PLACEHOLDERS
     public void setCasilla(int columna, int fila){
         this.casilla = new Casilla(columna,fila);
     }
