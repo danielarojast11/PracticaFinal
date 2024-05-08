@@ -51,20 +51,22 @@ public class Partida {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
-    public Partida(int probReproduccion,
-                   int probClonacion,
-                   int turnosVida,
-                   int numeroIndividuosBasicos,
-                   int numeroIndividuosNormal,
-                   int numeroIndividuosAvanzados,
-                   int agua,
-                   int comida,
-                   int montana,
-                   int cofre,
-                   int biblioteca,
-                   int pozo,
-                   int columnas,
-                   int filas) {
+    public Partida(
+        int probReproduccion,
+        int probClonacion,
+        int turnosVida,
+        int numeroIndividuosBasicos,
+        int numeroIndividuosNormal,
+        int numeroIndividuosAvanzados,
+        int agua,
+        int comida,
+        int montana,
+        int cofre,
+        int biblioteca,
+        int pozo,
+        int columnas,
+        int filas
+    ) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;

@@ -163,25 +163,20 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblColumnas;
-    
     @FXML
     private Label lblVelocidad;
-
     @FXML
     private Label lblFilas;
 
     @FXML
     private Slider sliderColumnas;
-
     @FXML
     private Slider sliderFilas;
-
     @FXML
     private Slider sliderVelocidad;
 
     @FXML
     private Button btnAceptarTablero;
-
     @FXML
     private Button btnRestablecerTablero;
 
@@ -357,17 +352,21 @@ public class EscenarioJugarController {
         double b = paneTablero.getHeight();
         for (int i = 0; i < columnas; i++){
             for (int j = 0; j < filas; j++){
-                Casilla casilla = new Casilla(i,j);
+                Casilla casilla = new Casilla(i, j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
                 casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                            Dialog<Casilla> casillaDialog = new CasillaDialog(casilla);
+                            Dialog<Casilla> casillaDialog = new CasillaDialog(casilla, partida);
                             Window window = casillaDialog.getDialogPane().getScene().getWindow();
                             window.setOnCloseRequest(event -> window.hide());
                             Optional<Casilla> result = casillaDialog.showAndWait();
+                            if (result != null) {
+                                casilla.setIndividuosCasilla(result.get().getIndividuosCasilla());
+                                casilla.setElementosCasilla(result.get().getElementosCasilla());
+                            }
                         }
                     }
                 });
@@ -485,20 +484,21 @@ public class EscenarioJugarController {
 
     public void crearPartida(){
         this.partida = new Partida(
-                (int) sliderReproduccion.getValue(),
-                (int) sliderClonacion.getValue(),
-                (int) sliderVida.getValue(),
-                (int) sliderBasico.getValue(),
-                (int) sliderNormal.getValue(),
-                (int) sliderAvanzado.getValue(),
-                (int) sliderAgua.getValue(),
-                (int) sliderComida.getValue(),
-                (int) sliderMontana.getValue(),
-                (int) sliderCofre.getValue(),
-                (int) sliderBiblioteca.getValue(),
-                (int) sliderPozo.getValue(),
-                (int) sliderColumnas.getValue(),
-                (int) sliderFilas.getValue());
+            (int) sliderReproduccion.getValue(),
+            (int) sliderClonacion.getValue(),
+            (int) sliderVida.getValue(),
+            (int) sliderBasico.getValue(),
+            (int) sliderNormal.getValue(),
+            (int) sliderAvanzado.getValue(),
+            (int) sliderAgua.getValue(),
+            (int) sliderComida.getValue(),
+            (int) sliderMontana.getValue(),
+            (int) sliderCofre.getValue(),
+            (int) sliderBiblioteca.getValue(),
+            (int) sliderPozo.getValue(),
+            (int) sliderColumnas.getValue(),
+            (int) sliderFilas.getValue()
+        );
     }
 
     public double getTamanoIndividuos(){
