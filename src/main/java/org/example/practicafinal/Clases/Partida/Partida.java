@@ -6,6 +6,7 @@ import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Partida {
     int turno;
@@ -139,7 +140,79 @@ public class Partida {
         return listaIndividuos;
     }
 
-        //CREATE INDIVIDUALS
+    public int getNumeroIndividuosBasicos() {
+        return numeroIndividuosBasicos;
+    }
+
+    public void setNumeroIndividuosBasicos(int numeroIndividuosBasicos) {
+        this.numeroIndividuosBasicos = numeroIndividuosBasicos;
+    }
+
+    public int getNumeroIndividuosNormal() {
+        return numeroIndividuosNormal;
+    }
+
+    public void setNumeroIndividuosNormal(int numeroIndividuosNormal) {
+        this.numeroIndividuosNormal = numeroIndividuosNormal;
+    }
+
+    public int getNumeroIndividuosAvanzados() {
+        return numeroIndividuosAvanzados;
+    }
+
+    public void setNumeroIndividuosAvanzados(int numeroIndividuosAvanzados) {
+        this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
+    }
+
+    public int getAgua() {
+        return agua;
+    }
+
+    public void setAgua(int agua) {
+        this.agua = agua;
+    }
+
+    public int getComida() {
+        return comida;
+    }
+
+    public void setComida(int comida) {
+        this.comida = comida;
+    }
+
+    public int getMontana() {
+        return montana;
+    }
+
+    public void setMontana(int montana) {
+        this.montana = montana;
+    }
+
+    public int getCofre() {
+        return cofre;
+    }
+
+    public void setCofre(int cofre) {
+        this.cofre = cofre;
+    }
+
+    public int getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(int biblioteca) {
+        this.biblioteca = biblioteca;
+    }
+
+    public int getPozo() {
+        return pozo;
+    }
+
+    public void setPozo(int pozo) {
+        this.pozo = pozo;
+    }
+
+    //CREATE INDIVIDUALS
     public IndividuoBasico crearBasico(){
             IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();

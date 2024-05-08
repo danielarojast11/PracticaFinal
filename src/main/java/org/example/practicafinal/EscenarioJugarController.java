@@ -38,6 +38,8 @@ public class EscenarioJugarController {
 
     private Boolean tableroCreado = false;
 
+    private Boolean individuosCreados = false;
+
     private Boolean partidaCreada = false;
 
     private ArrayList<Individuo> listaIndividuos;
@@ -303,6 +305,21 @@ public class EscenarioJugarController {
             alert.setContentText("No has creado el Tablero");
             alert.showAndWait();
         }
+        if (individuosCreados) {
+            if (!partidaCreada){
+                //crearPartida();
+                //partida.individuosInicio();
+                //listaIndividuos = partida.getListaIndividuos();
+                //mostrarEnCasilla();
+                //partidaCreada = true;
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No has colocado los individuos en las casillas");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -339,7 +356,6 @@ public class EscenarioJugarController {
         sliderCofre.setDisable(a);
         sliderBiblioteca.setDisable(a);
         sliderPozo.setDisable(a);
-
     }
 
     ////////////////////////////////////////////////////////////////////////////
