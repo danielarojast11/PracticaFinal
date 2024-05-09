@@ -1,11 +1,12 @@
 package org.example.practicafinal.Clases.Individuo;
 
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Individuo {
+public class Individuo implements Comparable<Individuo>{
 
         //PARAMETERS
     protected int id;
@@ -136,10 +137,27 @@ public class Individuo {
     public void setCasilla(int columna, int fila){
         this.casilla = new Casilla(columna,fila);
     }
+    public void setCasilla (Casilla casilla){this.casilla = casilla;}
 
     public Casilla getCasilla(){
         return casilla;
     }
 
 
+    @Override
+    public int compareTo(@NotNull Individuo o) {
+        if (this.getProbReproduccion()!=o.getProbReproduccion()){
+            if (this.getProbReproduccion() < o.getProbReproduccion()){
+                return -1;
+            } else if (this.getProbReproduccion()>o.getProbReproduccion()){
+                return 1;
+            }
+        }
+        if (this.getRango() > o.getRango()) {
+            return 1;
+        } else if (this.getRango() < o.getRango()) {
+            return -1;
+        }
+        return 0;
+    }
 }

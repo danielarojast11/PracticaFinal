@@ -1,4 +1,6 @@
 package org.example.practicafinal.Clases.Partida;
+import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
+import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
@@ -7,12 +9,14 @@ import org.example.practicafinal.Clases.Tablero.Casilla;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Partida {
+    int MaximosIndividuos = 3;
     int turno;
     int probReproduccion;
     int probClonacion;
-    int id;
+    int id = 1;
     int turnosVida;
     int numeroIndividuosBasicos;
     int numeroIndividuosNormal;
@@ -26,7 +30,9 @@ public class Partida {
     int columnas;
     int filas;
 
-    ArrayList<Individuo> listaIndividuos = new ArrayList<>();
+    List<Individuo> listaIndividuos = new ArrayList<>();
+    List<Casilla> listaCasillas = new ArrayList<>();
+    List <Elementos> listaElementos = new ArrayList<>();
 
         //CONSTRUCTORS
     public Partida(int probReproduccion,
@@ -43,13 +49,15 @@ public class Partida {
                    int turnosVida,
                    int numeroIndividuosBasicos,
                    int numeroIndividuosNormal,
-                   int numeroIndividuosAvanzados) {
+                   int numeroIndividuosAvanzados, int filas, int columnas) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
         this.numeroIndividuosBasicos = numeroIndividuosBasicos;
         this.numeroIndividuosNormal = numeroIndividuosNormal;
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
+        this.columnas = columnas;
+        this.filas = filas;
     }
 
     public Partida(
@@ -87,6 +95,7 @@ public class Partida {
     public Partida() {
     }
 
+
         //GETTERS AND SETTERS
     public int getTurno() {
         return turno;
@@ -94,6 +103,13 @@ public class Partida {
 
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+
+
+
+        //GETTERS AND SETTERS INDIVIDUALS
+    public int getMaximosIndividuos(){
+        return this.MaximosIndividuos;
     }
 
     public int getProbReproduccion() {
@@ -128,15 +144,7 @@ public class Partida {
         this.turnosVida = turnosVida;
     }
 
-    public void setColumnas(int columnas){
-        this.columnas = columnas;
-    }
-
-    public void setFilas(int filas){
-        this.filas = filas;
-    }
-
-    public ArrayList<Individuo> getListaIndividuos(){
+    public List<Individuo> getListaIndividuos(){
         return listaIndividuos;
     }
 
@@ -164,6 +172,7 @@ public class Partida {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
+        //GETTERS AND SETTERS ELEMENTS
     public int getAgua() {
         return agua;
     }
@@ -211,23 +220,47 @@ public class Partida {
     public void setPozo(int pozo) {
         this.pozo = pozo;
     }
+    public List<Elementos> getListaElementos(){return this.listaElementos;}
+    public void setListaElementos(List<Elementos> listaElementos){this.listaElementos=listaElementos;}
 
-    //CREATE INDIVIDUALS
+        //GETTERS AND SETTERS PLACEHOLDERS
+    public void setColumnas(int columnas){
+            this.columnas = columnas;
+        }
+
+    public void setFilas(int filas){
+        this.filas = filas;
+    }
+    public void setListaCasillas(List<Casilla> listaCasillas){
+        this.listaCasillas = listaCasillas;
+    }
+    public List<Casilla> getListaCasillas(){return this.listaCasillas;}
+
+        //CREATE INDIVIDUALS
     public IndividuoBasico crearBasico(){
             IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(basico);
-            Casilla casilla = basico.getCasilla();
-            basico.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
+            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+            basico.setCasilla(casilla);
+            for (Casilla casilla1 : listaCasillas){
+                if (Objects.equals(casilla1.getId(), casilla.getId())){
+                    casilla1.addIndividuoCasilla(basico);
+                }
+            }
             return basico;
         }
-
         public IndividuoNormal crearNormal(){
             IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(normal);
-            Casilla casilla = normal.getCasilla();
-            normal.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
+            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+            normal.setCasilla(casilla);
+            for (Casilla casilla1 : listaCasillas){
+                if (Objects.equals(casilla1.getId(), casilla.getId())){
+                    casilla1.addIndividuoCasilla(normal);
+                }
+            }
             return normal;
         }
 
@@ -235,8 +268,13 @@ public class Partida {
             IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
             modificarId();
             listaIndividuos.add(avanzado);
-            Casilla casilla = avanzado.getCasilla();
-            avanzado.setCasilla(casilla.columnaAleatoria(columnas), casilla.filaAleatoria(filas));
+            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+            avanzado.setCasilla(casilla);
+            for (Casilla casilla1 : listaCasillas){
+                if (Objects.equals(casilla1.getId(), casilla.getId())){
+                    casilla1.addIndividuoCasilla(avanzado);
+                }
+            }
             return avanzado;
         }
 
@@ -252,20 +290,8 @@ public class Partida {
             }
         }
 
-        public Individuo reproducir(Individuo a, Individuo b){
-            Individuo hijo = null;
-            if (a.getClass()== IndividuoAvanzado.class||b.getClass()== IndividuoAvanzado.class){
-                hijo = this.crearAvanzado();
-            } else if (a.getClass()==IndividuoNormal.class||b.getClass()== IndividuoNormal.class) {
-                hijo = this.crearNormal();
-            } else {
-                hijo = this.crearBasico();
-            }
-            Casilla casilla = hijo.getCasilla();
-            casilla.setColumna(a.getCasilla().getColumna());
-            casilla.setFila(a.getCasilla().getFila());
-            return hijo;
-        }
+            //CREATE ELEMENTS
+
 
             //MODIFY PARAMETERS
         public void modificarId(){
@@ -275,4 +301,14 @@ public class Partida {
         public void modificarTurno(){
             this.setTurno(turno+1);
         }
+
+    public int filaAleatoria(){
+        int fila = (int) (Math.random()*filas);
+        return fila;
+    }
+
+    public int columnaAleatoria(){
+        int columna = (int) (Math.random()*columnas);
+        return columna;
+    }
 }

@@ -13,12 +13,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Window;
+import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
+import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Dialogs.CasillaDialog;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -27,6 +30,7 @@ public class EscenarioJugarController {
     //Parameters
     EscenariosController controladorEscenarios;
     private Partida partida;
+    private Bucles bucle = new Bucles();
 
     private GridPane tablero = new GridPane();
 
@@ -36,13 +40,12 @@ public class EscenarioJugarController {
 
     private Boolean partidaCreada = false;
 
-    private ArrayList<Individuo> listaIndividuos;
+    private List<Individuo> listaIndividuos = new ArrayList<>();
 
-    private ArrayList<Casilla> listaCasillas = new ArrayList<>();
+    private List<Casilla> listaCasillas = new ArrayList<>();
+    private List<Elementos> listaElementos = new ArrayList<>();
 
     private int velocidad = 50;
-
-    //Methods
 
     @FXML
     private Label lblTurno;
@@ -65,7 +68,7 @@ public class EscenarioJugarController {
     @FXML
     private Button btnCaracteristicas;
 
-        //Modificar Parametros Individuos
+        //Modify Individuals Parameters
 
     @FXML
     private Tab tabIndividuos;
@@ -94,7 +97,7 @@ public class EscenarioJugarController {
     @FXML
     private Button btnRestablecer;
 
-        //Modificar Tipo Individuos
+        //Modify Individuals Types
 
     @FXML
     private Tab tabTipoIndiviudos;
@@ -123,7 +126,7 @@ public class EscenarioJugarController {
     @FXML
     private Button btnAceptarTipoIndividuo;
 
-        //Modificar Parametros Entorno
+        //Modify Elements Parameters
 
     @FXML
     private Tab tabEntorno;
@@ -152,7 +155,7 @@ public class EscenarioJugarController {
     @FXML
     private Button btnRestablecer1;
 
-        //Modificar Parametros Tablero
+        //Modify Board Parameters
 
     @FXML
     private Tab tabTablero;
@@ -258,6 +261,7 @@ public class EscenarioJugarController {
             public void handle(long now) {
                 if (i%velocidad==0) {
                     listaIndividuos = partida.getListaIndividuos();
+                    listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
                 }
@@ -272,7 +276,8 @@ public class EscenarioJugarController {
                 crearPartida();
                 partida.individuosInicio();
                 listaIndividuos = partida.getListaIndividuos();
-                mostrarEnCasilla();
+                listaCasillas = partida.getListaCasillas();
+                mostrarCasillas();
                 partidaCreada = true;
             }
             //Disable Bottoms
@@ -300,7 +305,7 @@ public class EscenarioJugarController {
                 //partidaCreada = true;
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+           Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("No has colocado los individuos en las casillas");
@@ -440,50 +445,7 @@ public class EscenarioJugarController {
         });
     }
 
-    public int getIndividuoBasico(){
-        return (int) sliderBasico.getValue();
-    }
-
-    public int getIndividuoNormal(){
-        return (int) sliderNormal.getValue();
-    }
-
-    public int getIndividuoAvanzado(){
-        return (int) sliderAvanzado.getValue();
-    }
-
-    public int getAgua(){
-        return (int) sliderAgua.getValue();
-    }
-
-    public int getComida(){
-        return (int) sliderComida.getValue();
-    }
-
-    public int getMontana(){
-        return (int) sliderMontana.getValue();
-    }
-
-    public int getCofre(){
-        return (int) sliderCofre.getValue();
-    }
-
-    public int getBiblioteca(){
-        return (int) sliderBiblioteca.getValue();
-    }
-
-    public int getPozo(){
-        return (int) sliderPozo.getValue();
-    }
-
-    public int getNumeroColumnas(){
-        return (int)sliderColumnas.getValue();
-    }
-
-    public int getNumeroFilas(){
-        return (int)sliderFilas.getValue();
-    }
-
+        //Crear Partida
     public void crearPartida(){
         this.partida = new Partida(
             (int) sliderReproduccion.getValue(),
@@ -501,47 +463,46 @@ public class EscenarioJugarController {
             (int) sliderColumnas.getValue(),
             (int) sliderFilas.getValue()
         );
+        partida.setListaCasillas(listaCasillas);
     }
 
+        //Mostrar Casillas
     public double getTamanoIndividuos(){
         double a = paneTablero.getHeight();
         double casillas = a / sliderColumnas.getValue();
-        double diametro = casillas / partida.getMaximoCasilla();
+        double diametro = casillas / partida.getMaximosIndividuos();
         return diametro/2;
     }
 
-    public void mostrarEnCasilla(){
-        for (Individuo individuo:listaIndividuos){
-            Circle circulo = new Circle(getTamanoIndividuos());
-            int rango = individuo.getRango();
-            if (rango==3){
-                circulo.setStroke(Color.rgb(255, 74, 123));
-                circulo.setFill(Color.rgb(255,74,123));
-                Casilla casilla = individuo.getCasilla();
-                for (Casilla lugar:listaCasillas){
-                    if (Objects.equals(casilla.getId(), lugar.getId())){
-                        lugar.setCenter(circulo);
-                    }
-                }
-            } else if (rango == 2) {
-                circulo.setStroke(Color.rgb(241, 241, 70));
-                circulo.setFill(Color.rgb(241, 241, 70));
-                Casilla casilla = individuo.getCasilla();
-                for (Casilla lugar:listaCasillas){
-                    if (Objects.equals(casilla.getId(), lugar.getId())){
-                        lugar.setCenter(circulo);
-                    }
-                }
-            } else{
-                circulo.setStroke(Color.rgb(169, 250, 70));
-                circulo.setFill(Color.rgb(169, 250, 70));
-                Casilla casilla = individuo.getCasilla();
-                for (Casilla lugar:listaCasillas){
-                    if (Objects.equals(casilla.getId(), lugar.getId())){
-                        lugar.setCenter(circulo);
-                    }
-                }
-            }
+    public void mostrarIndividuoCasilla(Casilla casilla){
+        bucle.evaluacionFinal(casilla);
+        int i = 1;
+        for (Individuo individuo : casilla.getIndividuosCasilla()){
+            Circle circulo = new Circle();
+            circulo.setRadius(getTamanoIndividuos());
+            colorIndividuo(individuo,circulo);
+            circulo.setCenterX(getTamanoIndividuos()*i);
+            circulo.setCenterY(getTamanoIndividuos());
+            casilla.getChildren().addAll(circulo);
+            i += 2;
+        }
+    }
+    public void mostrarCasillas(){
+        for (Casilla casilla : listaCasillas){
+            mostrarIndividuoCasilla(casilla);
+        }
+    }
+
+    public void colorIndividuo(Individuo individuo, Circle circulo){
+        if (individuo.getRango() == 3) {
+            circulo.setStroke(Color.rgb(255, 74, 123));
+            circulo.setFill(Color.rgb(255, 74, 123));
+        } else if (individuo.getRango() == 2) {
+            circulo.setStroke(Color.rgb(241, 241, 70));
+            circulo.setFill(Color.rgb(241, 241, 70));
+        } else {
+            circulo.setStroke(Color.rgb(169, 250, 70));
+            circulo.setFill(Color.rgb(169, 250, 70));
         }
     }
 

@@ -2,6 +2,7 @@ package org.example.practicafinal.Clases.Entorno;
 
 public class Biblioteca extends Elementos{
 
+    int type = 2;
     private int alteracion;
 
     public Biblioteca(int tiempoActividad) {

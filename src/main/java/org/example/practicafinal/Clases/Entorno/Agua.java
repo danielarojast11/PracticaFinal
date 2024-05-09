@@ -2,6 +2,7 @@ package org.example.practicafinal.Clases.Entorno;
 
 public class Agua extends Elementos{
 
+    int type = 0;
     private int alteracion = 2;
 
     public Agua(int tiempoActividad) {

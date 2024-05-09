@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Casilla extends BorderPane {
+public class Casilla extends Pane {
     int columna;
     int fila;
     List<Individuo> individuosCasilla = new ArrayList<>();
+    List<Integer> individuosIdCasilla = new ArrayList<>();
     List<Elementos> elementosCasilla = new ArrayList<>();
 
     //EscenarioJugarController escenario;
@@ -26,6 +27,8 @@ public class Casilla extends BorderPane {
         this.setId("casilla("+columna+","+fila+")");
     }
 
+
+        //Elementos en la Casilla
     public List<Elementos> getElementosCasilla() {
         return elementosCasilla;
     }
@@ -42,8 +45,14 @@ public class Casilla extends BorderPane {
         this.elementosCasilla.remove(elemento);
     }
 
+        //Individuos en la Casilla
     public List<Individuo> getIndividuosCasilla() {
         return this.individuosCasilla;
+    }
+    public List<Integer> getIndividuosIdCasilla(){return this.individuosIdCasilla;}
+
+    public int getIndividuosTotales(){
+        return individuosCasilla.size();
     }
 
     public void setIndividuosCasilla(List<Individuo> listaIndividuos) {
@@ -51,13 +60,24 @@ public class Casilla extends BorderPane {
     }
 
     public void addIndividuoCasilla(Individuo individuo) {
+
         this.individuosCasilla.add(individuo);
+        addIndividuoCasilla();
+    }
+    public void addIndividuoCasilla(){
+        individuosIdCasilla.clear();
+        for (Individuo individuo : individuosCasilla){
+            individuosIdCasilla.add(individuo.getId());
+        }
     }
 
     public void removeIndividuoCasilla(Individuo individuo) {
         this.individuosCasilla.remove(individuo);
+        addIndividuoCasilla();
     }
 
+
+        //Componentes Casilla
     public int getColumna() {
         return columna;
     }
@@ -74,14 +94,4 @@ public class Casilla extends BorderPane {
         this.fila = fila;
     }
 
-
-    public int filaAleatoria(int top){
-        int fila = (int) (Math.random()*top);
-        return fila;
-    }
-
-    public int columnaAleatoria(int top){
-        int columna = (int) (Math.random()*top);
-        return columna;
-    }
 }

@@ -9,20 +9,19 @@ import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Bucles extends Partida {
 
         //Parameters
-    private ArrayList<Individuo> listaIndividuos;
     private ArrayList<Elementos> listaElementos;
     private ArrayList<Casilla> tablero;
     private Individuo individuo;
 
         //Constructor
     public Bucles(){}
-    public Bucles (ArrayList<Individuo> listaIndividuos, ArrayList<Elementos> listaElementos){
-        this.listaIndividuos = listaIndividuos;
+    public Bucles (ArrayList<Elementos> listaElementos){
         this.listaElementos = listaElementos;
     }
 
@@ -35,9 +34,9 @@ public class Bucles extends Partida {
 
     public void eliminarIndividuo(Individuo individuo){
         if (individuo.getTurnosVida()==0){
-            listaIndividuos.remove(individuo);
+            getListaIndividuos().remove(individuo);
         } else if (individuo.getProbReproduccion()==0) {
-            listaIndividuos.remove(individuo);
+            getListaIndividuos().remove(individuo);
         }
     }
 
@@ -52,7 +51,7 @@ public class Bucles extends Partida {
         return listaElementos;
     }
 
-    public List<Individuo> individuoEnCasilla(List<Casilla> tablero, List<Individuo> listaIndividuos){
+    /*public List<Individuo> individuoEnCasilla(List<Casilla> tablero, List<Individuo> listaIndividuos){
         for (Casilla casilla : tablero){
             if (individuo.getIndividuos().size() > 3){
                 for (Individuo individuo :  listaIndividuos){
@@ -62,7 +61,7 @@ public class Bucles extends Partida {
             }
         }
         return listaIndividuos;
-    }
+    }*/
 
         //5-Reproduccion
     public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
@@ -80,5 +79,40 @@ public class Bucles extends Partida {
         casilla.setColumna(a.getCasilla().getColumna());
         casilla.setFila(a.getCasilla().getFila());
         return hijo;
+    }
+
+        //7-Evaluar Casillas
+        public int evaluarCapacidadCasilla(Casilla casilla){
+            if (casilla.getIndividuosTotales()<getMaximosIndividuos()) {
+                int a = 1;
+                for (int i = 0; i < getMaximosIndividuos(); i++) {
+                    if (i < casilla.getIndividuosTotales()) {
+                        a += 2;
+                    }
+                }
+                return a;
+            }
+            return 0;
+        }
+
+    public Individuo evaluarIndividuosCasilla(Casilla casilla){
+        Collections.sort(casilla.getIndividuosCasilla());
+        return casilla.getIndividuosCasilla().getFirst();
+    }
+
+    public List<Integer> reordenar(Casilla casilla){
+        List<Integer> id = new ArrayList<>();
+        Collections.sort(casilla.getIndividuosCasilla());
+        for (Individuo individuo1 : casilla.getIndividuosCasilla()){
+            id.add(individuo1.getId());
+        }
+        return id;
+    }
+
+    public void evaluacionFinal(Casilla casilla){
+        while (casilla.getIndividuosTotales()>getMaximosIndividuos()){
+            Individuo eliminar = evaluarIndividuosCasilla(casilla);
+            casilla.removeIndividuoCasilla(eliminar);
+        }
     }
 }
