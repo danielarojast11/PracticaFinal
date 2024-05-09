@@ -20,4 +20,8 @@ public class Biblioteca extends Elementos{
         this.alteracion=valor;
     }
 
+    public int getType(){
+        return this.type;
+    }
+
 }

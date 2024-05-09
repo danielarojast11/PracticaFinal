@@ -40,15 +40,26 @@ public class Bucles extends Partida {
         }
     }
 
-        //2-Actualizar y Eliminar Recursos
-    public List<Elementos> actualizarElementos(List<Elementos> listaElementos){
-        for (Elementos elemento : listaElementos){
-            elemento.setTiempoActividad(elemento.getTiempoActividad() -1);
-            if (elemento.getTiempoActividad() == 0){
-                listaElementos.remove(elemento);
-            }
+    public void actualizarIndividuos(List<Individuo> individuos){
+        for (Individuo individuo : individuos){
+            modificarIndividuo(individuo);
+            eliminarIndividuo(individuo);
         }
-        return listaElementos;
+    }
+
+        //2-Actualizar y Eliminar Recursos
+    public void modificarElemento(Elementos elemento){
+        elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
+    }
+    public void eliminarElemento(Elementos elemento){
+        if (elemento.getTiempoActividad()==0){
+        getListaElementos().remove(elemento);}
+    }
+    public void actualizarElementos(List<Elementos> elementos){
+        for (Elementos elemento : elementos){
+            modificarElemento(elemento);
+            eliminarElemento(elemento);
+        }
     }
 
     /*public List<Individuo> individuoEnCasilla(List<Casilla> tablero, List<Individuo> listaIndividuos){
@@ -82,18 +93,18 @@ public class Bucles extends Partida {
     }
 
         //7-Evaluar Casillas
-        public int evaluarCapacidadCasilla(Casilla casilla){
-            if (casilla.getIndividuosTotales()<getMaximosIndividuos()) {
-                int a = 1;
-                for (int i = 0; i < getMaximosIndividuos(); i++) {
-                    if (i < casilla.getIndividuosTotales()) {
-                        a += 2;
-                    }
+    public int evaluarCapacidadCasilla(Casilla casilla){
+        if (casilla.getIndividuosTotales()<getMaximosIndividuos()) {
+            int a = 1;
+            for (int i = 0; i < getMaximosIndividuos(); i++) {
+                if (i < casilla.getIndividuosTotales()) {
+                    a += 2;
                 }
-                return a;
             }
-            return 0;
+            return a;
         }
+        return 0;
+    }
 
     public Individuo evaluarIndividuosCasilla(Casilla casilla){
         Collections.sort(casilla.getIndividuosCasilla());
@@ -109,10 +120,15 @@ public class Bucles extends Partida {
         return id;
     }
 
+    public void evaluarElementosCasilla(Casilla casilla){
+
+    }
+
     public void evaluacionFinal(Casilla casilla){
         while (casilla.getIndividuosTotales()>getMaximosIndividuos()){
             Individuo eliminar = evaluarIndividuosCasilla(casilla);
             casilla.removeIndividuoCasilla(eliminar);
+            getListaIndividuos().remove(eliminar);
         }
     }
 }

@@ -1,6 +1,6 @@
 package org.example.practicafinal.Clases.Partida;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
-import org.example.practicafinal.Clases.Entorno.Elementos;
+import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
@@ -238,67 +238,156 @@ public class Partida {
 
         //CREATE INDIVIDUALS
     public IndividuoBasico crearBasico(){
-            IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
-            modificarId();
-            listaIndividuos.add(basico);
-            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
-            basico.setCasilla(casilla);
-            for (Casilla casilla1 : listaCasillas){
-                if (Objects.equals(casilla1.getId(), casilla.getId())){
-                    casilla1.addIndividuoCasilla(basico);
-                }
-            }
-            return basico;
-        }
-        public IndividuoNormal crearNormal(){
-            IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
-            modificarId();
-            listaIndividuos.add(normal);
-            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
-            normal.setCasilla(casilla);
-            for (Casilla casilla1 : listaCasillas){
-                if (Objects.equals(casilla1.getId(), casilla.getId())){
-                    casilla1.addIndividuoCasilla(normal);
-                }
-            }
-            return normal;
-        }
-
-        public IndividuoAvanzado crearAvanzado(){
-            IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
-            modificarId();
-            listaIndividuos.add(avanzado);
-            Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
-            avanzado.setCasilla(casilla);
-            for (Casilla casilla1 : listaCasillas){
-                if (Objects.equals(casilla1.getId(), casilla.getId())){
-                    casilla1.addIndividuoCasilla(avanzado);
-                }
-            }
-            return avanzado;
-        }
-
-        public void individuosInicio(){
-            for (int i = 0; i < numeroIndividuosBasicos; i++){
-                crearBasico();
-            }
-            for (int i = 0; i < numeroIndividuosNormal; i++){
-                crearNormal();
-            }
-            for (int i = 0; i < numeroIndividuosAvanzados; i++){
-                crearAvanzado();
+        IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
+        modificarId();
+        listaIndividuos.add(basico);
+        Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+        basico.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())){
+                casilla1.addIndividuoCasilla(basico);
             }
         }
+        return basico;
+    }
+    public IndividuoNormal crearNormal(){
+        IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
+        modificarId();
+        listaIndividuos.add(normal);
+        Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+        normal.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())){
+                casilla1.addIndividuoCasilla(normal);
+            }
+        }
+        return normal;
+    }
 
-            //CREATE ELEMENTS
+    public IndividuoAvanzado crearAvanzado(){
+        IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
+        modificarId();
+        listaIndividuos.add(avanzado);
+        Casilla casilla = new Casilla(columnaAleatoria(), filaAleatoria());
+        avanzado.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())){
+                casilla1.addIndividuoCasilla(avanzado);
+            }
+        }
+        return avanzado;
+    }
 
+    public void individuosInicio(){
+        for (int i = 0; i < numeroIndividuosBasicos; i++){
+            crearBasico();
+        }
+        for (int i = 0; i < numeroIndividuosNormal; i++){
+            crearNormal();
+        }
+        for (int i = 0; i < numeroIndividuosAvanzados; i++){
+            crearAvanzado();
+        }
+    }
 
-            //MODIFY PARAMETERS
-        public void modificarId(){
+        //CREATE ELEMENTS
+    public Agua crearAgua(){
+        Agua agua = new Agua();
+        Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
+        agua.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(agua);
+                listaElementos.add(agua);
+            }
+        }
+        return agua;
+    }
+
+    public Comida crearComida(){
+        Comida comida = new Comida();
+        Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
+        comida.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(comida);
+                listaElementos.add(comida);
+            }
+        }
+        return comida;
+    }
+    public Biblioteca crearBiblioteca(){
+        Biblioteca biblioteca = new Biblioteca();
+        Casilla casilla =new Casilla(columnaAleatoria(),filaAleatoria());
+        biblioteca.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(biblioteca);
+                listaElementos.add(biblioteca);
+            }
+        }
+        return biblioteca;
+    }
+
+    public Montaña crearMontaña(){
+        Montaña montaña = new Montaña();
+        Casilla casilla =new Casilla(columnaAleatoria(),filaAleatoria());
+        montaña.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(montaña);
+                listaElementos.add(montaña);
+            }
+        }
+        return montaña;
+    }
+
+    public Tesoro crearTesoro(){
+        Tesoro tesoro = new Tesoro();
+        Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
+        tesoro.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(tesoro);
+                listaElementos.add(tesoro);
+            }
+        }
+        return tesoro;
+    }
+    public Pozo crearPozo(){
+        Pozo pozo = new Pozo();
+        Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
+        pozo.setCasilla(casilla);
+        for (Casilla casilla1 : listaCasillas){
+            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
+                casilla1.addElementoCasilla(pozo);
+                listaElementos.add(pozo);
+            }
+        }
+        return pozo;
+    }
+
+    public void elementosPrincipio(){
+        for (int a=0; a<agua;a++){
+            crearAgua();
+        }for (int c=0; c<comida;c++){
+            crearComida();
+        }for (int b=0; b<biblioteca; b++){
+            crearBiblioteca();
+        }for (int m=0; m<montana; m++){
+            crearMontaña();
+        }for (int t=0; t<cofre; t++){
+            crearTesoro();
+        }for (int p=0; p<pozo; p++){
+            crearPozo();
+        }
+    }
+
+        //MODIFY PARAMETERS
+    public void modificarId(){
          this.setId(id+1);
         }
-
-        public void modificarTurno(){
+    public void modificarTurno(){
             this.setTurno(turno+1);
         }
 

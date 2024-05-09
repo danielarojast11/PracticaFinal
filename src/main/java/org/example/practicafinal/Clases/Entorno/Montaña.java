@@ -20,4 +20,8 @@ public class Montaña extends Elementos{
         this.alteracion = alteracion;
     }
 
+    public int getType(){
+        return this.type;
+    }
+
 }

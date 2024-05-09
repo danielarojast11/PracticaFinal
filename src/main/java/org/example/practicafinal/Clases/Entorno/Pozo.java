@@ -10,4 +10,8 @@ public class Pozo extends Elementos {
     public Pozo() {
     }
 
+    public int getType(){
+        return this.type;
+    }
+
 }

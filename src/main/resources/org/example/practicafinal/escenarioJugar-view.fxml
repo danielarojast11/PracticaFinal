@@ -214,7 +214,7 @@
       </TabPane>
       <ToolBar prefHeight="36.0" prefWidth="882.0" style="-fx-background-color: #876A4D;">
         <items>
-            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="314.0" text="Turno: " textFill="WHITE">
+            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="352.0" text="Turno: " textFill="WHITE">
                <font>
                   <Font name="Britannic Bold" size="17.0" />
                </font>
@@ -252,7 +252,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button fx:id="btnCaracteristicas" mnemonicParsing="false" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #DAD5B5;" text="Características Partida">
+            <Button fx:id="btnCaracteristicas" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #DAD5B5;" text="Leyenda">
                <effect>
                   <InnerShadow>
                      <color>

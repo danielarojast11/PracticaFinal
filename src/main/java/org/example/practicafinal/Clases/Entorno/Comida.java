@@ -20,4 +20,7 @@ public class Comida extends Elementos{
         this.alteracion = alteracion;
     }
 
+    public int getType(){
+        return this.type;
+    }
 }
