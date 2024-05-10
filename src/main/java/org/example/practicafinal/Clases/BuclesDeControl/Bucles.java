@@ -88,17 +88,17 @@ public class Bucles extends Partida {
             int individuoComida = individuo.getTurnosVida() +10;
             individuo.setTurnosVida(individuoComida);
             return individuo;
-        } else if (elemento.getType() == 2) {
+        } else if (elemento.getType() == 3) {
             int individuoMontana = individuo.getTurnosVida() -2;
             individuo.setTurnosVida(individuoMontana);
             return individuo;
-        } else if (elemento.getType() == 3) {
+        } else if (elemento.getType() == 4) {
             int sliderRep = partida.getProbReproduccion();
             int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
             int individuoCofre = individuo.getProbReproduccion() + probRep;
             individuo.setProbReproduccion(individuoCofre);
             return individuo;
-        } else if (elemento.getType() == 4) {
+        } else if (elemento.getType() == 2) {
             int sliderClon = partida.getProbClonacion();
             int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
             int individuoBiblioteca = individuo.getProbClonacion() - probClon;
@@ -107,7 +107,7 @@ public class Bucles extends Partida {
             individuo.setRango(individuoRango);
             return individuo;
         } else if (elemento.getType() == 5) {
-            individuo.setProbMuerte(100);
+            individuo.setProbabilidadMuerte(100);
         }
         return individuo;
     }

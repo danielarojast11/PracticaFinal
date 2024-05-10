@@ -27,17 +27,34 @@ public class Individuo implements Comparable<Individuo>{
     public Individuo() {
     }
 
-    public Individuo(int id, int generacion, int turnosVida, int probReproduccion, int probClonacion) {
+    public Individuo(int id,
+                     int generacion,
+                     int turnosVida,
+                     int probReproduccion,
+                     int probClonacion) {
         this.id = id;
         this.generacion = generacion;
         this.turnosVida = turnosVida;
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
-        this.setProbMuerte();
+        this.probMuerte = 100 - probReproduccion;
     }
 
+    public Individuo(int id,
+                     int generacion,
+                     int turnosVida,
+                     int probReproduccion,
+                     int probClonacion,
+                     int rango) {
+        this.id = id;
+        this.generacion = generacion;
+        this.turnosVida = turnosVida;
+        this.probReproduccion = probReproduccion;
+        this.probClonacion = probClonacion;
+        this.rango = rango;
+    }
 
-        //GETTERS AND SETTERS
+    //GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -68,7 +85,6 @@ public class Individuo implements Comparable<Individuo>{
 
     public void setProbReproduccion(int probReproduccion) {
         this.probReproduccion = probReproduccion;
-        this.setProbMuerte();
     }
 
     public int getProbClonacion() {
@@ -79,15 +95,11 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion = probClonacion;
     }
 
-    public int getProbMuerte() {
-        return probMuerte;
-    }
-
-    protected void setProbMuerte() {
+    protected void setProbMuerte(int probReproduccion) {
         this.probMuerte = 100 - probReproduccion;
     }
 
-    public void setProbMuerte(int probMuerte) {
+    public void setProbabilidadMuerte(int probMuerte) {
         this.probMuerte = probMuerte;
     }
 
@@ -138,10 +150,6 @@ public class Individuo implements Comparable<Individuo>{
     }
 
         //METHODS PLACEHOLDERS
-    public void setCasilla(int columna, int fila){
-        this.casilla = new Casilla(columna,fila);
-    }
-
     public void setCasilla (Casilla casilla){this.casilla = casilla;}
 
     public Casilla getCasilla(){
