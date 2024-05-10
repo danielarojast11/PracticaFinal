@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Clases.Entorno.Elementos;
@@ -150,6 +151,9 @@ public class EscenarioJugarController {
     private Slider sliderPozo;
 
     @FXML
+    private Slider sliderProbAparicion;
+
+    @FXML
     private Button btnAceptarParEntorno;
 
     @FXML
@@ -169,8 +173,10 @@ public class EscenarioJugarController {
 
     @FXML
     private Slider sliderColumnas;
+
     @FXML
     private Slider sliderFilas;
+
     @FXML
     private Slider sliderVelocidad;
 
@@ -236,6 +242,7 @@ public class EscenarioJugarController {
         sliderCofre.setValue(15);
         sliderBiblioteca.setValue(30);
         sliderPozo.setValue(15);
+        sliderProbAparicion.setValue(10);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -269,6 +276,7 @@ public class EscenarioJugarController {
             public void handle(long now) {
                 if (i%velocidad==0) {
                     listaIndividuos = partida.getListaIndividuos();
+                    listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
@@ -347,6 +355,7 @@ public class EscenarioJugarController {
         sliderCofre.setDisable(a);
         sliderBiblioteca.setDisable(a);
         sliderPozo.setDisable(a);
+        sliderProbAparicion.setDisable(a);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -460,6 +469,7 @@ public class EscenarioJugarController {
             (int) sliderCofre.getValue(),
             (int) sliderBiblioteca.getValue(),
             (int) sliderPozo.getValue(),
+            (int) sliderProbAparicion.getValue(),
             (int) sliderColumnas.getValue(),
             (int) sliderFilas.getValue()
         );
@@ -468,10 +478,27 @@ public class EscenarioJugarController {
 
         //Mostrar Casillas
     public double getTamanoIndividuos(){
-        double a = paneTablero.getHeight();
-        double casillas = a / sliderColumnas.getValue();
-        double diametro = casillas / partida.getMaximosIndividuos();
+        double a = paneTablero.getHeight()/sliderColumnas.getValue();
+        double b = paneTablero.getWidth()/sliderFilas.getValue();
+        double diametro;
+        if (a<b){
+            diametro = a/partida.getMaximosIndividuos();
+        } else{
+            diametro = b/partida.getMaximosIndividuos();
+        }
         return diametro/2;
+    }
+
+    public double getTamanoElementos(){
+        double a = paneTablero.getHeight()/sliderColumnas.getValue();
+        double b = paneTablero.getWidth()/sliderFilas.getValue();
+        double lado;
+        if (a<b){
+            lado = a/partida.getMaximosIndividuos();
+        } else {
+            lado = b/partida.getMaximosIndividuos();
+        }
+        return lado;
     }
 
     public void mostrarIndividuoCasilla(Casilla casilla){
@@ -482,27 +509,62 @@ public class EscenarioJugarController {
             circulo.setRadius(getTamanoIndividuos());
             colorIndividuo(individuo,circulo);
             circulo.setCenterX(getTamanoIndividuos()*i);
-            circulo.setCenterY(getTamanoIndividuos());
+            circulo.setCenterY(getTamanoIndividuos()*2-getTamanoIndividuos()/3);
             casilla.getChildren().addAll(circulo);
             i += 2;
+        }
+    }
+
+    public void mostrarElementoCasilla(Casilla casilla){
+        int i = 0;
+        for (Elementos elemento:casilla.getElementosCasilla()){
+            Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
+            colorEelemento(elemento,rectangle);
+            rectangle.setX(getTamanoElementos()*i);
+            rectangle.setY(getTamanoIndividuos()*3);
+            casilla.getChildren().addAll(rectangle);
+            i+=1;
         }
     }
     public void mostrarCasillas(){
         for (Casilla casilla : listaCasillas){
             mostrarIndividuoCasilla(casilla);
+            mostrarElementoCasilla(casilla);
         }
     }
 
     public void colorIndividuo(Individuo individuo, Circle circulo){
         if (individuo.getRango() == 3) {
-            circulo.setStroke(Color.rgb(255, 74, 123));
-            circulo.setFill(Color.rgb(255, 74, 123));
+            circulo.setStroke(Color.rgb(83,98,98));
+            circulo.setFill(Color.rgb(83,98,98));
         } else if (individuo.getRango() == 2) {
-            circulo.setStroke(Color.rgb(241, 241, 70));
-            circulo.setFill(Color.rgb(241, 241, 70));
+            circulo.setStroke(Color.rgb(138,145,148));
+            circulo.setFill(Color.rgb(138,145,148));
         } else {
-            circulo.setStroke(Color.rgb(169, 250, 70));
-            circulo.setFill(Color.rgb(169, 250, 70));
+            circulo.setStroke(Color.rgb(203,205,205));
+            circulo.setFill(Color.rgb(203,205,205));
+        }
+    }
+
+    public void colorEelemento(Elementos elemento, Rectangle rectangle){
+        if (elemento.getType()==0){
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(82,223,215));
+        }else if (elemento.getType()==1){
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(193,188,80));
+        }else if (elemento.getType()==2) {
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(253,247,225));
+        }else if (elemento.getType()==3) {
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(178,148,118));
+        }else if (elemento.getType()==4){
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(226,194,110));
+        }else{
+            rectangle.setStroke(Color.rgb(212,229,227));
+            rectangle.setFill(Color.rgb(59,133,140));
         }
     }
 
