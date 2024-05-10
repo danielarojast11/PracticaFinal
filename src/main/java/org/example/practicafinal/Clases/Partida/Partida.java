@@ -27,6 +27,7 @@ public class Partida {
     int cofre;
     int biblioteca;
     int pozo;
+    int probAparicion;
     int columnas;
     int filas;
 
@@ -73,6 +74,7 @@ public class Partida {
         int cofre,
         int biblioteca,
         int pozo,
+        int probAparicion,
         int columnas,
         int filas
     ) {
@@ -88,6 +90,7 @@ public class Partida {
         this.cofre = cofre;
         this.biblioteca = biblioteca;
         this.pozo = pozo;
+        this.probAparicion = probAparicion;
         this.columnas = columnas;
         this.filas = filas;
     }
@@ -219,6 +222,14 @@ public class Partida {
 
     public void setPozo(int pozo) {
         this.pozo = pozo;
+    }
+
+    public int getProbAparicion() {
+        return probAparicion;
+    }
+
+    public void setProbAparicion(int probAparicion) {
+        this.probAparicion = probAparicion;
     }
 
     public List<Elementos> getListaElementos(){return this.listaElementos;}

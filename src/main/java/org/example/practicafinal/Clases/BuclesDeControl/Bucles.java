@@ -67,43 +67,46 @@ public class Bucles extends Partida {
         //4-Evaluar las mejoras obtenidas por los recursos
     public Individuo individuoMejorado(List<Casilla> listaCasillas,
                                        List<Individuo> listaIndividuos,
-                                       List<Elementos> listaElementos){
+                                       List<Elementos> listaElementos,
+                                        Partida partida){
         for (Casilla casilla : listaCasillas){
             for (Individuo individuo : listaIndividuos){
                 for (Elementos elemento : listaElementos){
-                    individuoConRecurso(individuo, elemento);
+                    individuoConRecurso(individuo, elemento, partida);
                 }
             }
         }
         return individuo;
     }
 
-    private Individuo individuoConRecurso(Individuo individuo, Elementos elemento){
-        if (elemento.getType() == "agua"){
+    private Individuo individuoConRecurso(Individuo individuo, Elementos elemento, Partida partida){
+        if (elemento.getType() == 0){
             int individuoAgua = individuo.getTurnosVida() +2;
             individuo.setTurnosVida(individuoAgua);
             return individuo;
-        } else if (elemento.getType() == "comida") {
+        } else if (elemento.getType() == 1) {
             int individuoComida = individuo.getTurnosVida() +10;
             individuo.setTurnosVida(individuoComida);
             return individuo;
-        } else if (elemento.getType() == "montaña") {
+        } else if (elemento.getType() == 2) {
             int individuoMontana = individuo.getTurnosVida() -2;
             individuo.setTurnosVida(individuoMontana);
             return individuo;
-        } else if (elemento.getType() == "cofre") {
-            int probRep = (10 * individuo.getProbReproduccion()) / 100;
+        } else if (elemento.getType() == 3) {
+            int sliderRep = partida.getProbReproduccion();
+            int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
             int individuoCofre = individuo.getProbReproduccion() + probRep;
             individuo.setProbReproduccion(individuoCofre);
             return individuo;
-        } else if (elemento.getType() == "biblioteca") {
-            int probClon = (20 * individuo.getProbReproduccion()) / 100;
+        } else if (elemento.getType() == 4) {
+            int sliderClon = partida.getProbClonacion();
+            int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
             int individuoBiblioteca = individuo.getProbClonacion() - probClon;
             individuo.setProbClonacion(individuoBiblioteca);
             int individuoRango = individuo.getRango() +1;
             individuo.setRango(individuoRango);
             return individuo;
-        } else if (elemento.getType() == "pozo") {
+        } else if (elemento.getType() == 5) {
             individuo.setProbMuerte(100);
         }
         return individuo;
@@ -179,4 +182,9 @@ public class Bucles extends Partida {
             getListaIndividuos().remove(eliminar);
         }
     }
+
+        //8-Aparición recursos
+    //public Elementos aparicionRecursos(){
+
+    //}
 }

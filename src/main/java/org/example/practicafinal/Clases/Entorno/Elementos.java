@@ -6,8 +6,9 @@ import org.jetbrains.annotations.NotNull;
 public class Elementos implements Comparable<Elementos>{
 
     private int tiempoActividad;
+    private int aparicionRecurso;
     private Casilla casilla = new Casilla();
-    protected String type;
+    protected int type;
 
     public Elementos(int tiempoActividad) {
         this.tiempoActividad = tiempoActividad;
@@ -24,6 +25,10 @@ public class Elementos implements Comparable<Elementos>{
         this.tiempoActividad = tiempoActividad;
     }
 
+    public Casilla getCasilla(){
+        return casilla;
+    }
+
     public void setCasilla(int columna, int fila){
         this.casilla = new Casilla(columna,fila);
     }
@@ -32,12 +37,16 @@ public class Elementos implements Comparable<Elementos>{
         this.casilla = casilla;
     }
 
-    public String getType(){
+    public int getType(){
         return type;
     }
 
-    public Casilla getCasilla(){
-        return casilla;
+    public int getAparicionRecurso() {
+        return aparicionRecurso;
+    }
+
+    public void setAparicionRecurso(int aparicionRecurso) {
+        this.aparicionRecurso = aparicionRecurso;
     }
 
     @Override
