@@ -21,6 +21,7 @@ public class Bucles extends Partida {
 
         //Constructor
     public Bucles(){}
+
     public Bucles (ArrayList<Elementos> listaElementos){
         this.listaElementos = listaElementos;
     }
@@ -35,7 +36,7 @@ public class Bucles extends Partida {
     public void eliminarIndividuo(Individuo individuo){
         if (individuo.getTurnosVida()==0){
             getListaIndividuos().remove(individuo);
-        } else if (individuo.getProbReproduccion()==0) {
+        } else if (individuo.getProbReproduccion() == 0) {
             getListaIndividuos().remove(individuo);
         }
     }
@@ -51,6 +52,7 @@ public class Bucles extends Partida {
     public void modificarElemento(Elementos elemento){
         elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
     }
+
     public void eliminarElemento(Elementos elemento){
         if (elemento.getTiempoActividad()==0){
         getListaElementos().remove(elemento);}
@@ -62,17 +64,50 @@ public class Bucles extends Partida {
         }
     }
 
-    /*public List<Individuo> individuoEnCasilla(List<Casilla> tablero, List<Individuo> listaIndividuos){
-        for (Casilla casilla : tablero){
-            if (individuo.getIndividuos().size() > 3){
-                for (Individuo individuo :  listaIndividuos){
-                    individuo.getTurnosVida();
-                    //listaIndividuos.sort();
+        //4-Evaluar las mejoras obtenidas por los recursos
+    public Individuo individuoMejorado(List<Casilla> listaCasillas,
+                                       List<Individuo> listaIndividuos,
+                                       List<Elementos> listaElementos){
+        for (Casilla casilla : listaCasillas){
+            for (Individuo individuo : listaIndividuos){
+                for (Elementos elemento : listaElementos){
+                    individuoConRecurso(individuo, elemento);
                 }
             }
         }
-        return listaIndividuos;
-    }*/
+        return individuo;
+    }
+
+    private Individuo individuoConRecurso(Individuo individuo, Elementos elemento){
+        if (elemento.getType() == "agua"){
+            int individuoAgua = individuo.getTurnosVida() +2;
+            individuo.setTurnosVida(individuoAgua);
+            return individuo;
+        } else if (elemento.getType() == "comida") {
+            int individuoComida = individuo.getTurnosVida() +10;
+            individuo.setTurnosVida(individuoComida);
+            return individuo;
+        } else if (elemento.getType() == "montaña") {
+            int individuoMontana = individuo.getTurnosVida() -2;
+            individuo.setTurnosVida(individuoMontana);
+            return individuo;
+        } else if (elemento.getType() == "cofre") {
+            int probRep = (10 * individuo.getProbReproduccion()) / 100;
+            int individuoCofre = individuo.getProbReproduccion() + probRep;
+            individuo.setProbReproduccion(individuoCofre);
+            return individuo;
+        } else if (elemento.getType() == "biblioteca") {
+            int probClon = (20 * individuo.getProbReproduccion()) / 100;
+            int individuoBiblioteca = individuo.getProbClonacion() - probClon;
+            individuo.setProbClonacion(individuoBiblioteca);
+            int individuoRango = individuo.getRango() +1;
+            individuo.setRango(individuoRango);
+            return individuo;
+        } else if (elemento.getType() == "pozo") {
+            individuo.setProbMuerte(100);
+        }
+        return individuo;
+    }
 
         //5-Reproduccion
     public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
@@ -92,9 +127,22 @@ public class Bucles extends Partida {
         return hijo;
     }
 
+        //6-Clonación
+    public Individuo clonar(@NotNull Individuo individuo, Partida partida){
+        Individuo individuoClonar = null;
+        if (individuo.getProbClonacion() >= partida.getProbClonacion()){
+            individuoClonar = individuo;
+        }
+        individuo.addIndividuo(individuoClonar);
+        Casilla casilla = individuoClonar.getCasilla();
+        casilla.setColumna(individuoClonar.getCasilla().getColumna());
+        casilla.setFila(individuoClonar.getCasilla().getFila());
+        return individuoClonar;
+    }
+
         //7-Evaluar Casillas
     public int evaluarCapacidadCasilla(Casilla casilla){
-        if (casilla.getIndividuosTotales()<getMaximosIndividuos()) {
+        if (casilla.getIndividuosTotales() < getMaximosIndividuos()) {
             int a = 1;
             for (int i = 0; i < getMaximosIndividuos(); i++) {
                 if (i < casilla.getIndividuosTotales()) {
@@ -125,7 +173,7 @@ public class Bucles extends Partida {
     }
 
     public void evaluacionFinal(Casilla casilla){
-        while (casilla.getIndividuosTotales()>getMaximosIndividuos()){
+        while (casilla.getIndividuosTotales() > getMaximosIndividuos()){
             Individuo eliminar = evaluarIndividuosCasilla(casilla);
             casilla.removeIndividuoCasilla(eliminar);
             getListaIndividuos().remove(eliminar);

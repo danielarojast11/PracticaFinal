@@ -84,7 +84,11 @@ public class Individuo implements Comparable<Individuo>{
     }
 
     protected void setProbMuerte() {
-        this.probMuerte = 100-probReproduccion;
+        this.probMuerte = 100 - probReproduccion;
+    }
+
+    public void setProbMuerte(int probMuerte) {
+        this.probMuerte = probMuerte;
     }
 
     public int getRango(){
@@ -137,6 +141,7 @@ public class Individuo implements Comparable<Individuo>{
     public void setCasilla(int columna, int fila){
         this.casilla = new Casilla(columna,fila);
     }
+
     public void setCasilla (Casilla casilla){this.casilla = casilla;}
 
     public Casilla getCasilla(){

@@ -220,20 +220,24 @@ public class Partida {
     public void setPozo(int pozo) {
         this.pozo = pozo;
     }
+
     public List<Elementos> getListaElementos(){return this.listaElementos;}
+
     public void setListaElementos(List<Elementos> listaElementos){this.listaElementos=listaElementos;}
 
         //GETTERS AND SETTERS PLACEHOLDERS
     public void setColumnas(int columnas){
             this.columnas = columnas;
-        }
+    }
 
     public void setFilas(int filas){
         this.filas = filas;
     }
+
     public void setListaCasillas(List<Casilla> listaCasillas){
         this.listaCasillas = listaCasillas;
     }
+
     public List<Casilla> getListaCasillas(){return this.listaCasillas;}
 
         //CREATE INDIVIDUALS
@@ -250,6 +254,7 @@ public class Partida {
         }
         return basico;
     }
+
     public IndividuoNormal crearNormal(){
         IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
@@ -387,6 +392,7 @@ public class Partida {
     public void modificarId(){
          this.setId(id+1);
         }
+
     public void modificarTurno(){
             this.setTurno(turno+1);
         }

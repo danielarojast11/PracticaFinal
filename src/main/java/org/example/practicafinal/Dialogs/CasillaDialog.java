@@ -52,6 +52,18 @@ public class CasillaDialog extends Dialog<Casilla> {
         sliderNormal.setMax(maxNormal);
         int maxAvanzado = Math.max(3, partida.getNumeroIndividuosAvanzados());
         sliderAvanzado.setMax(maxAvanzado);
+        int maxAgua = Math.max(3, partida.getAgua());
+        sliderAgua.setMax(maxAgua);
+        int maxComida = Math.max(3, partida.getComida());
+        sliderComida.setMax(maxComida);
+        int maxMontana = Math.max(3, partida.getMontana());
+        sliderMontana.setMax(maxMontana);
+        int maxCofre = Math.max(3, partida.getCofre());
+        sliderCofre.setMax(maxCofre);
+        int maxBiblioteca = Math.max(3, partida.getBiblioteca());
+        sliderBiblioteca.setMax(maxBiblioteca);
+        int maxPozo = Math.max(3, partida.getPozo());
+        sliderPozo.setMax(maxPozo);
 
         try {
             FXMLLoader loader = new FXMLLoader();

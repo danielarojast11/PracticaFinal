@@ -7,7 +7,7 @@ public class Elementos implements Comparable<Elementos>{
 
     private int tiempoActividad;
     private Casilla casilla = new Casilla();
-    protected int type;
+    protected String type;
 
     public Elementos(int tiempoActividad) {
         this.tiempoActividad = tiempoActividad;
@@ -27,9 +27,12 @@ public class Elementos implements Comparable<Elementos>{
     public void setCasilla(int columna, int fila){
         this.casilla = new Casilla(columna,fila);
     }
+
     public void setCasilla (Casilla casilla){
-        this.casilla = casilla;}
-    public int getType(){
+        this.casilla = casilla;
+    }
+
+    public String getType(){
         return type;
     }
 
