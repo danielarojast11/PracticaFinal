@@ -1,112 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<DialogPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-
-    <content>
-        <GridPane hgap="5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="5">
-
-            <Label fx:id="lblBasico" prefHeight="18.0" prefWidth="96.0" text="Individuo Básico:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Slider fx:id="sliderBasico" maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <Label fx:id="lblNormal" text="Individuo Normal:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Slider fx:id="sliderNormal" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <Label fx:id="lblAvanzado" text="Individuo Avanzado:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Slider fx:id="sliderAvanzado" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                <Image url="@agua.png" />
-            </ImageView>
-            <Slider fx:id="sliderAgua" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                <Image url="@hamburguesaa.png" />
-            </ImageView>
-            <Slider fx:id="sliderComida" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
-                    <Image url="@montañaa.png" />
-            </ImageView>
-            <Slider fx:id="sliderMontana" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
-                <Image url="@cofre.png" />
-            </ImageView>
-            <Slider fx:id="sliderCofre" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="7">
-                <Image url="@libro.png" />
-            </ImageView>
-            <Slider fx:id="sliderBiblioteca" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="8">
-                <Image url="@pozoo.png" />
-            </ImageView>
-            <Slider fx:id="sliderPozo" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </Slider>
-
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" maxWidth="252.6" minWidth="115.0" prefWidth="228.6" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="459.2" minWidth="322.6000000000001" prefWidth="346.6000000000001" />
-            </columnConstraints>
-
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-
-        </GridPane>
-    </content>
-
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <graphic>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="600.0">
+            <children>
+                <Label fx:id="lblBasico" layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="96.0" text="Individuo Básico:" />
+                <Slider fx:id="sliderNormal" layoutX="10.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" value="70.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Slider>
+            </children>
+        </AnchorPane>
+    </graphic>
     <buttonTypes>
-        <ButtonType fx:id="btnCerrar" buttonData="CANCEL_CLOSE" text="Cerrar" />
-        <ButtonType fx:id="btnAceptar" buttonData="OK_DONE" text="Aceptar" />
+        <ButtonType fx:constant="OK" />
+        <ButtonType fx:constant="CANCEL" />
     </buttonTypes>
 </DialogPane>

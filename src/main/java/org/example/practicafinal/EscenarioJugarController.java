@@ -200,6 +200,14 @@ public class EscenarioJugarController {
         this.tableroCreado = true;
         eliminarTablero();      //Limpiar tablero anterior y volver a dibujarlo
         crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
+        if (!partidaCreada){
+            crearPartida();
+            partida.individuosInicio();
+            listaIndividuos = partida.getListaIndividuos();
+            //listaCasillas = partida.getListaCasillas();
+            mostrarCasillas();
+            partidaCreada = true;
+        }
         cambiarVelocidad();
     }
 
@@ -272,14 +280,6 @@ public class EscenarioJugarController {
     @FXML
     private void start() {
         if (tableroCreado){
-            if (!partidaCreada){
-                crearPartida();
-                partida.individuosInicio();
-                listaIndividuos = partida.getListaIndividuos();
-                listaCasillas = partida.getListaCasillas();
-                mostrarCasillas();
-                partidaCreada = true;
-            }
             //Disable Bottoms
             btnStart.setDisable(true);
             btnPause.setDisable(false);
