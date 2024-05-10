@@ -184,7 +184,15 @@ public class Bucles extends Partida {
     }
 
         //8-Aparición recursos
-    //public Elementos aparicionRecursos(){
-
-    //}
+    public List<Elementos> aparicionRecursos(List<Casilla> listaCasillas, List<Elementos> listaElementos){
+        for (Casilla casilla : listaCasillas){
+            if (listaElementos.size() < 3){
+                for (Elementos elemento : listaElementos){
+                    elemento.getAparicionRecurso();
+                    casilla.addElementoCasilla(elemento);
+                }
+            }
+        }
+        return listaElementos;
+    }
 }
