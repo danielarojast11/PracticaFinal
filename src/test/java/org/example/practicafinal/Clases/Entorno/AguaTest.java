@@ -21,7 +21,7 @@ class AguaTest {
 
     @Test
     void getType(){
-        Agua agua = new Agua(5);
+        Agua agua = new Agua(5, 0);
         assertEquals(0, agua.getType());
     }
 }

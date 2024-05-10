@@ -4,8 +4,8 @@ public class Pozo extends Elementos {
 
     int type = 5;
 
-    public Pozo(int tiempoActividad) {
-        super(tiempoActividad);
+    public Pozo(int tiempoActividad, int type) {
+        super(tiempoActividad, type);
     }
 
     public Pozo() {

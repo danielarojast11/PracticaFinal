@@ -9,7 +9,7 @@ class PozoTest {
     @Test
     void getType(){
         Pozo pozo = new Pozo();
-        Pozo pozo2 = new Pozo(4);
+        Pozo pozo2 = new Pozo(4, 5);
         assertEquals(5, pozo.getType());
     }
 }

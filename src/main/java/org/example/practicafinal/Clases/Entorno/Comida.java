@@ -5,8 +5,8 @@ public class Comida extends Elementos{
     int type = 1;
     private int alteracion = 1;
 
-    public Comida(int tiempoActividad) {
-        super(tiempoActividad);
+    public Comida(int tiempoActividad, int type) {
+        super(tiempoActividad, type);
     }
 
     public Comida() {

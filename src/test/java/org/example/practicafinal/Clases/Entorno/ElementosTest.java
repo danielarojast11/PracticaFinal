@@ -9,13 +9,13 @@ class ElementosTest {
 
     @Test
     void getTiempoActividad(){
-        Elementos elementos = new Elementos(4);
+        Elementos elementos = new Elementos(4, 0);
         assertEquals(4, elementos.getTiempoActividad());
     }
 
     @Test
     void setTiempoActividad(){
-        Elementos elementos = new Elementos(4);
+        Elementos elementos = new Elementos(4, 1);
         elementos.setTiempoActividad(5);
         assertEquals(5, elementos.getTiempoActividad());
     }
@@ -36,7 +36,7 @@ class ElementosTest {
 
     @Test
     void setCasilla(){
-        Elementos elementos = new Elementos(4);
+        Elementos elementos = new Elementos(4, 2);
         Casilla casilla = new Casilla();
         elementos.setCasilla(casilla);
         assertEquals(casilla, elementos.getCasilla());
@@ -56,7 +56,7 @@ class ElementosTest {
 
     @Test
     void setAparicionRecurso(){
-        Elementos elementos = new Elementos(4);
+        Elementos elementos = new Elementos(4, 3);
         elementos.setAparicionRecurso(5);
         assertEquals(5, elementos.getAparicionRecurso());
     }

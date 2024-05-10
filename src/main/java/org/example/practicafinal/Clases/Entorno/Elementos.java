@@ -10,8 +10,9 @@ public class Elementos implements Comparable<Elementos>{
     private Casilla casilla = new Casilla();
     protected int type;
 
-    public Elementos(int tiempoActividad) {
+    public Elementos(int tiempoActividad, int type) {
         this.tiempoActividad = tiempoActividad;
+        this.type = type;
     }
 
     public Elementos() {

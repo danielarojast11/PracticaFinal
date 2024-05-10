@@ -14,7 +14,7 @@ class TesoroTest {
 
     @Test
     void setAlteracion(){
-        Tesoro t = new Tesoro(4);
+        Tesoro t = new Tesoro(4, 4);
         t.setAlteracion(2);
         assertEquals(t.getAlteracion(),2);
     }

@@ -5,8 +5,8 @@ public class Montaña extends Elementos{
     int type = 3;
     private int alteracion = -2;
 
-    public Montaña(int tiempoActividad) {
-        super(tiempoActividad);
+    public Montaña(int tiempoActividad, int type) {
+        super(tiempoActividad, type);
     }
 
     public Montaña() {

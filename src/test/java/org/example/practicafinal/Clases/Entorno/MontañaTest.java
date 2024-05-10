@@ -8,7 +8,7 @@ class MontañaTest {
 
     @Test
     void getAlteracion(){
-        Montaña montaña = new Montaña(4);
+        Montaña montaña = new Montaña(4, 3);
         assertEquals(-2, montaña.getAlteracion());
     }
 

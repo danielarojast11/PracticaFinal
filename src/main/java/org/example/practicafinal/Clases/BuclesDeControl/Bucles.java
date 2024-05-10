@@ -15,6 +15,7 @@ import java.util.List;
 public class Bucles extends Partida {
 
         //Parameters
+    private ArrayList<Individuo> listaIndividuos;
     private ArrayList<Elementos> listaElementos;
     private ArrayList<Casilla> tablero;
     private Individuo individuo;
@@ -27,24 +28,25 @@ public class Bucles extends Partida {
     }
 
         //1-Actualizar y Eliminar Individuos
-    public void modificarIndividuo(Individuo individuo){
+    public void modificarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
         individuo.modificarTurnosVida();
         individuo.modificarReprod();
         individuo.modificarClonacion();
+        eliminarIndividuo(individuo, listaIndividuos);
     }
 
-    public void eliminarIndividuo(Individuo individuo){
+    public void eliminarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
         if (individuo.getTurnosVida()==0){
-            getListaIndividuos().remove(individuo);
+            listaIndividuos.remove(individuo);
         } else if (individuo.getProbReproduccion() == 0) {
-            getListaIndividuos().remove(individuo);
+            listaIndividuos.remove(individuo);
         }
     }
 
-    public void actualizarIndividuos(List<Individuo> individuos){
-        for (Individuo individuo : individuos){
-            modificarIndividuo(individuo);
-            eliminarIndividuo(individuo);
+    public void actualizarIndividuos(List<Individuo> listaIndividuos){
+        for (Individuo individuo : listaIndividuos){
+            modificarIndividuo(individuo, listaIndividuos);
+            eliminarIndividuo(individuo, listaIndividuos);
         }
     }
 
@@ -53,14 +55,16 @@ public class Bucles extends Partida {
         elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
     }
 
-    public void eliminarElemento(Elementos elemento){
-        if (elemento.getTiempoActividad()==0){
-        getListaElementos().remove(elemento);}
+    public void eliminarElemento(Elementos elemento, List<Elementos> listaElementos){
+        if (elemento.getTiempoActividad() == 0){
+            listaElementos.remove(elemento);
+        }
     }
-    public void actualizarElementos(List<Elementos> elementos){
-        for (Elementos elemento : elementos){
+
+    public void actualizarElementos(List<Elementos> listaElementos){
+        for (Elementos elemento : listaElementos){
             modificarElemento(elemento);
-            eliminarElemento(elemento);
+            eliminarElemento(elemento, listaElementos);
         }
     }
 
@@ -79,15 +83,25 @@ public class Bucles extends Partida {
         return individuo;
     }
 
-    private Individuo individuoConRecurso(Individuo individuo, Elementos elemento, Partida partida){
+    protected Individuo individuoConRecurso(Individuo individuo, Elementos elemento, Partida partida){
         if (elemento.getType() == 0){
             int individuoAgua = individuo.getTurnosVida() +2;
             individuo.setTurnosVida(individuoAgua);
             return individuo;
         } else if (elemento.getType() == 1) {
-            int individuoComida = individuo.getTurnosVida() +10;
+            int individuoComida = individuo.getTurnosVida() + 10;
             individuo.setTurnosVida(individuoComida);
             return individuo;
+        } else if (elemento.getType() == 2) {
+            int sliderClon = partida.getProbClonacion();
+            int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
+            int individuoBiblioteca = individuo.getProbClonacion() - probClon;
+            individuo.setProbClonacion(individuoBiblioteca);
+            if (individuo.getRango() < 3) {
+                int individuoRango = individuo.getRango() + 1;
+                individuo.setRango(individuoRango);
+                return individuo;
+            }
         } else if (elemento.getType() == 3) {
             int individuoMontana = individuo.getTurnosVida() -2;
             individuo.setTurnosVida(individuoMontana);
@@ -97,14 +111,6 @@ public class Bucles extends Partida {
             int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
             int individuoCofre = individuo.getProbReproduccion() + probRep;
             individuo.setProbReproduccion(individuoCofre);
-            return individuo;
-        } else if (elemento.getType() == 2) {
-            int sliderClon = partida.getProbClonacion();
-            int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
-            int individuoBiblioteca = individuo.getProbClonacion() - probClon;
-            individuo.setProbClonacion(individuoBiblioteca);
-            int individuoRango = individuo.getRango() +1;
-            individuo.setRango(individuoRango);
             return individuo;
         } else if (elemento.getType() == 5) {
             individuo.setProbabilidadMuerte(100);

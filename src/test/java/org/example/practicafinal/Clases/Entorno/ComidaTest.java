@@ -14,7 +14,7 @@ class ComidaTest {
 
     @Test
     void setAlteracion(){
-        Comida comida = new Comida(4);
+        Comida comida = new Comida(4, 1);
         comida.setAlteracion(1);
         assertEquals(comida.getAlteracion(),1);
     }

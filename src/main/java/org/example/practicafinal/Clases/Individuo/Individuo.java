@@ -142,7 +142,7 @@ public class Individuo implements Comparable<Individuo>{
     }
 
     public void modificarClonacion(){
-        this.setProbClonacion(probClonacion - (10* probClonacion /100));
+        this.setProbClonacion(probClonacion - ((10* probClonacion) /100));
     }
 
     public void modificarTurnosVida(){

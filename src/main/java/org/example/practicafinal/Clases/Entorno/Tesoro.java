@@ -5,8 +5,8 @@ public class Tesoro extends Elementos{
     int type = 4;
     private int alteracion;
 
-    public Tesoro(int tiempoActividad) {
-        super(tiempoActividad);
+    public Tesoro(int tiempoActividad, int type) {
+        super(tiempoActividad, type);
     }
 
     public Tesoro() {

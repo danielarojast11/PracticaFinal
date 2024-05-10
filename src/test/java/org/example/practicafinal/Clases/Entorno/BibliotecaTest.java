@@ -8,13 +8,13 @@ class BibliotecaTest {
 
     @Test
     void getAlteracion(){
-        Biblioteca b = new Biblioteca(4);
+        Biblioteca b = new Biblioteca(4, 2);
         assertEquals(0, b.getAlteracion());
     }
 
     @Test
     void setAlteracion(){
-        Biblioteca b = new Biblioteca(4);
+        Biblioteca b = new Biblioteca(4, 2);
         b.setAlteracion(2);
         assertEquals(2, b.getAlteracion());
     }
