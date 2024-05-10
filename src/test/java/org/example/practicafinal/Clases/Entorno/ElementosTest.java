@@ -30,8 +30,7 @@ class ElementosTest {
     @Test
     public void setCasillas(){
         Elementos elementos = new Elementos();
-        Casilla casilla = new Casilla(4,3);
-        elementos.setCasilla(casilla);
+        elementos.setCasilla(4, 3);
         assertEquals(elementos.getCasilla(), elementos.getCasilla());
     }
 
