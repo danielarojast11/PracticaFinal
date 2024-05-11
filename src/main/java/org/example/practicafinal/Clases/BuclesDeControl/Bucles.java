@@ -83,15 +83,20 @@ public class Bucles extends Partida {
         return individuo;
     }
 
-    protected Individuo individuoConRecurso(Individuo individuo, Elementos elemento, Partida partida){
+    protected Individuo individuoConRecurso(Individuo individuo,
+                                            Elementos elemento,
+                                            Partida partida){
+
         if (elemento.getType() == 0){
             int individuoAgua = individuo.getTurnosVida() +2;
             individuo.setTurnosVida(individuoAgua);
             return individuo;
+
         } else if (elemento.getType() == 1) {
             int individuoComida = individuo.getTurnosVida() + 10;
             individuo.setTurnosVida(individuoComida);
             return individuo;
+
         } else if (elemento.getType() == 2) {
             int sliderClon = partida.getProbClonacion();
             int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
@@ -102,16 +107,19 @@ public class Bucles extends Partida {
                 individuo.setRango(individuoRango);
                 return individuo;
             }
+
         } else if (elemento.getType() == 3) {
             int individuoMontana = individuo.getTurnosVida() -2;
             individuo.setTurnosVida(individuoMontana);
             return individuo;
+
         } else if (elemento.getType() == 4) {
             int sliderRep = partida.getProbReproduccion();
             int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
             int individuoCofre = individuo.getProbReproduccion() + probRep;
             individuo.setProbReproduccion(individuoCofre);
             return individuo;
+
         } else if (elemento.getType() == 5) {
             individuo.setProbabilidadMuerte(100);
         }
@@ -121,13 +129,16 @@ public class Bucles extends Partida {
         //5-Reproduccion
     public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
         Individuo hijo = null;
-        if (a.getClass()== IndividuoAvanzado.class||b.getClass()== IndividuoAvanzado.class){
+        if (a.getClass()== IndividuoAvanzado.class || b.getClass()== IndividuoAvanzado.class){
             hijo = this.crearAvanzado();
-        } else if (a.getClass()== IndividuoNormal.class||b.getClass()== IndividuoNormal.class) {
+
+        } else if (a.getClass()== IndividuoNormal.class || b.getClass()== IndividuoNormal.class) {
             hijo = this.crearNormal();
+
         } else {
             hijo = this.crearBasico();
         }
+
         a.addHijo(hijo);
         b.addHijo(hijo);
         Casilla casilla = hijo.getCasilla();
@@ -175,10 +186,6 @@ public class Bucles extends Partida {
             id.add(individuo1.getId());
         }
         return id;
-    }
-
-    public void evaluarElementosCasilla(Casilla casilla){
-
     }
 
     public void evaluacionFinal(Casilla casilla){

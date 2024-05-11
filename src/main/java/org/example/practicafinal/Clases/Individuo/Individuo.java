@@ -146,7 +146,9 @@ public class Individuo implements Comparable<Individuo>{
     }
 
     public void modificarTurnosVida(){
-        this.setTurnosVida(turnosVida-1);
+        if (this.getTurnosVida() > 0){
+            this.setTurnosVida(turnosVida-1);
+        }
     }
 
         //METHODS PLACEHOLDERS

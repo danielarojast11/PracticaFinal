@@ -163,22 +163,25 @@ class IndividuoTest {
     @Test
     void modificarReprod(){
         Individuo ind1 = new Individuo(1, 2, 5, 40, 50);
-        ind1.setProbReproduccion(ind1.getProbReproduccion() - ((10 * ind1.getProbReproduccion()) /100));
+        ind1.modificarReprod();
         assertEquals(36, ind1.getProbReproduccion());
     }
 
     @Test
     void modificarClonacion(){
         Individuo ind1 = new Individuo(1, 2, 5, 40, 50);
-        ind1.setProbReproduccion(ind1.getProbClonacion() - ((10 * ind1.getProbClonacion()) /100));
-        assertEquals(45, ind1.getProbClonacion() - ((10 * ind1.getProbClonacion()) /100));
+        ind1.modificarClonacion();
+        assertEquals(41, ind1.getProbClonacion() - ((10 * ind1.getProbClonacion()) /100));
     }
 
     @Test
     void modificarTurnosVida(){
         Individuo ind1 = new Individuo();
-        ind1.setTurnosVida(ind1.getTurnosVida() - 1);
-        assertEquals(-1, ind1.getTurnosVida());
+        Individuo ind2 = new Individuo(1, 2, 5, 40, 50);
+        ind1.modificarTurnosVida();
+        ind2.modificarTurnosVida();
+        assertEquals(0, ind1.getTurnosVida());
+        assertEquals(4, ind2.getTurnosVida());
     }
 
     @Test
