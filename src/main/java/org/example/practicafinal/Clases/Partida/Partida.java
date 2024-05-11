@@ -309,7 +309,7 @@ public class Partida {
     public Agua crearAgua(){
         Agua agua = new Agua();
         Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
-        agua.setCasilla2(casilla);
+        agua.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(agua);
@@ -322,7 +322,7 @@ public class Partida {
     public Comida crearComida(){
         Comida comida = new Comida();
         Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
-        comida.setCasilla2(casilla);
+        comida.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(comida);
@@ -334,7 +334,7 @@ public class Partida {
     public Biblioteca crearBiblioteca(){
         Biblioteca biblioteca = new Biblioteca();
         Casilla casilla =new Casilla(columnaAleatoria(),filaAleatoria());
-        biblioteca.setCasilla2(casilla);
+        biblioteca.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(biblioteca);
@@ -347,7 +347,7 @@ public class Partida {
     public Montaña crearMontaña(){
         Montaña montaña = new Montaña();
         Casilla casilla =new Casilla(columnaAleatoria(),filaAleatoria());
-        montaña.setCasilla2(casilla);
+        montaña.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(montaña);
@@ -360,7 +360,7 @@ public class Partida {
     public Tesoro crearTesoro(){
         Tesoro tesoro = new Tesoro();
         Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
-        tesoro.setCasilla2(casilla);
+        tesoro.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(tesoro);
@@ -372,7 +372,7 @@ public class Partida {
     public Pozo crearPozo(){
         Pozo pozo = new Pozo();
         Casilla casilla = new Casilla(columnaAleatoria(),filaAleatoria());
-        pozo.setCasilla2(casilla);
+        pozo.setCasilla(casilla);
         for (Casilla casilla1 : listaCasillas){
             if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
                 casilla1.addElementoCasilla(pozo);

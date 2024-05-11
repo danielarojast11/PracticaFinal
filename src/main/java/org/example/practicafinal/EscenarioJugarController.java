@@ -211,7 +211,6 @@ public class EscenarioJugarController {
             partida.individuosInicio();
             listaIndividuos = partida.getListaIndividuos();
             //listaCasillas = partida.getListaCasillas();
-            mostrarCasillas();
             partidaCreada = true;
         }
         cambiarVelocidad();
@@ -236,13 +235,13 @@ public class EscenarioJugarController {
 
     @FXML
     private void restablecerEntorno(){
-        sliderAgua.setValue(2);
-        sliderComida.setValue(10);
-        sliderMontana.setValue(20);
-        sliderCofre.setValue(15);
-        sliderBiblioteca.setValue(30);
-        sliderPozo.setValue(15);
-        sliderProbAparicion.setValue(10);
+        sliderAgua.setValue(5);
+        sliderComida.setValue(5);
+        sliderMontana.setValue(5);
+        sliderCofre.setValue(5);
+        sliderBiblioteca.setValue(5);
+        sliderPozo.setValue(5);
+        sliderProbAparicion.setValue(5);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -292,6 +291,9 @@ public class EscenarioJugarController {
             btnStart.setDisable(true);
             btnPause.setDisable(false);
             btnEnd.setDisable(false);
+            partida.elementosPrincipio();
+            partida.individuosInicio();
+            mostrarCasillas();
             //Disable Sliders
             desabilitarSliders(true);
 

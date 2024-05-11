@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Test y UML">
-      <change afterPath="$PROJECT_DIR$/diagramaDeSecuencia.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoAvanzadoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoBasicoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoNormalTest.java" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Mostrar Individuos/Evaluar capacidad casillas">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/individuo avanzado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/individuo basico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/individuo normal.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/avanzado.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/basico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/normal.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +32,6 @@
         <option value="JavaFXApplication" />
         <option value="Class" />
         <option value="FxmlFile" />
-        <option value="UML Class" />
-        <option value="UML Sequence" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -36,20 +39,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "candelasanzm"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/danielarojast11/PracticaFinal.git",
-    "accountId": "69c8b686-1b7d-4783-a522-1069acba9405"
-  }
-}]]></component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2falAoAme0IcAHuQXvF3c277h1e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -59,32 +50,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Coverage",
-    "JUnit.AguaTest.executor": "Coverage",
-    "JUnit.BibliotecaTest.executor": "Coverage",
-    "JUnit.BuclesTest.executor": "Coverage",
-    "JUnit.ComidaTest.executor": "Coverage",
-    "JUnit.ElementosTest.executor": "Coverage",
-    "JUnit.IndividuoBasicoTest.executor": "Coverage",
-    "JUnit.IndividuoTest.executor": "Coverage",
-    "JUnit.MontañaTest.executor": "Coverage",
-    "JUnit.PozoTest.executor": "Coverage",
-    "JUnit.TesoroTest.executor": "Coverage",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Metodología de la programación/Ventana",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FuncionamientoPartida.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
@@ -92,15 +72,8 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.practicafinal" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.example.practicafinal.Clases.Individuo" />
-      <recent name="org.example.practicafinal.Clases.BuclesDeControl" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,8 +89,6 @@
       </method>
     </configuration>
     <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
       <module name="PracticaFinal" />
       <extension name="coverage">
@@ -130,44 +101,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PracticaFinal" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.MainApplication" />
-      <item itemvalue="Maven.PracticaFinal" />
-    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -209,9 +147,8 @@
       <workItem from="1715009384455" duration="4269000" />
       <workItem from="1715240896631" duration="7000" />
       <workItem from="1715240911490" duration="3444000" />
-      <workItem from="1715250082974" duration="5071000" />
-      <workItem from="1715424415869" duration="8094000" />
-      <workItem from="1715437430646" duration="691000" />
+      <workItem from="1715250082974" duration="10187000" />
+      <workItem from="1715270803227" duration="2818000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -324,37 +261,19 @@
       <option name="project" value="LOCAL" />
       <updated>1715020216269</updated>
     </task>
-    <task id="LOCAL-00015" summary="Dialog">
+    <task id="LOCAL-00015" summary="Mostrar Individuos/Evaluar capacidad casillas">
       <option name="closed" value="true" />
-      <created>1715381562080</created>
+      <created>1715262556527</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1715381562080</updated>
+      <updated>1715262556528</updated>
     </task>
-    <task id="LOCAL-00016" summary="Test y UML">
-      <option name="closed" value="true" />
-      <created>1715431823552</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1715431823552</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -390,42 +309,7 @@
     <MESSAGE value="getRandom" />
     <MESSAGE value="Arbol" />
     <MESSAGE value="Dialog" />
-    <MESSAGE value="Test y UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test y UML" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715376310634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$MontañaTest.ic" NAME="MontañaTest Coverage Results" MODIFIED="1715376684774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoTest.ic" NAME="IndividuoTest Coverage Results" MODIFIED="1715428050000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$PozoTest.ic" NAME="PozoTest Coverage Results" MODIFIED="1715376677403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$AguaTest.ic" NAME="AguaTest Coverage Results" MODIFIED="1715376730556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$ComidaTest.ic" NAME="ComidaTest Coverage Results" MODIFIED="1715376701624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$BuclesTest.ic" NAME="BuclesTest Coverage Results" MODIFIED="1715427610647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.BuclesDeControl.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$TesoroTest.ic" NAME="TesoroTest Coverage Results" MODIFIED="1715376666296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$BibliotecaTest.ic" NAME="BibliotecaTest Coverage Results" MODIFIED="1715376721720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$ElementosTest.ic" NAME="ElementosTest Coverage Results" MODIFIED="1715376693488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoBasicoTest.ic" NAME="IndividuoBasicoTest Coverage Results" MODIFIED="1715438021177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
-    </SUITE>
+    <MESSAGE value="Mostrar Individuos/Evaluar capacidad casillas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mostrar Individuos/Evaluar capacidad casillas" />
   </component>
 </project>
