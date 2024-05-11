@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Dialog">
-      <change afterPath="$PROJECT_DIR$/diagramaDeClases.puml" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Test y UML">
+      <change afterPath="$PROJECT_DIR$/diagramaDeSecuencia.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoAvanzadoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoBasicoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoNormalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +26,9 @@
         <option value="JavaFXApplication" />
         <option value="Class" />
         <option value="FxmlFile" />
-        <option value="JUnit5 Test Class" />
         <option value="UML Class" />
+        <option value="UML Sequence" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -37,9 +36,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "candelasanzm"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/danielarojast11/PracticaFinal.git",
+    "accountId": "69c8b686-1b7d-4783-a522-1069acba9405"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2falAoAme0IcAHuQXvF3c277h1e" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,6 +67,7 @@
     "JUnit.BuclesTest.executor": "Coverage",
     "JUnit.ComidaTest.executor": "Coverage",
     "JUnit.ElementosTest.executor": "Coverage",
+    "JUnit.IndividuoBasicoTest.executor": "Coverage",
     "JUnit.IndividuoTest.executor": "Coverage",
     "JUnit.MontañaTest.executor": "Coverage",
     "JUnit.PozoTest.executor": "Coverage",
@@ -64,6 +76,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Metodología de la programación/Ventana",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,6 +99,7 @@
       <recent name="org.example.practicafinal" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.practicafinal.Clases.Individuo" />
       <recent name="org.example.practicafinal.Clases.BuclesDeControl" />
     </key>
   </component>
@@ -196,7 +210,8 @@
       <workItem from="1715240896631" duration="7000" />
       <workItem from="1715240911490" duration="3444000" />
       <workItem from="1715250082974" duration="5071000" />
-      <workItem from="1715424415869" duration="4199000" />
+      <workItem from="1715424415869" duration="8094000" />
+      <workItem from="1715437430646" duration="691000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -317,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715381562080</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Test y UML">
+      <option name="closed" value="true" />
+      <created>1715431823552</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715431823552</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +390,8 @@
     <MESSAGE value="getRandom" />
     <MESSAGE value="Arbol" />
     <MESSAGE value="Dialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dialog" />
+    <MESSAGE value="Test y UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test y UML" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715376310634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
@@ -399,6 +423,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$ElementosTest.ic" NAME="ElementosTest Coverage Results" MODIFIED="1715376693488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoBasicoTest.ic" NAME="IndividuoBasicoTest Coverage Results" MODIFIED="1715438021177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
     </SUITE>
   </component>
 </project>
