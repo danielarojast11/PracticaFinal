@@ -50,6 +50,8 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblTurno;
+    @FXML
+    private Label lblNumeroIndividuos;
 
     @FXML
     private TabPane tabPane;
@@ -274,11 +276,23 @@ public class EscenarioJugarController {
             @Override
             public void handle(long now) {
                 if (i%velocidad==0) {
+                    lblNumeroIndividuos.setText("Nº Individuos: "+partida.getIndividuosTotales());
                     listaIndividuos = partida.getListaIndividuos();
                     listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
+
+                    //mover individuos
+                    for (Individuo individuo:listaIndividuos){
+                        partida.moverIndividuo(individuo);
+                    }
+                    for (Casilla casilla:listaCasillas){
+                        bucle.evaluacionFinal(casilla);
+                    }
+                    bucle.actualizarIndividuos(listaIndividuos);
+                    limpiarCasillas();
+                    mostrarCasillas();
                 }
                 i++;
             }
@@ -532,6 +546,12 @@ public class EscenarioJugarController {
         for (Casilla casilla : listaCasillas){
             mostrarIndividuoCasilla(casilla);
             mostrarElementoCasilla(casilla);
+        }
+    }
+
+    public void limpiarCasillas(){
+        for (Casilla casilla:listaCasillas){
+            casilla.getChildren().clear();
         }
     }
 

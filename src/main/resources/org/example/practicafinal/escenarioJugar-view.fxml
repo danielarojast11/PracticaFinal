@@ -146,7 +146,7 @@
                               <Image url="@agua.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="10.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="11.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@cofre.png" />
                            </image>
@@ -159,6 +159,11 @@
                         <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="13.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pozoo.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@tiempo.png" />
                            </image>
                         </ImageView>
                      </children></AnchorPane>
@@ -219,7 +224,12 @@
       </TabPane>
       <ToolBar prefHeight="36.0" prefWidth="882.0" style="-fx-background-color: #876A4D;">
         <items>
-            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="352.0" text="Turno: " textFill="WHITE">
+            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="142.0" text="Turno: " textFill="WHITE">
+               <font>
+                  <Font name="Britannic Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNumeroIndividuos" prefHeight="18.0" prefWidth="205.0" text="Nº Individuos:" textFill="WHITE">
                <font>
                   <Font name="Britannic Bold" size="17.0" />
                </font>
