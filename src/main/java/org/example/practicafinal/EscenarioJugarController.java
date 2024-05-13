@@ -210,7 +210,7 @@ public class EscenarioJugarController {
             crearPartida();
             partida.individuosInicio();
             listaIndividuos = partida.getListaIndividuos();
-            //listaCasillas = partida.getListaCasillas();
+            listaCasillas = partida.getListaCasillas();
             partidaCreada = true;
         }
         cambiarVelocidad();

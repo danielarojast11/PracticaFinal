@@ -10,11 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class IndividuoBasicoTest {
 
     @Test
-    void testMover(){
-
-    }
-
-    @Test
     void testGetRango(){
         IndividuoBasico basico = new IndividuoBasico(1, 2, 5, 40, 60);
         assertEquals(1, basico.getRango());

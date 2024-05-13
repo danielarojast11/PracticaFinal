@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import org.example.practicafinal.Clases.Entorno.*;
+import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
@@ -14,13 +15,16 @@ import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class CasillaDialog extends Dialog<PartidaCasilla> {
+
     //Parametros Tipos de Individuos
     private Slider sliderBasico;
     private Slider sliderNormal;
     private Slider sliderAvanzado;
+
     //Parametros Entorno
     private Slider sliderAgua;
     private Slider sliderComida;
@@ -28,6 +32,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
     private Slider sliderCofres;
     private Slider sliderBibliotecas;
     private Slider sliderPozos;
+
     //Botones
     private Button btnCancel;
     private Button btnOk;
@@ -110,7 +115,12 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 this.partida.getNumeroIndividuosBasicos() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoBasico());
+            this.casilla.addIndividuoCasilla(new IndividuoBasico(
+                    casilla.getColumna() * 100 + casilla.getFila() * 10,
+                    4,
+                    partida.getTurnosVida(),
+                    partida.getProbReproduccion(),
+                    partida.getProbClonacion()));
         }
         valor = (int) sliderNormal.getValue();
         this.partida.setNumeroIndividuosNormal(

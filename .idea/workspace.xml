@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="solucion elementos">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/tiempo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementosTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoBasicoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoBasicoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +34,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;candelasanzm&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/danielarojast11/PracticaFinal.git&quot;,
+    &quot;accountId&quot;: &quot;91733dce-8eac-4a51-b744-c432ee2b8d78&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -52,6 +62,7 @@
     &quot;Application.FuncionamientoPartida.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -102,7 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -146,6 +158,11 @@
       <workItem from="1715240911490" duration="3444000" />
       <workItem from="1715250082974" duration="10187000" />
       <workItem from="1715270803227" duration="2818000" />
+      <workItem from="1715551153304" duration="32000" />
+      <workItem from="1715604726860" duration="2236000" />
+      <workItem from="1715614939556" duration="1068000" />
+      <workItem from="1715621179011" duration="127000" />
+      <workItem from="1715621316201" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />

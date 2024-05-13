@@ -239,12 +239,14 @@ public class Partida {
     public void setColumnas(int columnas){
             this.columnas = columnas;
     }
-    public int getColumnas(){return this.columnas;}
+
+    public int getColumnas() {return this.columnas;}
 
     public void setFilas(int filas){
         this.filas = filas;
     }
-    public int getFilas(){return this.filas;}
+
+    public int getFilas() {return this.filas;}
 
     public void setListaCasillas(List<Casilla> listaCasillas){
         this.listaCasillas = listaCasillas;

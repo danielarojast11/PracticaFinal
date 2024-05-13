@@ -24,66 +24,76 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;">
                      <children>
-                        <Slider fx:id="sliderClonacion" layoutX="62.0" layoutY="78.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0">
+                        <Slider fx:id="sliderGeneracion" layoutX="62.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderReproduccion" layoutX="62.0" layoutY="131.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0">
+                        <Slider fx:id="sliderVida" layoutX="62.0" layoutY="64.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderVida" layoutX="62.0" layoutY="27.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Slider fx:id="sliderClonacion" layoutX="62.0" layoutY="112.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="374.0" mnemonicParsing="false" onAction="#restablecerIndividuos" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
-                        <Button fx:id="btnAceptarParIndividuo" layoutX="81.0" layoutY="339.0" mnemonicParsing="false" onAction="#aceptarParIndividuo" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
-                        <Slider fx:id="sliderBasico" layoutX="62.0" layoutY="182.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Slider fx:id="sliderReproduccion" layoutX="62.0" layoutY="160.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderNormal" layoutX="62.0" layoutY="234.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="386.0" mnemonicParsing="false" onAction="#restablecerIndividuos" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
+                        <Button fx:id="btnAceptarParIndividuo" layoutX="81.0" layoutY="354.0" mnemonicParsing="false" onAction="#aceptarParIndividuo" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
+                        <Slider fx:id="sliderBasico" layoutX="62.0" layoutY="208.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderAvanzado" layoutX="62.0" layoutY="287.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Slider fx:id="sliderNormal" layoutX="62.0" layoutY="257.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                        <Slider fx:id="sliderAvanzado" layoutX="62.0" layoutY="307.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Slider>
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url = "" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@vida.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@bebe.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="47.0" fitWidth="49.0" layoutX="8.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="47.0" fitWidth="49.0" layoutX="8.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@clon.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@individuo%20basico.png" />
+                              <Image url="@individuo basico.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@individuo%20normal.png" />
+                              <Image url="@individuo normal.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@individuo%20avanzado.png" />
+                              <Image url="@individuo avanzado.png" />
                            </image>
                         </ImageView>
                      </children>
