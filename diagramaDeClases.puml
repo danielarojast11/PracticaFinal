@@ -1,0 +1,207 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Partida
+class Bucles
+class Elementos
+class Individuo
+
+class IndividuoBasico
+class IndividuoNormal
+class IndividuoAvanzado
+
+class Agua
+class Comida
+class Montaña
+class Cofre
+class Biblioteca
+class Pozo
+
+Partida <|-- Bucles
+Partida <|-- Elementos
+Partida <|-- Individuo
+
+Individuo <|-- IndividuoBasico
+Individuo <|-- IndividuoNormal
+Individuo <|-- IndividuoAvanzado
+
+class Individuo{
+#id: int
+#generacion: int
+-turnosVida: int
+-probReproduccion: int
+-probClonacion: int
+-probMuerte: int
+#rango: int
+-padres: List<Individuo>
+-hijos: List<Individuo>
+-individuos: List<Individuo>
+-casilla: Casilla
++Individuo()
++Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int)
++Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int)
++getId(): int
++setId(id: int)
++getGeneracion(): int
++setGeneracion(generacion: int)
++getTurnosVida(): int
++setTurnosVida(turnosVida: int)
++getProbReproduccion(): int
++setProbReproduccion(probReproduccion: int)
++getProbClonacion(): int
++setProbClonacion(probClonacion: int)
++setProbMuerte(probReproduccion: int)
++setProbabilidadMuerte(probMuerte: int)
++getRango(): int
++setRango(rango: int)
++getPadres(): List<Individuo>
++addPadre(padre: Individuo)
++getHijos(): List<Individuo>
++addHijo(hijo: Individuo)
++getIndividuos(): List<Individuo>
++addIndividuo(individuo: Individuo)
++modificarReprod()
++modificarClonacion()
++modificarTurnosVida()
++setCasilla(casilla: Casilla)
++getCasilla(): Casilla
++compareTo(o: Individuo): int
+}
+
+class IndividuoBasico{
+-rango: int = 1
++IndividuoBasico()
++IndividuoBasico(id: int, generacion: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
++mover()
++getRango(): int
++reproducir(): IndividuoBasico
+}
+
+class IndividuoNormal{
+-rango: int = 2
++IndividuoNormal()
++IndividuoNormal(id: int, generacion: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
++mover()
++getRango(): int
++reproducir(): IndividuoNormal
+}
+
+class IndividuoAvanzado{
+-rango: int = 3
++IndividuoAvanzado()
++IndividuoAvanzado(id: int, generacion: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
++mover()
++getRango(): int
++reproducir(): IndividuoAvanzado
+}
+
+Elementos <|-- Agua
+Elementos <|-- Comida
+Elementos <|-- Montaña
+Elementos <|-- Cofre
+Elementos <|-- Biblioteca
+Elementos <|-- Pozo
+
+class Elementos{
+-tiempoActividad: int
+-aparicionRecurso: int
+-casilla: Casilla
+#type: int
++Elementos(tiempoActividad: int, type: int)
++Elementos()
++getTiempoActividad(): int
++setTiempoActividad(tiempoActividad: int)
++getCasilla(): Casilla
++setCasilla(Columna: int, Fila: int)
++setCasilla2(casilla: Casilla)
++getType(): int
++getAparicionRecurso(): int
++setAparicionRecurso(aparicionRecurso: int)
++compareTo(o: Elementos): int
+}
+
+class Agua{
+-type: int = 0
+-alteracion: int = 2
++Agua(tiempoActividad: int, type: int)
++Agua()
++getAlteracion(): int
++setAlteracion(alteracion: int)
++getType(): int
+}
+
+class Comida{
+-type: int = 1
+-alteracion: int = 1
++Comida(tiempoActividad: int, type: int)
++Comida()
++getAlteracion(): int
++setAlteracion(alteracion: int)
++getType(): int
+}
+
+class Montaña{
+-type: int = 3
+-alteracion: int = -2
++Montaña(tiempoActividad: int, type: int)
++Montaña()
++getAlteracion(): int
++setAlteracion(alteracion: int)
++getType(): int
+}
+
+class Cofre{
+-type: int = 4
+-alteracion: int
++Tesoro(tiempoActividad: int, type: int)
++Tesoro()
++getAlteracion(): int
++setAlteracion(valor: int)
++getType(): int
+}
+
+class Biblioteca{
+-type: int = 2
+-alteracion: int
++Biblioteca(tiempoActividad: int, type: int)
++Biblioteca()
++getAlteracion(): int
++setAlteracion(valor: int)
++getType(): int
+}
+
+class Pozo{
+-type: int = 5
++Pozo()
++getType(): int
+}
+
+class Bucles{
+-listaIndividuos: ArrayList<Individuo>
+-listaElementos: ArrayList<Elementos>
+-tablero: ArrayList<Casilla>
+-individuo: Individuo
++Bucles()
++Bucles(listaElementos: ArrayList<Elementos>)
++modificarIndividuo(individuo: Individuo, listaIndividuos: List<Individuo>)
++eliminarIndividuo(individuo: Individuo, listaIndividuos: List<Individuo>)
++actualizarIndividuos(listaIndividuos: List<Individuo>)
++modificarElementos(elemento: Elementos)
++eliminarElemento(elemento: Elementos, listaElementos: List<Elementos>)
++actualizarElementos(listaElementos: List<Elementos>)
++
++individuoMejorado(listaCasillas: List<Casillas>, listaIndividuos: List<Individuo>, listaElementos: List<Elementos>, partida: Partida): Individuo
++individuoConRecurso(individuo: Individuo, elemento: Elementos, partida: Partida): Individuo
++reproducir(a: Individuo, b: Individuo): Individuo
++clonar(individuo: Individuo, partida: Partida): Individuo
++evaluarCapacidadCasilla(casilla: Casilla): int
++evaluarIndividuosCasilla(casilla: Casilla): Individuo
++reordenar(casilla: Casilla): List<Integer>)
++evaluacionFinal(casilla: Casilla)
++aparicionRecurso
+}
+
+@enduml

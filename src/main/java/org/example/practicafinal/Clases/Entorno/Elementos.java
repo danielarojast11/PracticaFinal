@@ -34,7 +34,7 @@ public class Elementos implements Comparable<Elementos>{
         this.casilla = new Casilla(columna,fila);
     }
 
-    public void setCasilla (Casilla casilla){
+    public void setCasilla(Casilla casilla){
         this.casilla = casilla;
     }
 

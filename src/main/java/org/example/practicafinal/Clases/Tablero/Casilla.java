@@ -49,6 +49,7 @@ public class Casilla extends Pane {
     public List<Individuo> getIndividuosCasilla() {
         return this.individuosCasilla;
     }
+
     public List<Integer> getIndividuosIdCasilla(){return this.individuosIdCasilla;}
 
     public int getIndividuosTotales(){
@@ -60,10 +61,10 @@ public class Casilla extends Pane {
     }
 
     public void addIndividuoCasilla(Individuo individuo) {
-
         this.individuosCasilla.add(individuo);
         addIndividuoCasilla();
     }
+
     public void addIndividuoCasilla(){
         individuosIdCasilla.clear();
         for (Individuo individuo : individuosCasilla){

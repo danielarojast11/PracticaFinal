@@ -48,6 +48,8 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblTurno;
+    @FXML
+    private Label lblNumeroIndividuos;
 
     @FXML
     private TabPane tabPane;
@@ -209,7 +211,6 @@ public class EscenarioJugarController {
             partida.individuosInicio();
             listaIndividuos = partida.getListaIndividuos();
             //listaCasillas = partida.getListaCasillas();
-            mostrarCasillas();
             partidaCreada = true;
         }
         cambiarVelocidad();
@@ -234,13 +235,13 @@ public class EscenarioJugarController {
 
     @FXML
     private void restablecerEntorno(){
-        sliderAgua.setValue(2);
-        sliderComida.setValue(10);
-        sliderMontana.setValue(20);
-        sliderCofre.setValue(15);
-        sliderBiblioteca.setValue(30);
-        sliderPozo.setValue(15);
-        sliderProbAparicion.setValue(10);
+        sliderAgua.setValue(5);
+        sliderComida.setValue(5);
+        sliderMontana.setValue(5);
+        sliderCofre.setValue(5);
+        sliderBiblioteca.setValue(5);
+        sliderPozo.setValue(5);
+        sliderProbAparicion.setValue(5);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -273,11 +274,23 @@ public class EscenarioJugarController {
             @Override
             public void handle(long now) {
                 if (i%velocidad==0) {
+                    lblNumeroIndividuos.setText("Nº Individuos: "+partida.getIndividuosTotales());
                     listaIndividuos = partida.getListaIndividuos();
                     listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
+
+                    //mover individuos
+                    for (Individuo individuo:listaIndividuos){
+                        partida.moverIndividuo(individuo);
+                    }
+                    for (Casilla casilla:listaCasillas){
+                        bucle.evaluacionFinal(casilla);
+                    }
+                    bucle.actualizarIndividuos(listaIndividuos);
+                    limpiarCasillas();
+                    mostrarCasillas();
                 }
                 i++;
             }
@@ -290,6 +303,9 @@ public class EscenarioJugarController {
             btnStart.setDisable(true);
             btnPause.setDisable(false);
             btnEnd.setDisable(false);
+            partida.elementosPrincipio();
+            partida.individuosInicio();
+            mostrarCasillas();
             //Disable Sliders
             desabilitarSliders(true);
 
@@ -535,6 +551,12 @@ public class EscenarioJugarController {
         for (Casilla casilla : listaCasillas){
             mostrarIndividuoCasilla(casilla);
             mostrarElementoCasilla(casilla);
+        }
+    }
+
+    public void limpiarCasillas(){
+        for (Casilla casilla:listaCasillas){
+            casilla.getChildren().clear();
         }
     }
 

@@ -11,21 +11,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Bucles extends Partida {
 
         //Parameters
     private ArrayList<Individuo> listaIndividuos;
-    private ArrayList<Elementos> listaElementos;
     private ArrayList<Casilla> tablero;
     private Individuo individuo;
 
         //Constructor
-    public Bucles(){}
-
-    public Bucles (ArrayList<Elementos> listaElementos){
-        this.listaElementos = listaElementos;
+    public Bucles(){
     }
+
 
         //1-Actualizar y Eliminar Individuos
     public void modificarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
@@ -38,8 +36,12 @@ public class Bucles extends Partida {
     public void eliminarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
         if (individuo.getTurnosVida()==0){
             listaIndividuos.remove(individuo);
+            Casilla casilla = individuo.getCasilla();
+            casilla.removeIndividuoCasilla(individuo);
         } else if (individuo.getProbReproduccion() == 0) {
             listaIndividuos.remove(individuo);
+            Casilla casilla = individuo.getCasilla();
+            casilla.removeIndividuoCasilla(individuo);
         }
     }
 
@@ -68,6 +70,48 @@ public class Bucles extends Partida {
         }
     }
 
+        //3-Mover Individuos
+
+    /*public Casilla moverBasico(){
+        return casillaAleatoria();
+    }
+
+    public Casilla moverNormal(Casilla casillaVieja){
+        Casilla nuevaCasilla;
+        List<Elementos> elementos = super.getListaElementos();
+        int indice = (int)(Math.random()*elementos.size());
+        System.out.println("longitud: "+elementos.size());
+        System.out.println(indice);
+        Elementos elementoAleatorio = elementos.get(indice);
+        Casilla casillaElemento = elementoAleatorio.getCasilla();
+        int eleccion = (int)(Math.random()*2);
+        if (eleccion==0){
+            nuevaCasilla = new Casilla(casillaVieja.getColumna(), casillaElemento.getFila());
+        } else{
+            nuevaCasilla = new Casilla(casillaElemento.getColumna(), casillaVieja.getFila());
+        }
+        return nuevaCasilla;
+    }
+
+    public void moverIndividuo(Individuo individuo){
+        Casilla casillaVieja = individuo.getCasilla();
+        Casilla casillaNueva = new Casilla();
+        if (individuo.getRango()==1){
+            casillaNueva=moverBasico();
+        } else if (individuo.getRango()==2) {
+            casillaNueva=moverNormal(casillaVieja);
+        }
+        individuo.setCasilla(casillaNueva);
+        for (Casilla casilla : getListaCasillas()){
+            if (Objects.equals(casilla.getId(), casillaVieja.getId())){
+                casilla.removeIndividuoCasilla(individuo);
+            }
+            if (Objects.equals(casilla.getId(), casillaNueva.getId())){
+                casilla.addIndividuoCasilla(individuo);
+            }
+        }
+    }*/
+
         //4-Evaluar las mejoras obtenidas por los recursos
     public Individuo individuoMejorado(List<Casilla> listaCasillas,
                                        List<Individuo> listaIndividuos,
@@ -83,15 +127,20 @@ public class Bucles extends Partida {
         return individuo;
     }
 
-    protected Individuo individuoConRecurso(Individuo individuo, Elementos elemento, Partida partida){
+    protected Individuo individuoConRecurso(Individuo individuo,
+                                            Elementos elemento,
+                                            Partida partida){
+
         if (elemento.getType() == 0){
             int individuoAgua = individuo.getTurnosVida() +2;
             individuo.setTurnosVida(individuoAgua);
             return individuo;
+
         } else if (elemento.getType() == 1) {
             int individuoComida = individuo.getTurnosVida() + 10;
             individuo.setTurnosVida(individuoComida);
             return individuo;
+
         } else if (elemento.getType() == 2) {
             int sliderClon = partida.getProbClonacion();
             int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
@@ -102,16 +151,19 @@ public class Bucles extends Partida {
                 individuo.setRango(individuoRango);
                 return individuo;
             }
+
         } else if (elemento.getType() == 3) {
             int individuoMontana = individuo.getTurnosVida() -2;
             individuo.setTurnosVida(individuoMontana);
             return individuo;
+
         } else if (elemento.getType() == 4) {
             int sliderRep = partida.getProbReproduccion();
             int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
             int individuoCofre = individuo.getProbReproduccion() + probRep;
             individuo.setProbReproduccion(individuoCofre);
             return individuo;
+
         } else if (elemento.getType() == 5) {
             individuo.setProbabilidadMuerte(100);
         }
@@ -121,13 +173,16 @@ public class Bucles extends Partida {
         //5-Reproduccion
     public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
         Individuo hijo = null;
-        if (a.getClass()== IndividuoAvanzado.class||b.getClass()== IndividuoAvanzado.class){
+        if (a.getClass()== IndividuoAvanzado.class || b.getClass()== IndividuoAvanzado.class){
             hijo = this.crearAvanzado();
-        } else if (a.getClass()== IndividuoNormal.class||b.getClass()== IndividuoNormal.class) {
+
+        } else if (a.getClass()== IndividuoNormal.class || b.getClass()== IndividuoNormal.class) {
             hijo = this.crearNormal();
+
         } else {
             hijo = this.crearBasico();
         }
+
         a.addHijo(hijo);
         b.addHijo(hijo);
         Casilla casilla = hijo.getCasilla();
@@ -175,10 +230,6 @@ public class Bucles extends Partida {
             id.add(individuo1.getId());
         }
         return id;
-    }
-
-    public void evaluarElementosCasilla(Casilla casilla){
-
     }
 
     public void evaluacionFinal(Casilla casilla){

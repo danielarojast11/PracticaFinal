@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" style="-fx-background-color: #68b2a9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioJugarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="882.0" style="-fx-background-color: #68b2a9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.practicafinal.EscenarioJugarController">
    <children>
       <Button fx:id="btnStart" layoutX="29.0" layoutY="529.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="134.0" text="Start" />
       <TabPane fx:id="tabPane" layoutX="535.0" layoutY="66.0" prefHeight="450.0" prefWidth="299.0" tabClosingPolicy="UNAVAILABLE">
@@ -33,17 +41,17 @@
                         </Slider>
                         <Button fx:id="btnRestablecer" layoutX="81.0" layoutY="374.0" mnemonicParsing="false" onAction="#restablecerIndividuos" prefHeight="26.0" prefWidth="134.0" text="Restablecer" />
                         <Button fx:id="btnAceptarParIndividuo" layoutX="81.0" layoutY="339.0" mnemonicParsing="false" onAction="#aceptarParIndividuo" prefHeight="26.0" prefWidth="134.0" text="Aceptar" />
-                        <Slider fx:id="sliderBasico" layoutX="62.0" layoutY="182.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="50.0">
+                        <Slider fx:id="sliderBasico" layoutX="62.0" layoutY="182.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderNormal" layoutX="62.0" layoutY="234.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="70.0">
+                        <Slider fx:id="sliderNormal" layoutX="62.0" layoutY="234.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderAvanzado" layoutX="62.0" layoutY="287.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
+                        <Slider fx:id="sliderAvanzado" layoutX="62.0" layoutY="287.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -65,17 +73,17 @@
                         </ImageView>
                         <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@basico.png" />
+                              <Image url="@individuo%20basico.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@normal.png" />
+                              <Image url="@individuo%20normal.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@avanzado.png" />
+                              <Image url="@individuo%20avanzado.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -86,37 +94,37 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="299.0" style="-fx-background-color: #D4E5E3;">
                      <children>
-                        <Slider fx:id="sliderAgua" layoutX="62.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="214.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderAgua" blockIncrement="1.0" layoutX="62.0" layoutY="14.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="214.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderComida" layoutX="63.0" layoutY="64.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderComida" layoutX="63.0" layoutY="64.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderMontana" layoutX="63.0" layoutY="112.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderMontana" layoutX="63.0" layoutY="112.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderCofre" layoutX="62.0" layoutY="160.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderCofre" blockIncrement="1.0" layoutX="62.0" layoutY="160.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderBiblioteca" layoutX="63.0" layoutY="208.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderBiblioteca" blockIncrement="1.0" layoutX="63.0" layoutY="208.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderPozo" layoutX="63.0" layoutY="258.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderPozo" blockIncrement="1.0" layoutX="63.0" layoutY="258.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #68b2a9;" value="5.0">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Slider>
-                        <Slider fx:id="sliderProbAparicion" layoutX="63.0" layoutY="307.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;">
+                        <Slider fx:id="sliderProbAparicion" layoutX="63.0" layoutY="307.0" min="1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="213.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #68b2a9;" value="10.0">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -138,7 +146,7 @@
                               <Image url="@agua.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="10.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="11.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@cofre.png" />
                            </image>
@@ -151,6 +159,11 @@
                         <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="13.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pozoo.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@tiempo.png" />
                            </image>
                         </ImageView>
                      </children></AnchorPane>
@@ -211,7 +224,12 @@
       </TabPane>
       <ToolBar prefHeight="36.0" prefWidth="882.0" style="-fx-background-color: #876A4D;">
         <items>
-            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="352.0" text="Turno: " textFill="WHITE">
+            <Label fx:id="lblTurno" prefHeight="18.0" prefWidth="142.0" text="Turno: " textFill="WHITE">
+               <font>
+                  <Font name="Britannic Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNumeroIndividuos" prefHeight="18.0" prefWidth="205.0" text="Nº Individuos:" textFill="WHITE">
                <font>
                   <Font name="Britannic Bold" size="17.0" />
                </font>

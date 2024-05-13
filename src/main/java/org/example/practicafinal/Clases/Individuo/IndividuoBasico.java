@@ -8,7 +8,11 @@ public class IndividuoBasico extends Individuo {
 
     }
 
-    public IndividuoBasico(int id, int generacion, int turnosVida, int probReproduccion, int probClonacion) {
+    public IndividuoBasico(int id,
+                           int generacion,
+                           int turnosVida,
+                           int probReproduccion,
+                           int probClonacion) {
         super(id, generacion, turnosVida, probReproduccion, probClonacion);
     }
 
