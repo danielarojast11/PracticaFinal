@@ -39,6 +39,7 @@ class Individuo{
 -casilla: Casilla
 +Individuo()
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int)
++Individuo(id: int, turnosVida: int, probReproduccion: int, probClonacion: int)
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int)
 +getId(): int
 +setId(id: int)
@@ -73,7 +74,8 @@ class IndividuoBasico{
 +IndividuoBasico()
 +IndividuoBasico(id: int, generacion: int, turnosVida: int,
 probReproduccion: int, probClonacion: int)
-+mover()
++IndividuoBasico(id: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
 +getRango(): int
 +reproducir(): IndividuoBasico
 }
@@ -83,7 +85,8 @@ class IndividuoNormal{
 +IndividuoNormal()
 +IndividuoNormal(id: int, generacion: int, turnosVida: int,
 probReproduccion: int, probClonacion: int)
-+mover()
++IndividuoNormal(id: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
 +getRango(): int
 +reproducir(): IndividuoNormal
 }
@@ -93,7 +96,8 @@ class IndividuoAvanzado{
 +IndividuoAvanzado()
 +IndividuoAvanzado(id: int, generacion: int, turnosVida: int,
 probReproduccion: int, probClonacion: int)
-+mover()
++IndividuoAvanzado(id: int, turnosVida: int,
+probReproduccion: int, probClonacion: int)
 +getRango(): int
 +reproducir(): IndividuoAvanzado
 }
@@ -107,7 +111,6 @@ Elementos <|-- Pozo
 
 class Elementos{
 -tiempoActividad: int
--aparicionRecurso: int
 -casilla: Casilla
 #type: int
 +Elementos(tiempoActividad: int, type: int)
@@ -118,8 +121,6 @@ class Elementos{
 +setCasilla(Columna: int, Fila: int)
 +setCasilla2(casilla: Casilla)
 +getType(): int
-+getAparicionRecurso(): int
-+setAparicionRecurso(aparicionRecurso: int)
 +compareTo(o: Elementos): int
 }
 

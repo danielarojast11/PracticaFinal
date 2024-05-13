@@ -49,19 +49,6 @@ class ElementosTest {
     }
 
     @Test
-    void getAparicionRecurso(){
-        Elementos elementos = new Elementos ();
-        assertEquals(0, elementos.getAparicionRecurso());
-    }
-
-    @Test
-    void setAparicionRecurso(){
-        Elementos elementos = new Elementos(4, 3);
-        elementos.setAparicionRecurso(5);
-        assertEquals(5, elementos.getAparicionRecurso());
-    }
-
-    @Test
     void compareTo(){
         Elementos elemento1 = new Elementos();
         Elementos elemento2 = new Elementos();

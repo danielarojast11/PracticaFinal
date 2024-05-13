@@ -117,7 +117,6 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         for (int i = 0; i < valor; i++) {
             this.casilla.addIndividuoCasilla(new IndividuoBasico(
                     casilla.getColumna() * 100 + casilla.getFila() * 10,
-                    4,
                     partida.getTurnosVida(),
                     partida.getProbReproduccion(),
                     partida.getProbClonacion()));
@@ -127,14 +126,22 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 this.partida.getNumeroIndividuosNormal() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoNormal());
+            this.casilla.addIndividuoCasilla(new IndividuoNormal(
+                    casilla.getColumna() * 100 + casilla.getFila() * 10,
+                    partida.getTurnosVida(),
+                    partida.getProbReproduccion(),
+                    partida.getProbClonacion()));
         }
         valor = (int) sliderAvanzado.getValue();
         this.partida.setNumeroIndividuosAvanzados(
                 this.partida.getNumeroIndividuosAvanzados() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoAvanzado());
+            this.casilla.addIndividuoCasilla(new IndividuoAvanzado(
+                    casilla.getColumna() * 100 + casilla.getFila() * 10,
+                    partida.getTurnosVida(),
+                    partida.getProbReproduccion(),
+                    partida.getProbClonacion()));
         }
 
         valor = (int) sliderAgua.getValue();
@@ -142,42 +149,54 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 this.partida.getAgua() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Agua());
+            this.casilla.addElementoCasilla(new Agua(
+                    4,
+                    0));
         }
         valor = (int) sliderComida.getValue();
         this.partida.setComida(
                 this.partida.getComida() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Comida());
+            this.casilla.addElementoCasilla(new Comida(
+                    3,
+                    1));
         }
         valor = (int) sliderMontanas.getValue();
         this.partida.setMontana(
                 this.partida.getMontana() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Montaña());
+            this.casilla.addElementoCasilla(new Montaña(
+                    4,
+                    3));
         }
         valor = (int) sliderCofres.getValue();
         this.partida.setCofre(
                 this.partida.getCofre() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Tesoro());
+            this.casilla.addElementoCasilla(new Tesoro(
+                    2,
+                    4));
         }
         valor = (int) sliderBibliotecas.getValue();
         this.partida.setBiblioteca(
                 this.partida.getBiblioteca() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Biblioteca());
+            this.casilla.addElementoCasilla(new Biblioteca(
+                    3,
+                    2));
         }
         valor = (int) sliderPozos.getValue();
         this.partida.setPozo(
                 this.partida.getPozo() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Pozo());
+            this.casilla.addElementoCasilla(new Pozo(
+                    1,
+                    5));
         }
     }
 }

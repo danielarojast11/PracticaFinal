@@ -177,7 +177,7 @@ class IndividuoTest {
     @Test
     void modificarTurnosVida(){
         Individuo ind1 = new Individuo();
-        Individuo ind2 = new Individuo(1, 2, 5, 40, 50);
+        Individuo ind2 = new Individuo(1, 5, 40, 50);
         ind1.modificarTurnosVida();
         ind2.modificarTurnosVida();
         assertEquals(0, ind1.getTurnosVida());

@@ -17,7 +17,7 @@ class IndividuoBasicoTest {
 
     @Test
     void testReproducir(){
-        IndividuoBasico basico = new IndividuoBasico();
+        IndividuoBasico basico = new IndividuoBasico(1, 5, 40, 60);
         IndividuoBasico hijo = new IndividuoBasico();
         List<IndividuoBasico> hijos = new ArrayList<>();
         hijos.add(hijo);

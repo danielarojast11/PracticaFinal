@@ -28,6 +28,17 @@ public class Individuo implements Comparable<Individuo>{
     }
 
     public Individuo(int id,
+                     int turnosVida,
+                     int probReproduccion,
+                     int probClonacion) {
+        this.id = id;
+        this.turnosVida = turnosVida;
+        this.probReproduccion = probReproduccion;
+        this.probClonacion = probClonacion;
+        this.probMuerte = 100 - probReproduccion;
+    }
+
+    public Individuo(int id,
                      int generacion,
                      int turnosVida,
                      int probReproduccion,

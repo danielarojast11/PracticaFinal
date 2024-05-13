@@ -4,7 +4,18 @@ public class IndividuoAvanzado extends Individuo {
 
     private int rango = 3;
 
-    public IndividuoAvanzado(int id, int generacion, int turnosVida, int probReproduccion, int probClonacion) {
+    public IndividuoAvanzado(int id,
+                             int turnosVida,
+                             int probReproduccion,
+                             int probClonacion) {
+        super(id, turnosVida, probReproduccion, probClonacion);
+    }
+
+    public IndividuoAvanzado(int id,
+                             int generacion,
+                             int turnosVida,
+                             int probReproduccion,
+                             int probClonacion) {
         super(id, generacion, turnosVida, probReproduccion, probClonacion);
     }
 
@@ -14,10 +25,6 @@ public class IndividuoAvanzado extends Individuo {
 
     public int getRango(){
         return rango;
-    }
-
-    public void mover(){
-
     }
 
     public IndividuoAvanzado reproducir(){

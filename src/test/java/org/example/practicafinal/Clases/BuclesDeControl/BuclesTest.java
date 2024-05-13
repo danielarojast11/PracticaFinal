@@ -82,7 +82,7 @@ class BuclesTest {
         ArrayList<Elementos> listaElementos = new ArrayList<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
-        Bucles bucles = new Bucles(listaElementos);
+        Bucles bucles = new Bucles();
         bucles.eliminarElemento(elemento1, listaElementos);
         assertEquals(false, listaElementos.contains(elemento1));
         assertEquals(true, listaElementos.contains(elemento2));
@@ -97,7 +97,7 @@ class BuclesTest {
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         listaElementos.add(elemento3);
-        Bucles bucles = new Bucles(listaElementos);
+        Bucles bucles = new Bucles();
         bucles.actualizarElementos(listaElementos);
         assertEquals(0, elemento2.getTiempoActividad());
         assertEquals(true, listaElementos.contains(elemento1));
@@ -279,8 +279,8 @@ class BuclesTest {
         listaElementos2.add(elemento0);
         listaElementos2.add(elemento1);
         Bucles bucle1 = new Bucles();
-        bucle1.aparicionRecursos(listaCasillas, listaElementos1);
+        bucle1.aparicionRecursos(listaCasillas, listaElementos1, null);
         Bucles bucle2 = new Bucles();
-        bucle2.aparicionRecursos(listaCasillas, listaElementos2);
+        bucle2.aparicionRecursos(listaCasillas, listaElementos2, null);
     }
 }

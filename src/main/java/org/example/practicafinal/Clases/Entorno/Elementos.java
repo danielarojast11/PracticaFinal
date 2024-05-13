@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 public class Elementos implements Comparable<Elementos>{
 
     private int tiempoActividad;
-    private int aparicionRecurso;
     private Casilla casilla = new Casilla();
     protected int type;
 
@@ -40,14 +39,6 @@ public class Elementos implements Comparable<Elementos>{
 
     public int getType(){
         return type;
-    }
-
-    public int getAparicionRecurso() {
-        return aparicionRecurso;
-    }
-
-    public void setAparicionRecurso(int aparicionRecurso) {
-        this.aparicionRecurso = aparicionRecurso;
     }
 
     @Override

@@ -151,7 +151,7 @@ public class EscenarioJugarController {
     private Slider sliderPozo;
 
     @FXML
-    private Slider sliderProbAparicion;
+    private Slider sliderTiempoActividad;
 
     @FXML
     private Button btnAceptarParEntorno;
@@ -166,8 +166,10 @@ public class EscenarioJugarController {
 
     @FXML
     private Label lblColumnas;
+
     @FXML
     private Label lblVelocidad;
+
     @FXML
     private Label lblFilas;
 
@@ -182,6 +184,7 @@ public class EscenarioJugarController {
 
     @FXML
     private Button btnAceptarTablero;
+
     @FXML
     private Button btnRestablecerTablero;
 
@@ -241,7 +244,7 @@ public class EscenarioJugarController {
         sliderCofre.setValue(5);
         sliderBiblioteca.setValue(5);
         sliderPozo.setValue(5);
-        sliderProbAparicion.setValue(5);
+        sliderTiempoActividad.setValue(5);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -369,7 +372,7 @@ public class EscenarioJugarController {
         sliderCofre.setDisable(a);
         sliderBiblioteca.setDisable(a);
         sliderPozo.setDisable(a);
-        sliderProbAparicion.setDisable(a);
+        sliderTiempoActividad.setDisable(a);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -490,7 +493,7 @@ public class EscenarioJugarController {
             (int) sliderCofre.getValue(),
             (int) sliderBiblioteca.getValue(),
             (int) sliderPozo.getValue(),
-            (int) sliderProbAparicion.getValue(),
+            (int) sliderTiempoActividad.getValue(),
             (int) sliderColumnas.getValue(),
             (int) sliderFilas.getValue()
         );

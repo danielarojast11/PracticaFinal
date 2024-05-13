@@ -15,7 +15,7 @@ public class Partida {
     int turno;
     int probReproduccion;
     int probClonacion;
-    int id = 1;
+    int id;
     int turnosVida;
     int numeroIndividuosBasicos;
     int numeroIndividuosNormal;
@@ -26,7 +26,7 @@ public class Partida {
     int cofre;
     int biblioteca;
     int pozo;
-    int probAparicion;
+    int tiempoActividad;
     int columnas;
     int filas;
 
@@ -49,7 +49,9 @@ public class Partida {
                    int turnosVida,
                    int numeroIndividuosBasicos,
                    int numeroIndividuosNormal,
-                   int numeroIndividuosAvanzados, int filas, int columnas) {
+                   int numeroIndividuosAvanzados,
+                   int filas,
+                   int columnas) {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
@@ -73,7 +75,7 @@ public class Partida {
         int cofre,
         int biblioteca,
         int pozo,
-        int probAparicion,
+        int tiempoActividad,
         int columnas,
         int filas
     ) {
@@ -89,7 +91,7 @@ public class Partida {
         this.cofre = cofre;
         this.biblioteca = biblioteca;
         this.pozo = pozo;
-        this.probAparicion = probAparicion;
+        this.tiempoActividad = tiempoActividad;
         this.columnas = columnas;
         this.filas = filas;
     }
@@ -99,6 +101,7 @@ public class Partida {
 
 
         //GETTERS AND SETTERS
+
     public int getTurno() {
         return turno;
     }
@@ -110,6 +113,7 @@ public class Partida {
 
 
         //GETTERS AND SETTERS INDIVIDUALS
+
     public int getMaximosIndividuos(){
         return this.MaximosIndividuos;
     }
@@ -174,7 +178,8 @@ public class Partida {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
-        //GETTERS AND SETTERS ELEMENTS
+    //GETTERS AND SETTERS ELEMENTS
+
     public int getAgua() {
         return agua;
     }
@@ -223,17 +228,17 @@ public class Partida {
         this.pozo = pozo;
     }
 
-    public int getProbAparicion() {
-        return probAparicion;
-    }
-
-    public void setProbAparicion(int probAparicion) {
-        this.probAparicion = probAparicion;
-    }
-
     public List<Elementos> getListaElementos(){return this.listaElementos;}
 
     public void setListaElementos(ArrayList<Elementos> listaElementos){this.listaElementos=listaElementos;}
+
+    public int getTiempoActividad() {
+        return tiempoActividad;
+    }
+
+    public void setTiempoActividad(int tiempoActividad) {
+        this.tiempoActividad = tiempoActividad;
+    }
 
         //GETTERS AND SETTERS PLACEHOLDERS
     public void setColumnas(int columnas){

@@ -9,15 +9,18 @@ public class IndividuoBasico extends Individuo {
     }
 
     public IndividuoBasico(int id,
+                           int turnosVida,
+                           int probReproduccion,
+                           int probClonacion) {
+        super(id, turnosVida, probReproduccion, probClonacion);
+    }
+
+    public IndividuoBasico(int id,
                            int generacion,
                            int turnosVida,
                            int probReproduccion,
                            int probClonacion) {
         super(id, generacion, turnosVida, probReproduccion, probClonacion);
-    }
-
-    public void mover(){
-
     }
 
     public int getRango(){

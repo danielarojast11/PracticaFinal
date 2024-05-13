@@ -10,11 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class IndividuoAvanzadoTest {
 
     @Test
-    void testMover(){
-
-    }
-
-    @Test
     void testGetRango(){
         IndividuoAvanzado avanzado = new IndividuoAvanzado(1, 2, 5, 40, 60);
         assertEquals(3, avanzado.getRango());
@@ -22,7 +17,7 @@ class IndividuoAvanzadoTest {
 
     @Test
     void testReproducir(){
-        IndividuoAvanzado avanzado = new IndividuoAvanzado();
+        IndividuoAvanzado avanzado = new IndividuoAvanzado(1, 5, 40, 60);
         IndividuoAvanzado hijo = new IndividuoAvanzado();
         List<IndividuoAvanzado> hijos = new ArrayList<>();
         hijos.add(hijo);

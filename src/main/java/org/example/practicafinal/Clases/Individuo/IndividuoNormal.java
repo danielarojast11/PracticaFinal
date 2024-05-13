@@ -8,6 +8,13 @@ public class IndividuoNormal extends Individuo {
     }
 
     public IndividuoNormal(int id,
+                           int turnosVida,
+                           int probReproduccion,
+                           int probClonacion) {
+        super(id, turnosVida, probReproduccion, probClonacion);
+    }
+
+    public IndividuoNormal(int id,
                            int generacion,
                            int turnosVida,
                            int probReproduccion,
