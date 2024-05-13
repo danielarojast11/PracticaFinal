@@ -150,7 +150,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Agua(
-                    4,
+                    partida.getTiempoActividad(),
                     0));
         }
         valor = (int) sliderComida.getValue();
@@ -159,7 +159,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Comida(
-                    3,
+                    partida.getTiempoActividad(),
                     1));
         }
         valor = (int) sliderMontanas.getValue();
@@ -168,7 +168,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Montaña(
-                    4,
+                    partida.getTiempoActividad(),
                     3));
         }
         valor = (int) sliderCofres.getValue();
@@ -177,7 +177,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Tesoro(
-                    2,
+                    partida.getTiempoActividad(),
                     4));
         }
         valor = (int) sliderBibliotecas.getValue();
@@ -186,7 +186,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Biblioteca(
-                    3,
+                    partida.getTiempoActividad(),
                     2));
         }
         valor = (int) sliderPozos.getValue();
@@ -195,7 +195,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
         );
         for (int i = 0; i < valor; i++) {
             this.casilla.addElementoCasilla(new Pozo(
-                    1,
+                    partida.getTiempoActividad(),
                     5));
         }
     }
