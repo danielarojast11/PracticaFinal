@@ -19,12 +19,10 @@ import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
 import org.example.practicafinal.Dialogs.CasillaDialog;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class EscenarioJugarController {
 
@@ -375,13 +373,20 @@ public class EscenarioJugarController {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                            Dialog<Casilla> casillaDialog = new CasillaDialog(casilla, partida);
+                            Dialog<PartidaCasilla> casillaDialog = new CasillaDialog(casilla, partida);
                             Window window = casillaDialog.getDialogPane().getScene().getWindow();
                             window.setOnCloseRequest(event -> window.hide());
-                            Optional<Casilla> result = casillaDialog.showAndWait();
-                            if (result != null) {
-                                casilla.setIndividuosCasilla(result.get().getIndividuosCasilla());
-                                casilla.setElementosCasilla(result.get().getElementosCasilla());
+                            Optional<PartidaCasilla> result = casillaDialog.showAndWait();
+                            if (result != null && result.get().getCasilla() != null) {
+                                casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
+                                casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
+
+                                partida.setAgua(result.get().getPartida().getAgua());
+                                partida.setComida(result.get().getPartida().getComida());
+                                partida.setMontana(result.get().getPartida().getMontana());
+                                partida.setCofre(result.get().getPartida().getCofre());
+                                partida.setBiblioteca(result.get().getPartida().getBiblioteca());
+                                partida.setPozo(result.get().getPartida().getPozo());
                             }
                         }
                     }
