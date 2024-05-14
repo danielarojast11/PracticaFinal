@@ -149,11 +149,15 @@ public class Individuo implements Comparable<Individuo>{
 
         //METHODS MODIFY EACH TURN
     public void modificarReprod(){
-        this.setProbReproduccion(probReproduccion - (10* probReproduccion /100));
+        if (this.getProbReproduccion() > 0){
+            this.setProbReproduccion(probReproduccion - (10* probReproduccion /100));
+        }
     }
 
     public void modificarClonacion(){
-        this.setProbClonacion(probClonacion - ((10* probClonacion) /100));
+        if(this.getProbClonacion() > 0){
+            this.setProbClonacion(probClonacion - ((10* probClonacion) /100));
+        }
     }
 
     public void modificarTurnosVida(){
