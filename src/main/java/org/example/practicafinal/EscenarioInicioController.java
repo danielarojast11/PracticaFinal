@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 
 public class EscenarioInicioController {
     EscenariosController controladorEscenarios;
+
     @FXML
     private Button btnCargarPartida;
 

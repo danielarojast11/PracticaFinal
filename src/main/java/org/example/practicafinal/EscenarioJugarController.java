@@ -390,7 +390,6 @@ public class EscenarioJugarController {
         }
     }
 
-    @FXML
     private void guardar(){
         btnGuardar.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
@@ -402,7 +401,6 @@ public class EscenarioJugarController {
         });
     }
 
-    @FXML
     private void cargar(){
         btnCargarPartida.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
