@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="modificaciones" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="modificaciones">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,12 +38,12 @@
     &quot;assignee&quot;: &quot;candelasanzm&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/danielarojast11/PracticaFinal.git&quot;,
-    &quot;accountId&quot;: &quot;91733dce-8eac-4a51-b744-c432ee2b8d78&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/danielarojast11/PracticaFinal.git",
+    "accountId": "91733dce-8eac-4a51-b744-c432ee2b8d78"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -53,7 +58,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FuncionamientoPartida.executor": "Run",
-    "Application.MainApplication.executor": "Coverage",
+    "Application.MainApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AguaTest.executor": "Coverage",
     "JUnit.BibliotecaTest.executor": "Coverage",
     "JUnit.BuclesTest.executor": "Run",
@@ -66,15 +72,22 @@
     "JUnit.MontañaTest.executor": "Coverage",
     "JUnit.PozoTest.executor": "Coverage",
     "JUnit.TesoroTest.executor": "Coverage",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Candela/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Metodología de la programación/EL3",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -168,6 +181,8 @@
       <workItem from="1715614939556" duration="1068000" />
       <workItem from="1715621179011" duration="127000" />
       <workItem from="1715621316201" duration="2175000" />
+      <workItem from="1715636076032" duration="63000" />
+      <workItem from="1715688708093" duration="6702000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -312,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715635686459</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="modificaciones">
+      <option name="closed" value="true" />
+      <created>1715636129454</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715636129454</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

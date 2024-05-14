@@ -7,6 +7,7 @@ module org.example.practicafinal {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires org.jetbrains.annotations;
+    requires com.google.gson;
 
     opens org.example.practicafinal to javafx.fxml;
     exports org.example.practicafinal;

@@ -1,5 +1,6 @@
 package org.example.practicafinal;
 
+import com.google.gson.Gson;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,13 +23,18 @@ import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
 import org.example.practicafinal.Dialogs.CasillaDialog;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class EscenarioJugarController {
 
     //Parameters
     EscenariosController controladorEscenarios;
+
     private Partida partida;
+
     private Bucles bucle = new Bucles();
 
     private GridPane tablero = new GridPane();
@@ -42,12 +48,14 @@ public class EscenarioJugarController {
     private List<Individuo> listaIndividuos = new ArrayList<>();
 
     private List<Casilla> listaCasillas = new ArrayList<>();
+
     private List<Elementos> listaElementos = new ArrayList<>();
 
     private int velocidad = 50;
 
     @FXML
     private Label lblTurno;
+
     @FXML
     private Label lblNumeroIndividuos;
 
@@ -187,6 +195,12 @@ public class EscenarioJugarController {
 
     @FXML
     private Button btnRestablecerTablero;
+
+    @FXML
+    private Button btnGuardar;
+
+    @FXML
+    private Button btnCargarPartida;
 
     ////////////////////////////////////////////////////////////////////////////
 
@@ -355,6 +369,49 @@ public class EscenarioJugarController {
         desabilitarSliders(true);
         animationTimer.stop();
         controladorEscenarios.cargarArbolFinal(listaIndividuos);
+    }
+
+    public static <T> void guardarObjeto(String rutaArchivo, T objeto){
+        Gson gson = new Gson ();
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            gson.toJson(objeto, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static <T> T cargarObjeto(String rutaArchivo, Class<T> clase){
+        Gson gson = new Gson ();
+        try (FileReader reader = new FileReader(rutaArchivo)) {
+            return gson.fromJson(reader, clase);
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @FXML
+    private void guardar(){
+        btnGuardar.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton() == MouseButton.PRIMARY){
+                    guardarObjeto("partida.json", partida);
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void cargar(){
+        btnCargarPartida.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton() == MouseButton.PRIMARY){
+                    cargarObjeto("partida.json", Partida.class);
+                }
+            }
+        });
     }
 
     private void desabilitarSliders(Boolean a){
