@@ -45,11 +45,13 @@ public class Bucles extends Partida {
         }
     }
 
-    public void actualizarIndividuos(List<Individuo> listaIndividuos){
+    public List<Individuo> actualizarIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
             modificarIndividuo(individuo, listaIndividuos);
             eliminarIndividuo(individuo, listaIndividuos);
+            return listaIndividuos;
         }
+        return listaIndividuos;
     }
 
         //2-Actualizar y Eliminar Recursos

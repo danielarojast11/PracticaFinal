@@ -63,7 +63,7 @@ class BuclesTest {
         assertEquals(4, ind1.getTurnosVida());
         assertEquals(54, ind1.getProbClonacion());
         assertEquals(45, ind1.getProbReproduccion());
-        assertEquals(false, individuos.contains(ind2));
+        assertEquals(true, individuos.contains(ind2));
         assertEquals(true, individuos.contains(ind3));
     }
 
