@@ -1,6 +1,7 @@
 package org.example.practicafinal;
 
 import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -372,9 +373,12 @@ public class EscenarioJugarController {
     }
 
     public static <T> void guardarObjeto(String rutaArchivo, T objeto){
+        Partida partida = new Partida();
         Gson gson = new Gson ();
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
-            gson.toJson(objeto, writer);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writeValueAsString(partida);
+            gson.toJson(json, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -392,14 +396,7 @@ public class EscenarioJugarController {
 
     @FXML
     private void guardar(){
-        btnGuardar.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (mouseEvent.getButton() == MouseButton.PRIMARY){
-                    guardarObjeto("partida.json", partida);
-                }
-            }
-        });
+        guardarObjeto("partida.json", partida);
         btnPause.setDisable(true);
         btnEnd.setDisable(false);
         btnStart.setDisable(false);
@@ -409,14 +406,7 @@ public class EscenarioJugarController {
 
     @FXML
     private void cargar(){
-        btnCargarPartida.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (mouseEvent.getButton() == MouseButton.PRIMARY){
-                    cargarObjeto("partida.json", Partida.class);
-                }
-            }
-        });
+        cargarObjeto("partida.json", Partida.class);
     }
 
     private void desabilitarSliders(Boolean a){

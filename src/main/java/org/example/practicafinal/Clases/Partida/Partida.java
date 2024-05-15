@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Partida {
-    private int MaximosIndividuos = 3;
+
     private int turno;
     private int probReproduccion;
     private int probClonacion;
@@ -29,6 +29,7 @@ public class Partida {
     private int tiempoActividad;
     private int columnas;
     private int filas;
+    private int maximosIndividuos = 3;
 
     private List<Individuo> listaIndividuos = new ArrayList<>();
     private List<Casilla> listaCasillas = new ArrayList<>();
@@ -99,7 +100,6 @@ public class Partida {
     public Partida() {
     }
 
-
         //GETTERS AND SETTERS
 
     public int getTurno() {
@@ -110,12 +110,10 @@ public class Partida {
         this.turno = turno;
     }
 
-
-
         //GETTERS AND SETTERS INDIVIDUALS
 
     public int getMaximosIndividuos(){
-        return this.MaximosIndividuos;
+        return this.maximosIndividuos;
     }
 
     public int getProbReproduccion() {
