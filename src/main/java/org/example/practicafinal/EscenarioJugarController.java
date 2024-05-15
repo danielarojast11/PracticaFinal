@@ -109,7 +109,7 @@ public class EscenarioJugarController {
         //Modify Individuals Types
 
     @FXML
-    private Tab tabTipoIndiviudos;
+    private Tab tabTipoIndividuos;
 
     @FXML
     private Label lblBasico;
@@ -487,7 +487,7 @@ public class EscenarioJugarController {
         //OTRAS FUNCIONES
 
     @FXML
-    void cambiarVelocidad() {
+    public void cambiarVelocidad() {
         if (sliderVelocidad.getValue()==0.25){
             this.velocidad = 125;
         } else if (sliderVelocidad.getValue()==0.5){

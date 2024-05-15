@@ -122,16 +122,8 @@ public class Partida {
         return probReproduccion;
     }
 
-    public void setProbReproduccion(int probReproduccion) {
-        this.probReproduccion = probReproduccion;
-    }
-
     public int getProbClonacion() {
         return probClonacion;
-    }
-
-    public void setProbClonacion(int probClonacion) {
-        this.probClonacion = probClonacion;
     }
 
     public int getId() {
@@ -144,10 +136,6 @@ public class Partida {
 
     public int getTurnosVida() {
         return turnosVida;
-    }
-
-    public void setTurnosVida(int turnosVida) {
-        this.turnosVida = turnosVida;
     }
 
     public List<Individuo> getListaIndividuos(){
@@ -230,14 +218,8 @@ public class Partida {
 
     public List<Elementos> getListaElementos(){return this.listaElementos;}
 
-    public void setListaElementos(ArrayList<Elementos> listaElementos){this.listaElementos=listaElementos;}
-
     public int getTiempoActividad() {
         return tiempoActividad;
-    }
-
-    public void setTiempoActividad(int tiempoActividad) {
-        this.tiempoActividad = tiempoActividad;
     }
 
         //GETTERS AND SETTERS PLACEHOLDERS

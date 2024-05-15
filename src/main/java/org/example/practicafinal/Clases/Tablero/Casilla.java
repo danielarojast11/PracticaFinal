@@ -11,11 +11,11 @@ import java.util.List;
 
 
 public class Casilla extends Pane {
-    int columna;
-    int fila;
-    List<Individuo> individuosCasilla = new ArrayList<>();
-    List<Integer> individuosIdCasilla = new ArrayList<>();
-    List<Elementos> elementosCasilla = new ArrayList<>();
+    private int columna;
+    private int fila;
+    private List<Individuo> individuosCasilla = new ArrayList<>();
+    private List<Integer> individuosIdCasilla = new ArrayList<>();
+    private List<Elementos> elementosCasilla = new ArrayList<>();
 
     //EscenarioJugarController escenario;
 
