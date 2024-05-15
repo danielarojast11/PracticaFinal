@@ -372,18 +372,6 @@ public class EscenarioJugarController {
         controladorEscenarios.cargarArbolFinal(listaIndividuos);
     }
 
-    public static <T> void guardarObjeto(String rutaArchivo, T objeto){
-        Partida partida = new Partida();
-        Gson gson = new Gson ();
-        try (FileWriter writer = new FileWriter(rutaArchivo)) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writeValueAsString(partida);
-            gson.toJson(json, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static <T> T cargarObjeto(String rutaArchivo, Class<T> clase){
         Gson gson = new Gson ();
         try (FileReader reader = new FileReader(rutaArchivo)) {
@@ -396,7 +384,14 @@ public class EscenarioJugarController {
 
     @FXML
     private void guardar(){
-        guardarObjeto("partida.json", partida);
+        Gson gson = new Gson ();
+        try (FileWriter writer = new FileWriter("partida.json")) {
+            //ObjectMapper objectMapper = new ObjectMapper();
+            //String json = objectMapper.writeValueAsString(this.partida);
+            gson.toJson(partida.toJson(), writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         btnPause.setDisable(true);
         btnEnd.setDisable(false);
         btnStart.setDisable(false);

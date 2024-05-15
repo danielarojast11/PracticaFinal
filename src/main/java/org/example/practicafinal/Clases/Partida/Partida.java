@@ -1,4 +1,5 @@
 package org.example.practicafinal.Clases.Partida;
+import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class Partida {
-
     private int turno;
     private int probReproduccion;
     private int probClonacion;
@@ -98,6 +98,15 @@ public class Partida {
     }
 
     public Partida() {
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("turno", this.turno);
+        jsonObject.addProperty("probReproduccion", this.probReproduccion);
+        jsonObject.addProperty("probClonacion", this.probClonacion);
+
+        return jsonObject;
     }
 
         //GETTERS AND SETTERS
