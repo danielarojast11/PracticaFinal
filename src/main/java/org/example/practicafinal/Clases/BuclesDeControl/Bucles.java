@@ -19,6 +19,7 @@ public class Bucles extends Partida {
     private ArrayList<Individuo> listaIndividuos;
     private ArrayList<Casilla> tablero;
     private Individuo individuo;
+    private Partida partida;
 
         //Constructor
     public Bucles(){
@@ -243,9 +244,9 @@ public class Bucles extends Partida {
     }
 
         //8-Aparición recursos
-    public List<Elementos> aparicionRecursos(List<Casilla> listaCasillas, List<Elementos> listaElementos, Partida partida){
+    public List<Elementos> aparicionRecursos(List<Casilla> listaCasillas, List<Elementos> listaElementos){
         for (Casilla casilla : listaCasillas){
-            if (listaElementos.size() < 3){
+            if (casilla.getElementosCasilla().size() < 3){
                 for (Elementos elemento : listaElementos){
                 }
             }

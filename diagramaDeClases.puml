@@ -21,6 +21,33 @@ Partida <|-- Bucles
 Partida <|-- Elementos
 Partida <|-- Individuo
 
+class Partida{
+-MaximosIndividuos = 3: int
+-turno: int
+-probReproduccion: int
+-probClonacion: int
+-id: int
+-turnosVida: int
+-numeroIndividuosBasicos: int
+-numeroIndividuosNormal: int
+-numeroIndividuosAvanzados: int
+-agua: int
+-comida: int
+-montana: int
+-cofre: int
+-biblioteca: int
+-pozo: int
+-tiempoActividad: int
+-columnas: int
+-filas: int
+-listaIndividuos: List<Individuo>
+-listaElementos: List<Elementos>
+-listaCasillas: List<Casilla>
++Partida(probReproduccion: int, probClonacion:int, turnosVida: int)
++Partida(probReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, filas: int, columnas: int)
+
+}
+
 Individuo <|-- IndividuoBasico
 Individuo <|-- IndividuoNormal
 Individuo <|-- IndividuoAvanzado
@@ -193,7 +220,9 @@ class Bucles{
 +modificarElementos(elemento: Elementos)
 +eliminarElemento(elemento: Elementos, listaElementos: List<Elementos>)
 +actualizarElementos(listaElementos: List<Elementos>)
-+
++moverBasico(): Casilla
++moverNormal(): Casilla
++moverIndividuo(): Casilla
 +individuoMejorado(listaCasillas: List<Casillas>, listaIndividuos: List<Individuo>, listaElementos: List<Elementos>, partida: Partida): Individuo
 +individuoConRecurso(individuo: Individuo, elemento: Elementos, partida: Partida): Individuo
 +reproducir(a: Individuo, b: Individuo): Individuo
@@ -202,7 +231,7 @@ class Bucles{
 +evaluarIndividuosCasilla(casilla: Casilla): Individuo
 +reordenar(casilla: Casilla): List<Integer>)
 +evaluacionFinal(casilla: Casilla)
-+aparicionRecurso
++aparicionRecurso()
 }
 
 @enduml

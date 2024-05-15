@@ -11,28 +11,28 @@ import java.util.List;
 import java.util.Objects;
 
 public class Partida {
-    int MaximosIndividuos = 3;
-    int turno;
-    int probReproduccion;
-    int probClonacion;
-    int id;
-    int turnosVida;
-    int numeroIndividuosBasicos;
-    int numeroIndividuosNormal;
-    int numeroIndividuosAvanzados;
-    int agua;
-    int comida;
-    int montana;
-    int cofre;
-    int biblioteca;
-    int pozo;
-    int tiempoActividad;
-    int columnas;
-    int filas;
+    private int MaximosIndividuos = 3;
+    private int turno;
+    private int probReproduccion;
+    private int probClonacion;
+    private int id;
+    private int turnosVida;
+    private int numeroIndividuosBasicos;
+    private int numeroIndividuosNormal;
+    private int numeroIndividuosAvanzados;
+    private int agua;
+    private int comida;
+    private int montana;
+    private int cofre;
+    private int biblioteca;
+    private int pozo;
+    private int tiempoActividad;
+    private int columnas;
+    private int filas;
 
-    List<Individuo> listaIndividuos = new ArrayList<>();
-    List<Casilla> listaCasillas = new ArrayList<>();
-    ArrayList <Elementos> listaElementos = new ArrayList<>();
+    private List<Individuo> listaIndividuos = new ArrayList<>();
+    private List<Casilla> listaCasillas = new ArrayList<>();
+    private ArrayList <Elementos> listaElementos = new ArrayList<>();
 
         //CONSTRUCTORS
     public Partida(int probReproduccion,

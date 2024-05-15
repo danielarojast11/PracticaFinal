@@ -279,8 +279,8 @@ class BuclesTest {
         listaElementos2.add(elemento0);
         listaElementos2.add(elemento1);
         Bucles bucle1 = new Bucles();
-        bucle1.aparicionRecursos(listaCasillas, listaElementos1, null);
+        bucle1.aparicionRecursos(listaCasillas, listaElementos1);
         Bucles bucle2 = new Bucles();
-        bucle2.aparicionRecursos(listaCasillas, listaElementos2, null);
+        bucle2.aparicionRecursos(listaCasillas, listaElementos2);
     }
 }
