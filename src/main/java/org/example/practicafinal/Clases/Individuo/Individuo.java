@@ -1,5 +1,6 @@
 package org.example.practicafinal.Clases.Individuo;
 
+import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.jetbrains.annotations.NotNull;
 
@@ -63,6 +64,18 @@ public class Individuo implements Comparable<Individuo>{
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.rango = rango;
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("id", this.id);
+        jsonObject.addProperty("generacion", this.generacion);
+        jsonObject.addProperty("turnosVida", this.turnosVida);
+        jsonObject.addProperty("probReproduccion", this.probReproduccion);
+        jsonObject.addProperty("probClonacion", this.probClonacion);
+        jsonObject.addProperty("probMuerte", this.probMuerte);
+        jsonObject.addProperty("rango", this.rango);
+        return jsonObject;
     }
 
     //GETTERS AND SETTERS

@@ -59,6 +59,7 @@ class Partida{
 +Partida(probReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, filas: int, columnas: int)
 +PartidaprobReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int,filas: int, columnas: int)
 +Partida()
++toJson(): JsonObject
 +getTurno(): int
 +setTurno(turno: int)
 +getMaximosIndividuos(): int
@@ -137,6 +138,7 @@ class Individuo{
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int)
 +Individuo(id: int, turnosVida: int, probReproduccion: int, probClonacion: int)
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int)
++toJson(): JsonObject
 +getId(): int
 +setId(id: int)
 +getGeneracion(): int
@@ -211,6 +213,7 @@ class Elementos{
 #type: int
 +Elementos(tiempoActividad: int, type: int)
 +Elementos()
++toJson(): JsonObject
 +getTiempoActividad(): int
 +setTiempoActividad(tiempoActividad: int)
 +getCasilla(): Casilla
@@ -313,6 +316,7 @@ class Casilla{
 -elementosCasilla: List<Elementos>
 +Casilla()
 +Casilla(columna: int, fila: int)
++toJson(): JsonObject
 +getElementosCasilla(): List<Elementos>
 +setElementosCasilla(elementosCasilla: List<Elementos>)
 +addElementosCasilla(elemento: Elementos)

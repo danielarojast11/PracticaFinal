@@ -1,5 +1,6 @@
 package org.example.practicafinal.Clases.Individuo;
 
+import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IndividuoTest {
+
+    @Test
+    void testToJson(){
+        Individuo ind = new Individuo(1, 2, 5, 10);
+        JsonObject jsonResult = ind.toJson();
+        assertNotNull(jsonResult);
+        assertEquals(1, jsonResult.get("id").getAsInt());
+        assertEquals(2, jsonResult.get("turnosVida").getAsInt());
+        assertEquals(5, jsonResult.get("probReproduccion").getAsInt());
+        assertEquals(10, jsonResult.get("probClonacion").getAsInt());
+    }
 
     @Test
     void getId(){

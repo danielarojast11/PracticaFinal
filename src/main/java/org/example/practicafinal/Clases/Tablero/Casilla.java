@@ -1,5 +1,6 @@
 package org.example.practicafinal.Clases.Tablero;
 
+import com.google.gson.JsonObject;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.Clases.Entorno.Elementos;
@@ -25,6 +26,13 @@ public class Casilla extends Pane {
         this.columna=columna;
         this.fila=fila;
         this.setId("casilla("+columna+","+fila+")");
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("columna", this.columna);
+        jsonObject.addProperty("fila", this.fila);
+        return jsonObject;
     }
 
 

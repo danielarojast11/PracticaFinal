@@ -28,11 +28,11 @@ public class ArbolGenealogicoController {
     }
 
     public void mostrarIndividuos(List<Individuo> listaIndividuos){
-        /*for (Individuo individuo : listaIndividuos){
+        for (Individuo individuo : listaIndividuos){
             mostrarIndiviuo(individuo, null, false, 0, false);
-        }*/
+        }
 
-        Individuo individuo1 = new Individuo();
+        /*Individuo individuo1 = new Individuo();
         individuo1.setRango(1);
         Individuo individuo2 = new Individuo();
         individuo2.setRango(2);
@@ -55,7 +55,7 @@ public class ArbolGenealogicoController {
         Individuo individuo8 = new Individuo();
         individuo8.setRango(1);
         individuo7.addHijo(individuo8);
-        mostrarIndiviuo(individuo1, null, false, 0, false);
+        mostrarIndiviuo(individuo1, null, false, 0, false);*/
     }
 
     private void mostrarIndiviuo(

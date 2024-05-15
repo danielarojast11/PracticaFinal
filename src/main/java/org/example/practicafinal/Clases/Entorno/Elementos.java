@@ -1,5 +1,6 @@
 package org.example.practicafinal.Clases.Entorno;
 
+import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,6 +16,13 @@ public class Elementos implements Comparable<Elementos>{
     }
 
     public Elementos() {
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("tiempoActividad", this.tiempoActividad);
+        jsonObject.addProperty("type", this.type);
+        return jsonObject;
     }
 
     public int getTiempoActividad() {

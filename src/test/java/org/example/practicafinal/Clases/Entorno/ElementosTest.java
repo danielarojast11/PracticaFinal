@@ -1,11 +1,21 @@
 package org.example.practicafinal.Clases.Entorno;
 
+import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ElementosTest {
+
+    @Test
+    void testToJson(){
+        Elementos elementos = new Elementos(4, 0);
+        JsonObject jsonResult = elementos.toJson();
+        assertNotNull(jsonResult);
+        assertEquals(4, jsonResult.get("tiempoActividad").getAsInt());
+        assertEquals(0, jsonResult.get("type").getAsInt());
+    }
 
     @Test
     void getTiempoActividad(){

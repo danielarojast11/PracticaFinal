@@ -386,8 +386,6 @@ public class EscenarioJugarController {
     private void guardar(){
         Gson gson = new Gson ();
         try (FileWriter writer = new FileWriter("partida.json")) {
-            //ObjectMapper objectMapper = new ObjectMapper();
-            //String json = objectMapper.writeValueAsString(this.partida);
             gson.toJson(partida.toJson(), writer);
         } catch (IOException e) {
             e.printStackTrace();

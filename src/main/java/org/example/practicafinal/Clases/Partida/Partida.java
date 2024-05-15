@@ -36,10 +36,12 @@ public class Partida {
     private ArrayList <Elementos> listaElementos = new ArrayList<>();
 
         //CONSTRUCTORS
-    public Partida(int probReproduccion,
+    public Partida(int id,
+                   int probReproduccion,
                    int probClonacion,
                    int turnosVida
                    ) {
+        this.id = id;
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
@@ -105,7 +107,21 @@ public class Partida {
         jsonObject.addProperty("turno", this.turno);
         jsonObject.addProperty("probReproduccion", this.probReproduccion);
         jsonObject.addProperty("probClonacion", this.probClonacion);
-
+        jsonObject.addProperty("id", this.id);
+        jsonObject.addProperty("turnosVida", this.turnosVida);
+        jsonObject.addProperty("numeroIndividuosBasicos", this.numeroIndividuosBasicos);
+        jsonObject.addProperty("numeroIndividuosNormal", this.numeroIndividuosNormal);
+        jsonObject.addProperty("numeroIndividuosAvanzados", this.numeroIndividuosAvanzados);
+        jsonObject.addProperty("agua", this.agua);
+        jsonObject.addProperty("comida", this.comida);
+        jsonObject.addProperty("montana", this.montana);
+        jsonObject.addProperty("cofre", this. cofre);
+        jsonObject.addProperty("biblioteca", this.biblioteca);
+        jsonObject.addProperty("pozo", this.pozo);
+        jsonObject.addProperty("tiempoActividad", this.tiempoActividad);
+        jsonObject.addProperty("columnas", this.columnas);
+        jsonObject.addProperty("filas", this.filas);
+        jsonObject.addProperty("maximosIndividuos", this.maximosIndividuos);
         return jsonObject;
     }
 
