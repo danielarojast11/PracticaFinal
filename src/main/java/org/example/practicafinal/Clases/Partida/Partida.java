@@ -241,6 +241,10 @@ public class Partida {
 
     public List<Elementos> getListaElementos(){return this.listaElementos;}
 
+    public void setListaElementos(ArrayList<Elementos> listaElementos) {
+        this.listaElementos = listaElementos;
+    }
+
     public int getTiempoActividad() {
         return tiempoActividad;
     }

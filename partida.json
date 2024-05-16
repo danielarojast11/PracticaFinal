@@ -1,1 +1,1 @@
-q{"turno":3,"probReproduccion":70}
+{"turno":3,"probReproduccion":70,"probClonacion":50,"id":60,"turnosVida":10,"numeroIndividuosBasicos":10,"numeroIndividuosNormal":10,"numeroIndividuosAvanzados":10,"agua":5,"comida":5,"montana":5,"cofre":5,"biblioteca":5,"pozo":5,"tiempoActividad":10,"columnas":5,"filas":5,"maximosIndividuos":3}

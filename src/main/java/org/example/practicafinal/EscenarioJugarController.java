@@ -372,16 +372,6 @@ public class EscenarioJugarController {
         controladorEscenarios.cargarArbolFinal(listaIndividuos);
     }
 
-    public static <T> T cargarObjeto(String rutaArchivo, Class<T> clase){
-        Gson gson = new Gson ();
-        try (FileReader reader = new FileReader(rutaArchivo)) {
-            return gson.fromJson(reader, clase);
-        } catch (IOException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     @FXML
     private void guardar(){
         Gson gson = new Gson ();
@@ -399,7 +389,12 @@ public class EscenarioJugarController {
 
     @FXML
     private void cargar(){
-        cargarObjeto("partida.json", Partida.class);
+        Gson gson = new Gson ();
+        try (FileReader reader = new FileReader("partida.json")) {
+            gson.fromJson(reader, Partida.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void desabilitarSliders(Boolean a){
