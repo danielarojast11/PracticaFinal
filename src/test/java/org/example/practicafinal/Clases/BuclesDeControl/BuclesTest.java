@@ -25,7 +25,7 @@ class BuclesTest {
         individuos.add(ind);
         individuos.add(ind2);
         individuos.add(ind3);
-        bucles.modificarIndividuo(ind, individuos);
+        bucles.modificarIndividuo(ind);
         assertEquals(4, ind.getTurnosVida());
         assertEquals(54, ind.getProbClonacion());
         assertEquals(45, ind.getProbReproduccion());

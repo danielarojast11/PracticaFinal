@@ -8,7 +8,6 @@ module org.example.practicafinal {
     requires java.desktop;
     requires org.jetbrains.annotations;
     requires com.google.gson;
-    requires com.fasterxml.jackson.databind;
 
     opens org.example.practicafinal to javafx.fxml;
     exports org.example.practicafinal;

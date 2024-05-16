@@ -13,9 +13,9 @@ import java.util.List;
 public class FuncionamientoPartida {
     public static void main(String[] args) {
         List<Casilla> casillas = new ArrayList<>();
-        Partida partida = new Partida(70, 70, 3, 1, 1, 0, 2,2,3,0,2,3,3,10,10);
-        for (int i =0 ; i<10; i++){
-            for (int j = 0; j<10; j++){
+        Partida partida = new Partida(70, 70, 3, 1, 1, 0, 2, 2, 3, 0, 2, 3, 3, 10, 10);
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 Casilla casilla = new Casilla(i, j);
                 casillas.add(casilla);
             }
@@ -24,21 +24,12 @@ public class FuncionamientoPartida {
         partida.individuosInicio();
         partida.elementosPrincipio();
         List<Individuo> individuos = partida.getListaIndividuos();
-        List<Elementos> elementos = partida.getListaElementos();
-        for (Individuo individuo:individuos){
+        for (Individuo individuo : individuos){
             System.out.println(individuo.getId());
-            System.out.println(individuo.getCasilla().getId());
+            individuo.setId(3);
         }
-        /*for (Casilla casilla:partida.listaCasillas){
-            System.out.println(casilla.getId());
-            System.out.println(casilla.getIndividuosIdCasilla());
-        }*/
-        for (Individuo individuo: individuos){
-            partida.moverIndividuo(individuo);
-        }
-        for (Individuo individuo:individuos){
-            System.out.println(individuo.getId());
-            System.out.println(individuo.getCasilla().getId());
+        for (Individuo in : individuos){
+            System.out.println(in.getId());
         }
 
     }

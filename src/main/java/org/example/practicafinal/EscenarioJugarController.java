@@ -1,7 +1,6 @@
 package org.example.practicafinal;
 
 import com.google.gson.Gson;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -224,13 +223,6 @@ public class EscenarioJugarController {
         this.tableroCreado = true;
         eliminarTablero();      //Limpiar tablero anterior y volver a dibujarlo
         crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
-        if (!partidaCreada){
-            crearPartida();
-            partida.individuosInicio();
-            listaIndividuos = partida.getListaIndividuos();
-            listaCasillas = partida.getListaCasillas();
-            partidaCreada = true;
-        }
         cambiarVelocidad();
     }
 
@@ -246,8 +238,8 @@ public class EscenarioJugarController {
         sliderReproduccion.setValue(70);        //Valores predeterminados
         sliderClonacion.setValue(50);
         sliderVida.setValue(10);
-        sliderBasico.setValue(30);
-        sliderNormal.setValue(20);
+        sliderBasico.setValue(10);
+        sliderNormal.setValue(10);
         sliderAvanzado.setValue(10);
     }
 
@@ -292,23 +284,27 @@ public class EscenarioJugarController {
             @Override
             public void handle(long now) {
                 if (i%velocidad==0) {
-                    lblNumeroIndividuos.setText("Nº Individuos: "+partida.getIndividuosTotales());
                     listaIndividuos = partida.getListaIndividuos();
                     listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
 
-                    //mover individuos
-                    for (Individuo individuo:listaIndividuos){
-                        partida.moverIndividuo(individuo);
+                    if (listaIndividuos.isEmpty()){
+                        endGame();
+                    } else {
+                        //mover individuos
+                        for (Individuo individuo:listaIndividuos){
+                            partida.moverIndividuo(individuo);
+                        }
+                        for (Casilla casilla:listaCasillas){
+                            bucle.evaluacionFinal(casilla);
+                        }
+                        bucle.actualizarIndividuos(listaIndividuos);
                     }
-                    for (Casilla casilla:listaCasillas){
-                        bucle.evaluacionFinal(casilla);
-                    }
-                    bucle.actualizarIndividuos(listaIndividuos);
                     limpiarCasillas();
                     mostrarCasillas();
+                    lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
                 }
                 i++;
             }
@@ -318,6 +314,9 @@ public class EscenarioJugarController {
     private void start() {
         if (tableroCreado){
             //Disable Bottoms
+            bucle = new Bucles();
+            crearPartida();
+            bucle.setPartida(partida);
             btnStart.setDisable(true);
             btnPause.setDisable(false);
             btnEnd.setDisable(false);
@@ -338,11 +337,12 @@ public class EscenarioJugarController {
         }
         if (individuosCreados) {
             if (!partidaCreada){
-                //crearPartida();
-                //partida.individuosInicio();
-                //listaIndividuos = partida.getListaIndividuos();
-                //mostrarEnCasilla();
-                //partidaCreada = true;
+                crearPartida();
+                bucle.setPartida(partida);
+                partida.individuosInicio();
+                listaIndividuos = partida.getListaIndividuos();
+                mostrarCasillas();
+                partidaCreada = true;
             }
         } else {
            Alert alert = new Alert(Alert.AlertType.ERROR);

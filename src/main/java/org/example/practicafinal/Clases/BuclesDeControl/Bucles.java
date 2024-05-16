@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Bucles extends Partida {
+public class Bucles {
 
         //Parameters
     private ArrayList<Individuo> listaIndividuos;
@@ -25,13 +25,14 @@ public class Bucles extends Partida {
     public Bucles(){
     }
 
+    public void setPartida(Partida partida){this.partida=partida;}
+
 
         //1-Actualizar y Eliminar Individuos
-    public void modificarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
+    public void modificarIndividuo(Individuo individuo){
         individuo.modificarTurnosVida();
         individuo.modificarReprod();
         individuo.modificarClonacion();
-        eliminarIndividuo(individuo, listaIndividuos);
     }
 
     public void eliminarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
@@ -48,9 +49,8 @@ public class Bucles extends Partida {
 
     public List<Individuo> actualizarIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
-            modificarIndividuo(individuo, listaIndividuos);
+            modificarIndividuo(individuo);
             eliminarIndividuo(individuo, listaIndividuos);
-            return listaIndividuos;
         }
         return listaIndividuos;
     }
@@ -177,13 +177,13 @@ public class Bucles extends Partida {
     public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
         Individuo hijo = null;
         if (a.getClass()== IndividuoAvanzado.class || b.getClass()== IndividuoAvanzado.class){
-            hijo = this.crearAvanzado();
+            hijo = partida.crearAvanzado();
 
         } else if (a.getClass()== IndividuoNormal.class || b.getClass()== IndividuoNormal.class) {
-            hijo = this.crearNormal();
+            hijo = partida.crearNormal();
 
         } else {
-            hijo = this.crearBasico();
+            hijo = partida.crearBasico();
         }
 
         a.addHijo(hijo);
@@ -209,9 +209,9 @@ public class Bucles extends Partida {
 
         //7-Evaluar Casillas
     public int evaluarCapacidadCasilla(Casilla casilla){
-        if (casilla.getIndividuosTotales() < getMaximosIndividuos()) {
+        if (casilla.getIndividuosTotales() < partida.getMaximosIndividuos()) {
             int a = 1;
-            for (int i = 0; i < getMaximosIndividuos(); i++) {
+            for (int i = 0; i < partida.getMaximosIndividuos(); i++) {
                 if (i < casilla.getIndividuosTotales()) {
                     a += 2;
                 }
@@ -236,10 +236,10 @@ public class Bucles extends Partida {
     }
 
     public void evaluacionFinal(Casilla casilla){
-        while (casilla.getIndividuosTotales() > getMaximosIndividuos()){
+        while (casilla.getIndividuosTotales() > partida.getMaximosIndividuos()){
             Individuo eliminar = evaluarIndividuosCasilla(casilla);
             casilla.removeIndividuoCasilla(eliminar);
-            getListaIndividuos().remove(eliminar);
+            partida.getListaIndividuos().remove(eliminar);
         }
     }
 
