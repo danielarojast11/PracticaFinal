@@ -1,1 +1,455 @@
-{"turno":3,"probReproduccion":70,"probClonacion":50,"id":60,"turnosVida":10,"numeroIndividuosBasicos":10,"numeroIndividuosNormal":10,"numeroIndividuosAvanzados":10,"agua":5,"comida":5,"montana":5,"cofre":5,"biblioteca":5,"pozo":5,"tiempoActividad":10,"columnas":5,"filas":5,"maximosIndividuos":3}
+{
+	"turno": 4,
+	"probReproduccion": 70,
+	"probClonacion": 50,
+	"id": 30,
+	"turnosVida": 10,
+	"numeroIndividuosBasicos": 10,
+	"numeroIndividuosNormal": 10,
+	"numeroIndividuosAvanzados": 10,
+	"agua": 5,
+	"comida": 5,
+	"montana": 5,
+	"cofre": 5,
+	"biblioteca": 5,
+	"pozo": 5,
+	"tiempoActividad": 10,
+	"columnas": 5,
+	"filas": 5,
+	"maximosIndividuos": 3,
+	"listaIndividuos": [
+		{
+			"id": 0,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 1,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 3,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 4,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 7,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 9,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 11,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 12,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 13,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 14,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 15,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 16,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 17,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 18,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 19,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 20,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 21,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 22,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 23,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 24,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 25,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 26,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 27,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 28,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		},
+		{
+			"id": 29,
+			"generacion": 0,
+			"turnosVida": 6,
+			"probReproduccion": 47,
+			"probClonacion": 34,
+			"probMuerte": 30,
+			"rango": 0
+		}
+	],
+	"listaCasillas": [
+		{
+			"columna": 0,
+			"fila": 0
+		},
+		{
+			"columna": 0,
+			"fila": 1
+		},
+		{
+			"columna": 0,
+			"fila": 2
+		},
+		{
+			"columna": 0,
+			"fila": 3
+		},
+		{
+			"columna": 0,
+			"fila": 4
+		},
+		{
+			"columna": 1,
+			"fila": 0
+		},
+		{
+			"columna": 1,
+			"fila": 1
+		},
+		{
+			"columna": 1,
+			"fila": 2
+		},
+		{
+			"columna": 1,
+			"fila": 3
+		},
+		{
+			"columna": 1,
+			"fila": 4
+		},
+		{
+			"columna": 2,
+			"fila": 0
+		},
+		{
+			"columna": 2,
+			"fila": 1
+		},
+		{
+			"columna": 2,
+			"fila": 2
+		},
+		{
+			"columna": 2,
+			"fila": 3
+		},
+		{
+			"columna": 2,
+			"fila": 4
+		},
+		{
+			"columna": 3,
+			"fila": 0
+		},
+		{
+			"columna": 3,
+			"fila": 1
+		},
+		{
+			"columna": 3,
+			"fila": 2
+		},
+		{
+			"columna": 3,
+			"fila": 3
+		},
+		{
+			"columna": 3,
+			"fila": 4
+		},
+		{
+			"columna": 4,
+			"fila": 0
+		},
+		{
+			"columna": 4,
+			"fila": 1
+		},
+		{
+			"columna": 4,
+			"fila": 2
+		},
+		{
+			"columna": 4,
+			"fila": 3
+		},
+		{
+			"columna": 4,
+			"fila": 4
+		}
+	],
+	"listaElementos": [
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		},
+		{
+			"tiempoActividad": 0,
+			"type": 0
+		}
+	]
+}

@@ -314,42 +314,42 @@ public class EscenarioJugarController {
     @FXML
     private void start() {
         if (tableroCreado){
-            //Disable Bottoms
-            bucle = new Bucles();
-            crearPartida();
-            bucle.setPartida(partida);
-            btnStart.setDisable(true);
-            btnPause.setDisable(false);
-            btnEnd.setDisable(false);
-            partida.elementosPrincipio();
-            partida.individuosInicio(listaIndividuos);
-            mostrarCasillas();
-            //Disable Sliders
-            desabilitarSliders(true);
+            if (individuosCreados) {
+                if (!partidaCreada){
+                    crearPartida();
+                    bucle.setPartida(partida);
+                    partida.individuosInicio(listaIndividuos);
+                    listaIndividuos = partida.getListaIndividuos();
+                    mostrarCasillas();
+                    partidaCreada = true;
+                }
+                //Disable Bottoms
+                bucle = new Bucles();
+                crearPartida();
+                bucle.setPartida(partida);
+                btnStart.setDisable(true);
+                btnPause.setDisable(false);
+                btnEnd.setDisable(false);
+                partida.elementosPrincipio();
+                partida.individuosInicio(listaIndividuos);
+                mostrarCasillas();
+                //Disable Sliders
+                desabilitarSliders(true);
 
-            //Empezar Juego
-            animationTimer.start();
+                //Empezar Juego
+                animationTimer.start();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("No has colocado los individuos en las casillas");
+                alert.showAndWait();
+            }
         } else{
             Alert alert = new Alert(Alert.AlertType.ERROR);     //Si el tablero no está creado, da un aviso
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("No has creado el Tablero");
-            alert.showAndWait();
-        }
-        if (individuosCreados) {
-            if (!partidaCreada){
-                crearPartida();
-                bucle.setPartida(partida);
-                partida.individuosInicio(listaIndividuos);
-                listaIndividuos = partida.getListaIndividuos();
-                mostrarCasillas();
-                partidaCreada = true;
-            }
-        } else {
-           Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("No has colocado los individuos en las casillas");
             alert.showAndWait();
         }
     }

@@ -1,4 +1,5 @@
 package org.example.practicafinal.Clases.Partida;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
@@ -122,6 +123,26 @@ public class Partida {
         jsonObject.addProperty("columnas", this.columnas);
         jsonObject.addProperty("filas", this.filas);
         jsonObject.addProperty("maximosIndividuos", this.maximosIndividuos);
+
+        JsonArray jsonArrayIndividuos = new JsonArray();
+        for (Individuo i: this.listaIndividuos) {
+            jsonArrayIndividuos.add(i.toJson());
+        }
+        jsonObject.add("listaIndividuos", jsonArrayIndividuos);
+
+        JsonArray jsonArrayCasillas = new JsonArray();
+        for (Casilla c: this.listaCasillas) {
+            jsonArrayCasillas.add(c.toJson());
+        }
+        jsonObject.add("listaCasillas", jsonArrayCasillas);
+
+
+        JsonArray jsonArrayElementos = new JsonArray();
+        for (Elementos e: this.listaElementos) {
+            jsonArrayElementos.add(e.toJson());
+        }
+        jsonObject.add("listaElementos", jsonArrayElementos);
+
         return jsonObject;
     }
 
