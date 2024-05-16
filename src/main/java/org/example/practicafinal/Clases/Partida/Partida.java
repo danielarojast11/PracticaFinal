@@ -189,6 +189,10 @@ public class Partida {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
+    public void setListaIndividuos(List<Individuo> listaIndividuos){
+        this.listaIndividuos = listaIndividuos;
+    }
+
     //GETTERS AND SETTERS ELEMENTS
 
     public int getAgua() {
@@ -269,7 +273,7 @@ public class Partida {
     public List<Casilla> getListaCasillas(){return this.listaCasillas;}
 
         //CREATE INDIVIDUALS
-    public IndividuoBasico crearBasico(){
+    public IndividuoBasico crearBasico(List<Individuo> listaIndividuos){
         IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(basico);
@@ -283,7 +287,7 @@ public class Partida {
         return basico;
     }
 
-    public IndividuoNormal crearNormal(){
+    public IndividuoNormal crearNormal(List<Individuo> listaIndividuos){
         IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(normal);
@@ -297,7 +301,7 @@ public class Partida {
         return normal;
     }
 
-    public IndividuoAvanzado crearAvanzado(){
+    public IndividuoAvanzado crearAvanzado(List<Individuo> listaIndividuos){
         IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(avanzado);
@@ -311,15 +315,15 @@ public class Partida {
         return avanzado;
     }
 
-    public void individuosInicio(){
+    public void individuosInicio(List<Individuo> listaIndividuos){
         for (int i = 0; i < numeroIndividuosBasicos; i++){
-            crearBasico();
+            crearBasico(listaIndividuos);
         }
         for (int i = 0; i < numeroIndividuosNormal; i++){
-            crearNormal();
+            crearNormal(listaIndividuos);
         }
         for (int i = 0; i < numeroIndividuosAvanzados; i++){
-            crearAvanzado();
+            crearAvanzado(listaIndividuos);
         }
     }
 
@@ -437,21 +441,23 @@ public class Partida {
         return nuevaCasilla;
     }
 
-    public void moverIndividuo(Individuo individuo){
-        Casilla casillaVieja = individuo.getCasilla();
-        Casilla casillaNueva = new Casilla();
-        if (individuo.getRango()==1){
-            casillaNueva=moverBasico();
-        } else if (individuo.getRango()==2) {
-            casillaNueva=moverNormal(casillaVieja);
-        }
-        individuo.setCasilla(casillaNueva);
-        for (Casilla casilla : getListaCasillas()){
-            if (Objects.equals(casilla.getId(), casillaVieja.getId())){
-                casilla.removeIndividuoCasilla(individuo);
+    public void moverIndividuo(List<Individuo> listaIndividuos){
+        for (Individuo individuo : listaIndividuos) {
+            Casilla casillaVieja = individuo.getCasilla();
+            Casilla casillaNueva = new Casilla();
+            if (individuo.getRango() == 1) {
+                casillaNueva = moverBasico();
+            } else if (individuo.getRango() == 2) {
+                casillaNueva = moverNormal(casillaVieja);
             }
-            if (Objects.equals(casilla.getId(), casillaNueva.getId())){
-                casilla.addIndividuoCasilla(individuo);
+            individuo.setCasilla(casillaNueva);
+            for (Casilla casilla : getListaCasillas()) {
+                if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
+                    casilla.removeIndividuoCasilla(individuo);
+                }
+                if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
+                    casilla.addIndividuoCasilla(individuo);
+                }
             }
         }
     }

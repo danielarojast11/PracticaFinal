@@ -30,9 +30,11 @@ public class Bucles {
 
         //1-Actualizar y Eliminar Individuos
     public void modificarIndividuo(Individuo individuo){
-        individuo.modificarTurnosVida();
-        individuo.modificarReprod();
-        individuo.modificarClonacion();
+
+            individuo.modificarTurnosVida();
+            individuo.modificarReprod();
+            individuo.modificarClonacion();
+
     }
 
     public void eliminarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
@@ -50,7 +52,8 @@ public class Bucles {
     public List<Individuo> actualizarIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
             modificarIndividuo(individuo);
-            eliminarIndividuo(individuo, listaIndividuos);
+            System.out.println("Id: "+individuo.getId());
+            System.out.println("Vida: "+individuo.getTurnosVida());
         }
         return listaIndividuos;
     }
@@ -174,16 +177,16 @@ public class Bucles {
     }
 
         //5-Reproduccion
-    public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b){
+    public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b, List<Individuo> listaIndividuos){
         Individuo hijo = null;
         if (a.getClass()== IndividuoAvanzado.class || b.getClass()== IndividuoAvanzado.class){
-            hijo = partida.crearAvanzado();
+            hijo = partida.crearAvanzado(listaIndividuos);
 
         } else if (a.getClass()== IndividuoNormal.class || b.getClass()== IndividuoNormal.class) {
-            hijo = partida.crearNormal();
+            hijo = partida.crearNormal(listaIndividuos);
 
         } else {
-            hijo = partida.crearBasico();
+            hijo = partida.crearBasico(listaIndividuos);
         }
 
         a.addHijo(hijo);

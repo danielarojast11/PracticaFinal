@@ -20,10 +20,10 @@ public class FuncionamientoPartida {
                 casillas.add(casilla);
             }
         }
+        List<Individuo> individuos = new ArrayList<>();
         partida.setListaCasillas(casillas);
-        partida.individuosInicio();
+        partida.individuosInicio(individuos);
         partida.elementosPrincipio();
-        List<Individuo> individuos = partida.getListaIndividuos();
         for (Individuo individuo : individuos){
             System.out.println(individuo.getId());
             individuo.setId(3);

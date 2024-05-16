@@ -284,24 +284,25 @@ public class EscenarioJugarController {
             @Override
             public void handle(long now) {
                 if (i%velocidad==0) {
-                    listaIndividuos = partida.getListaIndividuos();
+                    partida.setListaIndividuos(listaIndividuos);
                     listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
                     partida.modificarTurno();
                     lblTurno.setText("Turno: " + partida.getTurno());
 
-                    if (listaIndividuos.isEmpty()){
-                        endGame();
-                    } else {
-                        //mover individuos
-                        for (Individuo individuo:listaIndividuos){
-                            partida.moverIndividuo(individuo);
-                        }
-                        for (Casilla casilla:listaCasillas){
-                            bucle.evaluacionFinal(casilla);
-                        }
-                        bucle.actualizarIndividuos(listaIndividuos);
+                    //mover individuos
+
+                    partida.moverIndividuo(listaIndividuos);
+
+                    for (Casilla casilla:listaCasillas){
+                        bucle.evaluacionFinal(casilla);
                     }
+                    bucle.actualizarIndividuos(listaIndividuos);
+
+                    if (partida.getListaIndividuos().isEmpty()){
+                        endGame();
+                    }
+
                     limpiarCasillas();
                     mostrarCasillas();
                     lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
@@ -321,7 +322,7 @@ public class EscenarioJugarController {
             btnPause.setDisable(false);
             btnEnd.setDisable(false);
             partida.elementosPrincipio();
-            partida.individuosInicio();
+            partida.individuosInicio(listaIndividuos);
             mostrarCasillas();
             //Disable Sliders
             desabilitarSliders(true);
@@ -339,7 +340,7 @@ public class EscenarioJugarController {
             if (!partidaCreada){
                 crearPartida();
                 bucle.setPartida(partida);
-                partida.individuosInicio();
+                partida.individuosInicio(listaIndividuos);
                 listaIndividuos = partida.getListaIndividuos();
                 mostrarCasillas();
                 partidaCreada = true;
