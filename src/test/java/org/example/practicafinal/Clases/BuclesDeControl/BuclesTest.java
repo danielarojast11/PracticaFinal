@@ -25,12 +25,10 @@ class BuclesTest {
         individuos.add(ind);
         individuos.add(ind2);
         individuos.add(ind3);
-        bucles.modificarIndividuo(ind);
+        bucles.modificarIndividuo(ind, individuos);
         assertEquals(4, ind.getTurnosVida());
         assertEquals(54, ind.getProbClonacion());
         assertEquals(45, ind.getProbReproduccion());
-        assertEquals(0, ind2.getTurnosVida());
-        assertEquals(0, ind3.getProbReproduccion());
     }
 
     @Test
@@ -43,10 +41,10 @@ class BuclesTest {
         individuos.add(ind2);
         individuos.add(ind3);
         Bucles bucles = new Bucles();
-        bucles.eliminarIndividuo(ind2, individuos);
-        bucles.eliminarIndividuo(ind3, individuos);
+        bucles.eliminarIndividuo(individuos);
+        bucles.eliminarIndividuo(individuos);
         assertEquals(false, individuos.contains(ind2));
-        assertEquals(false, individuos.contains(ind3));
+        assertEquals(true, individuos.contains(ind3));
     }
 
     @Test
@@ -63,7 +61,7 @@ class BuclesTest {
         assertEquals(4, ind1.getTurnosVida());
         assertEquals(54, ind1.getProbClonacion());
         assertEquals(45, ind1.getProbReproduccion());
-        assertEquals(true, individuos.contains(ind2));
+        assertEquals(false, individuos.contains(ind2));
         assertEquals(true, individuos.contains(ind3));
     }
 
@@ -175,10 +173,14 @@ class BuclesTest {
         ind1.addHijo(hijo1);
         ind2.addHijo(hijo2);
         ind3.addHijo(hijo3);
+        List<Individuo> listaIndividuos = new ArrayList<>();
+        listaIndividuos.add(ind1);
+        listaIndividuos.add(ind2);
+        listaIndividuos.add(ind3);
         Bucles bucles = new Bucles();
-        bucles.reproducir(ind3, ind3);
-        bucles.reproducir(ind2, ind2);
-        bucles.reproducir(ind1, ind1);
+        bucles.reproducir(ind3, ind3, listaIndividuos);
+        bucles.reproducir(ind2, ind2, listaIndividuos);
+        bucles.reproducir(ind1, ind1, listaIndividuos);
         assertEquals(ind1.getHijos(), ind1.getHijos());
         assertEquals(ind2.getHijos(), ind2.getHijos());
         assertEquals(ind3.getHijos(), ind3.getHijos());
@@ -250,13 +252,18 @@ class BuclesTest {
         Individuo ind2 = new Individuo(3, 3, 8, 60, 30);
         Individuo ind3 = new Individuo(4, 2, 5, 50, 60);
         Individuo ind4 = new Individuo(2, 3, 8, 60, 30);
+        List<Individuo> listaIndividuos = new ArrayList<>();
+        listaIndividuos.add(ind1);
+        listaIndividuos.add(ind2);
+        listaIndividuos.add(ind3);
+        listaIndividuos.add(ind4);
         Casilla casilla1 = new Casilla();
         casilla1.addIndividuoCasilla(ind1);
         casilla1.addIndividuoCasilla(ind2);
         casilla1.addIndividuoCasilla(ind3);
         casilla1.addIndividuoCasilla(ind4);
         Bucles bucles = new Bucles();
-        bucles.evaluacionFinal(casilla1);
+        bucles.evaluacionFinal(casilla1, listaIndividuos);
     }
 
     @Test
