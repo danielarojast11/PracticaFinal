@@ -15,7 +15,7 @@ public class Partida {
     private int turno;
     private int probReproduccion;
     private int probClonacion;
-    private int id;
+    private int id = 1;
     private int turnosVida;
     private int numeroIndividuosBasicos;
     private int numeroIndividuosNormal;

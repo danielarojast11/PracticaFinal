@@ -298,11 +298,11 @@ public class EscenarioJugarController {
                     partida.moverIndividuo(listaIndividuos);
 
                     for (Casilla casilla:listaCasillas){
-                        bucle.evaluacionFinal(casilla);
+                        bucle.evaluacionFinal(casilla, listaIndividuos);
                     }
                     listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
                     bucle.eliminarIndividuo(listaIndividuos);
-                    if (listaIndividuos==null){
+                    if (listaIndividuos.size()==0){
                         endGame();
                     }
 
@@ -342,9 +342,9 @@ public class EscenarioJugarController {
         if (individuosCreados) {
             if (!partidaCreada){
                 crearPartida();
+                bucle = new Bucles();
                 bucle.setPartida(partida);
                 partida.individuosInicio(listaIndividuos);
-                listaIndividuos = partida.getListaIndividuos();
                 mostrarCasillas();
                 partidaCreada = true;
             }
@@ -570,7 +570,7 @@ public class EscenarioJugarController {
     }
 
     public void mostrarIndividuoCasilla(Casilla casilla){
-        bucle.evaluacionFinal(casilla);
+        bucle.evaluacionFinal(casilla, listaIndividuos);
         int i = 1;
         for (Individuo individuo : casilla.getIndividuosCasilla()){
             Circle circulo = new Circle();

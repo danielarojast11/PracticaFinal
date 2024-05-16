@@ -41,9 +41,12 @@ public class Bucles {
     }
 
     public void eliminarIndividuo(List<Individuo> listaIndividuos){
-        for (Individuo individuo : listaIndividuos){
-            if (individuo.getTurnosVida()==0){
-                listaIndividuos.remove(individuo);
+        List<Individuo> individuoscopia = new ArrayList<>();
+        individuoscopia.addAll(listaIndividuos);
+        listaIndividuos.clear();
+        for (Individuo individuo:individuoscopia){
+            if (individuo.getTurnosVida()>0){
+                listaIndividuos.add(individuo);
             }
         }
     }
@@ -237,11 +240,11 @@ public class Bucles {
         return id;
     }
 
-    public void evaluacionFinal(Casilla casilla){
+    public void evaluacionFinal(Casilla casilla, List<Individuo> listaIndividuos){
         while (casilla.getIndividuosTotales() > partida.getMaximosIndividuos()){
             Individuo eliminar = evaluarIndividuosCasilla(casilla);
             casilla.removeIndividuoCasilla(eliminar);
-            partida.getListaIndividuos().remove(eliminar);
+            listaIndividuos.remove(eliminar);
         }
     }
 
