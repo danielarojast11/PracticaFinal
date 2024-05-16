@@ -284,6 +284,9 @@ public class EscenarioJugarController {
             @Override
             public void handle(long now) {
                 if (i%velocidad==0) {
+                    if (listaIndividuos==null){
+                        endGame();
+                    }
                     partida.setListaIndividuos(listaIndividuos);
                     listaElementos = partida.getListaElementos();
                     listaCasillas = partida.getListaCasillas();
@@ -297,9 +300,9 @@ public class EscenarioJugarController {
                     for (Casilla casilla:listaCasillas){
                         bucle.evaluacionFinal(casilla);
                     }
-                    bucle.actualizarIndividuos(listaIndividuos);
-
-                    if (partida.getListaIndividuos().isEmpty()){
+                    listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
+                    bucle.eliminarIndividuo(listaIndividuos);
+                    if (listaIndividuos==null){
                         endGame();
                     }
 

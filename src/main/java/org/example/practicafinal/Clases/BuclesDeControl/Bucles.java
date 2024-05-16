@@ -29,29 +29,28 @@ public class Bucles {
 
 
         //1-Actualizar y Eliminar Individuos
-    public void modificarIndividuo(Individuo individuo){
-
+    public void modificarIndividuo(Individuo individuo, List<Individuo> listaIndividuo){
+        if (individuo.getTurnosVida()==0){
+            individuo.getCasilla().removeIndividuoCasilla(individuo);
+            listaIndividuo.remove(individuo);
+        } else {
             individuo.modificarTurnosVida();
             individuo.modificarReprod();
             individuo.modificarClonacion();
-
+        }
     }
 
-    public void eliminarIndividuo(Individuo individuo, List<Individuo> listaIndividuos){
-        if (individuo.getTurnosVida()==0){
-            listaIndividuos.remove(individuo);
-            Casilla casilla = individuo.getCasilla();
-            casilla.removeIndividuoCasilla(individuo);
-        } else if (individuo.getProbReproduccion() == 0) {
-            listaIndividuos.remove(individuo);
-            Casilla casilla = individuo.getCasilla();
-            casilla.removeIndividuoCasilla(individuo);
+    public void eliminarIndividuo(List<Individuo> listaIndividuos){
+        for (Individuo individuo : listaIndividuos){
+            if (individuo.getTurnosVida()==0){
+                listaIndividuos.remove(individuo);
+            }
         }
     }
 
     public List<Individuo> actualizarIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
-            modificarIndividuo(individuo);
+            modificarIndividuo(individuo, listaIndividuos);
             System.out.println("Id: "+individuo.getId());
             System.out.println("Vida: "+individuo.getTurnosVida());
         }
