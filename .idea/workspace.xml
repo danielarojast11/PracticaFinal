@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="UML">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/PartidaCasillaTest.java" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Test y Json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagramaDeClases.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagramaDeClases.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partida.json" beforeDir="false" afterPath="$PROJECT_DIR$/partida.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementosTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +203,8 @@
       <workItem from="1715775582257" duration="7479000" />
       <workItem from="1715786847721" duration="14000" />
       <workItem from="1715793880816" duration="7053000" />
-      <workItem from="1715802610807" duration="5457000" />
+      <workItem from="1715802610807" duration="6132000" />
+      <workItem from="1715857282711" duration="2128000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -418,7 +413,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715797268439</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Test y Json">
+      <option name="closed" value="true" />
+      <created>1715810442916</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715810442916</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,13 +468,26 @@
     <MESSAGE value="Guardar" />
     <MESSAGE value="bucle8" />
     <MESSAGE value="UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="UML" />
+    <MESSAGE value="Test y Json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test y Json" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java</url>
+          <line>35</line>
+          <properties field="listaElementos" class="org.example.practicafinal.Clases.Partida.Partida" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Tablero.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715806230694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715863805334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$PozoTest.ic" NAME="PozoTest Coverage Results" MODIFIED="1715635353915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
@@ -510,7 +526,7 @@
     <SUITE FILE_PATH="coverage/PracticaFinal$AguaTest.ic" NAME="AguaTest Coverage Results" MODIFIED="1715635379205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$PartidaTest.ic" NAME="PartidaTest Coverage Results" MODIFIED="1715810185949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/PracticaFinal$PartidaTest.ic" NAME="PartidaTest Coverage Results" MODIFIED="1715865468127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Partida.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$ElementosTest.ic" NAME="ElementosTest Coverage Results" MODIFIED="1715806472037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

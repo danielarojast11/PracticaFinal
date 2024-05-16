@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import static javafx.beans.binding.Bindings.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaTest {
@@ -445,17 +447,18 @@ class PartidaTest {
 
     @Test
     void testElementosPrincipio(){
-
     }
 
     @Test
     void testMoverBasico(){
-
+        Partida partida = new Partida();
+        Casilla casilla = partida.moverBasico();
+        assertNotNull(casilla);
+        assertEquals(casilla, casilla);
     }
 
     @Test
     void testMoverNormal(){
-
     }
 
     @Test
