@@ -57,7 +57,7 @@ class BuclesTest {
         individuos.add(ind2);
         individuos.add(ind3);
         Bucles bucles = new Bucles();
-        bucles.actualizarIndividuos(individuos);
+        bucles.actualizarIndividuos();
         assertEquals(4, ind1.getTurnosVida());
         assertEquals(54, ind1.getProbClonacion());
         assertEquals(45, ind1.getProbReproduccion());

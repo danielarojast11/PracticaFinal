@@ -28,18 +28,6 @@ public class Bucles {
     public void setPartida(Partida partida){this.partida=partida;}
 
 
-        //1-Actualizar y Eliminar Individuos
-    public void modificarIndividuo(Individuo individuo, List<Individuo> listaIndividuo){
-        if (individuo.getTurnosVida()==0){
-            individuo.getCasilla().removeIndividuoCasilla(individuo);
-            listaIndividuo.remove(individuo);
-        } else {
-            individuo.modificarTurnosVida();
-            individuo.modificarReprod();
-            individuo.modificarClonacion();
-        }
-    }
-
     public void eliminarIndividuo(List<Individuo> listaIndividuos){
         List<Individuo> individuoscopia = new ArrayList<>();
         individuoscopia.addAll(listaIndividuos);
@@ -51,13 +39,18 @@ public class Bucles {
         }
     }
 
-    public List<Individuo> actualizarIndividuos(List<Individuo> listaIndividuos){
-        for (Individuo individuo : listaIndividuos){
-            modificarIndividuo(individuo, listaIndividuos);
-            System.out.println("Id: "+individuo.getId());
-            System.out.println("Vida: "+individuo.getTurnosVida());
+    public void actualizarIndividuos(){
+        for (Individuo individuo : partida.getListaIndividuos()){
+            // Actualizar y Eliminar Individuos
+            if (individuo.getTurnosVida()==0){
+                individuo.getCasilla().removeIndividuoCasilla(individuo);
+                partida.removeIndividuo(individuo);
+            } else {
+                individuo.modificarTurnosVida();
+                individuo.modificarReprod();
+                individuo.modificarClonacion();
+            }
         }
-        return listaIndividuos;
     }
 
         //2-Actualizar y Eliminar Recursos
@@ -240,11 +233,13 @@ public class Bucles {
         return id;
     }
 
-    public void evaluacionFinal(Casilla casilla, List<Individuo> listaIndividuos){
-        while (casilla.getIndividuosTotales() > partida.getMaximosIndividuos()){
-            Individuo eliminar = evaluarIndividuosCasilla(casilla);
-            casilla.removeIndividuoCasilla(eliminar);
-            listaIndividuos.remove(eliminar);
+    public void evaluacionFinal(){
+        for (Casilla casilla: partida.getListaCasillas()){
+            while (casilla.getIndividuosTotales() > partida.getMaximosIndividuos()){
+                Individuo eliminar = evaluarIndividuosCasilla(casilla);
+                casilla.removeIndividuoCasilla(eliminar);
+                partida.removeIndividuo(eliminar);
+            }
         }
     }
 

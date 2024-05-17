@@ -288,27 +288,23 @@ public class EscenarioJugarController {
         @Override
         public void handle(long now) {
             if (i%velocidad==0) {
-                if (listaIndividuos==null){
+                if (partida.getListaIndividuos() == null){
                     endGame();
                 }
-                partida.setListaIndividuos(listaIndividuos);
-                partida.setListaElementos(listaElementos);
-                partida.setListaCasillas(listaCasillas);
+                if (partida.getTurno() == 0) {
+                    partida.setListaIndividuos(listaIndividuos);
+                    partida.setListaElementos(listaElementos);
+                    partida.setListaCasillas(listaCasillas);
+                }
+
                 partida.modificarTurno();
                 lblTurno.setText("Turno: " + partida.getTurno());
 
                 //mover individuos
+                partida.moverIndividuos();
+                bucle.evaluacionFinal();
 
-                partida.moverIndividuos(listaIndividuos);
-
-                for (Casilla casilla: partida.getListaCasillas()){
-                    bucle.evaluacionFinal(casilla, partida.getListaIndividuos());
-                }
-                listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
-                bucle.eliminarIndividuo(listaIndividuos);
-                if (listaIndividuos.size()==0){
-                    endGame();
-                }
+                bucle.actualizarIndividuos();
 
                 limpiarCasillas();
                 mostrarCasillas();
@@ -689,7 +685,7 @@ public class EscenarioJugarController {
     }
 
     public void mostrarContenidoCasilla(Casilla casilla) {
-        bucle.evaluacionFinal(casilla, listaIndividuos);
+        bucle.evaluacionFinal();
         int i = 1;
         for (Individuo individuo : casilla.getIndividuosCasilla()){
             Circle circulo = new Circle();

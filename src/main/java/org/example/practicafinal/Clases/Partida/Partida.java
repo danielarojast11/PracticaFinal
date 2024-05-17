@@ -214,6 +214,10 @@ public class Partida {
         this.listaIndividuos = listaIndividuos;
     }
 
+    public void removeIndividuo(Individuo individuo) {
+        this.listaIndividuos.remove(individuo);
+    }
+
     //GETTERS AND SETTERS ELEMENTS
 
     public int getAgua() {
@@ -480,7 +484,7 @@ public class Partida {
         return casillaDestino;
     }
 
-    public void moverIndividuos(List<Individuo> listaIndividuos){
+    public void moverIndividuos(){
         for (Individuo individuo : listaIndividuos) {
             Casilla casillaVieja = individuo.getCasilla();
             Casilla casillaNueva = new Casilla();
