@@ -14,7 +14,7 @@ import java.util.List;
 public class EscenariosController {
 
         //PARAMETERS
-    private Stage stagePrincipal;
+    private final Stage stagePrincipal;
     private BorderPane borderPane;
 
 
@@ -29,7 +29,7 @@ public class EscenariosController {
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("escenarioPrincipal-view.fxml"));
-            borderPane = (BorderPane) loader.load();
+            borderPane = loader.load();
             Scene scene = new Scene(borderPane);
             stagePrincipal.setScene(scene);
             stagePrincipal.show();
@@ -43,7 +43,7 @@ public class EscenariosController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("escenarioInicio-view.fxml"));
-            AnchorPane pane = (AnchorPane) loader.load();
+            AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             EscenarioInicioController c = loader.getController();
             c.setControladorEscenarios(this);
@@ -56,7 +56,7 @@ public class EscenariosController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("escenarioJugar-view.fxml"));
-            AnchorPane pane = (AnchorPane) loader.load();
+            AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             EscenarioJugarController c = loader.getController();
             c.setControladorEscenarios(this);
@@ -69,7 +69,7 @@ public class EscenariosController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("escenarioCargar-view.fxml"));
-            AnchorPane pane = (AnchorPane) loader.load();
+            AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             EscenarioCargarController c = loader.getController();
             c.setControladorEscenarios(this);
@@ -82,7 +82,7 @@ public class EscenariosController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("arbolGenealogico-view.fxml"));
-            AnchorPane pane = (AnchorPane) loader.load();
+            AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             ArbolGenealogicoController a = loader.getController();
             a.setControladorEscenarios(this);

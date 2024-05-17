@@ -34,7 +34,7 @@ Partida <|-- Casilla
 Partida <|-- PartidaCasilla
 
 class Partida{
--MaximosIndividuos = 3: int
+-maximosIndividuos = 3: int
 -turno: int
 -probReproduccion: int
 -probClonacion: int
@@ -55,7 +55,7 @@ class Partida{
 -listaIndividuos: List<Individuo>
 -listaElementos: List<Elementos>
 -listaCasillas: List<Casilla>
-+Partida(probReproduccion: int, probClonacion:int, turnosVida: int)
++Partida(id: int, probReproduccion: int, probClonacion:int, turnosVida: int)
 +Partida(probReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, filas: int, columnas: int)
 +PartidaprobReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int,filas: int, columnas: int)
 +Partida()
@@ -75,6 +75,9 @@ class Partida{
 +setNumeroIndividuosNormal(numeroIndividuosNormal: int)
 +getNumeroIndividuosAvanzado(): int
 +setNumeroIndividuosAvanzado(numeroIndividuosAvanzado: int)
++setListaIndividuos(listaIndividuos: List<Individuo>)
++removeIndividuo(individuo: Individuo)
++removeIndividuo(index: int)
 +getAgua(): int
 +setAgua(agua: int)
 +getComida(): int
@@ -88,6 +91,7 @@ class Partida{
 +getPozo(): int
 +setPozo(pozo: int)
 +getListaElementos(): List<Elementos>
++setListaElementos(listaElementos: List<Elementos>)
 +getTiempoActividad(): int
 +setColumnas(columnas: int)
 +getColumnas(): int
@@ -108,12 +112,12 @@ class Partida{
 +elementosPrincipio()
 +moverBasico(): Casilla
 +moverNormal(): Casilla
-+moverIndividuo(individuo: Individuo)
++moverAvanzado(): Casilla
++moverIndividuos(individuo: Individuo)
 +modificarId()
 +modificarTurno()
 +filaAleatoria(): int
 +columnaAleatoria(): int
-+casillaAleatoria(): int
 +casillaAleatoria(): Casilla
 getIndividuosTotales(): int
 }
@@ -281,20 +285,17 @@ class Pozo{
 
 class Bucles{
 -listaIndividuos: ArrayList<Individuo>
--listaElementos: ArrayList<Elementos>
 -tablero: ArrayList<Casilla>
 -individuo: Individuo
+-partida: Partida
 +Bucles()
-+Bucles(listaElementos: ArrayList<Elementos>)
-+modificarIndividuo(individuo: Individuo, listaIndividuos: List<Individuo>)
-+eliminarIndividuo(individuo: Individuo, listaIndividuos: List<Individuo>)
-+actualizarIndividuos(listaIndividuos: List<Individuo>)
++setPartida(partida: Partida)
++eliminarIndividuo(listaIndividuos: List<Individuo>)
++actualizarIndividuos()
 +modificarElementos(elemento: Elementos)
 +eliminarElemento(elemento: Elementos, listaElementos: List<Elementos>)
 +actualizarElementos(listaElementos: List<Elementos>)
-+moverBasico(): Casilla
-+moverNormal(casillaVieja: Casilla): Casilla
-+moverIndividuo(individuo: Individuo): Casilla
++moverIndividuo(individuo: Individuo)
 +individuoMejorado(listaCasillas: List<Casillas>, listaIndividuos: List<Individuo>, listaElementos: List<Elementos>, partida: Partida): Individuo
 +individuoConRecurso(individuo: Individuo, elemento: Elementos, partida: Partida): Individuo
 +reproducir(a: Individuo, b: Individuo): Individuo
@@ -391,8 +392,10 @@ class EscenarioCargarController{
 -controladorEscenarios: EscenariosController
 -btnJugar: Button
 -btnSalir: Button
+-btnPartida: Button
 +jugar()
 +salir()
++cargar()
 +setControladorEscenarios(controlador: EscenariosController)
 }
 
@@ -408,6 +411,7 @@ class EscenarioInicioController{
 }
 
 class EscenarioJugarController{
+-pruebas = true: Boolean
 -controladorEscenarios: EscenariosController
 -partida: Partida
 -bucle: Bucles
@@ -479,8 +483,6 @@ class EscenarioJugarController{
 -start()
 -pause()
 -endGame()
-+guardarObjeto(rutaArchivo: String, objeto: T): <T>
-+cargarObjeto(rutaArchivo: String, clase: Class<T>): <T>
 -guardar()
 -cargar()
 -desabilitarSliders(a: Boolean)
@@ -493,14 +495,14 @@ class EscenarioJugarController{
 +crearPartida()
 +getTamanoIndividuos(): double
 +getTamanoElementos(): double
-+mostrarIndividuoCasilla(casilla: Casilla)
-+mostrarElementosCasilla(casilla: Casilla)
++mostrarContenidoCasilla(casilla: Casilla)
 +mostrarCasillas()
 +limpiarCasillas()
 +colorIndividuo(individuo: Individuo, circulo: Circle)
 +colorEelemento(elemento: Elementos, rectangle: Rectangle)
 +setControladorEscenarios(controlador: EscenariosController)
 +initialize()
+-validarInicioPartida(): Boolean
 }
 
 class EscenarioPrincipalController{
@@ -513,8 +515,8 @@ class EscenariosController{
 +cargarEscenario()
 +cargarEscenarioInicio()
 +cargarEscenarioJugar()
-+cargarEscenarioCarga()
-+cargarArbolFinal()
++cargarEscenarioCargar()
++cargarArbolFinal(listaIndividuos: List<Individuo>)
 }
 
 @enduml

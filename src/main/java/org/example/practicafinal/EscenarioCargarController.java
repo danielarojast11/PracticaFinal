@@ -31,7 +31,7 @@ public class EscenarioCargarController {
     }
 
     @FXML
-    private void cargar(){
+    void cargar(){
         Gson gson = new Gson ();
         try (FileReader reader = new FileReader("partida.json")) {
             gson.fromJson(reader, Partida.class);

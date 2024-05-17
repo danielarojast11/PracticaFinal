@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class EscenarioJugarController {
-    private boolean pruebas = true;
+    private final boolean pruebas = true;
 
     //Parameters
     EscenariosController controladorEscenarios;
@@ -41,19 +41,19 @@ public class EscenarioJugarController {
 
     private Bucles bucle = new Bucles();
 
-    private GridPane tablero = new GridPane();
+    private final GridPane tablero = new GridPane();
 
     private Boolean tableroCreado = false;
 
-    private Boolean individuosCreados = false;
+    private final Boolean individuosCreados = false;
 
     private Boolean partidaCreada = false;
 
     private List<Individuo> listaIndividuos = new ArrayList<>();
 
-    private List<Casilla> listaCasillas = new ArrayList<>();
+    private final List<Casilla> listaCasillas = new ArrayList<>();
 
-    private List<Elementos> listaElementos = new ArrayList<>();
+    private final List<Elementos> listaElementos = new ArrayList<>();
 
     private int velocidad = 50;
 
@@ -305,6 +305,7 @@ public class EscenarioJugarController {
                 bucle.evaluacionFinal();
 
                 bucle.actualizarIndividuos();
+                bucle.actualizarElementos(listaElementos);
 
                 limpiarCasillas();
                 mostrarCasillas();
@@ -319,14 +320,14 @@ public class EscenarioJugarController {
         if (tableroCreado){
             if (validarInicioPartida()) {
                 bucle = new Bucles();
-                //crearPartida();
+                crearPartida();
                 bucle.setPartida(partida);
                 btnStart.setDisable(true);
                 btnPause.setDisable(false);
                 btnEnd.setDisable(false);
-                //partida.elementosPrincipio();
-                //partida.individuosInicio(listaIndividuos);
-                //mostrarCasillas();
+                partida.elementosPrincipio();
+                partida.individuosInicio(listaIndividuos);
+                mostrarCasillas();
                 //Disable Sliders
                 desabilitarSliders(true);
 
@@ -429,7 +430,7 @@ public class EscenarioJugarController {
         for (int i = 0; i < columnas; i++){
             for (int j = 0; j < filas; j++){
                 Casilla casilla = new Casilla(i, j);
-                casilla.setMinSize((double) a/columnas,(double) b/filas);
+                casilla.setMinSize(a /columnas, b /filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
 
                 if (pruebas) {
@@ -631,7 +632,7 @@ public class EscenarioJugarController {
                                         observable, Number oldValue, Number newValue) {
                 double x = sliderVelocidad.getValue();
                 if ((x == 0.25)||(x == 0.5)||(x==0.75)||(x == 1)||(x == 1.25)||(x == 1.5) || (x == 1.75) || (x == 2)){
-                    lblVelocidad.textProperty().setValue("Velocidad: x"+(double) sliderVelocidad.getValue());
+                    lblVelocidad.textProperty().setValue("Velocidad: x"+ sliderVelocidad.getValue());
                 }
             }
         });
@@ -774,6 +775,6 @@ public class EscenarioJugarController {
         if (pruebas) {
             return true;
         }
-        return (pendiente > 0) ? false : true;
+        return pendiente <= 0;
     }
 }

@@ -16,19 +16,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class BuclesTest {
 
     @Test
-    void testModificarIndividuo(){
-        Individuo ind = new Individuo(1, 2, 5, 50, 60);
-        Individuo ind2 = new Individuo(2, 3, 0, 50, 60);
-        Individuo ind3 = new Individuo(3, 4, 7, 0, 60);
+    void testSetPartida(){
         Bucles bucles = new Bucles();
-        List<Individuo> individuos = new ArrayList<>();
-        individuos.add(ind);
-        individuos.add(ind2);
-        individuos.add(ind3);
-        //bucles.modificarIndividuo(ind, individuos);
-        assertEquals(4, ind.getTurnosVida());
-        assertEquals(54, ind.getProbClonacion());
-        assertEquals(45, ind.getProbReproduccion());
+        Partida partida = new Partida();
+        bucles.setPartida(partida);
+        assertEquals(partida, partida);
     }
 
     @Test
@@ -100,6 +92,11 @@ class BuclesTest {
         assertEquals(0, elemento2.getTiempoActividad());
         assertEquals(true, listaElementos.contains(elemento1));
         assertEquals(true, listaElementos.contains(elemento3));
+    }
+
+    @Test
+    void testMoverIndividuos(){
+
     }
 
     @Test

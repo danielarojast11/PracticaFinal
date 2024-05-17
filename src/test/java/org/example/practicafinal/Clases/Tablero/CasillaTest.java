@@ -83,9 +83,9 @@ class CasillaTest {
         List<Elementos> elementos2 = casilla.getElementosCasilla();
         elementos2.add(elemento1);
         elementos2.add(elemento3);
-        assertEquals(true, elementos1.contains(elemento2));
+        assertTrue(elementos1.contains(elemento2));
         casilla.removeElementoCasilla(elemento2);
-        assertEquals(false, elementos2.contains(elemento2));
+        assertFalse(elementos2.contains(elemento2));
     }
 
     @Test
@@ -184,9 +184,9 @@ class CasillaTest {
         List<Individuo> individuos2 = new ArrayList<>();
         individuos2.add(individuo1);
         individuos2.add(individuo2);
-        assertEquals(true, individuos1.contains(individuo3));
+        assertTrue(individuos1.contains(individuo3));
         casilla.removeIndividuoCasilla(individuo3);
-        assertEquals(false, individuos2.contains(individuo3));
+        assertFalse(individuos2.contains(individuo3));
     }
 
     @Test

@@ -42,7 +42,7 @@ public class Bucles {
     public void actualizarIndividuos(){
         List<Individuo> listadoIndividuos = new ArrayList<>();
         for (Individuo individuo : listadoIndividuos){
-            // Actualizar y Eliminar Individuos
+            //Actualizar y Eliminar Individuos
             if (individuo.getTurnosVida()==0){
                 individuo.getCasilla().removeIndividuoCasilla(individuo);
             } else {
@@ -75,45 +75,33 @@ public class Bucles {
 
         //3-Mover Individuos
 
-    /*public Casilla moverBasico(){
-        return casillaAleatoria();
-    }
-
-    public Casilla moverNormal(Casilla casillaVieja){
-        Casilla nuevaCasilla;
-        List<Elementos> elementos = super.getListaElementos();
-        int indice = (int)(Math.random()*elementos.size());
-        System.out.println("longitud: "+elementos.size());
-        System.out.println(indice);
-        Elementos elementoAleatorio = elementos.get(indice);
-        Casilla casillaElemento = elementoAleatorio.getCasilla();
-        int eleccion = (int)(Math.random()*2);
-        if (eleccion==0){
-            nuevaCasilla = new Casilla(casillaVieja.getColumna(), casillaElemento.getFila());
-        } else{
-            nuevaCasilla = new Casilla(casillaElemento.getColumna(), casillaVieja.getFila());
-        }
-        return nuevaCasilla;
-    }
-
-    public void moverIndividuo(Individuo individuo){
-        Casilla casillaVieja = individuo.getCasilla();
-        Casilla casillaNueva = new Casilla();
-        if (individuo.getRango()==1){
-            casillaNueva=moverBasico();
-        } else if (individuo.getRango()==2) {
-            casillaNueva=moverNormal(casillaVieja);
-        }
-        individuo.setCasilla(casillaNueva);
-        for (Casilla casilla : getListaCasillas()){
-            if (Objects.equals(casilla.getId(), casillaVieja.getId())){
-                casilla.removeIndividuoCasilla(individuo);
+    public void moverIndividuos(){
+        for (Individuo individuo : listaIndividuos) {
+            Casilla casillaVieja = individuo.getCasilla();
+            Casilla casillaNueva = new Casilla();
+            switch (individuo.getRango()) {
+                case 1:
+                    casillaNueva = partida.moverBasico();
+                    break;
+                case 2:
+                    casillaNueva = partida.moverNormal(casillaVieja);
+                    break;
+                case 3:
+                    casillaNueva = partida.moverAvanzado(casillaVieja);
+                    break;
             }
-            if (Objects.equals(casilla.getId(), casillaNueva.getId())){
-                casilla.addIndividuoCasilla(individuo);
+
+            individuo.setCasilla(casillaNueva);
+            for (Casilla casilla : partida.getListaCasillas()) {
+                if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
+                    casilla.removeIndividuoCasilla(individuo);
+                }
+                if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
+                    casilla.addIndividuoCasilla(individuo);
+                }
             }
         }
-    }*/
+    }
 
         //4-Evaluar las mejoras obtenidas por los recursos
     public Individuo individuoMejorado(List<Casilla> listaCasillas,

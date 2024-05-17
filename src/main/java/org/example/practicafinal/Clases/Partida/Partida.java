@@ -30,7 +30,7 @@ public class Partida {
     private int tiempoActividad;
     private int columnas;
     private int filas;
-    private int maximosIndividuos = 3;
+    private final int maximosIndividuos = 3;
 
     private List<Individuo> listaIndividuos = new ArrayList<>();
     private List<Casilla> listaCasillas = new ArrayList<>();

@@ -15,7 +15,7 @@ public class Casilla extends Pane {
     private int columna;
     private int fila;
     private List<Individuo> individuosCasilla = new ArrayList<>();
-    private List<Integer> individuosIdCasilla = new ArrayList<>();
+    private final List<Integer> individuosIdCasilla = new ArrayList<>();
     private List<Elementos> elementosCasilla = new ArrayList<>();
 
     //EscenarioJugarController escenario;

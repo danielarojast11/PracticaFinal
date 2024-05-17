@@ -37,10 +37,10 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
     private Button btnCancel;
     private Button btnOk;
 
-    private Casilla casilla;
-    private Partida partida;
-    private int maxIndividuos = 3;
-    private int maxElementos = 3;
+    private final Casilla casilla;
+    private final Partida partida;
+    private final int maxIndividuos = 3;
+    private final int maxElementos = 3;
 
     public CasillaDialog(Casilla casilla, Partida partida) {
         super();

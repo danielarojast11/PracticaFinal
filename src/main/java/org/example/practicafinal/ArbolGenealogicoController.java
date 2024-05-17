@@ -98,11 +98,11 @@ public class ArbolGenealogicoController {
 
         Coordenadas coordenadas = new Coordenadas(x, y);
         for(int i = 0; i < individuoActual.getPadres().size(); i++){
-            boolean d = (i > 0) ? true : false;
+            boolean d = i > 0;
             mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d);
         }
         for (int i = 0; i < individuoActual.getHijos().size(); i++){
-            boolean d = (i > 0) ? true : false;
+            boolean d = i > 0;
             mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d);
         }
     }
@@ -125,8 +125,8 @@ public class ArbolGenealogicoController {
     }
 
     class Coordenadas {
-        private double x;
-        private double y;
+        private final double x;
+        private final double y;
         public Coordenadas(double x, double y) {
             this.x = x;
             this.y = y;

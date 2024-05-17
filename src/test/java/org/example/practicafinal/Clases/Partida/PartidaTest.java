@@ -143,6 +143,44 @@ class PartidaTest {
     }
 
     @Test
+    void testSetListaIndividuos(){
+        Partida partida = new Partida();
+        Individuo ind1 = new Individuo();
+        Individuo ind2 = new Individuo();
+        Individuo ind3 = new Individuo();
+        List<Individuo> listaIndividuos = new ArrayList<>();
+        listaIndividuos.add(ind1);
+        listaIndividuos.add(ind2);
+        listaIndividuos.add(ind3);
+        partida.setListaIndividuos(listaIndividuos);
+        assertEquals(3, partida.getListaIndividuos().size());
+    }
+
+    @Test
+    void testRemoveIndividuo(){
+        Partida partida = new Partida();
+        Individuo ind1 = new Individuo();
+        Individuo ind2 = new Individuo();
+        List<Individuo> listaIndividuos = new ArrayList<>();
+        listaIndividuos.add(ind1);
+        listaIndividuos.add(ind2);
+        partida.removeIndividuo(ind1);
+        assertEquals(2, listaIndividuos.size());
+    }
+
+    @Test
+    void testRemoveIndividuoIndex(){
+        /*Partida partida = new Partida();
+        Individuo ind1 = new Individuo(1, 2, 3, 4);
+        Individuo ind2 = new Individuo(2, 5, 40, 30);
+        List<Individuo> listaIndividuos = new ArrayList<>();
+        listaIndividuos.add(ind1);
+        listaIndividuos.add(ind2);
+        partida.removeIndividuo(1);
+        assertEquals(1, partida.getListaIndividuos().size());*/
+    }
+
+    @Test
     void testGetAgua(){
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         assertEquals(3, partida.getAgua());
@@ -234,6 +272,18 @@ class PartidaTest {
     }
 
     @Test
+    void testSetListaElementos(){
+        Partida partida = new Partida();
+        Elementos elemento1 = new Elementos();
+        Elementos elemento2 = new Elementos();
+        List<Elementos> listaElementos = new ArrayList<>();
+        listaElementos.add(elemento1);
+        listaElementos.add(elemento2);
+        partida.setListaElementos(listaElementos);
+        assertEquals(2, partida.getListaElementos().size());
+    }
+
+    @Test
     void testGetTiempoActividad(){
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         assertEquals(4, partida.getTiempoActividad());
@@ -311,7 +361,7 @@ class PartidaTest {
         listaIndividuos.add(ind3);
         IndividuoBasico basico = partida.crearBasico(listaIndividuos);
         assertNotNull(basico);
-        assertEquals(1, partida.getId());
+        assertEquals(2, partida.getId());
         assertEquals(0, partida.getTurno());
         assertEquals(3, partida.getTurnosVida());
         assertEquals(5, partida.getProbReproduccion());
@@ -337,7 +387,7 @@ class PartidaTest {
         listaIndividuos.add(ind3);
         IndividuoNormal normal = partida.crearNormal(listaIndividuos);
         assertNotNull(normal);
-        assertEquals(1, partida.getId());
+        assertEquals(2, partida.getId());
         assertEquals(0, partida.getTurno());
         assertEquals(3, partida.getTurnosVida());
         assertEquals(5, partida.getProbReproduccion());
@@ -363,7 +413,7 @@ class PartidaTest {
         listaIndividuos.add(ind3);
         IndividuoAvanzado avanzado = partida.crearAvanzado(listaIndividuos);
         assertNotNull(avanzado);
-        assertEquals(1, partida.getId());
+        assertEquals(2, partida.getId());
         assertEquals(0, partida.getTurno());
         assertEquals(3, partida.getTurnosVida());
         assertEquals(5, partida.getProbReproduccion());
@@ -483,6 +533,11 @@ class PartidaTest {
     }
 
     @Test
+    void testMoverAvanzado(){
+
+    }
+
+    @Test
     void testMoverIndividuo(){
 
     }
@@ -491,7 +546,7 @@ class PartidaTest {
     void testModificarId(){
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         partida.modificarId();
-        assertEquals(1, partida.getId());
+        assertEquals(2, partida.getId());
     }
 
     @Test

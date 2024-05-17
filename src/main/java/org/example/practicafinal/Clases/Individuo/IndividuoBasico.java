@@ -2,7 +2,7 @@ package org.example.practicafinal.Clases.Individuo;
 
 public class IndividuoBasico extends Individuo {
 
-    private int rango = 1;
+    private final int rango = 1;
 
     public IndividuoBasico (){
 

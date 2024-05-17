@@ -17,9 +17,9 @@ public class Individuo implements Comparable<Individuo>{
     private int probClonacion;
     private int probMuerte;
     protected int rango;
-    private List<Individuo> padres = new ArrayList<>();
-    private List<Individuo> hijos = new ArrayList<>();
-    private List<Individuo> individuos = new ArrayList<>();
+    private final List<Individuo> padres = new ArrayList<>();
+    private final List<Individuo> hijos = new ArrayList<>();
+    private final List<Individuo> individuos = new ArrayList<>();
 
     private Casilla casilla = new Casilla();
 
