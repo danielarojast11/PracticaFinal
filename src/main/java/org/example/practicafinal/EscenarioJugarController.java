@@ -301,8 +301,8 @@ public class EscenarioJugarController {
 
                 partida.moverIndividuos(listaIndividuos);
 
-                for (Casilla casilla:listaCasillas){
-                    bucle.evaluacionFinal(casilla, listaIndividuos);
+                for (Casilla casilla: partida.getListaCasillas()){
+                    bucle.evaluacionFinal(casilla, partida.getListaIndividuos());
                 }
                 listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
                 bucle.eliminarIndividuo(listaIndividuos);

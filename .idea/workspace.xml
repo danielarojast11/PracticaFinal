@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="turno vida = 0">
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Caso de prueba para GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -441,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715880321755</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Caso de prueba para GUI">
+      <option name="closed" value="true" />
+      <created>1715943039049</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715943039049</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,15 +498,16 @@
     <MESSAGE value="solucion numero individuos" />
     <MESSAGE value="intento final" />
     <MESSAGE value="turno vida = 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="turno vida = 0" />
+    <MESSAGE value="Caso de prueba para GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Caso de prueba para GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java</url>
-          <line>289</line>
-          <option name="timeStamp" value="8" />
+          <line>303</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

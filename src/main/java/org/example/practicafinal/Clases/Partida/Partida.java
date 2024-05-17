@@ -462,15 +462,40 @@ public class Partida {
         return nuevaCasilla;
     }
 
+    public Casilla moverAvanzado(Casilla casillaActual){
+        int distancia = 1000;
+        Casilla casillaDestino = null;
+        for(Elementos e: listaElementos) {
+            // Distancia de Chebyshov
+            int d2 = Math.max(
+                    Math.abs(e.getCasilla().getFila() - casillaActual.getFila()),
+                    Math.abs(e.getCasilla().getColumna() - casillaActual.getColumna())
+            );
+            if (distancia > d2) {
+                distancia = d2;
+                casillaDestino = e.getCasilla();
+            }
+        }
+
+        return casillaDestino;
+    }
+
     public void moverIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos) {
             Casilla casillaVieja = individuo.getCasilla();
             Casilla casillaNueva = new Casilla();
-            if (individuo.getRango() == 1) {
-                casillaNueva = moverBasico();
-            } else if (individuo.getRango() == 2) {
-                casillaNueva = moverNormal(casillaVieja);
+            switch (individuo.getRango()) {
+                case 1:
+                    casillaNueva = moverBasico();
+                    break;
+                case 2:
+                    casillaNueva = moverNormal(casillaVieja);
+                    break;
+                case 3:
+                    casillaNueva = moverAvanzado(casillaVieja);
+                    break;
             }
+
             individuo.setCasilla(casillaNueva);
             for (Casilla casilla : getListaCasillas()) {
                 if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
