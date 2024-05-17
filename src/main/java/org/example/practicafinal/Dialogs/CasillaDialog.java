@@ -115,33 +115,39 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 this.partida.getNumeroIndividuosBasicos() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoBasico(
+            Individuo in = new IndividuoBasico(
                     casilla.getColumna() * 100 + casilla.getFila() * 10,
                     partida.getTurnosVida(),
                     partida.getProbReproduccion(),
-                    partida.getProbClonacion()));
+                    partida.getProbClonacion());
+            in.setCasilla(casilla);
+            this.casilla.addIndividuoCasilla();
         }
         valor = (int) sliderNormal.getValue();
         this.partida.setNumeroIndividuosNormal(
                 this.partida.getNumeroIndividuosNormal() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoNormal(
+            Individuo in = new IndividuoNormal(
                     casilla.getColumna() * 100 + casilla.getFila() * 10,
                     partida.getTurnosVida(),
                     partida.getProbReproduccion(),
-                    partida.getProbClonacion()));
+                    partida.getProbClonacion());
+            in.setCasilla(casilla);
+            this.casilla.addIndividuoCasilla();
         }
         valor = (int) sliderAvanzado.getValue();
         this.partida.setNumeroIndividuosAvanzados(
                 this.partida.getNumeroIndividuosAvanzados() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addIndividuoCasilla(new IndividuoAvanzado(
+            Individuo in = new IndividuoAvanzado(
                     casilla.getColumna() * 100 + casilla.getFila() * 10,
                     partida.getTurnosVida(),
                     partida.getProbReproduccion(),
-                    partida.getProbClonacion()));
+                    partida.getProbClonacion());
+            in.setCasilla(casilla);
+            this.casilla.addIndividuoCasilla();
         }
 
         valor = (int) sliderAgua.getValue();

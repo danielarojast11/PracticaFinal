@@ -16,8 +16,11 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
-import org.example.practicafinal.Clases.Entorno.Elementos;
+import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
+import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
+import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
@@ -29,6 +32,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class EscenarioJugarController {
+    private boolean pruebas = true;
 
     //Parameters
     EscenariosController controladorEscenarios;
@@ -279,63 +283,54 @@ public class EscenarioJugarController {
             * Objetivo: comenzar, pausar o finalizar la partida
          */
 
-        AnimationTimer animationTimer = new AnimationTimer() {
-            int i = velocidad;
-            @Override
-            public void handle(long now) {
-                if (i%velocidad==0) {
-                    if (listaIndividuos==null){
-                        endGame();
-                    }
-                    partida.setListaIndividuos(listaIndividuos);
-                    listaElementos = partida.getListaElementos();
-                    listaCasillas = partida.getListaCasillas();
-                    partida.modificarTurno();
-                    lblTurno.setText("Turno: " + partida.getTurno());
-
-                    //mover individuos
-
-                    partida.moverIndividuo(listaIndividuos);
-
-                    for (Casilla casilla:listaCasillas){
-                        bucle.evaluacionFinal(casilla, listaIndividuos);
-                    }
-                    listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
-                    bucle.eliminarIndividuo(listaIndividuos);
-                    if (listaIndividuos.size()==0){
-                        endGame();
-                    }
-
-                    limpiarCasillas();
-                    mostrarCasillas();
-                    lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
+    AnimationTimer animationTimer = new AnimationTimer() {
+        int i = velocidad;
+        @Override
+        public void handle(long now) {
+            if (i%velocidad==0) {
+                if (listaIndividuos==null){
+                    endGame();
                 }
-                i++;
+                partida.setListaIndividuos(listaIndividuos);
+                partida.setListaElementos(listaElementos);
+                partida.setListaCasillas(listaCasillas);
+                partida.modificarTurno();
+                lblTurno.setText("Turno: " + partida.getTurno());
+
+                //mover individuos
+
+                partida.moverIndividuos(listaIndividuos);
+
+                for (Casilla casilla:listaCasillas){
+                    bucle.evaluacionFinal(casilla, listaIndividuos);
+                }
+                listaIndividuos=bucle.actualizarIndividuos(listaIndividuos);
+                bucle.eliminarIndividuo(listaIndividuos);
+                if (listaIndividuos.size()==0){
+                    endGame();
+                }
+
+                limpiarCasillas();
+                mostrarCasillas();
+                lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
             }
-        };
+            i++;
+        }
+    };
 
     @FXML
     private void start() {
         if (tableroCreado){
-            if (individuosCreados) {
-                if (!partidaCreada){
-                    crearPartida();
-                    bucle.setPartida(partida);
-                    partida.individuosInicio(listaIndividuos);
-                    listaIndividuos = partida.getListaIndividuos();
-                    mostrarCasillas();
-                    partidaCreada = true;
-                }
-                //Disable Bottoms
+            if (validarInicioPartida()) {
                 bucle = new Bucles();
-                crearPartida();
+                //crearPartida();
                 bucle.setPartida(partida);
                 btnStart.setDisable(true);
                 btnPause.setDisable(false);
                 btnEnd.setDisable(false);
-                partida.elementosPrincipio();
-                partida.individuosInicio(listaIndividuos);
-                mostrarCasillas();
+                //partida.elementosPrincipio();
+                //partida.individuosInicio(listaIndividuos);
+                //mostrarCasillas();
                 //Disable Sliders
                 desabilitarSliders(true);
 
@@ -345,7 +340,7 @@ public class EscenarioJugarController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
-                alert.setContentText("No has colocado los individuos en las casillas");
+                alert.setContentText("No has colocado los individuos y los elementos en las casillas");
                 alert.showAndWait();
             }
         } else{
@@ -425,6 +420,14 @@ public class EscenarioJugarController {
             * Objetivo: crear y eliminar el tablero
          */
     public void crearTablero (int columnas, int filas){
+        if (!partidaCreada){
+            crearPartida();
+            bucle.setPartida(partida);
+            partida.individuosInicio(listaIndividuos);
+            listaIndividuos = partida.getListaIndividuos();
+            mostrarCasillas();
+            partidaCreada = true;
+        }
         double a = paneTablero.getWidth();
         double b = paneTablero.getHeight();
         for (int i = 0; i < columnas; i++){
@@ -432,6 +435,111 @@ public class EscenarioJugarController {
                 Casilla casilla = new Casilla(i, j);
                 casilla.setMinSize((double) a/columnas,(double) b/filas);
                 casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
+
+                if (pruebas) {
+                    int individuos = 0;
+                    int disponibles = partida.getNumeroIndividuosBasicos() + partida.getNumeroIndividuosNormal() +
+                            partida.getNumeroIndividuosAvanzados();
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosBasicos() > 0) {
+                        if (partida.getNumeroIndividuosBasicos() > 0) {
+                            Individuo in = new IndividuoBasico();
+                            in.setCasilla(casilla);
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosBasicos(partida.getNumeroIndividuosBasicos() - 1);
+                        }
+                    }
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosNormal() > 0) {
+                        if (partida.getNumeroIndividuosNormal() > 0) {
+                            Individuo in = new IndividuoNormal();
+                            in.setCasilla(casilla);
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosNormal(partida.getNumeroIndividuosNormal() - 1);
+                        }
+                    }
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosAvanzados() > 0) {
+                        if (partida.getNumeroIndividuosAvanzados() > 0) {
+                            Individuo in = new IndividuoAvanzado();
+                            in.setCasilla(casilla);
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosAvanzados(partida.getNumeroIndividuosAvanzados() - 1);
+                        }
+                    }
+
+                    int elementos = 0;
+                    disponibles = partida.getAgua() + partida.getCofre() + partida.getBiblioteca() + partida.getComida() +
+                            partida.getMontana() + partida.getPozo();
+                    while (elementos < 3 && disponibles > 0 && partida.getAgua() > 0) {
+                        if (partida.getAgua() > 0) {
+                            Elementos el = new Agua();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setAgua(partida.getAgua() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getCofre() > 0) {
+                        if (partida.getCofre() > 0) {
+                            Elementos el = new Tesoro();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setCofre(partida.getCofre() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getBiblioteca() > 0) {
+                        if (partida.getBiblioteca() > 0) {
+                            Elementos el = new Biblioteca();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setBiblioteca(partida.getBiblioteca() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getComida() > 0) {
+                        if (partida.getComida() > 0) {
+                            Elementos el = new Comida();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setComida(partida.getComida() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getMontana() > 0) {
+                        if (partida.getMontana() > 0) {
+                            Elementos el = new Montaña();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setMontana(partida.getMontana() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getPozo() > 0) {
+                        if (partida.getPozo() > 0) {
+                            Elementos el = new Pozo();
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setCofre(partida.getPozo() - 1);
+                        }
+                    }
+                    mostrarContenidoCasilla(casilla);
+                }
+
                 casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
@@ -442,8 +550,18 @@ public class EscenarioJugarController {
                             Optional<PartidaCasilla> result = casillaDialog.showAndWait();
                             if (result != null && result.get().getCasilla() != null) {
                                 casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
+                                for (Individuo i: casilla.getIndividuosCasilla()) {
+                                    listaIndividuos.add(i);
+                                }
                                 casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
+                                for (Elementos e: casilla.getElementosCasilla()) {
+                                    listaElementos.add(e);
+                                }
+                                mostrarContenidoCasilla(casilla);
 
+                                partida.setNumeroIndividuosBasicos(result.get().getPartida().getNumeroIndividuosBasicos());
+                                partida.setNumeroIndividuosNormal(result.get().getPartida().getNumeroIndividuosNormal());
+                                partida.setNumeroIndividuosAvanzados(result.get().getPartida().getNumeroIndividuosAvanzados());
                                 partida.setAgua(result.get().getPartida().getAgua());
                                 partida.setComida(result.get().getPartida().getComida());
                                 partida.setMontana(result.get().getPartida().getMontana());
@@ -454,6 +572,7 @@ public class EscenarioJugarController {
                         }
                     }
                 });
+
                 tablero.add(casilla,i,j);
                 listaCasillas.add(casilla);
             }
@@ -569,7 +688,7 @@ public class EscenarioJugarController {
         return lado;
     }
 
-    public void mostrarIndividuoCasilla(Casilla casilla){
+    public void mostrarContenidoCasilla(Casilla casilla) {
         bucle.evaluacionFinal(casilla, listaIndividuos);
         int i = 1;
         for (Individuo individuo : casilla.getIndividuosCasilla()){
@@ -581,10 +700,7 @@ public class EscenarioJugarController {
             casilla.getChildren().addAll(circulo);
             i += 2;
         }
-    }
-
-    public void mostrarElementoCasilla(Casilla casilla){
-        int i = 0;
+        i = 0;
         for (Elementos elemento:casilla.getElementosCasilla()){
             Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
             colorEelemento(elemento,rectangle);
@@ -594,10 +710,10 @@ public class EscenarioJugarController {
             i+=1;
         }
     }
+
     public void mostrarCasillas(){
         for (Casilla casilla : listaCasillas){
-            mostrarIndividuoCasilla(casilla);
-            mostrarElementoCasilla(casilla);
+            mostrarContenidoCasilla(casilla);
         }
     }
 
@@ -654,5 +770,14 @@ public class EscenarioJugarController {
         changeStateOfLabelVelocidad();
         btnPause.setDisable(true);
         btnEnd.setDisable(true);
+    }
+
+    private boolean validarInicioPartida() {
+        int pendiente = partida.getNumeroIndividuosBasicos() + partida.getNumeroIndividuosNormal() + partida.getNumeroIndividuosAvanzados() +
+                partida.getAgua() + partida.getCofre() + partida.getBiblioteca() + partida.getComida() + partida.getMontana() + partida.getPozo();
+        if (pruebas) {
+            return true;
+        }
+        return (pendiente > 0) ? false : true;
     }
 }

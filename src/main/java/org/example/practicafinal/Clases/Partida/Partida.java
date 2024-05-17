@@ -34,7 +34,7 @@ public class Partida {
 
     private List<Individuo> listaIndividuos = new ArrayList<>();
     private List<Casilla> listaCasillas = new ArrayList<>();
-    private ArrayList <Elementos> listaElementos = new ArrayList<>();
+    private List <Elementos> listaElementos = new ArrayList<>();
 
         //CONSTRUCTORS
     public Partida(int id,
@@ -266,7 +266,7 @@ public class Partida {
 
     public List<Elementos> getListaElementos(){return this.listaElementos;}
 
-    public void setListaElementos(ArrayList<Elementos> listaElementos) {
+    public void setListaElementos(List<Elementos> listaElementos) {
         this.listaElementos = listaElementos;
     }
 
@@ -462,7 +462,7 @@ public class Partida {
         return nuevaCasilla;
     }
 
-    public void moverIndividuo(List<Individuo> listaIndividuos){
+    public void moverIndividuos(List<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos) {
             Casilla casillaVieja = individuo.getCasilla();
             Casilla casillaNueva = new Casilla();
