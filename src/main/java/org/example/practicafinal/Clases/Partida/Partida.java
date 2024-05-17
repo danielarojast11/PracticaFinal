@@ -218,6 +218,10 @@ public class Partida {
         this.listaIndividuos.remove(individuo);
     }
 
+    public void removeIndividuo(int index) {
+        this.listaIndividuos.remove(index);
+    }
+
     //GETTERS AND SETTERS ELEMENTS
 
     public int getAgua() {

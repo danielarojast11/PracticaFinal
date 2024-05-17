@@ -40,17 +40,19 @@ public class Bucles {
     }
 
     public void actualizarIndividuos(){
-        for (Individuo individuo : partida.getListaIndividuos()){
+        List<Individuo> listadoIndividuos = new ArrayList<>();
+        for (Individuo individuo : listadoIndividuos){
             // Actualizar y Eliminar Individuos
             if (individuo.getTurnosVida()==0){
                 individuo.getCasilla().removeIndividuoCasilla(individuo);
-                partida.removeIndividuo(individuo);
             } else {
                 individuo.modificarTurnosVida();
                 individuo.modificarReprod();
                 individuo.modificarClonacion();
+                listadoIndividuos.add(individuo);
             }
         }
+        partida.setListaIndividuos(listaIndividuos);
     }
 
         //2-Actualizar y Eliminar Recursos

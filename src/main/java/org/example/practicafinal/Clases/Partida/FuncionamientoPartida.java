@@ -32,7 +32,7 @@ public class FuncionamientoPartida {
         for (Casilla casilla : casillas){
             System.out.println(casilla.getId());
             System.out.println(casilla.getIndividuosIdCasilla());
-            bucle.evaluacionFinal(casilla, individuos);
+            bucle.evaluacionFinal();
             System.out.println(casilla.getIndividuosIdCasilla());
         }
         for (int i = 0; i<3; i++){
