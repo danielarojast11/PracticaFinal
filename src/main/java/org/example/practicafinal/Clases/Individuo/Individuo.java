@@ -66,6 +66,16 @@ public class Individuo implements Comparable<Individuo>{
         this.rango = rango;
     }
 
+    public void fromJson(JsonObject jsonObject) {
+        this.id = jsonObject.get("id").getAsInt();
+        this.generacion = jsonObject.get("generacion").getAsInt();
+        this.turnosVida = jsonObject.get("turnosVida").getAsInt();
+        this.probReproduccion = jsonObject.get("probReproduccion").getAsInt();
+        this.probClonacion = jsonObject.get("probClonacion").getAsInt();
+        this.probMuerte = jsonObject.get("probMuerte").getAsInt();
+        this.rango = jsonObject.get("rango").getAsInt();
+    }
+
     public JsonObject toJson() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("id", this.id);

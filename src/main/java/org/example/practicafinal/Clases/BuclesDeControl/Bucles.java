@@ -61,6 +61,8 @@ public class Bucles {
             elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
             if (elemento.getTiempoActividad() > 0){
                 listaElementos.add(elemento);
+            } else {
+                elemento.getCasilla().removeElementoCasilla(elemento);
             }
         }
         partida.setListaElementos(listaElementos);

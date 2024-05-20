@@ -28,6 +28,11 @@ public class Casilla extends Pane {
         this.setId("casilla("+columna+","+fila+")");
     }
 
+    public void fromJson(JsonObject jsonObject) {
+        this.columna = jsonObject.get("columna").getAsInt();
+        this.fila = jsonObject.get("fila").getAsInt();
+    }
+
     public JsonObject toJson() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("columna", this.columna);

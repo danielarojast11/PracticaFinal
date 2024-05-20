@@ -18,6 +18,11 @@ public class Elementos implements Comparable<Elementos>{
     public Elementos() {
     }
 
+    public void fromJson(JsonObject jsonObject) {
+        this.tiempoActividad = jsonObject.get("tiempoActividad").getAsInt();
+        this.type = jsonObject.get("type").getAsInt();
+    }
+
     public JsonObject toJson() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("tiempoActividad", this.tiempoActividad);

@@ -1,6 +1,10 @@
 package org.example.practicafinal;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -390,8 +394,13 @@ public class EscenarioJugarController {
     @FXML
     private void cargar(){
         Gson gson = new Gson ();
-        try (FileReader reader = new FileReader("partida.json")) {
-            gson.fromJson(reader, Partida.class);
+        try {
+            if (this.partida == null) {
+                this.partida = new Partida();
+            }
+            JsonElement jsonElement = JsonParser.parseReader(new FileReader("partida.json"));
+            JsonObject jsonObject = jsonElement.getAsJsonObject();
+            partida.fromJson(jsonObject);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -484,6 +493,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getAgua() > 0) {
                         if (partida.getAgua() > 0) {
                             Elementos el = new Agua();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;
@@ -494,6 +504,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getCofre() > 0) {
                         if (partida.getCofre() > 0) {
                             Elementos el = new Tesoro();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;
@@ -504,6 +515,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getBiblioteca() > 0) {
                         if (partida.getBiblioteca() > 0) {
                             Elementos el = new Biblioteca();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;
@@ -514,6 +526,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getComida() > 0) {
                         if (partida.getComida() > 0) {
                             Elementos el = new Comida();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;
@@ -524,6 +537,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getMontana() > 0) {
                         if (partida.getMontana() > 0) {
                             Elementos el = new Montaña();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;
@@ -534,6 +548,7 @@ public class EscenarioJugarController {
                     while (elementos < 3 && disponibles > 0 && partida.getPozo() > 0) {
                         if (partida.getPozo() > 0) {
                             Elementos el = new Pozo();
+                            el.setTiempoActividad(partida.getTiempoActividad());
                             casilla.addElementoCasilla(el);
                             listaElementos.add(el);
                             elementos++;

@@ -8,6 +8,7 @@ import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class Partida {
     private int tiempoActividad;
     private int columnas;
     private int filas;
-    private final int maximosIndividuos = 3;
+    private int maximosIndividuos = 3;
 
     private List<Individuo> listaIndividuos = new ArrayList<>();
     private List<Casilla> listaCasillas = new ArrayList<>();
@@ -101,6 +102,51 @@ public class Partida {
     }
 
     public Partida() {
+    }
+
+    public void fromJson(JsonObject jsonObject) {
+        this.turno = jsonObject.get("turno").getAsInt();
+        this.probReproduccion = jsonObject.get("probReproduccion").getAsInt();
+        this.probClonacion = jsonObject.get("probClonacion").getAsInt();
+        this.id = jsonObject.get("id").getAsInt();
+        this.turnosVida = jsonObject.get("turnosVida").getAsInt();
+        this.numeroIndividuosBasicos = jsonObject.get("numeroIndividuosBasicos").getAsInt();
+        this.numeroIndividuosNormal = jsonObject.get("numeroIndividuosNormal").getAsInt();
+        this.numeroIndividuosAvanzados = jsonObject.get("numeroIndividuosAvanzados").getAsInt();
+        this.agua = jsonObject.get("agua").getAsInt();
+        this.comida = jsonObject.get("comida").getAsInt();
+        this.montana = jsonObject.get("montana").getAsInt();
+        this.cofre = jsonObject.get("cofre").getAsInt();
+        this.biblioteca = jsonObject.get("biblioteca").getAsInt();
+        this.pozo = jsonObject.get("pozo").getAsInt();
+        this.tiempoActividad = jsonObject.get("tiempoActividad").getAsInt();
+        this.columnas = jsonObject.get("columnas").getAsInt();
+        this.filas = jsonObject.get("filas").getAsInt();
+        this.maximosIndividuos = jsonObject.get("maximosIndividuos").getAsInt();
+
+        JsonArray datos = jsonObject.getAsJsonArray("listaIndividuos");
+        this.listaIndividuos.clear();
+        for (int i = 0; i < datos.size(); i++) {
+            Individuo individuo = new Individuo();
+            individuo.fromJson(datos.get(i).getAsJsonObject());
+            this.listaIndividuos.add(individuo);
+        }
+
+        datos = jsonObject.getAsJsonArray("listaCasillas");
+        this.listaCasillas.clear();
+        for (int i = 0; i < datos.size(); i++) {
+            Casilla casilla = new Casilla();
+            casilla.fromJson(datos.get(i).getAsJsonObject());
+            this.listaCasillas.add(casilla);
+        }
+
+        datos = jsonObject.getAsJsonArray("listaElementos");
+        this.listaElementos.clear();
+        for (int i = 0; i < datos.size(); i++) {
+            Elementos elemento = new Elementos();
+            elemento.fromJson(datos.get(i).getAsJsonObject());
+            this.listaElementos.add(elemento);
+        }
     }
 
     public JsonObject toJson() {

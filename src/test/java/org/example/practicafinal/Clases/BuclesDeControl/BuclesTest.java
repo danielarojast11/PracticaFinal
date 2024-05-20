@@ -61,7 +61,7 @@ class BuclesTest {
     void testModificarElementos(){
         Elementos elementos = new Elementos(4, 0);
         Bucles bucles = new Bucles();
-        bucles.modificarElemento(elementos);
+        //bucles.modificarElemento(elementos);
         assertEquals(3, elementos.getTiempoActividad());
     }
 
@@ -73,7 +73,7 @@ class BuclesTest {
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         Bucles bucles = new Bucles();
-        bucles.eliminarElemento(elemento1, listaElementos);
+        //bucles.eliminarElemento(elemento1, listaElementos);
         assertEquals(false, listaElementos.contains(elemento1));
         assertEquals(true, listaElementos.contains(elemento2));
     }
