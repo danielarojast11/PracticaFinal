@@ -88,7 +88,7 @@ class BuclesTest {
         listaElementos.add(elemento2);
         listaElementos.add(elemento3);
         Bucles bucles = new Bucles();
-        bucles.actualizarElementos(listaElementos);
+        bucles.actualizarElementos();
         assertEquals(0, elemento2.getTiempoActividad());
         assertEquals(true, listaElementos.contains(elemento1));
         assertEquals(true, listaElementos.contains(elemento3));

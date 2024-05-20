@@ -41,7 +41,7 @@ public class Bucles {
 
     public void actualizarIndividuos(){
         List<Individuo> listadoIndividuos = new ArrayList<>();
-        for (Individuo individuo : listadoIndividuos){
+        for (Individuo individuo : partida.getListaIndividuos()){
             //Actualizar y Eliminar Individuos
             if (individuo.getTurnosVida()==0){
                 individuo.getCasilla().removeIndividuoCasilla(individuo);
@@ -55,22 +55,15 @@ public class Bucles {
         partida.setListaIndividuos(listaIndividuos);
     }
 
-        //2-Actualizar y Eliminar Recursos
-    public void modificarElemento(Elementos elemento){
-        elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
-    }
-
-    public void eliminarElemento(Elementos elemento, List<Elementos> listaElementos){
-        if (elemento.getTiempoActividad() == 0){
-            listaElementos.remove(elemento);
+    public void actualizarElementos(){
+        List<Elementos> listaElementos = new ArrayList<>();
+        for (Elementos elemento : partida.getListaElementos()){
+            elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
+            if (elemento.getTiempoActividad() > 0){
+                listaElementos.add(elemento);
+            }
         }
-    }
-
-    public void actualizarElementos(List<Elementos> listaElementos){
-        for (Elementos elemento : listaElementos){
-            modificarElemento(elemento);
-            eliminarElemento(elemento, listaElementos);
-        }
+        partida.setListaElementos(listaElementos);
     }
 
         //3-Mover Individuos

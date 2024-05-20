@@ -288,9 +288,6 @@ public class EscenarioJugarController {
         @Override
         public void handle(long now) {
             if (i%velocidad==0) {
-                if (partida.getListaIndividuos() == null){
-                    endGame();
-                }
                 if (partida.getTurno() == 0) {
                     partida.setListaIndividuos(listaIndividuos);
                     partida.setListaElementos(listaElementos);
@@ -305,11 +302,18 @@ public class EscenarioJugarController {
                 bucle.evaluacionFinal();
 
                 bucle.actualizarIndividuos();
-                bucle.actualizarElementos(listaElementos);
+                bucle.actualizarElementos();
 
                 limpiarCasillas();
                 mostrarCasillas();
                 lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
+
+                if (
+                        partida.getListaIndividuos() == null ||
+                                partida.getListaIndividuos().size() == 0
+                ){
+                    endGame();
+                }
             }
             i++;
         }
@@ -441,6 +445,7 @@ public class EscenarioJugarController {
                         if (partida.getNumeroIndividuosBasicos() > 0) {
                             Individuo in = new IndividuoBasico();
                             in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
                             casilla.addIndividuoCasilla(in);
                             listaIndividuos.add(in);
                             individuos++;
@@ -452,6 +457,7 @@ public class EscenarioJugarController {
                         if (partida.getNumeroIndividuosNormal() > 0) {
                             Individuo in = new IndividuoNormal();
                             in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
                             casilla.addIndividuoCasilla(in);
                             listaIndividuos.add(in);
                             individuos++;
@@ -463,6 +469,7 @@ public class EscenarioJugarController {
                         if (partida.getNumeroIndividuosAvanzados() > 0) {
                             Individuo in = new IndividuoAvanzado();
                             in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
                             casilla.addIndividuoCasilla(in);
                             listaIndividuos.add(in);
                             individuos++;
