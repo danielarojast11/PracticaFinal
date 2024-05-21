@@ -6,9 +6,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.io.IOException;
-import java.util.List;
 
 public class EscenariosController {
 
@@ -77,7 +77,7 @@ public class EscenariosController {
         }
     }
 
-    public void cargarArbolFinal(List<Individuo> listaIndividuos){
+    public void cargarArbolFinal(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("arbolGenealogico-view.fxml"));
