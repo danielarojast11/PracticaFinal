@@ -7,38 +7,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Caso de prueba para GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDETest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazadaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLETest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLSTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimpleTest.java" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Estructuras">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusqueda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusquedaDeEnteros.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/Nodo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusquedaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/NodoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partida.json" beforeDir="false" afterPath="$PROJECT_DIR$/partida.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioCargarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioPrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusqueda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/Binario/ArbolBinarioDeBusqueda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaDeEnteros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/Binario/NodoBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinarioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLSTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLSTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimpleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +43,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,11 +85,13 @@
     "JUnit.CasillaTest.executor": "Coverage",
     "JUnit.ComidaTest.executor": "Coverage",
     "JUnit.ElementoLETest.executor": "Run",
+    "JUnit.ElementoLSTest.executor": "Coverage",
     "JUnit.ElementosTest.executor": "Coverage",
     "JUnit.IndividuoAvanzadoTest.executor": "Coverage",
     "JUnit.IndividuoBasicoTest.executor": "Coverage",
     "JUnit.IndividuoNormalTest.executor": "Coverage",
     "JUnit.IndividuoTest.executor": "Coverage",
+    "JUnit.ListaSimpleTest.executor": "Coverage",
     "JUnit.MontañaTest.executor": "Coverage",
     "JUnit.PartidaCasillaTest.executor": "Coverage",
     "JUnit.PartidaTest.executor": "Coverage",
@@ -142,8 +133,11 @@
       <recent name="org.example.practicafinal" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.example.practicafinal.Clases.Partida" />
-      <recent name="org.example.practicafinal.Clases.Tablero" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol.AVL" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Grafo" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada" />
     </key>
   </component>
   <component name="RunManager">
@@ -237,7 +231,7 @@
       <workItem from="1715973151959" duration="121000" />
       <workItem from="1715973285948" duration="3759000" />
       <workItem from="1716282842719" duration="786000" />
-      <workItem from="1716299666013" duration="5465000" />
+      <workItem from="1716299666013" duration="12445000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -486,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715943039049</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716310654865</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716310654865</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +539,8 @@
     <MESSAGE value="intento final" />
     <MESSAGE value="turno vida = 0" />
     <MESSAGE value="Caso de prueba para GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Caso de prueba para GUI" />
+    <MESSAGE value="Estructuras" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructuras" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

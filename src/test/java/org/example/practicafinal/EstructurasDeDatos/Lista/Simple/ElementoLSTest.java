@@ -8,13 +8,13 @@ class ElementoLSTest {
 
     @Test
     void getData() {
-        ElementoLS e1 = new ElementoLS();
+        ElementoLS<Object> e1 = new ElementoLS<>();
         e1.getData();
     }
 
     @Test
     void setData() {
-        ElementoLS e1 = new ElementoLS();
+        ElementoLS<Object> e1 = new ElementoLS();
         e1.setData(e1);
         e1.getData();
     }

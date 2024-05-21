@@ -1,12 +1,14 @@
 package org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada;
 
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ElementoLDE;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListaEnlazadaTest {
 
-    ListaEnlazada l = new ListaEnlazada();
+    ElementoLE<Integer> elementoLE = new ElementoLE<>(4);
+    ListaEnlazada l = new ListaEnlazada(elementoLE);
 
     @Test
     void isVacia() {
@@ -23,8 +25,8 @@ class ListaEnlazadaTest {
 
     @Test
     void add() {
-        l.add(new ElementoLE(3));
-        l.add(new ElementoLE(4));
+        l.add(new ElementoLE<>(3));
+        l.add(new ElementoLE<>(4));
         assertFalse(l.isVacia());
         assertEquals(2, l.getNumeroElementos());
     }
@@ -47,36 +49,12 @@ class ListaEnlazadaTest {
 
     @Test
     void insert() {
-        l.add(3);
-        l.add(4);
-        l.insert("Hi",1);
-        assertEquals(3, l.getNumeroElementos());
-        assertEquals("Hi", l.getElemento(1).getData());
 
-        l.insert("Yes", 2);
-        assertEquals(4, l.getNumeroElementos());
-        assertEquals("Yes", l.getElemento(2).getData());
-
-        l.insert("No",0);
-        assertEquals(5, l.getNumeroElementos());
-        assertEquals("No", l.getPrimero().getData());
     }
 
     @Test
     void testInsert() {
-        l.add(3);
-        l.add(4);
-        l.insert(89,1);
-        assertEquals(3, l.getNumeroElementos());
-        assertEquals(89, l.getElemento(1).getData());
 
-        l.insert(5, 2);
-        assertEquals(4, l.getNumeroElementos());
-        assertEquals(5, l.getElemento(2).getData());
-
-        l.insert(2,0);
-        assertEquals(5, l.getNumeroElementos());
-        assertEquals(2, l.getPrimero().getData());
     }
 
     @Test

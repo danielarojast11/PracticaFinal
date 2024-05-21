@@ -2,12 +2,22 @@ package org.example.practicafinal.EstructurasDeDatos.Lista.Simple;
 
 import java.util.Arrays;
 
-public class ListaSimple {
-    private ElementoLS[] datos;
-    private int maximo = 0;
+public class ListaSimple<TipoDato> {
+    private ElementoLS<TipoDato> [] datos;
+    private int maximo = 3000;
+    private int numeroElementos;
 
     public ListaSimple(){
-        datos = new ElementoLS[maximo];
+        this.datos = new ElementoLS[maximo];
+        this.numeroElementos = 0;
+    }
+
+    public int getMaximo(){
+        return maximo;
+    }
+
+    public void setMaximo(int maximo){
+        this.maximo = maximo;
     }
 
     public boolean isVacia(){
@@ -22,9 +32,9 @@ public class ListaSimple {
         datos = new ElementoLS[maximo];
     }
 
-    private void add(ElementoLS el) {
-        ElementoLS a = new ElementoLS();
-        a.setData(el);
+    public void add(ElementoLS<TipoDato> el) {
+        ElementoLS<TipoDato> a = new ElementoLS<>();
+        a.setData((TipoDato) el);
         if (isVacia()){
             datos[0] = a;
         }
@@ -32,31 +42,15 @@ public class ListaSimple {
             for (int i = 0; i<datos.length;i++){
                 if (datos[i]==null){
                     datos[i] = a;
+                    numeroElementos++;
                     break;
                 }
             }
-
-        }
-
-    }
-
-    public void add(String s){
-        ElementoLS a = new ElementoLS();
-        a.setData(s);
-        if (isVacia()){
-            datos = Arrays.copyOf(datos, 1);
-            datos[0] = a;
-        }
-        else {
-            maximo = datos.length +1;
-            datos = Arrays.copyOf(datos, maximo);
-            datos[maximo -1] = a;
-
         }
     }
 
-    public void add(Object o){
-        ElementoLS a = new ElementoLS();
+    public void add(TipoDato o){
+        ElementoLS<TipoDato> a = new ElementoLS<>();
         a.setData(o);
         if (isVacia()){
             datos[0] = a;
@@ -69,49 +63,16 @@ public class ListaSimple {
             }
 
         }
-        maximo ++;
-        datos = new ElementoLS[maximo];
+        numeroElementos ++;
+        datos = new ElementoLS[numeroElementos];
     }
 
-    public void insert (String s, int position){
-        ElementoLS el = new ElementoLS();
-        el.setData(s);
-        if (position > datos.length){
-            maximo = datos.length +1;
-            datos = Arrays.copyOf(datos, maximo);
-            datos[maximo -1] = el;
-        }
-        else{
-            datos[position] = el;
-        }
-    }
-
-    public void insert (Object o, int position){
-        ElementoLS el = new ElementoLS();
-        el.setData(0);
-        if (position > datos.length){
-            maximo = datos.length +1;
-            datos = Arrays.copyOf(datos, maximo);
-            datos[maximo -1] = el;
-        }
-        else{
-            datos[position] = el;
-        }
-    }
-
-    public int del(int position){
-        if (position > datos.length){
-            return datos.length;
-        }
-        else{
-            if (datos != null){
-                datos[position] = null;
-                return datos.length;
-            }
-            else{
-                System.out.println("La lista está vacía");
-            }
-            return 0;
+    public void del(int position){
+        if (position > numeroElementos && position >= 0){
+            datos[position] = null;
+            datos[position] = datos[numeroElementos-1];
+            datos[numeroElementos-1] = null;
+            numeroElementos--;
         }
     }
 
@@ -119,7 +80,7 @@ public class ListaSimple {
         return datos.length;
     }
 
-    public int getPosicion(ElementoLS el){
+    public int getPosicion(ElementoLS<TipoDato> el){
         int position = 0;
         for (int i=0; i<datos.length; i++){
             if (datos[i]==el){
@@ -132,9 +93,9 @@ public class ListaSimple {
         return position;
     }
 
-    public ElementoLS getPrimero(){
+    public TipoDato getPrimero(){
         if (datos.length > 0){
-            return datos[0];
+            return datos[0].getData();
         }
         else{
             System.out.println("La lista está vacía");
@@ -142,10 +103,10 @@ public class ListaSimple {
         return null;
     }
 
-    public ElementoLS getUltimo(){
+    public TipoDato getUltimo(){
         if (datos.length > 0){
             int i = datos.length-1;
-            return datos[i];
+            return datos[i].getData();
         }
         else{
             System.out.println("La lista está vacía");
@@ -153,17 +114,17 @@ public class ListaSimple {
         return null;
     }
 
-    private ElementoLS getSiguiente(ElementoLS el){
+    private ElementoLS<TipoDato> getSiguiente(ElementoLS<TipoDato> el){
         int i = getPosicion(el) + 1;
-        return (ElementoLS) datos[i].getData();
+        return (ElementoLS<TipoDato>) datos[i].getData();
     }
 
-    public ElementoLS getElemento(int position){
+    public TipoDato getElemento(int position){
         if (position > datos.length || datos[position] == null){
             return null;
         }
         else{
-            return datos[position];
+            return datos[position].getData();
         }
     }
 }

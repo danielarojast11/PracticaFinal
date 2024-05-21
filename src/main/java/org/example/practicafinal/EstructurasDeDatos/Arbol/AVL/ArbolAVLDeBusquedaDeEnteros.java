@@ -1,11 +1,11 @@
-package org.example.practicafinal.EstructurasDeDatos.Arbol;
+package org.example.practicafinal.EstructurasDeDatos.Arbol.AVL;
 
 import java.util.List;
 
-public class ArbolBinarioDeBusquedaDeEnteros extends ArbolBinarioDeBusqueda{
-    NodoBinario raiz = this.getRaiz();
+public class ArbolAVLDeBusquedaDeEnteros extends ArbolAVLDeBusqueda{
+    Nodo raiz = this.getRaiz();
 
-    public int getSuma(List<NodoBinario> lista){
+    public int getSuma(List<Nodo> lista){
         int suma = 0;
         for (int indice = 0; indice < lista.size(); indice++){
             int auxiliar = lista.get(indice).getContenido();
@@ -16,7 +16,7 @@ public class ArbolBinarioDeBusquedaDeEnteros extends ArbolBinarioDeBusqueda{
 
     public int getSumaPreOrden(){
         int suma = 0;
-        for (NodoBinario nodo: this.getListaPreOrden()){
+        for (Nodo nodo: this.getListaPreOrden()){
             suma += nodo.getContenido();
         }
         return suma;
@@ -24,7 +24,7 @@ public class ArbolBinarioDeBusquedaDeEnteros extends ArbolBinarioDeBusqueda{
 
     public int getSumaPostOrden(){
         int suma = 0;
-        for (NodoBinario nodo: this.getListaPostOrden()){
+        for (Nodo nodo: this.getListaPostOrden()){
             suma += nodo.getContenido();
         }
         return suma;
@@ -32,7 +32,7 @@ public class ArbolBinarioDeBusquedaDeEnteros extends ArbolBinarioDeBusqueda{
 
     public int getSumaOrdenCentral(){
         int suma = 0;
-        for (NodoBinario nodo: this.getListaOrdenCentral()){
+        for (Nodo nodo: this.getListaOrdenCentral()){
             suma += nodo.getContenido();
         }
         return suma;
@@ -40,8 +40,8 @@ public class ArbolBinarioDeBusquedaDeEnteros extends ArbolBinarioDeBusqueda{
 
     public int getSumaSubArbol(int n, String lado){
         int suma = 0;
-        ArbolBinarioDeBusqueda ab = this.getSubArbol(new NodoBinario(n), lado);
-        for (NodoBinario nodo: ab.getListaPostOrden()){
+        ArbolAVLDeBusqueda ab = this.getSubArbol(new Nodo(n), lado);
+        for (Nodo nodo: ab.getListaPostOrden()){
             suma += nodo.getContenido();
         }
         return suma;

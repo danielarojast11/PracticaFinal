@@ -1,5 +1,8 @@
 package org.example.practicafinal.EstructurasDeDatos.Arbol;
 
+import org.example.practicafinal.EstructurasDeDatos.Arbol.Binario.ArbolBinarioDeBusqueda;
+import org.example.practicafinal.EstructurasDeDatos.Arbol.Binario.NodoBinario;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,6 +24,12 @@ class ArbolBinarioDeBusquedaTest {
     }
 
     @Test
+    void getRaiz(){
+        ArbolBinarioDeBusqueda a = new ArbolBinarioDeBusqueda();
+        assertEquals(0, a.getRaiz());
+    }
+
+    @Test
     void getListaDatosNivel() {
         ArbolBinarioDeBusqueda a1 = new ArbolBinarioDeBusqueda();
         NodoBinario raiz = new NodoBinario(1);
@@ -32,8 +41,8 @@ class ArbolBinarioDeBusquedaTest {
         List<NodoBinario> l2 = new ArrayList<>();
         l2.add(n11);
         l2.add(n12);
-        List<NodoBinario> nodos1 = a1.getListaDatosNivel(0);
-        List<NodoBinario> nodos2 = a1.getListaDatosNivel(1);
+        ListaEnlazada<NodoBinario> nodos1 = a1.getListaDatosNivel(0);
+        ListaEnlazada<NodoBinario> nodos2 = a1.getListaDatosNivel(1);
         assertEquals(nodos1, a1.getListaDatosNivel(0));
         assertEquals(nodos2, a1.getListaDatosNivel(1));
     }
@@ -85,8 +94,8 @@ class ArbolBinarioDeBusquedaTest {
         List<NodoBinario> l2 = new ArrayList<>();
         l2.add(n11);
         l2.add(n12);
-        List<NodoBinario> nodos1 = a1.getCamino(0);
-        List<NodoBinario> nodos2 = a1.getCamino(1);
+        ListaEnlazada<NodoBinario> nodos1 = a1.getCamino(0);
+        ListaEnlazada<NodoBinario> nodos2 = a1.getCamino(1);
         assertEquals(nodos1, a1.getCamino(0));
         assertEquals(nodos2, a1.getCamino(1));
     }
@@ -148,10 +157,6 @@ class ArbolBinarioDeBusquedaTest {
         listaa.add(3);
         listaa.add(7);
         a1.getListaPreOrden();
-        for (NodoBinario nodo: a1.getListaPreOrden()){
-            int i = nodo.getContenido();
-            lista.add(i);
-        }
         assertEquals(listaa, lista);
     }
 
@@ -170,10 +175,6 @@ class ArbolBinarioDeBusquedaTest {
         listaa.add(7);
         listaa.add(5);
         a1.getListaPreOrden();
-        for (NodoBinario nodo: a1.getListaPostOrden()){
-            int i = nodo.getContenido();
-            lista.add(i);
-        }
         assertEquals(listaa, lista);
     }
 
@@ -192,10 +193,6 @@ class ArbolBinarioDeBusquedaTest {
         listaa.add(5);
         listaa.add(7);
         a1.getListaPreOrden();
-        for (NodoBinario nodo: a1.getListaOrdenCentral()){
-            int i = nodo.getContenido();
-            lista.add(i);
-        }
         assertEquals(listaa, lista);
     }
 }

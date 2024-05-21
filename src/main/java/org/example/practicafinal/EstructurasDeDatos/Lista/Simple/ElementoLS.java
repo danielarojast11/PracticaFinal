@@ -1,15 +1,14 @@
 package org.example.practicafinal.EstructurasDeDatos.Lista.Simple;
 
-public class ElementoLS {
-    private Object data;
-    private ElementoLS siguiente;
+public class ElementoLS<TipoDato> {
+    private TipoDato data;
 
-    public Object getData() {
+    public TipoDato getData() {
         return data;
     }
 
-    public Object setData(Object o) {
-        this.data = o;
+    public TipoDato setData(TipoDato data) {
+        this.data = data;
         return data;
     }
 }

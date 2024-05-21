@@ -1,18 +1,27 @@
 package org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada;
 
-public class ListaEnlazada {
-    private ElementoLE primero;
+public class ListaEnlazada<TipoDato> {
+    private ElementoLE<TipoDato> primero;
+    private int numElementos;
+
+    public ListaEnlazada(ElementoLE<TipoDato> primero){
+        this.primero = primero;
+    }
 
     public ListaEnlazada(){
-        primero = null;
+
+    }
+
+    public int getNumElementos(){
+        return numElementos;
     }
 
     public boolean isVacia(){   //Si la primera posicion es null, es que la lista esta vacia
-        return primero==null;
+        return primero == null;
     }
 
     public void vaciar(){
-        ElementoLE auxiliar;    //Creamos un auxiliar
+        ElementoLE<TipoDato> auxiliar;    //Creamos un auxiliar
         while (primero.getSiguiente()!=null){   //sabremos que hemos llegado al final de la lista y no hay mas elementos
             auxiliar = primero;
             primero = primero.getSiguiente();
@@ -21,47 +30,31 @@ public class ListaEnlazada {
         primero = null;
     }
 
-    protected void add(ElementoLE el){
-        if (primero==null){ //si la lista esta vacia, sera el primer elemento
-            primero = el;
-        } else {
-            ElementoLE auxiliar = primero;
-            el.insertarmeEn(auxiliar);       //se convierte en el primero
-            primero = el;
-        }
-    }
-
-    public void add(String s){
+    private void add(ElementoLE<TipoDato> s){
         if (primero==null){
-            primero = new ElementoLE(s);
+            primero = new ElementoLE<>((TipoDato) s);
         } else {
-            ElementoLE auxiliar = primero;
-            ElementoLE nuevo = new ElementoLE(s);
+            ElementoLE<TipoDato> auxiliar = primero;
+            ElementoLE<TipoDato> nuevo = new ElementoLE<>((TipoDato) s);
             nuevo.insertarmeEn(auxiliar);       //se convierte en el primero
             primero = nuevo;
         }
     }
 
-    public void add(Object o){
-        if (primero==null){
-            primero = new ElementoLE(o);
-        } else {
-            ElementoLE auxiliar = primero;
-            ElementoLE nuevo = new ElementoLE(o);
-            nuevo.insertarmeEn(auxiliar);       //se convierte en el primero
-            primero = nuevo;
-        }
+    public void add(TipoDato o){
+        ElementoLE<TipoDato> elementoLE = new ElementoLE<>(o);
+        add(elementoLE);
     }
 
-    public void insert(String s, int position){
+    public void insert(ElementoLE<TipoDato> s, int position){
         int contador = 0;
         if (position != 0) {    //si el usuario indica la posicion 0, es el metodo add ya definido
-            ElementoLE auxiliar = primero;
-            ElementoLE siguiente;
+            ElementoLE<TipoDato> auxiliar = primero;
+            ElementoLE<TipoDato> siguiente;
             while (auxiliar.getSiguiente() != null) { //saber cuando hemos recorrido toda la lista
                 //volvemos a enlazar los elementos en el mismo orden, añadiendo el nuevo en su posicion
                 if (contador + 1 == position) {
-                    ElementoLE nuevo = new ElementoLE(s);
+                    ElementoLE<TipoDato> nuevo = (ElementoLE<TipoDato>) new ElementoLE<>(s);
                     siguiente = auxiliar.getSiguiente();
                     auxiliar.insertarmeEn(nuevo);
                     nuevo.insertarmeEn(siguiente);
@@ -78,36 +71,11 @@ public class ListaEnlazada {
         }
     }
 
-    public void insert(Object o, int position){
-        int contador = 0;
-        if (position != 0) {    //si el usuario indica la posicion 0, es el metodo add ya definido
-            ElementoLE auxiliar = primero;
-            ElementoLE siguiente;
-            while (auxiliar.getSiguiente() != null) {   //saber cuando hemos recorrido toda la lista
-                //volvemos a enlazar los elementos en el mismo orden, añadiendo el nuevo en su posicion
-                if (contador + 1 == position) {
-                    ElementoLE nuevo = new ElementoLE(o);
-                    siguiente = auxiliar.getSiguiente();
-                    auxiliar.insertarmeEn(nuevo);
-                    nuevo.insertarmeEn(siguiente);
-                    auxiliar = siguiente;
-                } else {
-                    siguiente = auxiliar.getSiguiente();
-                    auxiliar.insertarmeEn(siguiente);
-                    auxiliar = siguiente;
-                }
-                contador++;
-            }
-        }else{
-            add(o);
-        }
-    }
-
     public int del(int position){
         int contador = 0;
-        ElementoLE auxiliar;
+        ElementoLE<TipoDato> auxiliar;
         if (position!=0){
-            ElementoLE siguiente;
+            ElementoLE<TipoDato> siguiente;
             auxiliar=primero;
             while (auxiliar.getSiguiente()!=null){
                 if (contador+1==position){
@@ -137,7 +105,7 @@ public class ListaEnlazada {
         int contador = 0;
         if (!isVacia()) {   //La lista no debe estar vacia
             contador = 1;
-            ElementoLE auxiliar = primero;
+            ElementoLE<TipoDato> auxiliar = primero;
             while (auxiliar.getSiguiente() != null) {
                 auxiliar = auxiliar.getSiguiente();
                 contador++;
@@ -149,7 +117,7 @@ public class ListaEnlazada {
     public int getPosicion(ElementoLE el){
         int contador = 0;
         if (primero.getData()!=el.getData()){
-            ElementoLE auxiliar = primero;
+            ElementoLE<TipoDato> auxiliar = primero;
             while (auxiliar!=null){
                 if (auxiliar.getData()==el.getData()){
                     break;
@@ -165,30 +133,30 @@ public class ListaEnlazada {
         return contador;
     }
 
-    public ElementoLE getPrimero(){
+    public ElementoLE<TipoDato> getPrimero(){
         return primero;
     }
 
-    public ElementoLE getSiguiente(ElementoLE el){
+    public ElementoLE<TipoDato> getSiguiente(ElementoLE<TipoDato> el){
         int posicion = getPosicion(el) + 1;
         return getElemento(posicion);
     }
 
-    public ElementoLE getUltimo(){
-        ElementoLE auxiliar = primero;
+    public ElementoLE<TipoDato> getUltimo(){
+        ElementoLE<TipoDato> auxiliar = primero;
         while (auxiliar.getSiguiente()!=null){
             auxiliar = auxiliar.getSiguiente();
         }
         return auxiliar;
     }
 
-    public ElementoLE getElemento(int position){
+    public ElementoLE<TipoDato> getElemento(int position){
         int contador = 0;
-        ElementoLE valor = null;
-        ElementoLE auxiliar = primero;
+        ElementoLE<TipoDato> valor = null;
+        ElementoLE<TipoDato> auxiliar = primero;
         while (contador<=position){
             if (contador==position){
-                valor = new ElementoLE(auxiliar.getData());
+                valor = new ElementoLE<>(auxiliar.getData());
                 break;
             } else{
                 auxiliar = auxiliar.getSiguiente();

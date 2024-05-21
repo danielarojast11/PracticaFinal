@@ -1,4 +1,4 @@
-package org.example.practicafinal.EstructurasDeDatos.Arbol;
+package org.example.practicafinal.EstructurasDeDatos.Arbol.Binario;
 
 public class NodoBinario implements Comparable<NodoBinario>{
     private NodoBinario izquierdo;
@@ -8,6 +8,7 @@ public class NodoBinario implements Comparable<NodoBinario>{
     public NodoBinario (int valor){
         this.contenido = valor;
     }
+
     public NodoBinario getIzquierdo() {
         return izquierdo;
     }
