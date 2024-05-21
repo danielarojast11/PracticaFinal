@@ -1,6 +1,6 @@
 package org.example.practicafinal.EstructurasDeDatos.Arbol.AVL;
 
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -119,8 +119,8 @@ class ArbolAVLDeBusquedaTest {
         List<Nodo> l2 = new ArrayList<>();
         l2.add(n11);
         l2.add(n12);
-        ListaEnlazada<Nodo> nodos1 = a1.getListaDatosNivel(0);
-        ListaEnlazada<Nodo> nodos2 = a1.getListaDatosNivel(1);
+        ListaDoblementeEnlazada<Nodo> nodos1 = a1.getListaDatosNivel(0);
+        ListaDoblementeEnlazada<Nodo> nodos2 = a1.getListaDatosNivel(1);
         assertEquals(nodos1, a1.getListaDatosNivel(0));
         assertEquals(nodos2, a1.getListaDatosNivel(1));
     }
@@ -207,8 +207,8 @@ class ArbolAVLDeBusquedaTest {
             int i = nodos[indice];
             a1.add(new Nodo(i));
         }
-        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
-        ListaEnlazada<Integer> listaa = new ListaEnlazada<>();
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        ListaDoblementeEnlazada<Integer> listaa = new ListaDoblementeEnlazada<>();
         listaa.add(5);
         listaa.add(3);
         listaa.add(7);
@@ -229,8 +229,8 @@ class ArbolAVLDeBusquedaTest {
             int i = nodos[indice];
             a1.add(new Nodo(i));
         }
-        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
-        ListaEnlazada<Integer> listaa = new ListaEnlazada<>();
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        ListaDoblementeEnlazada<Integer> listaa = new ListaDoblementeEnlazada<>();
         listaa.add(3);
         listaa.add(7);
         listaa.add(5);

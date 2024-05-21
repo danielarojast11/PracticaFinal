@@ -1,13 +1,13 @@
 package org.example.practicafinal.EstructurasDeDatos.Arbol.Binario;
 
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
-import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
+
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 public class ArbolBinarioDeBusqueda {
     private int grado = 0;
     private int altura = 0;
     private NodoBinario raiz;
-    private ListaEnlazada<NodoBinario> nodos;
+    private ListaDoblementeEnlazada<NodoBinario> nodos;
 
     public int getGrado(){
         return grado;
@@ -32,8 +32,8 @@ public class ArbolBinarioDeBusqueda {
 
     public NodoBinario getRaiz(){ return raiz;}
 
-    public ListaEnlazada<NodoBinario> getListaDatosNivel(int nivel){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<NodoBinario> getListaDatosNivel(int nivel){
+        this.nodos = new ListaDoblementeEnlazada<>();
 
         if (this.raiz != null){
             this.getNodosNivel(nivel, this.raiz, 0);
@@ -145,13 +145,13 @@ public class ArbolBinarioDeBusqueda {
         return casiCompleto;
     }
 
-    public ListaEnlazada<NodoBinario> getCamino(int valorBuscar){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<NodoBinario> getCamino(int valorBuscar){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null){
             this.getNodosCamino(valorBuscar, raiz);
             int ultimoValor = this.nodos.getUltimo().getData().getContenido();
             if (valorBuscar != ultimoValor){
-                this.nodos = new ListaEnlazada<>();
+                this.nodos = new ListaDoblementeEnlazada<>();
             }
         }
         return this.nodos;
@@ -236,8 +236,8 @@ public class ArbolBinarioDeBusqueda {
         this.raiz = raiz;
     }
 
-    public ListaEnlazada<NodoBinario> getListaPreOrden(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<NodoBinario> getListaPreOrden(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPreOrden(raiz);
         }
@@ -256,8 +256,8 @@ public class ArbolBinarioDeBusqueda {
         }
     }
 
-    public ListaEnlazada<NodoBinario> getListaPostOrden(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<NodoBinario> getListaPostOrden(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPostOrden(raiz);
         }
@@ -275,8 +275,8 @@ public class ArbolBinarioDeBusqueda {
         this.nodos.add(nodoActual);
     }
 
-    public ListaEnlazada<NodoBinario> getListaOrdenCentral(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<NodoBinario> getListaOrdenCentral(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosOrdenCentral(raiz);
         }

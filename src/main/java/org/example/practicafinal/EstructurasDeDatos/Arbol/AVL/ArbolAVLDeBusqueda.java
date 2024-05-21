@@ -1,13 +1,13 @@
 package org.example.practicafinal.EstructurasDeDatos.Arbol.AVL;
 
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 
 public class ArbolAVLDeBusqueda {
     private int grado = 0;
     private int altura = 0;
     private Nodo raiz;
-    private ListaEnlazada<Nodo> nodos;
+    private ListaDoblementeEnlazada<Nodo> nodos;
     public int getGrado(){
         return grado;
     }
@@ -161,13 +161,13 @@ public class ArbolAVLDeBusqueda {
 
     public void equilibrar(){
         if (!isEquilibrado()){
-            ListaEnlazada<Nodo> nodos = new ListaEnlazada<>();
+            ListaDoblementeEnlazada<Nodo> nodos = new ListaDoblementeEnlazada<>();
             calcularEquilibrioNodos(raiz);
             equilibrarArbol(raiz, nodos);
         }
     }
 
-    private void equilibrarArbol(Nodo nodoActual, ListaEnlazada<Nodo> nodos){
+    private void equilibrarArbol(Nodo nodoActual, ListaDoblementeEnlazada<Nodo> nodos){
         nodos.add(nodoActual);
         if (nodoActual.getDerecho() != null){
             equilibrarArbol(nodoActual.getDerecho(), nodos);
@@ -209,7 +209,7 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionIzquierda(ListaEnlazada<Nodo> nodos){
+    private void rotacionIzquierda(ListaDoblementeEnlazada<Nodo> nodos){
         Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getDerecho();
         nodoActual.setDerecho(n.getDerecho());
@@ -221,7 +221,7 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionDerecha(ListaEnlazada<Nodo> nodos){
+    private void rotacionDerecha(ListaDoblementeEnlazada<Nodo> nodos){
         Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getIzquierdo();
         nodoActual.setIzquierdo(n.getIzquierdo());
@@ -233,7 +233,7 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionCompuestaIzquierda(ListaEnlazada<Nodo> nodos){
+    private void rotacionCompuestaIzquierda(ListaDoblementeEnlazada<Nodo> nodos){
         Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getIzquierdo().getDerecho().getIzquierdo();
         n.setDerecho(nodoActual.getIzquierdo().getDerecho());
@@ -242,7 +242,7 @@ public class ArbolAVLDeBusqueda {
         nodoActual.setIzquierdo(n);
     }
 
-    private void rotacionCompuestaDerecha(ListaEnlazada<Nodo> nodos){
+    private void rotacionCompuestaDerecha(ListaDoblementeEnlazada<Nodo> nodos){
         Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getDerecho().getIzquierdo().getDerecho();
         n.setIzquierdo(nodoActual.getDerecho().getIzquierdo());
@@ -257,8 +257,8 @@ public class ArbolAVLDeBusqueda {
         this.raiz = raiz;
     }
 
-    public ListaEnlazada<Nodo> getListaDatosNivel(int nivel){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<Nodo> getListaDatosNivel(int nivel){
+        this.nodos = new ListaDoblementeEnlazada<>();
 
         if (this.raiz != null){
             this.getNodosNivel(nivel, this.raiz, 0);
@@ -370,13 +370,13 @@ public class ArbolAVLDeBusqueda {
         return casiCompleto;
     }
 
-    public ListaEnlazada<Nodo> getCamino(int valorBuscar){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<Nodo> getCamino(int valorBuscar){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null){
             this.getNodosCamino(valorBuscar, raiz);
             int ultimoValor = this.nodos.get(this.nodos.getNumeroElementos() -1).getContenido();
             if (valorBuscar != ultimoValor){
-                this.nodos = new ListaEnlazada<>();
+                this.nodos = new ListaDoblementeEnlazada<>();
             }
         }
         return this.nodos;
@@ -433,8 +433,8 @@ public class ArbolAVLDeBusqueda {
         return null;
     }
 
-    public ListaEnlazada<Nodo> getListaPreOrden(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<Nodo> getListaPreOrden(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPreOrden(raiz);
         }
@@ -453,8 +453,8 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    public ListaEnlazada<Nodo> getListaPostOrden(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<Nodo> getListaPostOrden(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPostOrden(raiz);
         }
@@ -472,8 +472,8 @@ public class ArbolAVLDeBusqueda {
         this.nodos.add(nodoActual);
     }
 
-    public ListaEnlazada<Nodo> getListaOrdenCentral(){
-        this.nodos = new ListaEnlazada<>();
+    public ListaDoblementeEnlazada<Nodo> getListaOrdenCentral(){
+        this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null) {
             this.getNodosOrdenCentral(raiz);
         }
