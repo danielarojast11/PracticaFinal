@@ -2,10 +2,8 @@ package org.example.practicafinal.Clases.Individuo;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Individuo implements Comparable<Individuo>{
 
@@ -17,9 +15,9 @@ public class Individuo implements Comparable<Individuo>{
     private int probClonacion;
     private int probMuerte;
     protected int rango;
-    private final List<Individuo> padres = new ArrayList<>();
-    private final List<Individuo> hijos = new ArrayList<>();
-    private final List<Individuo> individuos = new ArrayList<>();
+    private final ListaDoblementeEnlazada<Individuo> padres = new ListaDoblementeEnlazada<>();
+    private final ListaDoblementeEnlazada<Individuo> hijos = new ListaDoblementeEnlazada<>();
+    private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
 
     private Casilla casilla = new Casilla();
 
@@ -146,7 +144,7 @@ public class Individuo implements Comparable<Individuo>{
     }
 
         //FAMILY TREE
-    public List<Individuo> getPadres() {
+    public ListaDoblementeEnlazada<Individuo> getPadres() {
         return padres;
     }
 
@@ -154,7 +152,7 @@ public class Individuo implements Comparable<Individuo>{
         this.padres.add(padre);
     }
 
-    public List<Individuo> getHijos() {
+    public ListaDoblementeEnlazada<Individuo> getHijos() {
         return hijos;
     }
 
@@ -162,7 +160,7 @@ public class Individuo implements Comparable<Individuo>{
         this.hijos.add(hijo);
     }
 
-    public List<Individuo> getIndividuos() {
+    public ListaDoblementeEnlazada<Individuo> getIndividuos() {
         return individuos;
     }
 

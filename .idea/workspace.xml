@@ -8,21 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Estructuras">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusqueda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusquedaDeEnteros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/Nodo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/ArbolAVLDeBusquedaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/AVL/NodoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusqueda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/Binario/ArbolBinarioDeBusqueda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusqueda.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaDeEnteros.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/Binario/NodoBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinario.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaDeEnterosTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/ArbolBinarioDeBusquedaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Arbol/NodoBinarioTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" afterDir="false" />
@@ -50,6 +53,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -63,6 +67,9 @@
     &quot;accountId&quot;: &quot;69c8b686-1b7d-4783-a522-1069acba9405&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="vcs://C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/PracticaFinal/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -74,56 +81,59 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FuncionamientoPartida.executor": "Run",
-    "Application.MainApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AguaTest.executor": "Coverage",
-    "JUnit.BibliotecaTest.executor": "Coverage",
-    "JUnit.BuclesTest.executor": "Coverage",
-    "JUnit.CasillaTest.executor": "Coverage",
-    "JUnit.ComidaTest.executor": "Coverage",
-    "JUnit.ElementoLETest.executor": "Run",
-    "JUnit.ElementoLSTest.executor": "Coverage",
-    "JUnit.ElementosTest.executor": "Coverage",
-    "JUnit.IndividuoAvanzadoTest.executor": "Coverage",
-    "JUnit.IndividuoBasicoTest.executor": "Coverage",
-    "JUnit.IndividuoNormalTest.executor": "Coverage",
-    "JUnit.IndividuoTest.executor": "Coverage",
-    "JUnit.ListaSimpleTest.executor": "Coverage",
-    "JUnit.MontañaTest.executor": "Coverage",
-    "JUnit.PartidaCasillaTest.executor": "Coverage",
-    "JUnit.PartidaTest.executor": "Coverage",
-    "JUnit.PozoTest.executor": "Coverage",
-    "JUnit.TesoroTest.executor": "Coverage",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Estructura de datos/Lista",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FuncionamientoPartida.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AguaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BibliotecaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BuclesTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CasillaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ComidaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ElementoLETest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ElementoLSTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ElementosTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoAvanzadoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoBasicoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoNormalTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ListaSimpleTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MontañaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PartidaCasillaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PartidaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PozoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.TesoroTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Estructura de datos/Lista&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal\Controller" />
+      <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal" />
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -231,7 +241,8 @@
       <workItem from="1715973151959" duration="121000" />
       <workItem from="1715973285948" duration="3759000" />
       <workItem from="1716282842719" duration="786000" />
-      <workItem from="1716299666013" duration="12445000" />
+      <workItem from="1716299666013" duration="13851000" />
+      <workItem from="1716317626807" duration="1755000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -488,7 +499,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716310654865</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716316358879</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316358879</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716316921217</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316921217</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,6 +572,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Tablero.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$ListaSimpleTest.ic" NAME="ListaSimpleTest Coverage Results" MODIFIED="1716316235393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.EstructurasDeDatos.Lista.Simple.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715879123300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.*</FILTER>

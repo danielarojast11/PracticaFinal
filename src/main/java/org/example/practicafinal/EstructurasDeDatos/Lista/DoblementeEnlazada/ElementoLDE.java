@@ -3,7 +3,7 @@ package org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada;
 public class ElementoLDE<TipoDato> {
     private ElementoLDE<TipoDato> anterior;
     private ElementoLDE<TipoDato> siguiente;
-    private Object data;
+    private TipoDato data;
 
     protected void insertarmeEn (ElementoLDE<TipoDato> el){
         el.siguiente = this.siguiente;
@@ -19,11 +19,11 @@ public class ElementoLDE<TipoDato> {
         return this.anterior;
     }
 
-    public Object getData(){
+    public TipoDato getData(){
         return data;
     }
 
-    public Object setData(Object o){
+    public TipoDato setData(TipoDato o){
         this.data = o;
         return data;
     }

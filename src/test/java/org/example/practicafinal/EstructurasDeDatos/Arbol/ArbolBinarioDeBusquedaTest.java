@@ -2,7 +2,7 @@ package org.example.practicafinal.EstructurasDeDatos.Arbol;
 
 import org.example.practicafinal.EstructurasDeDatos.Arbol.Binario.ArbolBinarioDeBusqueda;
 import org.example.practicafinal.EstructurasDeDatos.Arbol.Binario.NodoBinario;
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -41,8 +41,8 @@ class ArbolBinarioDeBusquedaTest {
         List<NodoBinario> l2 = new ArrayList<>();
         l2.add(n11);
         l2.add(n12);
-        ListaEnlazada<NodoBinario> nodos1 = a1.getListaDatosNivel(0);
-        ListaEnlazada<NodoBinario> nodos2 = a1.getListaDatosNivel(1);
+        ListaDoblementeEnlazada<NodoBinario> nodos1 = a1.getListaDatosNivel(0);
+        ListaDoblementeEnlazada<NodoBinario> nodos2 = a1.getListaDatosNivel(1);
         assertEquals(nodos1, a1.getListaDatosNivel(0));
         assertEquals(nodos2, a1.getListaDatosNivel(1));
     }
@@ -94,8 +94,8 @@ class ArbolBinarioDeBusquedaTest {
         List<NodoBinario> l2 = new ArrayList<>();
         l2.add(n11);
         l2.add(n12);
-        ListaEnlazada<NodoBinario> nodos1 = a1.getCamino(0);
-        ListaEnlazada<NodoBinario> nodos2 = a1.getCamino(1);
+        ListaDoblementeEnlazada<NodoBinario> nodos1 = a1.getCamino(0);
+        ListaDoblementeEnlazada<NodoBinario> nodos2 = a1.getCamino(1);
         assertEquals(nodos1, a1.getCamino(0));
         assertEquals(nodos2, a1.getCamino(1));
     }

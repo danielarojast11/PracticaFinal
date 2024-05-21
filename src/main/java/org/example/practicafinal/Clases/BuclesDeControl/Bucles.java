@@ -6,18 +6,17 @@ import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public class Bucles {
 
         //Parameters
-    private ArrayList<Individuo> listaIndividuos;
-    private ArrayList<Casilla> tablero;
+    private ListaDoblementeEnlazada<Individuo> listaIndividuos;
+    private ListaDoblementeEnlazada<Casilla> tablero;
     private Individuo individuo;
     private Partida partida;
 
@@ -28,11 +27,11 @@ public class Bucles {
     public void setPartida(Partida partida){this.partida=partida;}
 
 
-    public void eliminarIndividuo(List<Individuo> listaIndividuos){
-        List<Individuo> individuoscopia = new ArrayList<>();
-        individuoscopia.addAll(listaIndividuos);
-        listaIndividuos.clear();
-        for (Individuo individuo:individuoscopia){
+    public void eliminarIndividuo(ListaDoblementeEnlazada<Individuo> listaIndividuos){
+        ListaDoblementeEnlazada<Individuo> individuoscopia = new ListaDoblementeEnlazada<>();
+        individuoscopia.add(listaIndividuos);
+        listaIndividuos.vaciar();
+        for (Individuo individuo: individuoscopia){
             if (individuo.getTurnosVida()>0){
                 listaIndividuos.add(individuo);
             }
@@ -40,7 +39,7 @@ public class Bucles {
     }
 
     public void actualizarIndividuos(){
-        List<Individuo> listadoIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listadoIndividuos = new ListaDoblementeEnlazada<>();
         if (partida.getListaIndividuos() != null){
             for (Individuo individuo : partida.getListaIndividuos()){
                 //Actualizar y Eliminar Individuos
@@ -58,7 +57,7 @@ public class Bucles {
     }
 
     public void actualizarElementos(){
-        List<Elementos> listaElementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
         for (Elementos elemento : partida.getListaElementos()){
             elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
             if (elemento.getTiempoActividad() > 0){
@@ -101,9 +100,9 @@ public class Bucles {
     }
 
         //4-Evaluar las mejoras obtenidas por los recursos
-    public Individuo individuoMejorado(List<Casilla> listaCasillas,
-                                       List<Individuo> listaIndividuos,
-                                       List<Elementos> listaElementos,
+    public Individuo individuoMejorado(ListaDoblementeEnlazada<Casilla> listaCasillas,
+                                       ListaDoblementeEnlazada<Individuo> listaIndividuos,
+                                       ListaDoblementeEnlazada<Elementos> listaElementos,
                                         Partida partida){
         for (Casilla casilla : listaCasillas){
             for (Individuo individuo : listaIndividuos){
@@ -159,7 +158,7 @@ public class Bucles {
     }
 
         //5-Reproduccion
-    public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b, List<Individuo> listaIndividuos){
+    public Individuo reproducir(@NotNull Individuo a, @NotNull Individuo b, ListaDoblementeEnlazada<Individuo> listaIndividuos){
         Individuo hijo = null;
         if (a.getClass()== IndividuoAvanzado.class || b.getClass()== IndividuoAvanzado.class){
             hijo = partida.crearAvanzado(listaIndividuos);
@@ -208,11 +207,11 @@ public class Bucles {
 
     public Individuo evaluarIndividuosCasilla(Casilla casilla){
         Collections.sort(casilla.getIndividuosCasilla());
-        return casilla.getIndividuosCasilla().getFirst();
+        return casilla.getIndividuosCasilla().getPrimero().getData();
     }
 
-    public List<Integer> reordenar(Casilla casilla){
-        List<Integer> id = new ArrayList<>();
+    public ListaDoblementeEnlazada<Integer> reordenar(Casilla casilla){
+        ListaDoblementeEnlazada<Integer> id = new ListaDoblementeEnlazada<>();
         Collections.sort(casilla.getIndividuosCasilla());
         for (Individuo individuo1 : casilla.getIndividuosCasilla()){
             id.add(individuo1.getId());
@@ -231,9 +230,10 @@ public class Bucles {
     }
 
         //8-Aparición recursos
-    public List<Elementos> aparicionRecursos(List<Casilla> listaCasillas, List<Elementos> listaElementos){
+    public ListaDoblementeEnlazada<Elementos> aparicionRecursos(ListaDoblementeEnlazada<Casilla> listaCasillas,
+                                                                ListaDoblementeEnlazada<Elementos> listaElementos){
         for (Casilla casilla : listaCasillas){
-            if (casilla.getElementosCasilla().size() < 3){
+            if (casilla.getElementosCasilla().getNumeroElementos() < 3){
                 for (Elementos elemento : listaElementos){
                 }
             }
