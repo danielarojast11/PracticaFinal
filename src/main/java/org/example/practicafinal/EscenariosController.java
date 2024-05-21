@@ -1,4 +1,4 @@
-package org.example.practicafinal.Controller;
+package org.example.practicafinal;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

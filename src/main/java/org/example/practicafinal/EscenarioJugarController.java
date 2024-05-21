@@ -1,4 +1,4 @@
-package org.example.practicafinal.Controller;
+package org.example.practicafinal;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -601,37 +601,6 @@ public class EscenarioJugarController {
 
     public void eliminarTablero(){
         tablero.getChildren().clear();
-    }
-
-    @Override
-    public void handle(MouseEvent mouseEvent) {
-        if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-            Dialog<PartidaCasilla> casillaDialog = new CasillaDialog(casilla, partida);
-            Window window = casillaDialog.getDialogPane().getScene().getWindow();
-            window.setOnCloseRequest(event -> window.hide());
-            Optional<PartidaCasilla> result = casillaDialog.showAndWait();
-            if (result != null && result.get().getCasilla() != null) {
-                casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
-                for (Individuo i : casilla.getIndividuosCasilla()) {
-                    listaIndividuos.add(i);
-                }
-                casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
-                for (Elementos e : casilla.getElementosCasilla()) {
-                    listaElementos.add(e);
-                }
-                mostrarContenidoCasilla(casilla);
-
-                partida.setNumeroIndividuosBasicos(result.get().getPartida().getNumeroIndividuosBasicos());
-                partida.setNumeroIndividuosNormal(result.get().getPartida().getNumeroIndividuosNormal());
-                partida.setNumeroIndividuosAvanzados(result.get().getPartida().getNumeroIndividuosAvanzados());
-                partida.setAgua(result.get().getPartida().getAgua());
-                partida.setComida(result.get().getPartida().getComida());
-                partida.setMontana(result.get().getPartida().getMontana());
-                partida.setCofre(result.get().getPartida().getCofre());
-                partida.setBiblioteca(result.get().getPartida().getBiblioteca());
-                partida.setPozo(result.get().getPartida().getPozo());
-            }
-        }
     }
 
     ////////////////////////////////////////////////////////////////////////////
