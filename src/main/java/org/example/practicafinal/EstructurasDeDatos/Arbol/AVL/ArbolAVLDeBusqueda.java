@@ -1,13 +1,13 @@
 package org.example.practicafinal.EstructurasDeDatos.Arbol.AVL;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
+
 
 public class ArbolAVLDeBusqueda {
     private int grado = 0;
     private int altura = 0;
     private Nodo raiz;
-    private List<Nodo> nodos;
+    private ListaEnlazada<Nodo> nodos;
     public int getGrado(){
         return grado;
     }
@@ -161,13 +161,13 @@ public class ArbolAVLDeBusqueda {
 
     public void equilibrar(){
         if (!isEquilibrado()){
-            List<Nodo> nodos = new ArrayList<>();
+            ListaEnlazada<Nodo> nodos = new ListaEnlazada<>();
             calcularEquilibrioNodos(raiz);
             equilibrarArbol(raiz, nodos);
         }
     }
 
-    private void equilibrarArbol(Nodo nodoActual, List<Nodo> nodos){
+    private void equilibrarArbol(Nodo nodoActual, ListaEnlazada<Nodo> nodos){
         nodos.add(nodoActual);
         if (nodoActual.getDerecho() != null){
             equilibrarArbol(nodoActual.getDerecho(), nodos);
@@ -209,8 +209,8 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionIzquierda(List<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.size() -1);
+    private void rotacionIzquierda(ListaEnlazada<Nodo> nodos){
+        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getDerecho();
         nodoActual.setDerecho(n.getDerecho());
         n.getDerecho().setIzquierdo(n);
@@ -221,8 +221,8 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionDerecha(List<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.size() -1);
+    private void rotacionDerecha(ListaEnlazada<Nodo> nodos){
+        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getIzquierdo();
         nodoActual.setIzquierdo(n.getIzquierdo());
         n.getIzquierdo().setDerecho(n);
@@ -233,8 +233,8 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    private void rotacionCompuestaIzquierda(List<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.size() -2);
+    private void rotacionCompuestaIzquierda(ListaEnlazada<Nodo> nodos){
+        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getIzquierdo().getDerecho().getIzquierdo();
         n.setDerecho(nodoActual.getIzquierdo().getDerecho());
         nodoActual.getIzquierdo().setDerecho(null);
@@ -242,8 +242,8 @@ public class ArbolAVLDeBusqueda {
         nodoActual.setIzquierdo(n);
     }
 
-    private void rotacionCompuestaDerecha(List<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.size() -2);
+    private void rotacionCompuestaDerecha(ListaEnlazada<Nodo> nodos){
+        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getDerecho().getIzquierdo().getDerecho();
         n.setIzquierdo(nodoActual.getDerecho().getIzquierdo());
         nodoActual.getDerecho().setIzquierdo(null);
@@ -257,8 +257,8 @@ public class ArbolAVLDeBusqueda {
         this.raiz = raiz;
     }
 
-    public List<Nodo> getListaDatosNivel(int nivel){
-        this.nodos = new ArrayList<>();
+    public ListaEnlazada<Nodo> getListaDatosNivel(int nivel){
+        this.nodos = new ListaEnlazada<>();
 
         if (this.raiz != null){
             this.getNodosNivel(nivel, this.raiz, 0);
@@ -370,13 +370,13 @@ public class ArbolAVLDeBusqueda {
         return casiCompleto;
     }
 
-    public List<Nodo> getCamino(int valorBuscar){
-        this.nodos = new ArrayList<>();
+    public ListaEnlazada<Nodo> getCamino(int valorBuscar){
+        this.nodos = new ListaEnlazada<>();
         if (this.raiz != null){
             this.getNodosCamino(valorBuscar, raiz);
-            int ultimoValor = this.nodos.get(this.nodos.size() -1).getContenido();
+            int ultimoValor = this.nodos.get(this.nodos.getNumeroElementos() -1).getContenido();
             if (valorBuscar != ultimoValor){
-                this.nodos = new ArrayList<>();
+                this.nodos = new ListaEnlazada<>();
             }
         }
         return this.nodos;
@@ -433,8 +433,8 @@ public class ArbolAVLDeBusqueda {
         return null;
     }
 
-    public List<Nodo> getListaPreOrden(){
-        this.nodos = new ArrayList<>();
+    public ListaEnlazada<Nodo> getListaPreOrden(){
+        this.nodos = new ListaEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPreOrden(raiz);
         }
@@ -453,8 +453,8 @@ public class ArbolAVLDeBusqueda {
         }
     }
 
-    public List<Nodo> getListaPostOrden(){
-        this.nodos = new ArrayList<>();
+    public ListaEnlazada<Nodo> getListaPostOrden(){
+        this.nodos = new ListaEnlazada<>();
         if (this.raiz != null) {
             this.getNodosPostOrden(raiz);
         }
@@ -472,8 +472,8 @@ public class ArbolAVLDeBusqueda {
         this.nodos.add(nodoActual);
     }
 
-    public List<Nodo> getListaOrdenCentral(){
-        this.nodos = new ArrayList<>();
+    public ListaEnlazada<Nodo> getListaOrdenCentral(){
+        this.nodos = new ListaEnlazada<>();
         if (this.raiz != null) {
             this.getNodosOrdenCentral(raiz);
         }
