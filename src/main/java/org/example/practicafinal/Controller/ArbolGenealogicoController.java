@@ -1,4 +1,4 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

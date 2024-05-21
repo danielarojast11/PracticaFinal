@@ -1,16 +1,12 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
-import com.google.gson.Gson;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import org.example.practicafinal.Clases.Partida.Partida;
-
-import java.io.FileReader;
-import java.io.IOException;
 
 public class EscenarioCargarController {
     EscenariosController controladorEscenarios;
+    EscenarioJugarController controladorEscenarioJugar;
+
     @FXML
     private Button btnJugar;
 
@@ -32,12 +28,7 @@ public class EscenarioCargarController {
 
     @FXML
     void cargar(){
-        Gson gson = new Gson ();
-        try (FileReader reader = new FileReader("partida.json")) {
-            gson.fromJson(reader, Partida.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        controladorEscenarioJugar.cargar();
     }
 
     public void setControladorEscenarios(EscenariosController controlador){

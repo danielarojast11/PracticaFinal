@@ -1,6 +1,7 @@
 package org.example.practicafinal.Clases.Partida;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
@@ -535,33 +536,34 @@ public class Partida {
     }
 
     public void moverIndividuos(){
-        for (Individuo individuo : listaIndividuos) {
-            Casilla casillaVieja = individuo.getCasilla();
-            Casilla casillaNueva = new Casilla();
-            switch (individuo.getRango()) {
-                case 1:
-                    casillaNueva = moverBasico();
-                    break;
-                case 2:
-                    casillaNueva = moverNormal(casillaVieja);
-                    break;
-                case 3:
-                    casillaNueva = moverAvanzado(casillaVieja);
-                    break;
-            }
-
-            individuo.setCasilla(casillaNueva);
-            for (Casilla casilla : getListaCasillas()) {
-                if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
-                    casilla.removeIndividuoCasilla(individuo);
+        if (listaIndividuos != null){
+            for (Individuo individuo : listaIndividuos) {
+                Casilla casillaVieja = individuo.getCasilla();
+                Casilla casillaNueva = new Casilla();
+                switch (individuo.getRango()) {
+                    case 1:
+                        casillaNueva = moverBasico();
+                        break;
+                    case 2:
+                        casillaNueva = moverNormal(casillaVieja);
+                        break;
+                    case 3:
+                        casillaNueva = moverAvanzado(casillaVieja);
+                        break;
                 }
-                if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
-                    casilla.addIndividuoCasilla(individuo);
+
+                individuo.setCasilla(casillaNueva);
+                for (Casilla casilla : getListaCasillas()) {
+                    if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
+                        casilla.removeIndividuoCasilla(individuo);
+                    }
+                    if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
+                        casilla.addIndividuoCasilla(individuo);
+                    }
                 }
             }
         }
     }
-
 
         //MODIFY PARAMETERS
     public void modificarId(){
@@ -589,4 +591,7 @@ public class Partida {
     public int getIndividuosTotales(){
         return listaIndividuos.size();
     }
+
+
+
 }

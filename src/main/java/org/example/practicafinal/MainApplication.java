@@ -2,6 +2,7 @@ package org.example.practicafinal;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.example.practicafinal.Controller.EscenariosController;
 
 public class MainApplication extends Application {
 

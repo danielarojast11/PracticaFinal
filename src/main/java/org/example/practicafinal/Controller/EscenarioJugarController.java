@@ -1,10 +1,9 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -306,7 +305,9 @@ public class EscenarioJugarController {
                 bucle.evaluacionFinal();
 
                 bucle.actualizarIndividuos();
+                bucle.reproducir(listaIndividuos.get(1), listaIndividuos.get(2), partida.getListaIndividuos());
                 bucle.actualizarElementos();
+                bucle.individuoMejorado(listaCasillas, listaIndividuos, listaElementos, partida);
 
                 limpiarCasillas();
                 mostrarCasillas();
@@ -392,7 +393,7 @@ public class EscenarioJugarController {
     }
 
     @FXML
-    private void cargar(){
+    public void cargar(){
         Gson gson = new Gson ();
         try {
             if (this.partida == null) {

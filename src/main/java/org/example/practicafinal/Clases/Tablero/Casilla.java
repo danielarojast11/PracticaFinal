@@ -1,11 +1,9 @@
 package org.example.practicafinal.Clases.Tablero;
 
 import com.google.gson.JsonObject;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.EscenarioJugarController;
 
 import java.util.ArrayList;
 import java.util.List;

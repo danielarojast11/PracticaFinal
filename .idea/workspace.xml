@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Caso de prueba para GUI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ElementoLDETest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/DoblementeEnlazada/ListaDoblementeEnlazadaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLETest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazadaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ElementoLSTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Lista/Simple/ListaSimpleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partida.json" beforeDir="false" afterPath="$PROJECT_DIR$/partida.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioCargarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +53,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -38,12 +68,12 @@
     &quot;assignee&quot;: &quot;candelasanzm&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/danielarojast11/PracticaFinal.git",
-    "accountId": "4498fddd-3936-4743-b561-6204a34cd1f0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/danielarojast11/PracticaFinal.git&quot;,
+    &quot;accountId&quot;: &quot;69c8b686-1b7d-4783-a522-1069acba9405&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -58,13 +88,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FuncionamientoPartida.executor": "Run",
-    "Application.MainApplication.executor": "Debug",
+    "Application.MainApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AguaTest.executor": "Coverage",
     "JUnit.BibliotecaTest.executor": "Coverage",
     "JUnit.BuclesTest.executor": "Coverage",
     "JUnit.CasillaTest.executor": "Coverage",
     "JUnit.ComidaTest.executor": "Coverage",
+    "JUnit.ElementoLETest.executor": "Run",
     "JUnit.ElementosTest.executor": "Coverage",
     "JUnit.IndividuoAvanzadoTest.executor": "Coverage",
     "JUnit.IndividuoBasicoTest.executor": "Coverage",
@@ -85,7 +116,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Candela/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Metodología de la programación/EL3",
+    "last_opened_file_path": "C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Estructura de datos/Lista",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -93,6 +124,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -131,7 +163,7 @@
       <module name="PracticaFinal" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.practicafinal.*" />
+          <option name="PATTERN" value="org.example.practicafinal.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,6 +236,8 @@
       <workItem from="1715878016625" duration="2346000" />
       <workItem from="1715973151959" duration="121000" />
       <workItem from="1715973285948" duration="3759000" />
+      <workItem from="1716282842719" duration="786000" />
+      <workItem from="1716299666013" duration="5465000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -504,17 +538,6 @@
     <MESSAGE value="turno vida = 0" />
     <MESSAGE value="Caso de prueba para GUI" />
     <option name="LAST_COMMIT_MESSAGE" value="Caso de prueba para GUI" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java</url>
-          <line>289</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

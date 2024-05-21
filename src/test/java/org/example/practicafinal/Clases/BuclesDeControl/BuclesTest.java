@@ -35,8 +35,8 @@ class BuclesTest {
         Bucles bucles = new Bucles();
         bucles.eliminarIndividuo(individuos);
         bucles.eliminarIndividuo(individuos);
-        assertEquals(false, individuos.contains(ind2));
-        assertEquals(true, individuos.contains(ind3));
+        assertFalse(individuos.contains(ind2));
+        assertTrue(individuos.contains(ind3));
     }
 
     @Test
@@ -53,8 +53,8 @@ class BuclesTest {
         assertEquals(4, ind1.getTurnosVida());
         assertEquals(54, ind1.getProbClonacion());
         assertEquals(45, ind1.getProbReproduccion());
-        assertEquals(false, individuos.contains(ind2));
-        assertEquals(true, individuos.contains(ind3));
+        assertFalse(individuos.contains(ind2));
+        assertTrue(individuos.contains(ind3));
     }
 
     @Test
@@ -74,8 +74,8 @@ class BuclesTest {
         listaElementos.add(elemento2);
         Bucles bucles = new Bucles();
         //bucles.eliminarElemento(elemento1, listaElementos);
-        assertEquals(false, listaElementos.contains(elemento1));
-        assertEquals(true, listaElementos.contains(elemento2));
+        assertFalse(listaElementos.contains(elemento1));
+        assertTrue(listaElementos.contains(elemento2));
     }
 
     @Test
@@ -90,8 +90,8 @@ class BuclesTest {
         Bucles bucles = new Bucles();
         bucles.actualizarElementos();
         assertEquals(0, elemento2.getTiempoActividad());
-        assertEquals(true, listaElementos.contains(elemento1));
-        assertEquals(true, listaElementos.contains(elemento3));
+        assertTrue(listaElementos.contains(elemento1));
+        assertTrue(listaElementos.contains(elemento3));
     }
 
     @Test

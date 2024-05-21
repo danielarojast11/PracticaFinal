@@ -1,4 +1,4 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -6,7 +6,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.Clases.Partida.Partida;
 
 import java.io.IOException;
 import java.util.List;

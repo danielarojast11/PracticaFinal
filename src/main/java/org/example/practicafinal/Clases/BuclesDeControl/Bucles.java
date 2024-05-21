@@ -41,15 +41,17 @@ public class Bucles {
 
     public void actualizarIndividuos(){
         List<Individuo> listadoIndividuos = new ArrayList<>();
-        for (Individuo individuo : partida.getListaIndividuos()){
-            //Actualizar y Eliminar Individuos
-            if (individuo.getTurnosVida()==0){
-                individuo.getCasilla().removeIndividuoCasilla(individuo);
-            } else {
-                individuo.modificarTurnosVida();
-                individuo.modificarReprod();
-                individuo.modificarClonacion();
-                listadoIndividuos.add(individuo);
+        if (partida.getListaIndividuos() != null){
+            for (Individuo individuo : partida.getListaIndividuos()){
+                //Actualizar y Eliminar Individuos
+                if (individuo.getTurnosVida()==0){
+                    individuo.getCasilla().removeIndividuoCasilla(individuo);
+                } else {
+                    individuo.modificarTurnosVida();
+                    individuo.modificarReprod();
+                    individuo.modificarClonacion();
+                    listadoIndividuos.add(individuo);
+                }
             }
         }
         partida.setListaIndividuos(listaIndividuos);
