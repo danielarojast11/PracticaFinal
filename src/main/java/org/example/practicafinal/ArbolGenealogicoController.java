@@ -28,8 +28,9 @@ public class ArbolGenealogicoController {
     }
 
     public void mostrarIndividuos(List<Individuo> listaIndividuos){
+        //Coordenadas coordenadas = new Coordenadas(20, );
         for (Individuo individuo : listaIndividuos){
-            mostrarIndiviuo(individuo, null, false, 0, false);
+            mostrarIndiviuo(individuo, null, false, 0, false, true);
         }
 
         /*Individuo individuo1 = new Individuo();
@@ -63,7 +64,8 @@ public class ArbolGenealogicoController {
             Coordenadas coordenadasAnteriores,
             boolean padre,
             int numero,
-            boolean derecha
+            boolean derecha,
+            boolean inicial
     ){
         Circle circulo = crearCirculoIndividuo(individuoActual);
         double x = 0;
@@ -99,11 +101,11 @@ public class ArbolGenealogicoController {
         Coordenadas coordenadas = new Coordenadas(x, y);
         for(int i = 0; i < individuoActual.getPadres().size(); i++){
             boolean d = i > 0;
-            mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d);
+            mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d, false);
         }
         for (int i = 0; i < individuoActual.getHijos().size(); i++){
             boolean d = i > 0;
-            mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d);
+            mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d, false);
         }
     }
 

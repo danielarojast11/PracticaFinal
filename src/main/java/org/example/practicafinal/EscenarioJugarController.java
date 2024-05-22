@@ -310,7 +310,7 @@ public class EscenarioJugarController {
 
                 limpiarCasillas();
                 mostrarCasillas();
-                lblNumeroIndividuos.setText("Nº Individuos: "+listaIndividuos.size());
+                lblNumeroIndividuos.setText("Nº Individuos: "+partida.getListaIndividuos().size());
 
                 if (
                         partida.getListaIndividuos() == null ||
@@ -373,7 +373,7 @@ public class EscenarioJugarController {
         btnStart.setDisable(true);
         desabilitarSliders(true);
         animationTimer.stop();
-        controladorEscenarios.cargarArbolFinal(listaIndividuos);
+        controladorEscenarios.cargarArbolFinal(partida.getListaIndividuos());
     }
 
     @FXML

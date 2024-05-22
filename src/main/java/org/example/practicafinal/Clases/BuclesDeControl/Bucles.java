@@ -52,7 +52,7 @@ public class Bucles {
                 listadoIndividuos.add(individuo);
             }
         }
-        partida.setListaIndividuos(listaIndividuos);
+        partida.setListaIndividuos(listadoIndividuos);
     }
 
     public void actualizarElementos(){
