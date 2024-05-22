@@ -1,7 +1,7 @@
 package org.example.practicafinal.Clases.BuclesDeControl;
 
 import org.example.practicafinal.Clases.Entorno.Elementos;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Partida.Partida;
@@ -13,18 +13,16 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class Bucles {
+    private Partida partida;
 
-        //Parameters
     private ListaDoblementeEnlazada<Individuo> listaIndividuos;
     private ListaDoblementeEnlazada<Casilla> tablero;
     private Individuo individuo;
-    private Partida partida;
 
         //Constructor
-    public Bucles(){
+    public Bucles(Partida partida){
+        this.partida = partida;
     }
-
-    public void setPartida(Partida partida){this.partida=partida;}
 
 
     public void eliminarIndividuo(ListaDoblementeEnlazada<Individuo> listaIndividuos){

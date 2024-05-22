@@ -2,6 +2,7 @@ package org.example.practicafinal.Clases.Individuo;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.Entity.Individuo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

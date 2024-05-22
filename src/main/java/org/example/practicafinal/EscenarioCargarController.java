@@ -2,6 +2,8 @@ package org.example.practicafinal;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import org.example.practicafinal.Controller.EscenarioJugarController;
+import org.example.practicafinal.Controller.EscenariosController;
 
 public class EscenarioCargarController {
     EscenariosController controladorEscenarios;

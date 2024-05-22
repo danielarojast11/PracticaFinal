@@ -2,7 +2,7 @@ package org.example.practicafinal.Clases.Partida;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;

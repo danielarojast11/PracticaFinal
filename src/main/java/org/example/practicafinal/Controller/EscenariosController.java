@@ -1,11 +1,13 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.ArbolGenealogicoController;
+import org.example.practicafinal.Entity.Individuo;
+import org.example.practicafinal.EscenarioCargarController;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.io.IOException;

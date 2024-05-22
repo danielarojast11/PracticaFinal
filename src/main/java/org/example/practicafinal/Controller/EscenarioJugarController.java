@@ -1,4 +1,4 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -20,14 +20,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
-import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
-import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Partida.Partida;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
-import org.example.practicafinal.Dialogs.CasillaDialog;
+import org.example.practicafinal.Dialog.CasillaDialog;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -37,14 +34,214 @@ import java.util.*;
 public class EscenarioJugarController {
     private final boolean pruebas = true;
 
+    //@FXML private Button btnAceptarTablero;
+
+    private Bucles bucles;
+    private Partida partida;
+    private final GridPane tablero = new GridPane();
+
+    @FXML
+    public void aceptarTablero(){
+        //this.tableroCreado = true;
+        eliminarTablero();
+        crearPartida();
+        bucles = new Bucles(partida);
+        crearTablero();
+        //cambiarVelocidad();
+    }
+
+    private void crearTablero (){
+        double a = paneTablero.getWidth();
+        double b = paneTablero.getHeight();
+        for (int i = 0; i < partida.getColumnas(); i++){
+            for (int j = 0; j < partida.getFilas(); j++){
+                Casilla casilla = new Casilla(i, j);
+                casilla.setMinSize(a / partida.getColumnas(), b / partida.getFilas());
+                casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
+
+                /*if (pruebas) {
+                    int individuos = 0;
+                    int disponibles = partida.getNumeroIndividuosBasicos() + partida.getNumeroIndividuosNormal() +
+                            partida.getNumeroIndividuosAvanzados();
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosBasicos() > 0) {
+                        if (partida.getNumeroIndividuosBasicos() > 0) {
+                            Individuo in = new IndividuoBasico();
+                            in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosBasicos(partida.getNumeroIndividuosBasicos() - 1);
+                        }
+                    }
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosNormal() > 0) {
+                        if (partida.getNumeroIndividuosNormal() > 0) {
+                            Individuo in = new IndividuoNormal();
+                            in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosNormal(partida.getNumeroIndividuosNormal() - 1);
+                        }
+                    }
+                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosAvanzados() > 0) {
+                        if (partida.getNumeroIndividuosAvanzados() > 0) {
+                            Individuo in = new IndividuoAvanzado();
+                            in.setCasilla(casilla);
+                            in.setTurnosVida(partida.getTurnosVida());
+                            casilla.addIndividuoCasilla(in);
+                            listaIndividuos.add(in);
+                            individuos++;
+                            disponibles--;
+                            partida.setNumeroIndividuosAvanzados(partida.getNumeroIndividuosAvanzados() - 1);
+                        }
+                    }
+
+                    int elementos = 0;
+                    disponibles = partida.getAgua() + partida.getCofre() + partida.getBiblioteca() + partida.getComida() +
+                            partida.getMontana() + partida.getPozo();
+                    while (elementos < 3 && disponibles > 0 && partida.getAgua() > 0) {
+                        if (partida.getAgua() > 0) {
+                            Elementos el = new Agua();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setAgua(partida.getAgua() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getCofre() > 0) {
+                        if (partida.getCofre() > 0) {
+                            Elementos el = new Tesoro();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setCofre(partida.getCofre() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getBiblioteca() > 0) {
+                        if (partida.getBiblioteca() > 0) {
+                            Elementos el = new Biblioteca();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setBiblioteca(partida.getBiblioteca() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getComida() > 0) {
+                        if (partida.getComida() > 0) {
+                            Elementos el = new Comida();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setComida(partida.getComida() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getMontana() > 0) {
+                        if (partida.getMontana() > 0) {
+                            Elementos el = new Montaña();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setMontana(partida.getMontana() - 1);
+                        }
+                    }
+                    while (elementos < 3 && disponibles > 0 && partida.getPozo() > 0) {
+                        if (partida.getPozo() > 0) {
+                            Elementos el = new Pozo();
+                            el.setTiempoActividad(partida.getTiempoActividad());
+                            casilla.addElementoCasilla(el);
+                            listaElementos.add(el);
+                            elementos++;
+                            disponibles--;
+                            partida.setCofre(partida.getPozo() - 1);
+                        }
+                    }
+                    mostrarContenidoCasilla(casilla);
+                }*/
+
+                casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+                            Dialog<PartidaCasilla> casillaDialog = new CasillaDialog(casilla, partida);
+                            Window window = casillaDialog.getDialogPane().getScene().getWindow();
+                            window.setOnCloseRequest(event -> window.hide());
+                            Optional<PartidaCasilla> result = casillaDialog.showAndWait();
+                            if (result != null && result.get().getCasilla() != null) {
+                                casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
+                                for (Individuo i: casilla.getIndividuosCasilla()) {
+                                    listaIndividuos.add(i);
+                                }
+                                casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
+                                for (Elementos e: casilla.getElementosCasilla()) {
+                                    listaElementos.add(e);
+                                }
+                                mostrarContenidoCasilla(casilla);
+
+                                partida.setNumeroIndividuosBasicos(result.get().getPartida().getNumeroIndividuosBasicos());
+                                partida.setNumeroIndividuosNormal(result.get().getPartida().getNumeroIndividuosNormal());
+                                partida.setNumeroIndividuosAvanzados(result.get().getPartida().getNumeroIndividuosAvanzados());
+                                partida.setAgua(result.get().getPartida().getAgua());
+                                partida.setComida(result.get().getPartida().getComida());
+                                partida.setMontana(result.get().getPartida().getMontana());
+                                partida.setCofre(result.get().getPartida().getCofre());
+                                partida.setBiblioteca(result.get().getPartida().getBiblioteca());
+                                partida.setPozo(result.get().getPartida().getPozo());
+                            }
+                        }
+                    }
+                });
+
+                tablero.add(casilla,i,j);
+                listaCasillas.add(casilla);
+            }
+        }
+    }
+
+    private void eliminarTablero(){
+        tablero.getChildren().clear();
+    }
+
+    private void crearPartida(){
+        this.partida = new Partida(
+                (int) sliderVida.getValue(),
+                (int) sliderClonacion.getValue(),
+                (int) sliderReproduccion.getValue(),
+                (int) sliderBasico.getValue(),
+                (int) sliderNormal.getValue(),
+                (int) sliderAvanzado.getValue(),
+
+                (int) sliderAgua.getValue(),
+                (int) sliderComida.getValue(),
+                (int) sliderMontana.getValue(),
+                (int) sliderCofre.getValue(),
+                (int) sliderBiblioteca.getValue(),
+                (int) sliderPozo.getValue(),
+                (int) sliderTiempoActividad.getValue(),
+                (int) sliderColumnas.getValue(),
+                (int) sliderFilas.getValue()
+        );
+    }
+
+
+
+
+
     //Parameters
     EscenariosController controladorEscenarios;
-
-    private Partida partida;
-
-    private Bucles bucle = new Bucles();
-
-    private final GridPane tablero = new GridPane();
 
     private Boolean tableroCreado = false;
 
@@ -198,9 +395,6 @@ public class EscenarioJugarController {
     private Slider sliderVelocidad;
 
     @FXML
-    private Button btnAceptarTablero;
-
-    @FXML
     private Button btnRestablecerTablero;
 
     @FXML
@@ -208,11 +402,6 @@ public class EscenarioJugarController {
 
     @FXML
     private Button btnCargarPartida;
-
-    ////////////////////////////////////////////////////////////////////////////
-
-        /* ACEPTAR Y RESTABLECER CAMBIOS
-            * Objetivo: guardar los valores establecidos por el individuo en los diferentes parámetros del juego */
 
     @FXML
     public void aceptarParIndividuo() {
@@ -223,14 +412,6 @@ public class EscenarioJugarController {
     @FXML
     public void aceptarParEntorno() {
         crearPartida();
-    }
-
-    @FXML
-    public void aceptarTablero(){
-        this.tableroCreado = true;
-        eliminarTablero();      //Limpiar tablero anterior y volver a dibujarlo
-        crearTablero((int) sliderColumnas.getValue(), (int) sliderFilas.getValue());
-        cambiarVelocidad();
     }
 
     @FXML
@@ -427,182 +608,6 @@ public class EscenarioJugarController {
 
     ////////////////////////////////////////////////////////////////////////////
 
-        /* CREAR TABLERO
-            * Objetivo: crear y eliminar el tablero
-         */
-    public void crearTablero (int columnas, int filas){
-        if (!partidaCreada){
-            crearPartida();
-            bucle.setPartida(partida);
-            partida.individuosInicio(listaIndividuos);
-            listaIndividuos = partida.getListaIndividuos();
-            mostrarCasillas();
-            partidaCreada = true;
-        }
-        double a = paneTablero.getWidth();
-        double b = paneTablero.getHeight();
-        for (int i = 0; i < columnas; i++){
-            for (int j = 0; j < filas; j++){
-                Casilla casilla = new Casilla(i, j);
-                casilla.setMinSize(a /columnas, b /filas);
-                casilla.setStyle("-fx-background-color:#D4E5E3; -fx-border-color: #000000");
-
-                if (pruebas) {
-                    int individuos = 0;
-                    int disponibles = partida.getNumeroIndividuosBasicos() + partida.getNumeroIndividuosNormal() +
-                            partida.getNumeroIndividuosAvanzados();
-                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosBasicos() > 0) {
-                        if (partida.getNumeroIndividuosBasicos() > 0) {
-                            Individuo in = new IndividuoBasico();
-                            in.setCasilla(casilla);
-                            in.setTurnosVida(partida.getTurnosVida());
-                            casilla.addIndividuoCasilla(in);
-                            listaIndividuos.add(in);
-                            individuos++;
-                            disponibles--;
-                            partida.setNumeroIndividuosBasicos(partida.getNumeroIndividuosBasicos() - 1);
-                        }
-                    }
-                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosNormal() > 0) {
-                        if (partida.getNumeroIndividuosNormal() > 0) {
-                            Individuo in = new IndividuoNormal();
-                            in.setCasilla(casilla);
-                            in.setTurnosVida(partida.getTurnosVida());
-                            casilla.addIndividuoCasilla(in);
-                            listaIndividuos.add(in);
-                            individuos++;
-                            disponibles--;
-                            partida.setNumeroIndividuosNormal(partida.getNumeroIndividuosNormal() - 1);
-                        }
-                    }
-                    while (individuos < 3 && disponibles > 0 && partida.getNumeroIndividuosAvanzados() > 0) {
-                        if (partida.getNumeroIndividuosAvanzados() > 0) {
-                            Individuo in = new IndividuoAvanzado();
-                            in.setCasilla(casilla);
-                            in.setTurnosVida(partida.getTurnosVida());
-                            casilla.addIndividuoCasilla(in);
-                            listaIndividuos.add(in);
-                            individuos++;
-                            disponibles--;
-                            partida.setNumeroIndividuosAvanzados(partida.getNumeroIndividuosAvanzados() - 1);
-                        }
-                    }
-
-                    int elementos = 0;
-                    disponibles = partida.getAgua() + partida.getCofre() + partida.getBiblioteca() + partida.getComida() +
-                            partida.getMontana() + partida.getPozo();
-                    while (elementos < 3 && disponibles > 0 && partida.getAgua() > 0) {
-                        if (partida.getAgua() > 0) {
-                            Elementos el = new Agua();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setAgua(partida.getAgua() - 1);
-                        }
-                    }
-                    while (elementos < 3 && disponibles > 0 && partida.getCofre() > 0) {
-                        if (partida.getCofre() > 0) {
-                            Elementos el = new Tesoro();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setCofre(partida.getCofre() - 1);
-                        }
-                    }
-                    while (elementos < 3 && disponibles > 0 && partida.getBiblioteca() > 0) {
-                        if (partida.getBiblioteca() > 0) {
-                            Elementos el = new Biblioteca();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setBiblioteca(partida.getBiblioteca() - 1);
-                        }
-                    }
-                    while (elementos < 3 && disponibles > 0 && partida.getComida() > 0) {
-                        if (partida.getComida() > 0) {
-                            Elementos el = new Comida();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setComida(partida.getComida() - 1);
-                        }
-                    }
-                    while (elementos < 3 && disponibles > 0 && partida.getMontana() > 0) {
-                        if (partida.getMontana() > 0) {
-                            Elementos el = new Montaña();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setMontana(partida.getMontana() - 1);
-                        }
-                    }
-                    while (elementos < 3 && disponibles > 0 && partida.getPozo() > 0) {
-                        if (partida.getPozo() > 0) {
-                            Elementos el = new Pozo();
-                            el.setTiempoActividad(partida.getTiempoActividad());
-                            casilla.addElementoCasilla(el);
-                            listaElementos.add(el);
-                            elementos++;
-                            disponibles--;
-                            partida.setCofre(partida.getPozo() - 1);
-                        }
-                    }
-                    mostrarContenidoCasilla(casilla);
-                }
-
-                casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                            Dialog<PartidaCasilla> casillaDialog = new CasillaDialog(casilla, partida);
-                            Window window = casillaDialog.getDialogPane().getScene().getWindow();
-                            window.setOnCloseRequest(event -> window.hide());
-                            Optional<PartidaCasilla> result = casillaDialog.showAndWait();
-                            if (result != null && result.get().getCasilla() != null) {
-                                casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
-                                for (Individuo i: casilla.getIndividuosCasilla()) {
-                                    listaIndividuos.add(i);
-                                }
-                                casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
-                                for (Elementos e: casilla.getElementosCasilla()) {
-                                    listaElementos.add(e);
-                                }
-                                mostrarContenidoCasilla(casilla);
-
-                                partida.setNumeroIndividuosBasicos(result.get().getPartida().getNumeroIndividuosBasicos());
-                                partida.setNumeroIndividuosNormal(result.get().getPartida().getNumeroIndividuosNormal());
-                                partida.setNumeroIndividuosAvanzados(result.get().getPartida().getNumeroIndividuosAvanzados());
-                                partida.setAgua(result.get().getPartida().getAgua());
-                                partida.setComida(result.get().getPartida().getComida());
-                                partida.setMontana(result.get().getPartida().getMontana());
-                                partida.setCofre(result.get().getPartida().getCofre());
-                                partida.setBiblioteca(result.get().getPartida().getBiblioteca());
-                                partida.setPozo(result.get().getPartida().getPozo());
-                            }
-                        }
-                    }
-                });
-
-                tablero.add(casilla,i,j);
-                listaCasillas.add(casilla);
-            }
-        }
-    }
-
-    public void eliminarTablero(){
-        tablero.getChildren().clear();
-    }
-
     ////////////////////////////////////////////////////////////////////////////
 
         //OTRAS FUNCIONES
@@ -659,28 +664,6 @@ public class EscenarioJugarController {
                 }
             }
         });
-    }
-
-        //Crear Partida
-    public void crearPartida(){
-        this.partida = new Partida(
-            (int) sliderReproduccion.getValue(),
-            (int) sliderClonacion.getValue(),
-            (int) sliderVida.getValue(),
-            (int) sliderBasico.getValue(),
-            (int) sliderNormal.getValue(),
-            (int) sliderAvanzado.getValue(),
-            (int) sliderAgua.getValue(),
-            (int) sliderComida.getValue(),
-            (int) sliderMontana.getValue(),
-            (int) sliderCofre.getValue(),
-            (int) sliderBiblioteca.getValue(),
-            (int) sliderPozo.getValue(),
-            (int) sliderTiempoActividad.getValue(),
-            (int) sliderColumnas.getValue(),
-            (int) sliderFilas.getValue()
-        );
-        partida.setListaCasillas(listaCasillas);
     }
 
         //Mostrar Casillas

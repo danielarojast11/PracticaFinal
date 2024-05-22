@@ -1,24 +1,23 @@
 package org.example.practicafinal.Clases.Partida;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
-import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
-import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
-import java.io.FileReader;
 import java.util.Objects;
 
 public class Partida {
-    private int turno;
-    private int probReproduccion;
-    private int probClonacion;
-    private int id = 1;
+    private int id = 0;
+    private int maxIndividuos = 3;
+    private int maxElementos = 3;
+    private int turno = 0;
+
     private int turnosVida;
+    private int probClonacion;
+    private int probReproduccion;
     private int numeroIndividuosBasicos;
     private int numeroIndividuosNormal;
     private int numeroIndividuosAvanzados;
@@ -31,62 +30,28 @@ public class Partida {
     private int tiempoActividad;
     private int columnas;
     private int filas;
-    private int maximosIndividuos = 3;
-
-    private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada <Elementos> listaElementos = new ListaDoblementeEnlazada<>();
-
-        //CONSTRUCTORS
-    public Partida(int id,
-                   int probReproduccion,
-                   int probClonacion,
-                   int turnosVida
-                   ) {
-        this.id = id;
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
-        this.turnosVida = turnosVida;
-    }
-
-    public Partida(int probReproduccion,
-                   int probClonacion,
-                   int turnosVida,
-                   int numeroIndividuosBasicos,
-                   int numeroIndividuosNormal,
-                   int numeroIndividuosAvanzados,
-                   int filas,
-                   int columnas) {
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
-        this.turnosVida = turnosVida;
-        this.numeroIndividuosBasicos = numeroIndividuosBasicos;
-        this.numeroIndividuosNormal = numeroIndividuosNormal;
-        this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
-        this.columnas = columnas;
-        this.filas = filas;
-    }
 
     public Partida(
-        int probReproduccion,
-        int probClonacion,
-        int turnosVida,
-        int numeroIndividuosBasicos,
-        int numeroIndividuosNormal,
-        int numeroIndividuosAvanzados,
-        int agua,
-        int comida,
-        int montana,
-        int cofre,
-        int biblioteca,
-        int pozo,
-        int tiempoActividad,
-        int columnas,
-        int filas
+            int turnosVida,
+            int probClonacion,
+            int probReproduccion,
+            int numeroIndividuosBasicos,
+            int numeroIndividuosNormal,
+            int numeroIndividuosAvanzados,
+
+            int agua,
+            int comida,
+            int montana,
+            int cofre,
+            int biblioteca,
+            int pozo,
+            int tiempoActividad,
+            int columnas,
+            int filas
     ) {
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
         this.turnosVida = turnosVida;
+        this.probClonacion = probClonacion;
+        this.probReproduccion = probReproduccion;
         this.numeroIndividuosBasicos = numeroIndividuosBasicos;
         this.numeroIndividuosNormal = numeroIndividuosNormal;
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
@@ -101,8 +66,81 @@ public class Partida {
         this.filas = filas;
     }
 
-    public Partida() {
+    public void aumentarid() {
+        this.id++;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getMaxIndividuos(){
+        return this.maxIndividuos;
+    }
+
+    public void setMaxIndividuos(int maxIndividuos) {
+        this.maxIndividuos = maxIndividuos;
+    }
+
+    public int getMaxElementos() {
+        return maxElementos;
+    }
+
+    public void setMaxElementos(int maxElementos) {
+        this.maxElementos = maxElementos;
+    }
+
+    public void setColumnas(int columnas) { this.columnas = columnas; }
+
+    public int getColumnas() { return this.columnas; }
+
+    public void setFilas(int filas) { this.filas = filas; }
+
+    public int getFilas() { return this.filas; }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public int getTurnosVida() {
+        return turnosVida;
+    }
+
+    public void setTurnosVida(int turnosVida) {
+        this.turnosVida = turnosVida;
+    }
+
+    public int getProbClonacion() {
+        return probClonacion;
+    }
+
+    public void setProbClonacion(int probClonacion) {
+        this.probClonacion = probClonacion;
+    }
+
+    public int getProbReproduccion() {
+        return probReproduccion;
+    }
+
+    public void setProbReproduccion(int probReproduccion) {
+        this.probReproduccion = probReproduccion;
+    }
+
+
+
+    private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada <Elementos> listaElementos = new ListaDoblementeEnlazada<>();
+
+
 
     public void fromJson(JsonObject jsonObject) {
         this.turno = jsonObject.get("turno").getAsInt();
@@ -192,41 +230,7 @@ public class Partida {
         return jsonObject;
     }
 
-        //GETTERS AND SETTERS
 
-    public int getTurno() {
-        return turno;
-    }
-
-    public void setTurno(int turno) {
-        this.turno = turno;
-    }
-
-        //GETTERS AND SETTERS INDIVIDUALS
-
-    public int getMaximosIndividuos(){
-        return this.maximosIndividuos;
-    }
-
-    public int getProbReproduccion() {
-        return probReproduccion;
-    }
-
-    public int getProbClonacion() {
-        return probClonacion;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTurnosVida() {
-        return turnosVida;
-    }
 
     public ListaDoblementeEnlazada<Individuo> getListaIndividuos(){
         return listaIndividuos;
@@ -329,17 +333,7 @@ public class Partida {
     }
 
         //GETTERS AND SETTERS PLACEHOLDERS
-    public void setColumnas(int columnas){
-            this.columnas = columnas;
-    }
 
-    public int getColumnas() {return this.columnas;}
-
-    public void setFilas(int filas){
-        this.filas = filas;
-    }
-
-    public int getFilas() {return this.filas;}
 
     public void setListaCasillas(ListaDoblementeEnlazada<Casilla> listaCasillas){
         this.listaCasillas = listaCasillas;

@@ -2,7 +2,7 @@ package org.example.practicafinal.Clases.Tablero;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Entorno.Elementos;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
 

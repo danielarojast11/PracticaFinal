@@ -1,13 +1,12 @@
-package org.example.practicafinal.Clases.Individuo;
+package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 import org.jetbrains.annotations.NotNull;
 
 public class Individuo implements Comparable<Individuo>{
-
-        //PARAMETERS
     protected int id;
     protected int generacion;
     private int turnosVida;
@@ -15,53 +14,32 @@ public class Individuo implements Comparable<Individuo>{
     private int probClonacion;
     private int probMuerte;
     protected int rango;
+    protected int longevidad;
+    private Casilla casilla;
+
+    private ListaSimple<String> operaciones = new ListaSimple<>();
     private final ListaDoblementeEnlazada<Individuo> padres = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> hijos = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
 
-    private Casilla casilla = new Casilla();
 
-
-        //CONSTRUCTORS
-    public Individuo() {
-    }
-
-    public Individuo(int id,
-                     int turnosVida,
-                     int probReproduccion,
-                     int probClonacion) {
-        this.id = id;
-        this.turnosVida = turnosVida;
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
-        this.probMuerte = 100 - probReproduccion;
-    }
-
-    public Individuo(int id,
-                     int generacion,
-                     int turnosVida,
-                     int probReproduccion,
-                     int probClonacion) {
+    public Individuo(
+        int id,
+        int generacion,
+        int turnosVida,
+        int probReproduccion,
+        int probClonacion,
+        int rango,
+        Casilla casilla
+    ) {
         this.id = id;
         this.generacion = generacion;
         this.turnosVida = turnosVida;
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.probMuerte = 100 - probReproduccion;
-    }
-
-    public Individuo(int id,
-                     int generacion,
-                     int turnosVida,
-                     int probReproduccion,
-                     int probClonacion,
-                     int rango) {
-        this.id = id;
-        this.generacion = generacion;
-        this.turnosVida = turnosVida;
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
         this.rango = rango;
+        this.casilla = casilla
     }
 
     public void fromJson(JsonObject jsonObject) {
@@ -86,7 +64,6 @@ public class Individuo implements Comparable<Individuo>{
         return jsonObject;
     }
 
-    //GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -143,7 +120,15 @@ public class Individuo implements Comparable<Individuo>{
         this.rango = rango;
     }
 
-        //FAMILY TREE
+    public int getLongevidad() {
+        return longevidad;
+    }
+
+    public void setLongevidad(int longevidad) {
+        this.longevidad = longevidad;
+    }
+
+    //FAMILY TREE
     public ListaDoblementeEnlazada<Individuo> getPadres() {
         return padres;
     }

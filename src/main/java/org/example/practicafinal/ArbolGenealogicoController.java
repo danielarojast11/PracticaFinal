@@ -6,7 +6,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
+import org.example.practicafinal.Controller.EscenariosController;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 public class ArbolGenealogicoController {

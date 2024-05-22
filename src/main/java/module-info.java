@@ -11,6 +11,7 @@ module org.example.practicafinal {
 
     opens org.example.practicafinal to javafx.fxml;
     exports org.example.practicafinal;
-    exports org.example.practicafinal.Controller;
+    //exports org.example.practicafinal.Controller;
     opens org.example.practicafinal.Controller to javafx.fxml;
+    exports org.example.practicafinal.Controller;
 }

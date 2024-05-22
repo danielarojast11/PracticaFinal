@@ -3,25 +3,31 @@ package org.example.practicafinal.Clases.Tablero;
 import com.google.gson.JsonObject;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.Clases.Entorno.Elementos;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 
 public class Casilla extends Pane {
     private int columna;
     private int fila;
-    private ListaDoblementeEnlazada<Individuo> individuosCasilla = new ListaDoblementeEnlazada<>();
-    private final ListaDoblementeEnlazada<Integer> individuosIdCasilla = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada<Elementos> elementosCasilla = new ListaDoblementeEnlazada<>();
-
-    //EscenarioJugarController escenario;
-
-    public Casilla(){ }
+    private ListaSimple<Individuo> individuos = new ListaSimple<>();
 
     public Casilla(int columna, int fila){
         this.columna=columna;
         this.fila=fila;
         this.setId("casilla("+columna+","+fila+")");
     }
+
+    public void addIndividuo(Individuo individuo) {
+        this.individuos.add(individuo);
+        addIndividuoCasilla();
+    }
+
+
+
+
+    private final ListaDoblementeEnlazada<Integer> individuosIdCasilla = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Elementos> elementosCasilla = new ListaDoblementeEnlazada<>();
 
     public void fromJson(JsonObject jsonObject) {
         this.columna = jsonObject.get("columna").getAsInt();
@@ -68,10 +74,7 @@ public class Casilla extends Pane {
         this.individuosCasilla = listaIndividuos;
     }
 
-    public void addIndividuoCasilla(Individuo individuo) {
-        this.individuosCasilla.add(individuo);
-        addIndividuoCasilla();
-    }
+
 
     public void addIndividuoCasilla(){
         individuosIdCasilla.clear();

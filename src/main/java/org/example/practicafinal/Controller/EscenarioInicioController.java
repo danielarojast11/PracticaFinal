@@ -1,8 +1,9 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.example.practicafinal.Controller.EscenariosController;
 
 public class EscenarioInicioController {
     EscenariosController controladorEscenarios;

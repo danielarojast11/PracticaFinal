@@ -1,4 +1,4 @@
-package org.example.practicafinal.Dialogs;
+package org.example.practicafinal.Dialog;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
@@ -16,9 +16,7 @@ import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
 
 import java.io.IOException;
 
-
 public class CasillaDialog extends Dialog<PartidaCasilla> {
-
     //Parametros Tipos de Individuos
     private Slider sliderBasico;
     private Slider sliderNormal;
@@ -38,8 +36,6 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
 
     private final Casilla casilla;
     private final Partida partida;
-    private final int maxIndividuos = 3;
-    private final int maxElementos = 3;
 
     public CasillaDialog(Casilla casilla, Partida partida) {
         super();
@@ -55,32 +51,32 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
             DialogPane dialogPane = loader.load();
             setDialogPane(dialogPane);
 
-            int maxBasico = Math.min(maxIndividuos, partida.getNumeroIndividuosBasicos());
+            int maxBasico = Math.min(partida.getMaxIndividuos(), partida.getNumeroIndividuosBasicos());
             sliderBasico = (Slider) loader.getNamespace().get("sliderBasico");
             sliderBasico.setMax(maxBasico);
-            int maxNormal = Math.min(maxIndividuos, partida.getNumeroIndividuosNormal());
+            int maxNormal = Math.min(partida.getMaxIndividuos(), partida.getNumeroIndividuosNormal());
             sliderNormal = (Slider) loader.getNamespace().get("sliderNormal");
             sliderNormal.setMax(maxNormal);
-            int maxAvanzado = Math.min(maxIndividuos, partida.getNumeroIndividuosAvanzados());
+            int maxAvanzado = Math.min(partida.getMaxIndividuos(), partida.getNumeroIndividuosAvanzados());
             sliderAvanzado = (Slider) loader.getNamespace().get("sliderAvanzado");
             sliderAvanzado.setMax(maxAvanzado);
 
-            int maxAgua = Math.min(maxElementos, partida.getAgua());
+            int maxAgua = Math.min(partida.getMaxElementos(), partida.getAgua());
             sliderAgua = (Slider) loader.getNamespace().get("sliderAgua");
             sliderAgua.setMax(maxAgua);
-            int maxComida = Math.min(maxElementos, partida.getComida());
+            int maxComida = Math.min(partida.getMaxElementos(), partida.getComida());
             sliderComida = (Slider) loader.getNamespace().get("sliderComida");
             sliderComida.setMax(maxComida);
-            int maxMontanas = Math.min(maxElementos, partida.getMontana());
+            int maxMontanas = Math.min(partida.getMaxElementos(), partida.getMontana());
             sliderMontanas = (Slider) loader.getNamespace().get("sliderMontanas");
             sliderMontanas.setMax(maxMontanas);
-            int maxCofres = Math.min(maxElementos, partida.getCofre());
+            int maxCofres = Math.min(partida.getMaxElementos(), partida.getCofre());
             sliderCofres = (Slider) loader.getNamespace().get("sliderCofres");
             sliderCofres.setMax(maxCofres);
-            int maxBibliotecas = Math.min(maxElementos, partida.getBiblioteca());
+            int maxBibliotecas = Math.min(partida.getMaxElementos(), partida.getBiblioteca());
             sliderBibliotecas = (Slider) loader.getNamespace().get("sliderBibliotecas");
             sliderBibliotecas.setMax(maxBibliotecas);
-            int maxPozos = Math.min(maxElementos, partida.getPozo());
+            int maxPozos = Math.min(partida.getMaxElementos(), partida.getPozo());
             sliderPozos = (Slider) loader.getNamespace().get("sliderPozos");
             sliderPozos.setMax(maxPozos);
 
@@ -111,43 +107,21 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
     private void actualizarDatos() {
         int valor = (int) sliderBasico.getValue();
         this.partida.setNumeroIndividuosBasicos(
-                this.partida.getNumeroIndividuosBasicos() - valor
+            this.partida.getNumeroIndividuosBasicos() - valor
         );
-        for (int i = 0; i < valor; i++) {
-            Individuo in = new IndividuoBasico(
-                    casilla.getColumna() * 100 + casilla.getFila() * 10,
-                    partida.getTurnosVida(),
-                    partida.getProbReproduccion(),
-                    partida.getProbClonacion());
-            in.setCasilla(casilla);
-            this.casilla.addIndividuoCasilla();
-        }
+        this.colocarIndividuos(valor, 1);
+
         valor = (int) sliderNormal.getValue();
         this.partida.setNumeroIndividuosNormal(
                 this.partida.getNumeroIndividuosNormal() - valor
         );
-        for (int i = 0; i < valor; i++) {
-            Individuo in = new IndividuoNormal(
-                    casilla.getColumna() * 100 + casilla.getFila() * 10,
-                    partida.getTurnosVida(),
-                    partida.getProbReproduccion(),
-                    partida.getProbClonacion());
-            in.setCasilla(casilla);
-            this.casilla.addIndividuoCasilla();
-        }
+        this.colocarIndividuos(valor, 2);
+
         valor = (int) sliderAvanzado.getValue();
         this.partida.setNumeroIndividuosAvanzados(
                 this.partida.getNumeroIndividuosAvanzados() - valor
         );
-        for (int i = 0; i < valor; i++) {
-            Individuo in = new IndividuoAvanzado(
-                    casilla.getColumna() * 100 + casilla.getFila() * 10,
-                    partida.getTurnosVida(),
-                    partida.getProbReproduccion(),
-                    partida.getProbClonacion());
-            in.setCasilla(casilla);
-            this.casilla.addIndividuoCasilla();
-        }
+        this.colocarIndividuos(valor, 3);
 
         valor = (int) sliderAgua.getValue();
         this.partida.setAgua(
@@ -202,6 +176,22 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
             this.casilla.addElementoCasilla(new Pozo(
                     partida.getTiempoActividad(),
                     5));
+        }
+    }
+
+    private void colocarIndividuos(int valor, int rango) {
+        for (int i = 0; i < valor; i++) {
+            partida.aumentarid();
+            Individuo in = new Individuo(
+                    partida.getId(),
+                    partida.getTurno(),
+                    partida.getTurnosVida(),
+                    partida.getProbReproduccion(),
+                    partida.getProbClonacion(),
+                    rango,
+                    casilla
+            );
+            this.casilla.addIndividuo(in);
         }
     }
 }
