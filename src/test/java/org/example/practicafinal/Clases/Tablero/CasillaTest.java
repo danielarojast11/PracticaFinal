@@ -3,10 +3,8 @@ package org.example.practicafinal.Clases.Tablero;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,7 +25,7 @@ class CasillaTest {
         Elementos elemento1 = new Elementos(4,5);
         Elementos elemento2 = new Elementos(3,2);
         Elementos elemento3 = new Elementos(2,1);
-        List<Elementos> elementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -43,7 +41,7 @@ class CasillaTest {
         Elementos elemento1 = new Elementos(4,5);
         Elementos elemento2 = new Elementos(3,2);
         Elementos elemento3 = new Elementos(2,1);
-        List<Elementos> elementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -57,7 +55,7 @@ class CasillaTest {
         Elementos elemento1 = new Elementos(4,5);
         Elementos elemento2 = new Elementos(3,2);
         Elementos elemento3 = new Elementos(2,1);
-        List<Elementos> elementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -73,14 +71,14 @@ class CasillaTest {
         Elementos elemento1 = new Elementos(4,5);
         Elementos elemento2 = new Elementos(3,2);
         Elementos elemento3 = new Elementos(2,1);
-        List<Elementos> elementos1 = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> elementos1 = new ListaDoblementeEnlazada<>();
         elementos1.add(elemento1);
         elementos1.add(elemento2);
         elementos1.add(elemento3);
         casilla.addElementoCasilla(elemento1);
         casilla.addElementoCasilla(elemento2);
         casilla.addElementoCasilla(elemento3);
-        List<Elementos> elementos2 = casilla.getElementosCasilla();
+        ListaDoblementeEnlazada<Elementos> elementos2 = casilla.getElementosCasilla();
         elementos2.add(elemento1);
         elementos2.add(elemento3);
         assertTrue(elementos1.contains(elemento2));
@@ -94,7 +92,7 @@ class CasillaTest {
         Individuo individuo1 = new Individuo();
         Individuo individuo2 = new Individuo();
         Individuo individuo3 = new Individuo();
-        List<Individuo> individuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
         individuos.add(individuo1);
         individuos.add(individuo2);
         individuos.add(individuo3);
@@ -123,7 +121,7 @@ class CasillaTest {
         Individuo individuo1 = new Individuo(1, 5, 3, 70, 10);
         Individuo individuo2 = new Individuo(2, 4, 7, 30, 25);
         Individuo individuo3 = new Individuo(4, 5, 8, 10, 30);
-        List<Individuo> individuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
         individuos.add(individuo1);
         individuos.add(individuo2);
         individuos.add(individuo3);
@@ -139,7 +137,7 @@ class CasillaTest {
         Individuo individuo1 = new Individuo();
         Individuo individuo2 = new Individuo();
         Individuo individuo3 = new Individuo();
-        List<Individuo> individuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
         individuos.add(individuo1);
         individuos.add(individuo2);
         individuos.add(individuo3);
@@ -163,7 +161,7 @@ class CasillaTest {
         Individuo individuo1 = new Individuo(1, 5, 3, 70, 10);
         Individuo individuo2 = new Individuo(2, 4, 7, 30, 25);
         Individuo individuo3 = new Individuo(4, 5, 8, 10, 30);
-        List<Individuo> individuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
         individuos.add(individuo1);
         individuos.add(individuo2);
         individuos.add(individuo3);
@@ -177,11 +175,11 @@ class CasillaTest {
         Individuo individuo1 = new Individuo();
         Individuo individuo2 = new Individuo();
         Individuo individuo3 = new Individuo();
-        List<Individuo> individuos1 = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos1 = new ListaDoblementeEnlazada<>();
         individuos1.add(individuo1);
         individuos1.add(individuo2);
         individuos1.add(individuo3);
-        List<Individuo> individuos2 = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> individuos2 = new ListaDoblementeEnlazada<>();
         individuos2.add(individuo1);
         individuos2.add(individuo2);
         assertTrue(individuos1.contains(individuo3));

@@ -1,16 +1,16 @@
 package org.example.practicafinal.Clases.Partida;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Clases.Entorno.*;
 import org.example.practicafinal.Clases.Individuo.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Partida {
@@ -33,9 +33,9 @@ public class Partida {
     private int filas;
     private int maximosIndividuos = 3;
 
-    private List<Individuo> listaIndividuos = new ArrayList<>();
-    private List<Casilla> listaCasillas = new ArrayList<>();
-    private List <Elementos> listaElementos = new ArrayList<>();
+    private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada <Elementos> listaElementos = new ListaDoblementeEnlazada<>();
 
         //CONSTRUCTORS
     public Partida(int id,
@@ -228,7 +228,7 @@ public class Partida {
         return turnosVida;
     }
 
-    public List<Individuo> getListaIndividuos(){
+    public ListaDoblementeEnlazada<Individuo> getListaIndividuos(){
         return listaIndividuos;
     }
 
@@ -256,7 +256,7 @@ public class Partida {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
     }
 
-    public void setListaIndividuos(List<Individuo> listaIndividuos){
+    public void setListaIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         this.listaIndividuos = listaIndividuos;
     }
 
@@ -318,9 +318,9 @@ public class Partida {
         this.pozo = pozo;
     }
 
-    public List<Elementos> getListaElementos(){return this.listaElementos;}
+    public ListaDoblementeEnlazada<Elementos> getListaElementos(){return this.listaElementos;}
 
-    public void setListaElementos(List<Elementos> listaElementos) {
+    public void setListaElementos(ListaDoblementeEnlazada<Elementos> listaElementos) {
         this.listaElementos = listaElementos;
     }
 
@@ -341,14 +341,14 @@ public class Partida {
 
     public int getFilas() {return this.filas;}
 
-    public void setListaCasillas(List<Casilla> listaCasillas){
+    public void setListaCasillas(ListaDoblementeEnlazada<Casilla> listaCasillas){
         this.listaCasillas = listaCasillas;
     }
 
-    public List<Casilla> getListaCasillas(){return this.listaCasillas;}
+    public ListaDoblementeEnlazada<Casilla> getListaCasillas(){return this.listaCasillas;}
 
         //CREATE INDIVIDUALS
-    public IndividuoBasico crearBasico(List<Individuo> listaIndividuos){
+    public IndividuoBasico crearBasico(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(basico);
@@ -362,7 +362,7 @@ public class Partida {
         return basico;
     }
 
-    public IndividuoNormal crearNormal(List<Individuo> listaIndividuos){
+    public IndividuoNormal crearNormal(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(normal);
@@ -376,7 +376,7 @@ public class Partida {
         return normal;
     }
 
-    public IndividuoAvanzado crearAvanzado(List<Individuo> listaIndividuos){
+    public IndividuoAvanzado crearAvanzado(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(avanzado);
@@ -390,7 +390,7 @@ public class Partida {
         return avanzado;
     }
 
-    public void individuosInicio(List<Individuo> listaIndividuos){
+    public void individuosInicio(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         for (int i = 0; i < numeroIndividuosBasicos; i++){
             crearBasico(listaIndividuos);
         }
@@ -502,8 +502,8 @@ public class Partida {
 
     public Casilla moverNormal(Casilla casillaVieja){
         Casilla nuevaCasilla;
-        int indice = (int)(Math.random()*(listaElementos.size()));
-        System.out.println("longitud: "+listaElementos.size());
+        int indice = (int)(Math.random()*(listaElementos.getNumeroElementos()));
+        System.out.println("longitud: "+listaElementos.getNumeroElementos());
         System.out.println(indice);
         Elementos elementoAleatorio = getListaElementos().get(indice);
         Casilla casillaElemento = elementoAleatorio.getCasilla();
@@ -535,33 +535,34 @@ public class Partida {
     }
 
     public void moverIndividuos(){
-        for (Individuo individuo : listaIndividuos) {
-            Casilla casillaVieja = individuo.getCasilla();
-            Casilla casillaNueva = new Casilla();
-            switch (individuo.getRango()) {
-                case 1:
-                    casillaNueva = moverBasico();
-                    break;
-                case 2:
-                    casillaNueva = moverNormal(casillaVieja);
-                    break;
-                case 3:
-                    casillaNueva = moverAvanzado(casillaVieja);
-                    break;
-            }
-
-            individuo.setCasilla(casillaNueva);
-            for (Casilla casilla : getListaCasillas()) {
-                if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
-                    casilla.removeIndividuoCasilla(individuo);
+        if (listaIndividuos != null){
+            for (Individuo individuo : listaIndividuos) {
+                Casilla casillaVieja = individuo.getCasilla();
+                Casilla casillaNueva = new Casilla();
+                switch (individuo.getRango()) {
+                    case 1:
+                        casillaNueva = moverBasico();
+                        break;
+                    case 2:
+                        casillaNueva = moverNormal(casillaVieja);
+                        break;
+                    case 3:
+                        casillaNueva = moverAvanzado(casillaVieja);
+                        break;
                 }
-                if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
-                    casilla.addIndividuoCasilla(individuo);
+
+                individuo.setCasilla(casillaNueva);
+                for (Casilla casilla : getListaCasillas()) {
+                    if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
+                        casilla.removeIndividuoCasilla(individuo);
+                    }
+                    if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
+                        casilla.addIndividuoCasilla(individuo);
+                    }
                 }
             }
         }
     }
-
 
         //MODIFY PARAMETERS
     public void modificarId(){
@@ -587,6 +588,9 @@ public class Partida {
     }
 
     public int getIndividuosTotales(){
-        return listaIndividuos.size();
+        return listaIndividuos.getNumeroElementos();
     }
+
+
+
 }

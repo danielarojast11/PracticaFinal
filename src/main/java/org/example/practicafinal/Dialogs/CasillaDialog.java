@@ -15,7 +15,6 @@ import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
 
 import java.io.IOException;
-import java.util.List;
 
 
 public class CasillaDialog extends Dialog<PartidaCasilla> {

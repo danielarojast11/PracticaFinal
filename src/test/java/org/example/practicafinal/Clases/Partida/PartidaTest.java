@@ -7,13 +7,9 @@ import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
 import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import static javafx.beans.binding.Bindings.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PartidaTest {
@@ -96,7 +92,7 @@ class PartidaTest {
         Individuo ind1 = new Individuo();
         Individuo ind2 = new Individuo();
         Individuo ind3 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         listaIndividuos.add(ind3);
@@ -148,12 +144,12 @@ class PartidaTest {
         Individuo ind1 = new Individuo();
         Individuo ind2 = new Individuo();
         Individuo ind3 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         listaIndividuos.add(ind3);
         partida.setListaIndividuos(listaIndividuos);
-        assertEquals(3, partida.getListaIndividuos().size());
+        assertEquals(3, partida.getListaIndividuos().getNumeroElementos());
     }
 
     @Test
@@ -173,7 +169,7 @@ class PartidaTest {
         /*Partida partida = new Partida();
         Individuo ind1 = new Individuo(1, 2, 3, 4);
         Individuo ind2 = new Individuo(2, 5, 40, 30);
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         partida.removeIndividuo(1);
@@ -264,7 +260,7 @@ class PartidaTest {
         Elementos elemento1 = new Elementos();
         Elementos elemento2 = new Elementos();
         Elementos elemento3 = new Elementos();
-        List<Elementos> listaElementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         listaElementos.add(elemento3);
@@ -276,7 +272,7 @@ class PartidaTest {
         Partida partida = new Partida();
         Elementos elemento1 = new Elementos();
         Elementos elemento2 = new Elementos();
-        List<Elementos> listaElementos = new ArrayList<>();
+        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         partida.setListaElementos(listaElementos);
@@ -321,7 +317,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -335,7 +331,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -348,14 +344,14 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
         Individuo ind1 = new Individuo();
         Individuo ind2 = new Individuo();
         Individuo ind3 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         listaIndividuos.add(ind3);
@@ -374,14 +370,14 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
         Individuo ind1 = new Individuo();
         Individuo ind2 = new Individuo();
         Individuo ind3 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         listaIndividuos.add(ind3);
@@ -400,14 +396,14 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
         Individuo ind1 = new Individuo();
         Individuo ind2 = new Individuo();
         Individuo ind3 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
+        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
         listaIndividuos.add(ind1);
         listaIndividuos.add(ind2);
         listaIndividuos.add(ind3);
@@ -432,7 +428,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -447,7 +443,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -462,7 +458,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -477,7 +473,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -492,7 +488,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);
@@ -507,7 +503,7 @@ class PartidaTest {
         Casilla casilla1 = new Casilla(1, 2);
         Casilla casilla2 = new Casilla(2, 1);
         Casilla casilla3 = new Casilla(3, 1);
-        List<Casilla> listaCasillas = new ArrayList<>();
+        ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
         listaCasillas.add(casilla1);
         listaCasillas.add(casilla2);
         listaCasillas.add(casilla3);

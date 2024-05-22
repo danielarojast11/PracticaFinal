@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Caso de prueba para GUI">
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Estructuras">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/CasillaInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioCargarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/arbolGenealogico-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioCargar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioPrincipal-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,14 +37,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -38,12 +53,15 @@
     &quot;assignee&quot;: &quot;candelasanzm&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/danielarojast11/PracticaFinal.git",
-    "accountId": "4498fddd-3936-4743-b561-6204a34cd1f0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/danielarojast11/PracticaFinal.git&quot;,
+    &quot;accountId&quot;: &quot;69c8b686-1b7d-4783-a522-1069acba9405&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="vcs://C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/PracticaFinal/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -55,52 +73,59 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FuncionamientoPartida.executor": "Run",
-    "Application.MainApplication.executor": "Debug",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AguaTest.executor": "Coverage",
-    "JUnit.BibliotecaTest.executor": "Coverage",
-    "JUnit.BuclesTest.executor": "Coverage",
-    "JUnit.CasillaTest.executor": "Coverage",
-    "JUnit.ComidaTest.executor": "Coverage",
-    "JUnit.ElementosTest.executor": "Coverage",
-    "JUnit.IndividuoAvanzadoTest.executor": "Coverage",
-    "JUnit.IndividuoBasicoTest.executor": "Coverage",
-    "JUnit.IndividuoNormalTest.executor": "Coverage",
-    "JUnit.IndividuoTest.executor": "Coverage",
-    "JUnit.MontañaTest.executor": "Coverage",
-    "JUnit.PartidaCasillaTest.executor": "Coverage",
-    "JUnit.PartidaTest.executor": "Coverage",
-    "JUnit.PozoTest.executor": "Coverage",
-    "JUnit.TesoroTest.executor": "Coverage",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Candela/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Metodología de la programación/EL3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FuncionamientoPartida.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AguaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BibliotecaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BuclesTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CasillaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ComidaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ElementoLETest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ElementoLSTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ElementosTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoAvanzadoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoBasicoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoNormalTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IndividuoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ListaSimpleTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MontañaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PartidaCasillaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PartidaTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PozoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.TesoroTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sanzm/OneDrive/Escritorio/UAH/1º Año/2º Cuatrimestre/Estructura de datos/Lista&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal\Controller" />
+      <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal" />
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -110,8 +135,11 @@
       <recent name="org.example.practicafinal" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.example.practicafinal.Clases.Partida" />
-      <recent name="org.example.practicafinal.Clases.Tablero" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol.AVL" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Grafo" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada" />
+      <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada" />
     </key>
   </component>
   <component name="RunManager">
@@ -204,6 +232,11 @@
       <workItem from="1715878016625" duration="2346000" />
       <workItem from="1715973151959" duration="121000" />
       <workItem from="1715973285948" duration="3759000" />
+      <workItem from="1716282842719" duration="786000" />
+      <workItem from="1716299666013" duration="13851000" />
+      <workItem from="1716317626807" duration="2491000" />
+      <workItem from="1716320629251" duration="716000" />
+      <workItem from="1716321499360" duration="666000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -452,7 +485,71 @@
       <option name="project" value="LOCAL" />
       <updated>1715943039049</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716310654865</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716310654865</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716316358879</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316358879</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716316921217</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316921217</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716319494340</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1716319494340</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716319842511</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716319842511</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716319853825</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716319853825</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716320006367</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1716320006367</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Estructuras">
+      <option name="closed" value="true" />
+      <created>1716320131069</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1716320131069</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,22 +600,15 @@
     <MESSAGE value="intento final" />
     <MESSAGE value="turno vida = 0" />
     <MESSAGE value="Caso de prueba para GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Caso de prueba para GUI" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java</url>
-          <line>289</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Estructuras" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructuras" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Tablero.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$ListaSimpleTest.ic" NAME="ListaSimpleTest Coverage Results" MODIFIED="1716316235393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.EstructurasDeDatos.Lista.Simple.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715879123300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.*</FILTER>

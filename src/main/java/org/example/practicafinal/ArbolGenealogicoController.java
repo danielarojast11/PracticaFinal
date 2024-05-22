@@ -7,13 +7,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import org.example.practicafinal.Clases.Individuo.Individuo;
-
-import java.util.List;
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 public class ArbolGenealogicoController {
     public Pane paneArbol;
     EscenariosController controladorEscenarios;
-    private List<Individuo> listaIndividuos;
+    private ListaDoblementeEnlazada<Individuo> listaIndividuos;
 
     @FXML
     private Button btnEnd;
@@ -27,8 +26,7 @@ public class ArbolGenealogicoController {
         this.controladorEscenarios = controladorEscenarios;
     }
 
-    public void mostrarIndividuos(List<Individuo> listaIndividuos){
-        //Coordenadas coordenadas = new Coordenadas(20, );
+    public void mostrarIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         for (Individuo individuo : listaIndividuos){
             mostrarIndiviuo(individuo, null, false, 0, false, true);
         }
@@ -99,13 +97,15 @@ public class ArbolGenealogicoController {
         }
 
         Coordenadas coordenadas = new Coordenadas(x, y);
-        for(int i = 0; i < individuoActual.getPadres().size(); i++){
+        for(int i = 0; i < individuoActual.getPadres().getNumeroElementos(); i++){
             boolean d = i > 0;
             mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d, false);
+            mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().getNumeroElementos(), d);
         }
-        for (int i = 0; i < individuoActual.getHijos().size(); i++){
+        for (int i = 0; i < individuoActual.getHijos().getNumeroElementos(); i++){
             boolean d = i > 0;
             mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d, false);
+            mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().getNumeroElementos(), d);
         }
     }
 

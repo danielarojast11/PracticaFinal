@@ -1,22 +1,17 @@
 package org.example.practicafinal.Clases.Tablero;
 
 import com.google.gson.JsonObject;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.Clases.Entorno.Elementos;
 import org.example.practicafinal.Clases.Individuo.Individuo;
-import org.example.practicafinal.EscenarioJugarController;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 public class Casilla extends Pane {
     private int columna;
     private int fila;
-    private List<Individuo> individuosCasilla = new ArrayList<>();
-    private final List<Integer> individuosIdCasilla = new ArrayList<>();
-    private List<Elementos> elementosCasilla = new ArrayList<>();
+    private ListaDoblementeEnlazada<Individuo> individuosCasilla = new ListaDoblementeEnlazada<>();
+    private final ListaDoblementeEnlazada<Integer> individuosIdCasilla = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada<Elementos> elementosCasilla = new ListaDoblementeEnlazada<>();
 
     //EscenarioJugarController escenario;
 
@@ -42,11 +37,11 @@ public class Casilla extends Pane {
 
 
         //Elementos en la Casilla
-    public List<Elementos> getElementosCasilla() {
+    public ListaDoblementeEnlazada<Elementos> getElementosCasilla() {
         return elementosCasilla;
     }
 
-    public void setElementosCasilla(List<Elementos> elementosCasilla) {
+    public void setElementosCasilla(ListaDoblementeEnlazada<Elementos> elementosCasilla) {
         this.elementosCasilla = elementosCasilla;
     }
 
@@ -59,17 +54,17 @@ public class Casilla extends Pane {
     }
 
         //Individuos en la Casilla
-    public List<Individuo> getIndividuosCasilla() {
+    public ListaDoblementeEnlazada<Individuo> getIndividuosCasilla() {
         return this.individuosCasilla;
     }
 
-    public List<Integer> getIndividuosIdCasilla(){return this.individuosIdCasilla;}
+    public ListaDoblementeEnlazada<Integer> getIndividuosIdCasilla(){return this.individuosIdCasilla;}
 
     public int getIndividuosTotales(){
-        return individuosCasilla.size();
+        return individuosCasilla.getNumeroElementos();
     }
 
-    public void setIndividuosCasilla(List<Individuo> listaIndividuos) {
+    public void setIndividuosCasilla(ListaDoblementeEnlazada<Individuo> listaIndividuos) {
         this.individuosCasilla = listaIndividuos;
     }
 
