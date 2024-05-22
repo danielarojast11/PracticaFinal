@@ -1,7 +1,6 @@
 package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonObject;
-import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +38,7 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion = probClonacion;
         this.probMuerte = 100 - probReproduccion;
         this.rango = rango;
-        this.casilla = casilla
+        this.casilla = casilla;
     }
 
     public void fromJson(JsonObject jsonObject) {

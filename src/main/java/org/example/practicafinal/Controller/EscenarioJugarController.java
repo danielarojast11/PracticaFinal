@@ -19,11 +19,11 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
-import org.example.practicafinal.Clases.Entorno.*;
+import org.example.practicafinal.Entity.Elemento;
 import org.example.practicafinal.Entity.Individuo;
-import org.example.practicafinal.Clases.Partida.Partida;
-import org.example.practicafinal.Clases.Tablero.Casilla;
-import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
+import org.example.practicafinal.Entity.Partida;
+import org.example.practicafinal.Entity.Casilla;
+import org.example.practicafinal.Entity.PartidaCasilla;
 import org.example.practicafinal.Dialog.CasillaDialog;
 
 import java.io.FileReader;
@@ -186,7 +186,7 @@ public class EscenarioJugarController {
                                     listaIndividuos.add(i);
                                 }
                                 casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
-                                for (Elementos e: casilla.getElementosCasilla()) {
+                                for (Elemento e: casilla.getElementosCasilla()) {
                                     listaElementos.add(e);
                                 }
                                 mostrarContenidoCasilla(casilla);
@@ -253,7 +253,7 @@ public class EscenarioJugarController {
 
     private final List<Casilla> listaCasillas = new ArrayList<>();
 
-    private final List<Elementos> listaElementos = new ArrayList<>();
+    private final List<Elemento> listaElementos = new ArrayList<>();
 
     private int velocidad = 50;
 
@@ -704,7 +704,7 @@ public class EscenarioJugarController {
             i += 2;
         }
         i = 0;
-        for (Elementos elemento:casilla.getElementosCasilla()){
+        for (Elemento elemento:casilla.getElementosCasilla()){
             Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
             colorEelemento(elemento,rectangle);
             rectangle.setX(getTamanoElementos()*i);
@@ -739,7 +739,7 @@ public class EscenarioJugarController {
         }
     }
 
-    public void colorEelemento(Elementos elemento, Rectangle rectangle){
+    public void colorEelemento(Elemento elemento, Rectangle rectangle){
         if (elemento.getType()==0){
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(82,223,215));

@@ -1,12 +1,12 @@
 package org.example.practicafinal.Clases.BuclesDeControl;
 
-import org.example.practicafinal.Clases.Entorno.Elementos;
+import org.example.practicafinal.Entity.Elemento;
 import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
-import org.example.practicafinal.Clases.Partida.Partida;
-import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.Entity.Partida;
+import org.example.practicafinal.Entity.Casilla;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -59,17 +59,17 @@ class BuclesTest {
 
     @Test
     void testModificarElementos(){
-        Elementos elementos = new Elementos(4, 0);
+        Elemento elemento = new Elemento(4, 0);
         Bucles bucles = new Bucles();
         //bucles.modificarElemento(elementos);
-        assertEquals(3, elementos.getTiempoActividad());
+        assertEquals(3, elemento.getTiempoActividad());
     }
 
     @Test
     void testEliminarElementos(){
-        Elementos elemento1 = new Elementos(0, 1);
-        Elementos elemento2 = new Elementos(1, 2);
-        ArrayList<Elementos> listaElementos = new ArrayList<>();
+        Elemento elemento1 = new Elemento(0, 1);
+        Elemento elemento2 = new Elemento(1, 2);
+        ArrayList<Elemento> listaElementos = new ArrayList<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         Bucles bucles = new Bucles();
@@ -80,10 +80,10 @@ class BuclesTest {
 
     @Test
     void testActualizarElementos(){
-        Elementos elemento1 = new Elementos(0, 3);
-        Elementos elemento2 = new Elementos(1, 4);
-        Elementos elemento3 = new Elementos(2, 5);
-        ArrayList<Elementos> listaElementos = new ArrayList<>();
+        Elemento elemento1 = new Elemento(0, 3);
+        Elemento elemento2 = new Elemento(1, 4);
+        Elemento elemento3 = new Elemento(2, 5);
+        ArrayList<Elemento> listaElementos = new ArrayList<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         listaElementos.add(elemento3);
@@ -115,13 +115,13 @@ class BuclesTest {
         individuos.add(ind1);
         individuos.add(ind2);
         individuos.add(ind3);
-        Elementos elemento1 = new Elementos(4, 0);
-        Elementos elementos2 = new Elementos(5, 1);
-        Elementos elementos3 = new Elementos(6, 2);
-        ArrayList<Elementos> listaElementos = new ArrayList<>();
+        Elemento elemento1 = new Elemento(4, 0);
+        Elemento elemento2 = new Elemento(5, 1);
+        Elemento elemento3 = new Elemento(6, 2);
+        ArrayList<Elemento> listaElementos = new ArrayList<>();
         listaElementos.add(elemento1);
-        listaElementos.add(elementos2);
-        listaElementos.add(elementos3);
+        listaElementos.add(elemento2);
+        listaElementos.add(elemento3);
         Partida partida = new Partida();
         Bucles bucle = new Bucles();
         bucle.individuoMejorado(listaCasillas, individuos, listaElementos, partida);
@@ -134,12 +134,12 @@ class BuclesTest {
     void testIndividuoConRecurso(){
         Individuo ind1 = new Individuo(1, 2, 5, 50, 60, 2);
         Individuo ind2 = new Individuo(1, 2, 5, 50, 60, 3);
-        Elementos elemento0 = new Elementos(4, 0);
-        Elementos elemento1 = new Elementos(5, 1);
-        Elementos elemento2 = new Elementos(6, 2);
-        Elementos elemento3 = new Elementos(7, 3);
-        Elementos elemento4 = new Elementos(8, 4);
-        Elementos elemento5 = new Elementos(9, 5);
+        Elemento elemento0 = new Elemento(4, 0);
+        Elemento elemento1 = new Elemento(5, 1);
+        Elemento elemento2 = new Elemento(6, 2);
+        Elemento elemento3 = new Elemento(7, 3);
+        Elemento elemento4 = new Elemento(8, 4);
+        Elemento elemento5 = new Elemento(9, 5);
         Partida partida = new Partida();
         Bucles bucles = new Bucles();
         bucles.individuoConRecurso(ind1, elemento0, partida);
@@ -266,25 +266,25 @@ class BuclesTest {
     @Test
     void testAparicionRecursos(){
         List<Casilla> listaCasillas = new ArrayList<>();
-        Elementos elemento0 = new Elementos(4, 0);
-        Elementos elemento1 = new Elementos(5, 1);
-        Elementos elemento2 = new Elementos(6, 2);
-        Elementos elemento3 = new Elementos(7, 3);
-        Elementos elemento4 = new Elementos(8, 4);
-        Elementos elemento5 = new Elementos(9, 5);
-        List<Elementos> listaElementos1 = new ArrayList<>();
-        listaElementos1.add(elemento0);
-        listaElementos1.add(elemento1);
-        listaElementos1.add(elemento2);
-        listaElementos1.add(elemento3);
-        listaElementos1.add(elemento4);
-        listaElementos1.add(elemento5);
-        List<Elementos> listaElementos2 = new ArrayList<>();
-        listaElementos2.add(elemento0);
-        listaElementos2.add(elemento1);
+        Elemento elemento0 = new Elemento(4, 0);
+        Elemento elemento1 = new Elemento(5, 1);
+        Elemento elemento2 = new Elemento(6, 2);
+        Elemento elemento3 = new Elemento(7, 3);
+        Elemento elemento4 = new Elemento(8, 4);
+        Elemento elemento5 = new Elemento(9, 5);
+        List<Elemento> listaElemento1 = new ArrayList<>();
+        listaElemento1.add(elemento0);
+        listaElemento1.add(elemento1);
+        listaElemento1.add(elemento2);
+        listaElemento1.add(elemento3);
+        listaElemento1.add(elemento4);
+        listaElemento1.add(elemento5);
+        List<Elemento> listaElemento2 = new ArrayList<>();
+        listaElemento2.add(elemento0);
+        listaElemento2.add(elemento1);
         Bucles bucle1 = new Bucles();
-        bucle1.aparicionRecursos(listaCasillas, listaElementos1);
+        bucle1.aparicionRecursos(listaCasillas, listaElemento1);
         Bucles bucle2 = new Bucles();
-        bucle2.aparicionRecursos(listaCasillas, listaElementos2);
+        bucle2.aparicionRecursos(listaCasillas, listaElemento2);
     }
 }

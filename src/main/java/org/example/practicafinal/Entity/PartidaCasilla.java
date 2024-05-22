@@ -1,6 +1,4 @@
-package org.example.practicafinal.Clases.Tablero;
-
-import org.example.practicafinal.Clases.Partida.Partida;
+package org.example.practicafinal.Entity;
 
 public class PartidaCasilla {
     Casilla casilla;

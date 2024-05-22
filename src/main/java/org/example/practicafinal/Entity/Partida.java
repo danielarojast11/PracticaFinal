@@ -1,10 +1,7 @@
-package org.example.practicafinal.Clases.Partida;
+package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Entity.Individuo;
-import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.util.Objects;
@@ -138,7 +135,7 @@ public class Partida {
 
     private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada <Elementos> listaElementos = new ListaDoblementeEnlazada<>();
+    private ListaDoblementeEnlazada <Elemento> listaElementos = new ListaDoblementeEnlazada<>();
 
 
 
@@ -181,7 +178,7 @@ public class Partida {
         datos = jsonObject.getAsJsonArray("listaElementos");
         this.listaElementos.clear();
         for (int i = 0; i < datos.size(); i++) {
-            Elementos elemento = new Elementos();
+            Elemento elemento = new Elemento();
             elemento.fromJson(datos.get(i).getAsJsonObject());
             this.listaElementos.add(elemento);
         }
@@ -222,7 +219,7 @@ public class Partida {
 
 
         JsonArray jsonArrayElementos = new JsonArray();
-        for (Elementos e: this.listaElementos) {
+        for (Elemento e: this.listaElementos) {
             jsonArrayElementos.add(e.toJson());
         }
         jsonObject.add("listaElementos", jsonArrayElementos);
@@ -322,9 +319,9 @@ public class Partida {
         this.pozo = pozo;
     }
 
-    public ListaDoblementeEnlazada<Elementos> getListaElementos(){return this.listaElementos;}
+    public ListaDoblementeEnlazada<Elemento> getListaElementos(){return this.listaElementos;}
 
-    public void setListaElementos(ListaDoblementeEnlazada<Elementos> listaElementos) {
+    public void setListaElementos(ListaDoblementeEnlazada<Elemento> listaElementos) {
         this.listaElementos = listaElementos;
     }
 
@@ -499,7 +496,7 @@ public class Partida {
         int indice = (int)(Math.random()*(listaElementos.getNumeroElementos()));
         System.out.println("longitud: "+listaElementos.getNumeroElementos());
         System.out.println(indice);
-        Elementos elementoAleatorio = getListaElementos().get(indice);
+        Elemento elementoAleatorio = getListaElementos().get(indice);
         Casilla casillaElemento = elementoAleatorio.getCasilla();
         int eleccion = (int)(Math.random()*2);
         if (eleccion==0){
@@ -513,7 +510,7 @@ public class Partida {
     public Casilla moverAvanzado(Casilla casillaActual){
         int distancia = 1000;
         Casilla casillaDestino = null;
-        for(Elementos e: listaElementos) {
+        for(Elemento e: listaElementos) {
             // Distancia de Chebyshov
             int d2 = Math.max(
                     Math.abs(e.getCasilla().getFila() - casillaActual.getFila()),

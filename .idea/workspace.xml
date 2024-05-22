@@ -9,32 +9,33 @@
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Estructuras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/ArbolGenealogicoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/BuclesDeControl/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoAvanzado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoBasico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Individuo/IndividuoNormal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Agua.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Agua.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Comida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Comida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Elementos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Elemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Montaña.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Montaña.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Pozo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Pozo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Entorno/Tesoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Tesoro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialogs/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialog/CasillaDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioCargarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioInicio-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Tablero/PartidaCasilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/PartidaCasilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialog/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialog/CasillaDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Individuo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/BuclesDeControl/BuclesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/AguaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/AguaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/BibliotecaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/BibliotecaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ComidaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ComidaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/MontañaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/MontañaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/PozoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/PozoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/TesoroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/TesoroTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/PartidaCasillaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/PartidaCasillaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +68,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
@@ -94,19 +97,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
-      <module name="PracticaFinal" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.practicafinal.Controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -116,6 +106,19 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
+      <module name="PracticaFinal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.practicafinal.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -530,7 +533,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

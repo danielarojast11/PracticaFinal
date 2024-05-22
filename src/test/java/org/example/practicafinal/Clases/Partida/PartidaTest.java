@@ -1,12 +1,10 @@
 package org.example.practicafinal.Clases.Partida;
 
 import com.google.gson.JsonObject;
-import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Entity.Individuo;
+import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
-import org.example.practicafinal.Clases.Tablero.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
 
@@ -257,10 +255,10 @@ class PartidaTest {
     @Test
     void testGetListaElementos(){
         Partida partida = new Partida();
-        Elementos elemento1 = new Elementos();
-        Elementos elemento2 = new Elementos();
-        Elementos elemento3 = new Elementos();
-        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento();
+        Elemento elemento2 = new Elemento();
+        Elemento elemento3 = new Elemento();
+        ListaDoblementeEnlazada<Elemento> listaElementos = new ListaDoblementeEnlazada<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         listaElementos.add(elemento3);
@@ -270,9 +268,9 @@ class PartidaTest {
     @Test
     void testSetListaElementos(){
         Partida partida = new Partida();
-        Elementos elemento1 = new Elementos();
-        Elementos elemento2 = new Elementos();
-        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento();
+        Elemento elemento2 = new Elemento();
+        ListaDoblementeEnlazada<Elemento> listaElementos = new ListaDoblementeEnlazada<>();
         listaElementos.add(elemento1);
         listaElementos.add(elemento2);
         partida.setListaElementos(listaElementos);

@@ -1,6 +1,8 @@
 package org.example.practicafinal.Clases.Tablero;
 
-import org.example.practicafinal.Clases.Partida.Partida;
+import org.example.practicafinal.Entity.Casilla;
+import org.example.practicafinal.Entity.Partida;
+import org.example.practicafinal.Entity.PartidaCasilla;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

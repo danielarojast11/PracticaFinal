@@ -1,11 +1,11 @@
 package org.example.practicafinal.Clases.BuclesDeControl;
 
-import org.example.practicafinal.Clases.Entorno.Elementos;
+import org.example.practicafinal.Entity.Elemento;
 import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
 import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
-import org.example.practicafinal.Clases.Partida.Partida;
-import org.example.practicafinal.Clases.Tablero.Casilla;
+import org.example.practicafinal.Entity.Partida;
+import org.example.practicafinal.Entity.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.jetbrains.annotations.NotNull;
 
@@ -55,8 +55,8 @@ public class Bucles {
     }
 
     public void actualizarElementos(){
-        ListaDoblementeEnlazada<Elementos> listaElementos = new ListaDoblementeEnlazada<>();
-        for (Elementos elemento : partida.getListaElementos()){
+        ListaDoblementeEnlazada<Elemento> listaElementos = new ListaDoblementeEnlazada<>();
+        for (Elemento elemento : partida.getListaElementos()){
             elemento.setTiempoActividad(elemento.getTiempoActividad()-1);
             if (elemento.getTiempoActividad() > 0){
                 listaElementos.add(elemento);
@@ -100,11 +100,11 @@ public class Bucles {
         //4-Evaluar las mejoras obtenidas por los recursos
     public Individuo individuoMejorado(ListaDoblementeEnlazada<Casilla> listaCasillas,
                                        ListaDoblementeEnlazada<Individuo> listaIndividuos,
-                                       ListaDoblementeEnlazada<Elementos> listaElementos,
+                                       ListaDoblementeEnlazada<Elemento> listaElementos,
                                         Partida partida){
         for (Casilla casilla : listaCasillas){
             for (Individuo individuo : listaIndividuos){
-                for (Elementos elemento : listaElementos){
+                for (Elemento elemento : listaElementos){
                     individuoConRecurso(individuo, elemento, partida);
                 }
             }
@@ -113,7 +113,7 @@ public class Bucles {
     }
 
     protected Individuo individuoConRecurso(Individuo individuo,
-                                            Elementos elemento,
+                                            Elemento elemento,
                                             Partida partida){
 
         if (elemento.getType() == 0){
@@ -228,11 +228,11 @@ public class Bucles {
     }
 
         //8-Aparición recursos
-    public ListaDoblementeEnlazada<Elementos> aparicionRecursos(ListaDoblementeEnlazada<Casilla> listaCasillas,
-                                                                ListaDoblementeEnlazada<Elementos> listaElementos){
+    public ListaDoblementeEnlazada<Elemento> aparicionRecursos(ListaDoblementeEnlazada<Casilla> listaCasillas,
+                                                               ListaDoblementeEnlazada<Elemento> listaElementos){
         for (Casilla casilla : listaCasillas){
             if (casilla.getElementosCasilla().getNumeroElementos() < 3){
-                for (Elementos elemento : listaElementos){
+                for (Elemento elemento : listaElementos){
                 }
             }
         }

@@ -1,5 +1,6 @@
 package org.example.practicafinal.Clases.Entorno;
 
+import org.example.practicafinal.Entity.Biblioteca;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

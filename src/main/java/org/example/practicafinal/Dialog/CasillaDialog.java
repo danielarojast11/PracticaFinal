@@ -5,15 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import org.example.practicafinal.Clases.Entorno.*;
-import org.example.practicafinal.Entity.Individuo;
-import org.example.practicafinal.Clases.Individuo.IndividuoAvanzado;
-import org.example.practicafinal.Clases.Individuo.IndividuoBasico;
-import org.example.practicafinal.Clases.Individuo.IndividuoNormal;
-import org.example.practicafinal.Clases.Partida.Partida;
-import org.example.practicafinal.Clases.Tablero.Casilla;
-import org.example.practicafinal.Clases.Tablero.PartidaCasilla;
-
+import org.example.practicafinal.Entity.*;
 import java.io.IOException;
 
 public class CasillaDialog extends Dialog<PartidaCasilla> {
@@ -110,13 +102,11 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
             this.partida.getNumeroIndividuosBasicos() - valor
         );
         this.colocarIndividuos(valor, 1);
-
         valor = (int) sliderNormal.getValue();
         this.partida.setNumeroIndividuosNormal(
                 this.partida.getNumeroIndividuosNormal() - valor
         );
         this.colocarIndividuos(valor, 2);
-
         valor = (int) sliderAvanzado.getValue();
         this.partida.setNumeroIndividuosAvanzados(
                 this.partida.getNumeroIndividuosAvanzados() - valor
@@ -128,54 +118,54 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 this.partida.getAgua() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Agua(
-                    partida.getTiempoActividad(),
-                    0));
+            this.casilla.addElementoCasilla(
+                new Agua(partida.getTiempoActividad(), casilla)
+            );
         }
         valor = (int) sliderComida.getValue();
         this.partida.setComida(
                 this.partida.getComida() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Comida(
-                    partida.getTiempoActividad(),
-                    1));
+            this.casilla.addElementoCasilla(
+                new Comida(partida.getTiempoActividad(), casilla)
+            );
         }
         valor = (int) sliderMontanas.getValue();
         this.partida.setMontana(
                 this.partida.getMontana() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Montaña(
-                    partida.getTiempoActividad(),
-                    3));
+            this.casilla.addElementoCasilla(
+                new Montaña(partida.getTiempoActividad(), casilla)
+            );
         }
         valor = (int) sliderCofres.getValue();
         this.partida.setCofre(
                 this.partida.getCofre() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Tesoro(
-                    partida.getTiempoActividad(),
-                    4));
+            this.casilla.addElementoCasilla(
+                new Tesoro(partida.getTiempoActividad(), casilla)
+            );
         }
         valor = (int) sliderBibliotecas.getValue();
         this.partida.setBiblioteca(
                 this.partida.getBiblioteca() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Biblioteca(
-                    partida.getTiempoActividad(),
-                    2));
+            this.casilla.addElementoCasilla(
+                new Biblioteca(partida.getTiempoActividad(), casilla)
+            );
         }
         valor = (int) sliderPozos.getValue();
         this.partida.setPozo(
                 this.partida.getPozo() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(new Pozo(
-                    partida.getTiempoActividad(),
-                    5));
+            this.casilla.addElementoCasilla(
+                new Pozo( partida.getTiempoActividad(), casilla)
+            );
         }
     }
 

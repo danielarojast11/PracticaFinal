@@ -1,7 +1,8 @@
 package org.example.practicafinal.Clases.Tablero;
 
 import com.google.gson.JsonObject;
-import org.example.practicafinal.Clases.Entorno.Elementos;
+import org.example.practicafinal.Entity.Casilla;
+import org.example.practicafinal.Entity.Elemento;
 import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.junit.jupiter.api.Test;
@@ -22,10 +23,10 @@ class CasillaTest {
     @Test
     void testGetElementosCasilla(){
         Casilla casilla = new Casilla(4,5);
-        Elementos elemento1 = new Elementos(4,5);
-        Elementos elemento2 = new Elementos(3,2);
-        Elementos elemento3 = new Elementos(2,1);
-        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento(4,5);
+        Elemento elemento2 = new Elemento(3,2);
+        Elemento elemento3 = new Elemento(2,1);
+        ListaDoblementeEnlazada<Elemento> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -38,10 +39,10 @@ class CasillaTest {
     @Test
     void testSetElementosCasilla(){
         Casilla casilla = new Casilla(4,5);
-        Elementos elemento1 = new Elementos(4,5);
-        Elementos elemento2 = new Elementos(3,2);
-        Elementos elemento3 = new Elementos(2,1);
-        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento(4,5);
+        Elemento elemento2 = new Elemento(3,2);
+        Elemento elemento3 = new Elemento(2,1);
+        ListaDoblementeEnlazada<Elemento> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -52,10 +53,10 @@ class CasillaTest {
     @Test
     void testAddElementosCasilla(){
         Casilla casilla = new Casilla(4,5);
-        Elementos elemento1 = new Elementos(4,5);
-        Elementos elemento2 = new Elementos(3,2);
-        Elementos elemento3 = new Elementos(2,1);
-        ListaDoblementeEnlazada<Elementos> elementos = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento(4,5);
+        Elemento elemento2 = new Elemento(3,2);
+        Elemento elemento3 = new Elemento(2,1);
+        ListaDoblementeEnlazada<Elemento> elementos = new ListaDoblementeEnlazada<>();
         elementos.add(elemento1);
         elementos.add(elemento2);
         elementos.add(elemento3);
@@ -68,17 +69,17 @@ class CasillaTest {
     @Test
     void testRemoveElementosCasilla(){
         Casilla casilla = new Casilla(4,5);
-        Elementos elemento1 = new Elementos(4,5);
-        Elementos elemento2 = new Elementos(3,2);
-        Elementos elemento3 = new Elementos(2,1);
-        ListaDoblementeEnlazada<Elementos> elementos1 = new ListaDoblementeEnlazada<>();
+        Elemento elemento1 = new Elemento(4,5);
+        Elemento elemento2 = new Elemento(3,2);
+        Elemento elemento3 = new Elemento(2,1);
+        ListaDoblementeEnlazada<Elemento> elementos1 = new ListaDoblementeEnlazada<>();
         elementos1.add(elemento1);
         elementos1.add(elemento2);
         elementos1.add(elemento3);
         casilla.addElementoCasilla(elemento1);
         casilla.addElementoCasilla(elemento2);
         casilla.addElementoCasilla(elemento3);
-        ListaDoblementeEnlazada<Elementos> elementos2 = casilla.getElementosCasilla();
+        ListaDoblementeEnlazada<Elemento> elementos2 = casilla.getElementosCasilla();
         elementos2.add(elemento1);
         elementos2.add(elemento3);
         assertTrue(elementos1.contains(elemento2));
