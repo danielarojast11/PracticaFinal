@@ -143,9 +143,6 @@ public class Partida {
     }
 
 
-
-
-
     private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada <Elemento> listaElementos = new ListaDoblementeEnlazada<>();
 

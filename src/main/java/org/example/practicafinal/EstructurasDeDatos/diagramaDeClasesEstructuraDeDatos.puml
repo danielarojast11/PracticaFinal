@@ -1,0 +1,212 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ListaSimple
+class ElementoLS
+
+class ListaEnlazada
+class ElementoLE
+
+class ListaDoblementeEnlazada
+class ElementoLDE
+
+class NodoBinario
+class ArbolBinarioDeBusqueda
+
+class ArbolAVLDeBusqueda
+class Nodo
+
+ListaSimple <-- ElementoLS
+
+class ElementoLS{
+-data: TipoDato
++getData(): TipoDato
++setData(data: TipoDato): TipoDato
+}
+
+class ListaSimple{
+-datos: ElementoLS<TipoDato>
+-maximo = 3000: int
+-numeroElementos: int
++ListaSimple()
++getMaximo(): int
++setMaximo(maximo: int)
++isVacia(): Boolean
++vaciar()
++add(el: ElementoLS<TipoDato>)
++add(o: TipoDato)
++del(position: int)
++getNumeroElementos(): int
++getPosicion(el: ElementoLS<TipoDato>): int
++getPrimero(el: ElementoLS<TipoDato>): TipoDato
++getUltimo(): TipoDato
+-getSiguiente(el: ElementoLS<TipoDato>): ElementoLS<TipoDato>
++getElemento(position: int): TipoDato
+}
+
+ListaEnlazada <-- ElementoLE
+
+class ElementoLE{
+-siguiente: ElementoLE<TipoDato>
+-data: TipoDato
++ElementoLE(valor: TipoDato)
+#insertarmeEn(el: ElementoLE<TipoDato>)
++getSiguiente():ElementoLE<TipoDato>
++setSiguiente(el: ElementoLE<TipoDato>)
++getData(): TipoDato
++setData(data: TipoDato): TipoDato
+}
+
+class ListaEnlazada{
+-primero: ElementoLE<TipoDato>
++ListaEnlazada(primero: ElementoLE<TipoDato>)
++ListaEnlazada
++getNumeroElementos(): int
++isVacia(): Boolean
++vaciar()
+-add(s: ElementoLE<TipoDato>)
++add(o: TipoDato)
++insert(s: ElementoLE<TipoDato>, position: int)
++del(position: int): int
++getPosicion(el: ElementoLE<TipoDato>): int
++getPrimero(): ElementoLE<TipoDato>
++getUltimo(): ElementoLE<TipoDato>
++getSiguiente(el: ElementoLE<TipoDato>): ElementoLE<TipoDato>
++getElemento(position: int): ElementoLE<TipoDato>
+}
+
+ListaDoblementeEnlazada <-- ElementoLDE
+
+class ElementoLDE{
+-anterior: ElementoLDE<TipoDato>
+-siguiente: ElementoLDE<TipoDato>
+-data: TipoDato
+#insertarmeEn(el: ElementoLDE<TipoDato>)
+#getSiguiente():ElementoLDE<TipoDato>
+#getAnterior(): ElementoLDE<TipoDato>
++getData(): TipoDato
++setData(data: TipoDato): TipoDato
+}
+
+class ListaDoblementeEnlazada{
+-primero: ElementoLDE<TipoDato>
+-ultimo: ElementoLDE<TipoDato>
++isVacia(): Boolean
++vaciar()
+#add(el: ElementoLDE<TipoDato>)
+
++del(position: int): int
++getNumeroElementos(): int
++getPosicion(el: ElementoLDE<TipoDato>): int
++getPrimero(): ElementoLDE<TipoDato>
++getUltimo(): ElementoLDE<TipoDato>
++getSiguiente(el: ElementoLDE<TipoDato>): ElementoLDE<TipoDato>
++getAnterior(el: ElementoLDE<TipoDato>): ElementoLDE<TipoDato>
++getElemento(position: int): ElementoLDE<TipoDato>
+}
+
+ArbolBinarioDeBusqueda <-- NodoBinario
+
+class NodoBinario{
+-izquierdo: NodoBinario
+-derecho: NodoBinario
+-contenido: int
++NodoBinario(valor: int)
++getIzquierdo(): NodoBinario
++setIzquierdo(izquierdo: NodoBinario)
++getDerecho(): NodoBinario
++setDerecho(derecho: NodoBinario)
++getContenido(): int
++setContenido(contenido: int)
++compareTo(o: NodoBinario): int
+}
+
+class ArbolBinarioDeBusqueda{
+-grado = 0: int
+-altura = 0: int
+-raiz: NodoBinario
+-nodos: ListaDoblementeEnlazada<NodoBinario>
++getGrado(): int
++getAltura(): int
+-calcularAltura(nodoActual: NodoBinario): int
++getRaiz(): NodoBinario
++getListaDatosNivel(nivel: int): ListaDoblementeEnlazada<NodoBinario>
+-getNodosNivel(nivel: int, nodoActual: NodoBinario, nivelActual: int)
++isArbolHomogeneo(): Boolean
+-comprobarHomogeneo(nodoActual: NodoBinario): Boolean
++isArbolCompleto(): Boolean
+-comprobarCompleto(): Boolean
++isArbolCasiCompleto(): Boolean
+-comprobarCasiCompleto(nodoActual: NodoBinario, nivel: int)
++getCamino(valorBuscar: int): ListaDoblementeEnlazada<NodoBinario>
+-getNodosCamino(valorBuscar: int, nodoActual: NodoBinario)
++add(nodo: NodoBinario)
+-addNodo(nodoActual: NodoBinario, nodoAñadir: NodoBinario)
++getSubArbol(nodoBuscar: NodoBinario, lado: String)
+-buscarNodo(nodoBuscar: NodoBinario, nodoActual: NodoBinario): NodoBinario
++setRaiz(raiz: NodoBinario)
++getListaPreOrden(): ListaDoblementeEnlazada<NodoBinario>
+-getNodosPreOrden(nodoActual: NodoBinario)
++getListaPostOrden(): ListaDoblementeEnlazada<NodoBinario>
+-getNodosPostOrden(nodoActual: NodoBinario)
++getListaOrdenCentral(): ListaDoblementeEnlazada<NodoBinario>
+-getNodosOrdenCentral(nodoActual: NodoBinario)
+}
+
+ArbolAVLDeBusqueda <-- Nodo
+
+class ArbolAVLDeBusqueda{
+-grado = 0: int
+-altura = 0: int
+-raiz: Nodo
+-nodos: ListaDoblementeEnlazada<Nodo>
++getGrado(): int
++getAlturaTotal(): int
+-calcularAltura(nodoActual: Nodo): int
++getAlturaIzquierdo(): int
+-calcularAlturaIzquierdo(nodoActual: Nodo)
++getAlturaDerecho(): int
+-calcularAlturaDerecho(nodoActual: Nodo)
++add(nodo: Nodo)
+-add(nodoActual: Nodo, nodoAñadir: Nodo)
++borrar(nodoBuscar: Nodo)
+-borrarNodo(nodoActual: Nodo, nodoBorrar: Nodo)
+-nodoMin(nodoActual: Nodo)
+-nodoMax(nodoActual: Nodo)
++isEquilibrado(): Boolean
+-comprobarEquilibrado(nodoActual: Nodo): Boolean
++equilibrar()
+-equilibrarArbol(nodoActual: Nodo, nodos: ListaDoblementeEnlazada<Nodo>)
+-calcularEquilibrioNodos(nodoActual: Nodo)
+
++getRaiz(): Nodo
++setRaiz(raiz: Nodo)
++getListaDatosNivel(nivel: int): ListaDoblementeEnlazada<Nodo>
+-getNodosNivel(nivel: int, nodoActual: Nodo, nivelActual: int)
++isArbolHomogeneo(): Boolean
+-comprobarHomogeneo(nodoActual: Nodo)
++isArbolCompleto(): Boolean
+-comprobarCompleto(nodoActual: Nodo, nivel: int)
++isArbolCasiCompleto(): Boolean
+-comprobarCasiCompleto(nodoActual: Nodo, nivel: int)
+
+}
+
+class Nodo{
+-izquierdo: Nodo
+-derecho: Nodo
+-contenido: int
+-equilibrio: int
++Nodo(valor: int)
++getIzquierdo(): Nodo
++setIzquierdo(izquierdo: Nodo)
++getDerecho(): Nodo
++setDerecho(derecho: Nodo)
++getContenido(): int
++setContenido(contenido: int)
++getEquilibrio(): int
++setEquilibrio(equilibrio: int)
++compareTo(o: Nodo): int
+}
+
+@enduml

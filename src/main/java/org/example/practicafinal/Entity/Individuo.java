@@ -29,6 +29,7 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion=probclonacion;
         this.probReproduccion=probreproduc;
     }
+
     public Individuo(
         int id,
         int generacion,

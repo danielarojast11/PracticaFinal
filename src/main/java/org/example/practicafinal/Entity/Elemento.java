@@ -24,7 +24,6 @@ public class Elemento implements Comparable<Elemento>
         return casilla;
     }
 
-
     public void setCasilla(Casilla casilla){
         this.casilla = casilla;
     }
