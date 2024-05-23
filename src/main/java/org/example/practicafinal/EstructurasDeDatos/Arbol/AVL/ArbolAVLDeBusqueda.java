@@ -210,7 +210,7 @@ public class ArbolAVLDeBusqueda {
     }
 
     private void rotacionIzquierda(ListaDoblementeEnlazada<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
+        /*Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getDerecho();
         nodoActual.setDerecho(n.getDerecho());
         n.getDerecho().setIzquierdo(n);
@@ -218,11 +218,11 @@ public class ArbolAVLDeBusqueda {
 
         if (nodoActual == raiz){
             raiz = n;
-        }
+        }*/
     }
 
     private void rotacionDerecha(ListaDoblementeEnlazada<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
+        /*Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -1);
         Nodo n = nodoActual.getIzquierdo();
         nodoActual.setIzquierdo(n.getIzquierdo());
         n.getIzquierdo().setDerecho(n);
@@ -230,25 +230,25 @@ public class ArbolAVLDeBusqueda {
 
         if (nodoActual == raiz){
             raiz = n;
-        }
+        }*/
     }
 
     private void rotacionCompuestaIzquierda(ListaDoblementeEnlazada<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
+        /*Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getIzquierdo().getDerecho().getIzquierdo();
         n.setDerecho(nodoActual.getIzquierdo().getDerecho());
         nodoActual.getIzquierdo().setDerecho(null);
         n.setIzquierdo(nodoActual.getIzquierdo());
-        nodoActual.setIzquierdo(n);
+        nodoActual.setIzquierdo(n);*/
     }
 
     private void rotacionCompuestaDerecha(ListaDoblementeEnlazada<Nodo> nodos){
-        Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
+        /*Nodo nodoActual = nodos.get(nodos.getNumeroElementos() -2);
         Nodo n = nodoActual.getDerecho().getIzquierdo().getDerecho();
         n.setIzquierdo(nodoActual.getDerecho().getIzquierdo());
         nodoActual.getDerecho().setIzquierdo(null);
         n.setDerecho(nodoActual.getDerecho());
-        nodoActual.setDerecho(n);
+        nodoActual.setDerecho(n);*/
     }
 
     public Nodo getRaiz(){ return raiz;}
@@ -371,7 +371,7 @@ public class ArbolAVLDeBusqueda {
     }
 
     public ListaDoblementeEnlazada<Nodo> getCamino(int valorBuscar){
-        this.nodos = new ListaDoblementeEnlazada<>();
+        /*this.nodos = new ListaDoblementeEnlazada<>();
         if (this.raiz != null){
             this.getNodosCamino(valorBuscar, raiz);
             int ultimoValor = this.nodos.get(this.nodos.getNumeroElementos() -1).getContenido();
@@ -379,7 +379,8 @@ public class ArbolAVLDeBusqueda {
                 this.nodos = new ListaDoblementeEnlazada<>();
             }
         }
-        return this.nodos;
+        return this.nodos;*/
+        return null;
     }
 
     private void getNodosCamino(int valorBuscar, Nodo nodoActual){

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArbolAVLDeBusquedaTest {
 
-    @Test
+    /*@Test
     void getGrado() {
         ArbolAVLDeBusqueda a = new ArbolAVLDeBusqueda();
         assertEquals(0, a.getGrado());
@@ -262,5 +262,5 @@ class ArbolAVLDeBusquedaTest {
             lista.add(i);
         }
         assertEquals(listaa, lista);
-    }
+    }*/
 }

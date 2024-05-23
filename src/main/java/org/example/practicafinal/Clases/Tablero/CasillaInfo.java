@@ -1,7 +1,7 @@
 package org.example.practicafinal.Clases.Tablero;
 
 public class CasillaInfo {
-    private static final Logger logger = LogManager.getLogger(CeldaInfo.class);
+    /*private static final Logger logger = LogManager.getLogger(CeldaInfo.class);
 
     private ListView<String> individuosListView;
     private ListView<String> recursosListView;
@@ -51,5 +51,5 @@ public class CasillaInfo {
             logger.error("Error de NullPointerException al actualizar la celda", e);
         } catch (Exception e) {
             logger.error("Error desconocido al actualizar la celda", e);
-        }
+        }*/
 }

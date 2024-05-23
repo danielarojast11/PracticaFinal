@@ -19,11 +19,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
-import org.example.practicafinal.Entity.Elemento;
-import org.example.practicafinal.Entity.Individuo;
-import org.example.practicafinal.Entity.Partida;
-import org.example.practicafinal.Entity.Casilla;
-import org.example.practicafinal.Entity.PartidaCasilla;
+import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.Dialog.CasillaDialog;
 
 import java.io.FileReader;
@@ -176,30 +172,12 @@ public class EscenarioJugarController {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                            Dialog<PartidaCasilla> casillaDialog = new CasillaDialog(casilla, partida);
+                            Dialog<Casilla> casillaDialog = new CasillaDialog(casilla, partida);
                             Window window = casillaDialog.getDialogPane().getScene().getWindow();
                             window.setOnCloseRequest(event -> window.hide());
-                            Optional<PartidaCasilla> result = casillaDialog.showAndWait();
-                            if (result != null && result.get().getCasilla() != null) {
-                                casilla.setIndividuosCasilla(result.get().getCasilla().getIndividuosCasilla());
-                                for (Individuo i: casilla.getIndividuosCasilla()) {
-                                    listaIndividuos.add(i);
-                                }
-                                casilla.setElementosCasilla(result.get().getCasilla().getElementosCasilla());
-                                for (Elemento e: casilla.getElementosCasilla()) {
-                                    listaElementos.add(e);
-                                }
+                            Optional<Casilla> result = casillaDialog.showAndWait();
+                            if (result != null && result.get().isCompleta()) {
                                 mostrarContenidoCasilla(casilla);
-
-                                partida.setNumeroIndividuosBasicos(result.get().getPartida().getNumeroIndividuosBasicos());
-                                partida.setNumeroIndividuosNormal(result.get().getPartida().getNumeroIndividuosNormal());
-                                partida.setNumeroIndividuosAvanzados(result.get().getPartida().getNumeroIndividuosAvanzados());
-                                partida.setAgua(result.get().getPartida().getAgua());
-                                partida.setComida(result.get().getPartida().getComida());
-                                partida.setMontana(result.get().getPartida().getMontana());
-                                partida.setCofre(result.get().getPartida().getCofre());
-                                partida.setBiblioteca(result.get().getPartida().getBiblioteca());
-                                partida.setPozo(result.get().getPartida().getPozo());
                             }
                         }
                     }
@@ -209,6 +187,29 @@ public class EscenarioJugarController {
                 listaCasillas.add(casilla);
             }
         }
+    }
+
+    public void mostrarContenidoCasilla(Casilla casilla) {
+        //bucles.evaluacionFinal();
+        int i = 1;
+        /*for (Individuo individuo: casilla.getIndividuosCasilla()){
+            Circle circulo = new Circle();
+            circulo.setRadius(getTamanoIndividuos());
+            colorIndividuo(individuo,circulo);
+            circulo.setCenterX(getTamanoIndividuos()*i);
+            circulo.setCenterY(getTamanoIndividuos()*2-getTamanoIndividuos()/3);
+            casilla.getChildren().addAll(circulo);
+            i += 2;
+        }
+        i = 0;
+        for (Elemento elemento:casilla.getElementosCasilla()){
+            Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
+            colorEelemento(elemento,rectangle);
+            rectangle.setX(getTamanoElementos()*i);
+            rectangle.setY(getTamanoIndividuos()*3);
+            casilla.getChildren().addAll(rectangle);
+            i+=1;
+        }*/
     }
 
     private void eliminarTablero(){
@@ -472,7 +473,7 @@ public class EscenarioJugarController {
         @Override
         public void handle(long now) {
             if (i%velocidad==0) {
-                if (partida.getTurno() == 0) {
+                /*if (partida.getTurno() == 0) {
                     partida.setListaIndividuos(listaIndividuos);
                     partida.setListaElementos(listaElementos);
                     partida.setListaCasillas(listaCasillas);
@@ -499,7 +500,7 @@ public class EscenarioJugarController {
                                 partida.getListaIndividuos().size() == 0
                 ){
                     endGame();
-                }
+                }*/
             }
             i++;
         }
@@ -509,7 +510,7 @@ public class EscenarioJugarController {
     private void start() {
         if (tableroCreado){
             if (validarInicioPartida()) {
-                bucle = new Bucles();
+                /*bucle = new Bucles();
                 crearPartida();
                 bucle.setPartida(partida);
                 btnStart.setDisable(true);
@@ -522,7 +523,7 @@ public class EscenarioJugarController {
                 desabilitarSliders(true);
 
                 //Empezar Juego
-                animationTimer.start();
+                animationTimer.start();*/
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
@@ -578,7 +579,7 @@ public class EscenarioJugarController {
         Gson gson = new Gson ();
         try {
             if (this.partida == null) {
-                this.partida = new Partida();
+                //this.partida = new Partida();
             }
             JsonElement jsonElement = JsonParser.parseReader(new FileReader("partida.json"));
             JsonObject jsonObject = jsonElement.getAsJsonObject();
@@ -672,9 +673,9 @@ public class EscenarioJugarController {
         double b = paneTablero.getWidth()/sliderFilas.getValue();
         double diametro;
         if (a<b){
-            diametro = a/partida.getMaximosIndividuos();
+            diametro = a/partida.getMaxIndividuos();
         } else{
-            diametro = b/partida.getMaximosIndividuos();
+            diametro = b/partida.getMaxIndividuos();
         }
         return diametro/2;
     }
@@ -684,34 +685,11 @@ public class EscenarioJugarController {
         double b = paneTablero.getWidth()/sliderFilas.getValue();
         double lado;
         if (a<b){
-            lado = a/partida.getMaximosIndividuos();
+            lado = a/partida.getMaxElementos();
         } else {
-            lado = b/partida.getMaximosIndividuos();
+            lado = b/partida.getMaxElementos();
         }
         return lado;
-    }
-
-    public void mostrarContenidoCasilla(Casilla casilla) {
-        bucle.evaluacionFinal();
-        int i = 1;
-        for (Individuo individuo : casilla.getIndividuosCasilla()){
-            Circle circulo = new Circle();
-            circulo.setRadius(getTamanoIndividuos());
-            colorIndividuo(individuo,circulo);
-            circulo.setCenterX(getTamanoIndividuos()*i);
-            circulo.setCenterY(getTamanoIndividuos()*2-getTamanoIndividuos()/3);
-            casilla.getChildren().addAll(circulo);
-            i += 2;
-        }
-        i = 0;
-        for (Elemento elemento:casilla.getElementosCasilla()){
-            Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
-            colorEelemento(elemento,rectangle);
-            rectangle.setX(getTamanoElementos()*i);
-            rectangle.setY(getTamanoIndividuos()*3);
-            casilla.getChildren().addAll(rectangle);
-            i+=1;
-        }
     }
 
     public void mostrarCasillas(){
@@ -739,23 +717,23 @@ public class EscenarioJugarController {
         }
     }
 
-    public void colorEelemento(Elemento elemento, Rectangle rectangle){
-        if (elemento.getType()==0){
+    public void colorElemento(Elemento elemento, Rectangle rectangle){
+        if (elemento instanceof Agua){
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(82,223,215));
-        }else if (elemento.getType()==1){
+        }else if (elemento instanceof Biblioteca){
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(193,188,80));
-        }else if (elemento.getType()==2) {
+        }else if (elemento instanceof Comida) {
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(253,247,225));
-        }else if (elemento.getType()==3) {
+        }else if (elemento instanceof Montaña) {
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(178,148,118));
-        }else if (elemento.getType()==4){
+        }else if (elemento instanceof Pozo){
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(226,194,110));
-        }else{
+        }else if (elemento instanceof Tesoro){
             rectangle.setStroke(Color.rgb(212,229,227));
             rectangle.setFill(Color.rgb(59,133,140));
         }

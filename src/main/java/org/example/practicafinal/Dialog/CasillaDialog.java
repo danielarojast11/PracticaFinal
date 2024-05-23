@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import org.example.practicafinal.Entity.*;
 import java.io.IOException;
 
-public class CasillaDialog extends Dialog<PartidaCasilla> {
+public class CasillaDialog extends Dialog<Casilla> {
     //Parametros Tipos de Individuos
     private Slider sliderBasico;
     private Slider sliderNormal;
@@ -77,7 +77,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     if (mouseEvent.getButton() == MouseButton.PRIMARY) {
-                        setResult(new PartidaCasilla(null, null));
+                        setResult(new Casilla(false));
                     }
                 }
             });
@@ -87,7 +87,7 @@ public class CasillaDialog extends Dialog<PartidaCasilla> {
                 public void handle(MouseEvent mouseEvent) {
                     if (mouseEvent.getButton() == MouseButton.PRIMARY) {
                         actualizarDatos();
-                        setResult(new PartidaCasilla(casilla, partida));
+                        setResult(casilla);
                     }
                 }
             });

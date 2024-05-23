@@ -1,4 +1,4 @@
-package org.example.practicafinal;
+package org.example.practicafinal.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,9 +28,9 @@ public class ArbolGenealogicoController {
     }
 
     public void mostrarIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        for (Individuo individuo : listaIndividuos){
+        /*for (Individuo individuo : listaIndividuos){
             mostrarIndiviuo(individuo, null, false, 0, false, true);
-        }
+        }*/
 
         /*Individuo individuo1 = new Individuo();
         individuo1.setRango(1);
@@ -100,13 +100,13 @@ public class ArbolGenealogicoController {
         Coordenadas coordenadas = new Coordenadas(x, y);
         for(int i = 0; i < individuoActual.getPadres().getNumeroElementos(); i++){
             boolean d = i > 0;
-            mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d, false);
-            mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().getNumeroElementos(), d);
+            //mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d, false);
+            //mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().getNumeroElementos(), d);
         }
         for (int i = 0; i < individuoActual.getHijos().getNumeroElementos(); i++){
             boolean d = i > 0;
-            mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d, false);
-            mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().getNumeroElementos(), d);
+            //mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d, false);
+            //mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().getNumeroElementos(), d);
         }
     }
 

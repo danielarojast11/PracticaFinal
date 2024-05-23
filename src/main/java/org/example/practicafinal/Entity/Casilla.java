@@ -6,6 +6,7 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.Lis
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 
 public class Casilla extends Pane {
+    private boolean completa = true;
     private int columna;
     private int fila;
     private ListaSimple<Individuo> individuos = new ListaSimple<>();
@@ -17,6 +18,34 @@ public class Casilla extends Pane {
         this.setId("casilla("+columna+","+fila+")");
     }
 
+    public Casilla(boolean completa){
+        this.completa = completa;
+    }
+
+    public boolean isCompleta() {
+        return completa;
+    }
+
+    public void setCompleta(boolean completa) {
+        this.completa = completa;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void setColumna(int columna) {
+        this.columna = columna;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
     public void addIndividuo(Individuo individuo) {
         this.individuos.add(individuo);
     }
@@ -24,6 +53,8 @@ public class Casilla extends Pane {
     public void addElementoCasilla(Elemento elemento) {
         this.elementos.add(elemento);
     }
+
+
 
 
 
@@ -43,8 +74,8 @@ public class Casilla extends Pane {
     }
 
 
-        //Elementos en la Casilla
-    public ListaDoblementeEnlazada<Elemento> getElementosCasilla() {
+    /* SIN COMPLETAR */
+    /*public ListaDoblementeEnlazada<Elemento> getElementosCasilla() {
         return elementosCasilla;
     }
 
@@ -84,24 +115,7 @@ public class Casilla extends Pane {
         this.individuosCasilla.remove(individuo);
         addIndividuoCasilla();
     }
-
-
-        //Componentes Casilla
-    public int getColumna() {
-        return columna;
-    }
-
-    public void setColumna(int columna) {
-        this.columna = columna;
-    }
-
-    public int getFila() {
-        return fila;
-    }
-
-    public void setFila(int fila) {
-        this.fila = fila;
-    }
+*/
 
 
 }

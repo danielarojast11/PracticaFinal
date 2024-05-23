@@ -19,7 +19,7 @@ public class FuncionamientoPartida {
             }
         }
         List<Individuo> individuos = new ArrayList<>();
-        Bucles bucle = new Bucles();
+        /*Bucles bucle = new Bucles();
         bucle.setPartida(partida);
         individuos.add(new Individuo(9, 8, 10, 10));
         partida.setListaCasillas(casillas);
@@ -49,6 +49,6 @@ public class FuncionamientoPartida {
         }
         for (Individuo individuo:individuos){
             System.out.println(individuo.getId());
-        }
+        }*/
     }
 }

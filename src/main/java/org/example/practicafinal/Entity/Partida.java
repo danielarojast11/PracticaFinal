@@ -157,7 +157,7 @@ public class Partida {
         this.tiempoActividad = jsonObject.get("tiempoActividad").getAsInt();
         this.columnas = jsonObject.get("columnas").getAsInt();
         this.filas = jsonObject.get("filas").getAsInt();
-        this.maximosIndividuos = jsonObject.get("maximosIndividuos").getAsInt();
+        /*this.maximosIndividuos = jsonObject.get("maximosIndividuos").getAsInt();
 
         JsonArray datos = jsonObject.getAsJsonArray("listaIndividuos");
         this.listaIndividuos.clear();
@@ -181,7 +181,7 @@ public class Partida {
             Elemento elemento = new Elemento();
             elemento.fromJson(datos.get(i).getAsJsonObject());
             this.listaElementos.add(elemento);
-        }
+        }*/
     }
 
     public JsonObject toJson() {
@@ -203,7 +203,7 @@ public class Partida {
         jsonObject.addProperty("tiempoActividad", this.tiempoActividad);
         jsonObject.addProperty("columnas", this.columnas);
         jsonObject.addProperty("filas", this.filas);
-        jsonObject.addProperty("maximosIndividuos", this.maximosIndividuos);
+        /*jsonObject.addProperty("maximosIndividuos", this.maximosIndividuos);
 
         JsonArray jsonArrayIndividuos = new JsonArray();
         for (Individuo i: this.listaIndividuos) {
@@ -222,7 +222,7 @@ public class Partida {
         for (Elemento e: this.listaElementos) {
             jsonArrayElementos.add(e.toJson());
         }
-        jsonObject.add("listaElementos", jsonArrayElementos);
+        jsonObject.add("listaElementos", jsonArrayElementos);*/
 
         return jsonObject;
     }
@@ -262,11 +262,11 @@ public class Partida {
     }
 
     public void removeIndividuo(Individuo individuo) {
-        this.listaIndividuos.remove(individuo);
+        //this.listaIndividuos.remove(individuo);
     }
 
     public void removeIndividuo(int index) {
-        this.listaIndividuos.remove(index);
+        //this.listaIndividuos.remove(index);
     }
 
     //GETTERS AND SETTERS ELEMENTS
@@ -339,7 +339,7 @@ public class Partida {
     public ListaDoblementeEnlazada<Casilla> getListaCasillas(){return this.listaCasillas;}
 
         //CREATE INDIVIDUALS
-    public IndividuoBasico crearBasico(ListaDoblementeEnlazada<Individuo> listaIndividuos){
+    /*public IndividuoBasico crearBasico(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
         modificarId();
         listaIndividuos.add(basico);
@@ -484,7 +484,7 @@ public class Partida {
         }for (int p=0; p<pozo; p++){
             crearPozo();
         }
-    }
+    }*/
 
         //MOVER INDIVIDUOS
     public Casilla moverBasico(){
@@ -496,7 +496,7 @@ public class Partida {
         int indice = (int)(Math.random()*(listaElementos.getNumeroElementos()));
         System.out.println("longitud: "+listaElementos.getNumeroElementos());
         System.out.println(indice);
-        Elemento elementoAleatorio = getListaElementos().get(indice);
+        /*Elemento elementoAleatorio = getListaElementos().get(indice);
         Casilla casillaElemento = elementoAleatorio.getCasilla();
         int eleccion = (int)(Math.random()*2);
         if (eleccion==0){
@@ -504,13 +504,14 @@ public class Partida {
         } else{
             nuevaCasilla = new Casilla(casillaElemento.getColumna(), casillaVieja.getFila());
         }
-        return nuevaCasilla;
+        return nuevaCasilla;*/
+        return null;
     }
 
     public Casilla moverAvanzado(Casilla casillaActual){
         int distancia = 1000;
         Casilla casillaDestino = null;
-        for(Elemento e: listaElementos) {
+        /*for(Elemento e: listaElementos) {
             // Distancia de Chebyshov
             int d2 = Math.max(
                     Math.abs(e.getCasilla().getFila() - casillaActual.getFila()),
@@ -520,14 +521,14 @@ public class Partida {
                 distancia = d2;
                 casillaDestino = e.getCasilla();
             }
-        }
+        }*/
 
         return casillaDestino;
     }
 
     public void moverIndividuos(){
         if (listaIndividuos != null){
-            for (Individuo individuo : listaIndividuos) {
+            /*for (Individuo individuo : listaIndividuos) {
                 Casilla casillaVieja = individuo.getCasilla();
                 Casilla casillaNueva = new Casilla();
                 switch (individuo.getRango()) {
@@ -551,7 +552,7 @@ public class Partida {
                         casilla.addIndividuoCasilla(individuo);
                     }
                 }
-            }
+            }*/
         }
     }
 

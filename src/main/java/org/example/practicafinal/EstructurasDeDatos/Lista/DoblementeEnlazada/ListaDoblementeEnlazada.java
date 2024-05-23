@@ -34,18 +34,18 @@ public class ListaDoblementeEnlazada<TipoDato> {
 
     public void add (String s){
         ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
-        elementoLDE.setData(s);
-        this.add(elementoLDE);
+        /*elementoLDE.setData(s);
+        this.add(elementoLDE);*/
     }
 
     public void add (Object o){
-        ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
+        /*ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
         elementoLDE.setData(o);
-        this.add(elementoLDE);
+        this.add(elementoLDE);*/
     }
 
     public void insert (String s, int posicion){
-        ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
+        /*ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
         elementoLDE.setData(s);
         int contador = 0;
         ElementoLDE<TipoDato> actual = primero;
@@ -60,12 +60,12 @@ public class ListaDoblementeEnlazada<TipoDato> {
                 contador ++;
             }
             actual.insertarmeEn(elementoLDE);
-        }
+        }*/
     }
 
     public void insert(Object o, int posicion){
         ElementoLDE<TipoDato> elementoLDE = new ElementoLDE<>();
-        elementoLDE.setData(o);
+        /*elementoLDE.setData(o);
         int contador = 0;
         ElementoLDE<TipoDato> actual = primero;
         if (actual == null){
@@ -78,7 +78,7 @@ public class ListaDoblementeEnlazada<TipoDato> {
                 contador ++;
             }
             actual.insertarmeEn(elementoLDE);
-        }
+        }*/
     }
 
     public int del (int posicion){
