@@ -1,4 +1,4 @@
-package org.example.practicafinal.Clases.BuclesDeControl;
+package org.example.practicafinal.Clases;
 
 import org.example.practicafinal.Entity.Elemento;
 import org.example.practicafinal.Entity.Individuo;
@@ -7,23 +7,27 @@ import org.example.practicafinal.Entity.Casilla;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-import java.util.Objects;
-
 public class Bucles {
     private Partida partida;
 
-    private ListaDoblementeEnlazada<Individuo> listaIndividuos;
-    private ListaDoblementeEnlazada<Casilla> tablero;
-    private Individuo individuo;
-
-        //Constructor
     public Bucles(Partida partida){
         this.partida = partida;
     }
 
+    public void maxIndividuosCasilla(Casilla casilla){
+        int contador = 0;
+        while (casilla.getIndividuos().getNumeroElementos() > partida.getMaxIndividuos()) {
+            int posicionEliminar = (int) (Math.random() * casilla.getIndividuos().getNumeroElementos());
+            casilla.getIndividuos().del(posicionEliminar);
+        }
+    }
 
 
+
+
+    private ListaDoblementeEnlazada<Individuo> listaIndividuos;
+    private ListaDoblementeEnlazada<Casilla> tablero;
+    private Individuo individuo;
 
     public void eliminarIndividuo(ListaDoblementeEnlazada<Individuo> listaIndividuos){
         ListaDoblementeEnlazada<Individuo> individuoscopia = new ListaDoblementeEnlazada<>();
@@ -207,12 +211,6 @@ public class Bucles {
         return 0;
     }
 
-    public Individuo evaluarIndividuosCasilla(Casilla casilla){
-        //Collections.sort(casilla.getIndividuosCasilla());
-        //return casilla.getIndividuosCasilla().getPrimero().getData();
-        return null;
-    }
-
     public ListaDoblementeEnlazada<Integer> reordenar(Casilla casilla){
         ListaDoblementeEnlazada<Integer> id = new ListaDoblementeEnlazada<>();
         /*Collections.sort(casilla.getIndividuosCasilla());
@@ -221,16 +219,6 @@ public class Bucles {
         }
         return id;*/
         return null;
-    }
-
-    public void evaluacionFinal(){
-        /*for (Casilla casilla: partida.getListaCasillas()){
-            while (casilla.getIndividuosTotales() > partida.getMaximosIndividuos()){
-                Individuo eliminar = evaluarIndividuosCasilla(casilla);
-                casilla.removeIndividuoCasilla(eliminar);
-                partida.removeIndividuo(eliminar);
-            }
-        }*/
     }
 
         //8-Aparición recursos

@@ -18,9 +18,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
-import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
+import org.example.practicafinal.Clases.Bucles;
 import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.Dialog.CasillaDialog;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -190,19 +191,24 @@ public class EscenarioJugarController {
     }
 
     public void mostrarContenidoCasilla(Casilla casilla) {
-        //bucles.evaluacionFinal();
+        bucles.maxIndividuosCasilla(casilla);
         int i = 1;
-        /*for (Individuo individuo: casilla.getIndividuosCasilla()){
-            Circle circulo = new Circle();
-            circulo.setRadius(getTamanoIndividuos());
-            colorIndividuo(individuo,circulo);
-            circulo.setCenterX(getTamanoIndividuos()*i);
-            circulo.setCenterY(getTamanoIndividuos()*2-getTamanoIndividuos()/3);
-            casilla.getChildren().addAll(circulo);
-            i += 2;
+        ElementoLE posicionLista;
+        if (casilla.getIndividuos().getPrimero() != null) {
+            posicionLista = casilla.getIndividuos().getPrimero();
+            casilla.getChildren().addAll(
+                crearVistaIndividuo((Individuo) posicionLista.getData(), i)
+            );
+            while (posicionLista.getSiguiente() != null) {
+                i += 2;
+                posicionLista = posicionLista.getSiguiente();
+                casilla.getChildren().addAll(
+                        crearVistaIndividuo((Individuo) posicionLista.getData(), i)
+                );
+            }
         }
         i = 0;
-        for (Elemento elemento:casilla.getElementosCasilla()){
+        /*for (Elemento elemento:casilla.getElementosCasilla()){
             Rectangle rectangle = new Rectangle(getTamanoElementos(),getTamanoElementos());
             colorEelemento(elemento,rectangle);
             rectangle.setX(getTamanoElementos()*i);
@@ -210,6 +216,15 @@ public class EscenarioJugarController {
             casilla.getChildren().addAll(rectangle);
             i+=1;
         }*/
+    }
+
+    private Circle crearVistaIndividuo(Individuo individuo, int i) {
+        Circle circulo = new Circle();
+        circulo.setRadius(getTamanoIndividuos());
+        colorIndividuo(individuo, circulo);
+        circulo.setCenterX(getTamanoIndividuos() * i);
+        circulo.setCenterY(getTamanoIndividuos() * 2 - getTamanoIndividuos() / 3);
+        return circulo;
     }
 
     private void eliminarTablero(){

@@ -1,6 +1,5 @@
 package org.example.practicafinal.Clases.Partida;
 
-import org.example.practicafinal.Clases.BuclesDeControl.Bucles;
 import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Entity.Casilla;
 import org.example.practicafinal.Entity.Partida;

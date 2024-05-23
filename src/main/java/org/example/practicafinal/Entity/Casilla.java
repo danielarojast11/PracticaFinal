@@ -3,13 +3,14 @@ package org.example.practicafinal.Entity;
 import com.google.gson.JsonObject;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 
 public class Casilla extends Pane {
     private boolean completa = true;
     private int columna;
     private int fila;
-    private ListaSimple<Individuo> individuos = new ListaSimple<>();
+    private ListaEnlazada<Individuo> individuos = new ListaEnlazada<>();
     private ListaSimple<Elemento> elementos = new ListaSimple<>();
 
     public Casilla(int columna, int fila){
@@ -46,6 +47,10 @@ public class Casilla extends Pane {
         this.fila = fila;
     }
 
+    public ListaEnlazada<Individuo> getIndividuos() {
+        return this.individuos;
+    }
+
     public void addIndividuo(Individuo individuo) {
         this.individuos.add(individuo);
     }
@@ -53,7 +58,6 @@ public class Casilla extends Pane {
     public void addElementoCasilla(Elemento elemento) {
         this.elementos.add(elemento);
     }
-
 
 
 
@@ -85,11 +89,6 @@ public class Casilla extends Pane {
 
     public void removeElementoCasilla(Elemento elemento) {
         this.elementosCasilla.remove(elemento);
-    }
-
-        //Individuos en la Casilla
-    public ListaDoblementeEnlazada<Individuo> getIndividuosCasilla() {
-        return this.individuosCasilla;
     }
 
     public ListaDoblementeEnlazada<Integer> getIndividuosIdCasilla(){return this.individuosIdCasilla;}

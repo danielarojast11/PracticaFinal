@@ -2,18 +2,25 @@ package org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada;
 
 public class ListaEnlazada<TipoDato> {
     private ElementoLE<TipoDato> primero;
-    private int numElementos;
 
     public ListaEnlazada(ElementoLE<TipoDato> primero){
         this.primero = primero;
     }
 
-    public ListaEnlazada(){
+    public ListaEnlazada()
+    { }
 
-    }
-
-    public int getNumElementos(){
-        return numElementos;
+    public int getNumeroElementos(){
+        int contador = 0;
+        if (!isVacia()) {   //La lista no debe estar vacia
+            contador = 1;
+            ElementoLE<TipoDato> auxiliar = primero;
+            while (auxiliar.getSiguiente() != null) {
+                auxiliar = auxiliar.getSiguiente();
+                contador++;
+            }
+        }
+        return contador;
     }
 
     public boolean isVacia(){   //Si la primera posicion es null, es que la lista esta vacia
@@ -34,10 +41,8 @@ public class ListaEnlazada<TipoDato> {
         if (primero==null){
             primero = new ElementoLE<>((TipoDato) s);
         } else {
-            ElementoLE<TipoDato> auxiliar = primero;
-            ElementoLE<TipoDato> nuevo = new ElementoLE<>((TipoDato) s);
-            nuevo.insertarmeEn(auxiliar);       //se convierte en el primero
-            primero = nuevo;
+            s.insertarmeEn(primero);
+            primero = s;
         }
     }
 
@@ -74,41 +79,23 @@ public class ListaEnlazada<TipoDato> {
     public int del(int position){
         int contador = 0;
         ElementoLE<TipoDato> auxiliar;
-        if (position!=0){
+        if (position > 0){
             ElementoLE<TipoDato> siguiente;
-            auxiliar=primero;
-            while (auxiliar.getSiguiente()!=null){
-                if (contador+1==position){
-                    if (auxiliar.getSiguiente().getSiguiente()!=null){
-                        siguiente = auxiliar.getSiguiente().getSiguiente();
-                        auxiliar.insertarmeEn(siguiente);
-                        auxiliar = siguiente;
-                    } else{
-                        break;
-                    }
+            auxiliar = primero;
+            while (auxiliar.getSiguiente() != null){
+                if ((contador + 1) == position){
+                    auxiliar.insertarmeEn(auxiliar.getSiguiente().getSiguiente());
+                    break;
                 } else{
-                    siguiente = auxiliar.getSiguiente();
-                    auxiliar.insertarmeEn(siguiente);
-                    auxiliar=siguiente;
+                    auxiliar = auxiliar.getSiguiente();
                 }
                 contador++;
             }
         } else{
-            auxiliar = primero;
-            primero = auxiliar.getSiguiente();
-            auxiliar.setData(null);
-        }
-        return contador;
-    }
-
-    public int getNumeroElementos(){
-        int contador = 0;
-        if (!isVacia()) {   //La lista no debe estar vacia
-            contador = 1;
-            ElementoLE<TipoDato> auxiliar = primero;
-            while (auxiliar.getSiguiente() != null) {
-                auxiliar = auxiliar.getSiguiente();
-                contador++;
+            if (primero.getSiguiente() == null) {
+                primero = null;
+            } else {
+                primero = primero.getSiguiente();
             }
         }
         return contador;

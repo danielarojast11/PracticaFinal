@@ -12,7 +12,7 @@ public class ElementoLE<TipoDato> {
         this.siguiente = el;
     }
 
-    protected ElementoLE<TipoDato> getSiguiente(){
+    public ElementoLE<TipoDato> getSiguiente(){
         return siguiente;
     }
 
