@@ -5,6 +5,8 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.Lis
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class Individuo implements Comparable<Individuo>{
     protected int id;
     protected int generacion;
@@ -16,12 +18,17 @@ public class Individuo implements Comparable<Individuo>{
     protected int longevidad;
     private Casilla casilla;
 
-    private ListaSimple<String> operaciones = new ListaSimple<>();
+    //private ListaSimple<Operacion> operaciones = new ListaSimple<>();
+    private ArrayList<Operacion> operaciones = new ArrayList<>();
     private final ListaDoblementeEnlazada<Individuo> padres = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> hijos = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
 
-
+    public Individuo (int id, int probclonacion, int probreproduc){
+        this.id=id;
+        this.probClonacion=probclonacion;
+        this.probReproduccion=probreproduc;
+    }
     public Individuo(
         int id,
         int generacion,
@@ -177,6 +184,19 @@ public class Individuo implements Comparable<Individuo>{
     public Casilla getCasilla(){
         return casilla;
     }
+
+        //GRAFO
+    public  void addOperation(String tipo, int turno){
+        operaciones.add(new Operacion(tipo, turno));
+    }
+
+    public ArrayList<Operacion> getOperaciones(){
+        return operaciones;
+    }
+
+    /*public ListaSimple<Operacion> getOperaciones(){
+        return operaciones;
+    }*/
 
 
     @Override
