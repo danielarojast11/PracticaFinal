@@ -7,16 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Estructuras">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Incialización de la structura completa.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialog/CasillaDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Dialog/CasillaDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ElementoLE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Lista/Enlazada/ListaEnlazada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Partida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716320131069</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Incialización de la structura completa.">
+      <created>1716484580374</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1716484580374</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +538,8 @@
     <MESSAGE value="turno vida = 0" />
     <MESSAGE value="Caso de prueba para GUI" />
     <MESSAGE value="Estructuras" />
-    <option name="LAST_COMMIT_MESSAGE" value="Estructuras" />
+    <MESSAGE value="Incialización de la structura completa." />
+    <option name="LAST_COMMIT_MESSAGE" value="Incialización de la structura completa." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,7 +551,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java</url>
-          <line>91</line>
+          <line>122</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>

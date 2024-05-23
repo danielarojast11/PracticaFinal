@@ -3,6 +3,7 @@ package org.example.practicafinal.Entity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 import java.util.Objects;
 
@@ -27,6 +28,8 @@ public class Partida {
     private int tiempoActividad;
     private int columnas;
     private int filas;
+
+    private ListaEnlazada<Casilla> listaCasillas = new ListaEnlazada<>();
 
     public Partida(
             int turnosVida,
@@ -131,10 +134,19 @@ public class Partida {
         this.probReproduccion = probReproduccion;
     }
 
+    public ListaEnlazada<Casilla> getListaCasillas(){
+        return this.listaCasillas;
+    }
+
+    public void aumentarTurno(){
+        this.turno++;
+    }
+
+
+
 
 
     private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada<Casilla> listaCasillas = new ListaDoblementeEnlazada<>();
     private ListaDoblementeEnlazada <Elemento> listaElementos = new ListaDoblementeEnlazada<>();
 
 
@@ -332,11 +344,11 @@ public class Partida {
         //GETTERS AND SETTERS PLACEHOLDERS
 
 
-    public void setListaCasillas(ListaDoblementeEnlazada<Casilla> listaCasillas){
-        this.listaCasillas = listaCasillas;
-    }
+    //public void setListaCasillas(ListaDoblementeEnlazada<Casilla> listaCasillas){
+        //this.listaCasillas = listaCasillas;
+    //}
 
-    public ListaDoblementeEnlazada<Casilla> getListaCasillas(){return this.listaCasillas;}
+
 
         //CREATE INDIVIDUALS
     /*public IndividuoBasico crearBasico(ListaDoblementeEnlazada<Individuo> listaIndividuos){
@@ -379,18 +391,6 @@ public class Partida {
             }
         }
         return avanzado;
-    }
-
-    public void individuosInicio(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        for (int i = 0; i < numeroIndividuosBasicos; i++){
-            crearBasico(listaIndividuos);
-        }
-        for (int i = 0; i < numeroIndividuosNormal; i++){
-            crearNormal(listaIndividuos);
-        }
-        for (int i = 0; i < numeroIndividuosAvanzados; i++){
-            crearAvanzado(listaIndividuos);
-        }
     }
 
         //CREATE ELEMENTS
@@ -468,22 +468,6 @@ public class Partida {
             }
         }
         return pozo;
-    }
-
-    public void elementosPrincipio(){
-        for (int a=0; a<agua;a++){
-            crearAgua();
-        }for (int c=0; c<comida;c++){
-            crearComida();
-        }for (int b=0; b<biblioteca; b++){
-            crearBiblioteca();
-        }for (int m=0; m<montana; m++){
-            crearMontaña();
-        }for (int t=0; t<cofre; t++){
-            crearTesoro();
-        }for (int p=0; p<pozo; p++){
-            crearPozo();
-        }
     }*/
 
         //MOVER INDIVIDUOS
@@ -559,10 +543,6 @@ public class Partida {
         //MODIFY PARAMETERS
     public void modificarId(){
          this.setId(id+1);
-        }
-
-    public void modificarTurno(){
-            this.setTurno(turno+1);
         }
 
     public int filaAleatoria(){

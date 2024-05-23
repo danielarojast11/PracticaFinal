@@ -22,7 +22,6 @@ import org.example.practicafinal.Clases.Bucles;
 import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.Dialog.CasillaDialog;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -33,6 +32,7 @@ public class EscenarioJugarController {
     private final boolean pruebas = true;
 
     //@FXML private Button btnAceptarTablero;
+    @FXML private Label lblTurno;
     @FXML private Slider sliderVelocidad;
     @FXML private Slider sliderVida;
     @FXML private Slider sliderClonacion;
@@ -53,9 +53,40 @@ public class EscenarioJugarController {
     private Bucles bucles;
     private Partida partida;
     private GridPane tablero = new GridPane();
-    private ListaEnlazada<Casilla> listaCasillas = new ListaEnlazada<>();
     private int velocidad = 50;
     private Boolean tableroCreado = false;
+
+    AnimationTimer animationTimer = new AnimationTimer() {
+        int i = velocidad;
+        @Override
+        public void handle(long now) {
+            if (i % velocidad == 0) {
+                partida.aumentarTurno();
+                lblTurno.setText("Turno: " + partida.getTurno());
+
+                // 1. mover individuos
+                partida.moverIndividuos();
+                /*bucle.evaluacionFinal();
+
+                bucle.actualizarIndividuos();
+                bucle.reproducir(listaIndividuos.get(1), listaIndividuos.get(2), partida.getListaIndividuos());
+                bucle.actualizarElementos();
+                bucle.individuoMejorado(listaCasillas, listaIndividuos, listaElementos, partida);
+
+                limpiarCasillas();
+                mostrarCasillas();
+                lblNumeroIndividuos.setText("Nº Individuos: "+partida.getListaIndividuos().size());
+
+                if (
+                        partida.getListaIndividuos() == null ||
+                                partida.getListaIndividuos().size() == 0
+                ){
+                    endGame();
+                }*/
+            }
+            i++;
+        }
+    };
 
     @FXML
     public void aceptarTablero(){
@@ -91,20 +122,12 @@ public class EscenarioJugarController {
     private void start() {
         if (tableroCreado){
             if (validarInicioPartida()) {
-                /*bucle = new Bucles();
-                crearPartida();
-                bucle.setPartida(partida);
                 btnStart.setDisable(true);
                 btnPause.setDisable(false);
                 btnEnd.setDisable(false);
-                partida.elementosPrincipio();
-                partida.individuosInicio(listaIndividuos);
-                mostrarCasillas();
-                //Disable Sliders
                 desabilitarSliders(true);
-
-                //Empezar Juego
-                animationTimer.start();*/
+                // Empezar Juego
+                animationTimer.start();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
@@ -151,7 +174,7 @@ public class EscenarioJugarController {
                 });
 
                 tablero.add(casilla,i,j);
-                listaCasillas.add(casilla);
+                partida.getListaCasillas().add(casilla);
             }
         }
         this.tableroCreado = true;
@@ -239,6 +262,24 @@ public class EscenarioJugarController {
             return true;
         }
         return pendiente <= 0;
+    }
+
+    private void desabilitarSliders(Boolean a){
+        sliderColumnas.setDisable(a);
+        sliderFilas.setDisable(a);
+        sliderVida.setDisable(a);
+        sliderReproduccion.setDisable(a);
+        sliderClonacion.setDisable(a);
+        sliderBasico.setDisable(a);
+        sliderNormal.setDisable(a);
+        sliderAvanzado.setDisable(a);
+        sliderAgua.setDisable(a);
+        sliderComida.setDisable(a);
+        sliderMontana.setDisable(a);
+        sliderCofre.setDisable(a);
+        sliderBiblioteca.setDisable(a);
+        sliderPozo.setDisable(a);
+        sliderTiempoActividad.setDisable(a);
     }
 
     private void crearPruebas(Casilla casilla) {
@@ -493,44 +534,6 @@ public class EscenarioJugarController {
             * Objetivo: comenzar, pausar o finalizar la partida
          */
 
-    AnimationTimer animationTimer = new AnimationTimer() {
-        int i = velocidad;
-        @Override
-        public void handle(long now) {
-            if (i%velocidad==0) {
-                /*if (partida.getTurno() == 0) {
-                    partida.setListaIndividuos(listaIndividuos);
-                    partida.setListaElementos(listaElementos);
-                    partida.setListaCasillas(listaCasillas);
-                }
-
-                partida.modificarTurno();
-                lblTurno.setText("Turno: " + partida.getTurno());
-
-                //mover individuos
-                partida.moverIndividuos();
-                bucle.evaluacionFinal();
-
-                bucle.actualizarIndividuos();
-                bucle.reproducir(listaIndividuos.get(1), listaIndividuos.get(2), partida.getListaIndividuos());
-                bucle.actualizarElementos();
-                bucle.individuoMejorado(listaCasillas, listaIndividuos, listaElementos, partida);
-
-                limpiarCasillas();
-                mostrarCasillas();
-                lblNumeroIndividuos.setText("Nº Individuos: "+partida.getListaIndividuos().size());
-
-                if (
-                        partida.getListaIndividuos() == null ||
-                                partida.getListaIndividuos().size() == 0
-                ){
-                    endGame();
-                }*/
-            }
-            i++;
-        }
-    };
-
     @FXML
     private void pause(){
         btnPause.setDisable(true);
@@ -578,24 +581,6 @@ public class EscenarioJugarController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void desabilitarSliders(Boolean a){
-        sliderColumnas.setDisable(a);
-        sliderFilas.setDisable(a);
-        sliderVida.setDisable(a);
-        sliderReproduccion.setDisable(a);
-        sliderClonacion.setDisable(a);
-        sliderBasico.setDisable(a);
-        sliderNormal.setDisable(a);
-        sliderAvanzado.setDisable(a);
-        sliderAgua.setDisable(a);
-        sliderComida.setDisable(a);
-        sliderMontana.setDisable(a);
-        sliderCofre.setDisable(a);
-        sliderBiblioteca.setDisable(a);
-        sliderPozo.setDisable(a);
-        sliderTiempoActividad.setDisable(a);
     }
 
     ////////////////////////////////////////////////////////////////////////////
