@@ -11,7 +11,7 @@ public class Casilla extends Pane {
     private int columna;
     private int fila;
     private ListaEnlazada<Individuo> individuos = new ListaEnlazada<>();
-    private ListaSimple<Elemento> elementos = new ListaSimple<>();
+    private ListaEnlazada<Elemento> elementos = new ListaEnlazada<>();
 
     public Casilla(int columna, int fila){
         this.columna=columna;
@@ -55,7 +55,11 @@ public class Casilla extends Pane {
         this.individuos.add(individuo);
     }
 
-    public void addElementoCasilla(Elemento elemento) {
+    public ListaEnlazada<Elemento> getElementos() {
+        return this.elementos;
+    }
+
+    public void addElemento(Elemento elemento) {
         this.elementos.add(elemento);
     }
 

@@ -39,7 +39,7 @@ public class ListaEnlazada<TipoDato> {
 
     private void add(ElementoLE<TipoDato> s){
         if (primero==null){
-            primero = new ElementoLE<>((TipoDato) s);
+            primero = s;
         } else {
             s.insertarmeEn(primero);
             primero = s;
@@ -48,6 +48,7 @@ public class ListaEnlazada<TipoDato> {
 
     public void add(TipoDato o){
         ElementoLE<TipoDato> elementoLE = new ElementoLE<>(o);
+        elementoLE.setSiguiente(null);
         add(elementoLE);
     }
 
@@ -84,7 +85,8 @@ public class ListaEnlazada<TipoDato> {
             auxiliar = primero;
             while (auxiliar.getSiguiente() != null){
                 if ((contador + 1) == position){
-                    auxiliar.insertarmeEn(auxiliar.getSiguiente().getSiguiente());
+                    ElementoLE<TipoDato> saltar = auxiliar.getSiguiente();
+                    auxiliar.insertarmeEn(saltar.getSiguiente());
                     break;
                 } else{
                     auxiliar = auxiliar.getSiguiente();

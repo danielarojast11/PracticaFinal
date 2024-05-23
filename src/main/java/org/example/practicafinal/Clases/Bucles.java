@@ -14,11 +14,16 @@ public class Bucles {
         this.partida = partida;
     }
 
-    public void maxIndividuosCasilla(Casilla casilla){
+    public void maxCosasCasilla(Casilla casilla){
         int contador = 0;
         while (casilla.getIndividuos().getNumeroElementos() > partida.getMaxIndividuos()) {
             int posicionEliminar = (int) (Math.random() * casilla.getIndividuos().getNumeroElementos());
             casilla.getIndividuos().del(posicionEliminar);
+        }
+        contador = 0;
+        while (casilla.getElementos().getNumeroElementos() > partida.getMaxElementos()) {
+            int posicionEliminar = (int) (Math.random() * casilla.getElementos().getNumeroElementos());
+            casilla.getElementos().del(posicionEliminar);
         }
     }
 

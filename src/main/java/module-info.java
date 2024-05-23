@@ -8,8 +8,6 @@ module org.example.practicafinal {
     requires java.desktop;
     requires org.jetbrains.annotations;
     requires com.google.gson;
-    requires org.jgrapht.core;
-    requires graphstream.gs.core;
 
     opens org.example.practicafinal to javafx.fxml;
     exports org.example.practicafinal;

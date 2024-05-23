@@ -118,7 +118,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getAgua() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Agua(partida.getTiempoActividad(), casilla)
             );
         }
@@ -127,7 +127,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getComida() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Comida(partida.getTiempoActividad(), casilla)
             );
         }
@@ -136,7 +136,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getMontana() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Montaña(partida.getTiempoActividad(), casilla)
             );
         }
@@ -145,7 +145,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getCofre() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Tesoro(partida.getTiempoActividad(), casilla)
             );
         }
@@ -154,7 +154,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getBiblioteca() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Biblioteca(partida.getTiempoActividad(), casilla)
             );
         }
@@ -163,7 +163,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                 this.partida.getPozo() - valor
         );
         for (int i = 0; i < valor; i++) {
-            this.casilla.addElementoCasilla(
+            this.casilla.addElemento(
                 new Pozo( partida.getTiempoActividad(), casilla)
             );
         }

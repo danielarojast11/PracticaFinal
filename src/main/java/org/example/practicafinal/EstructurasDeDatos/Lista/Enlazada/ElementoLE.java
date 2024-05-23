@@ -16,6 +16,10 @@ public class ElementoLE<TipoDato> {
         return siguiente;
     }
 
+    public void setSiguiente(ElementoLE<TipoDato> el) {
+        this.siguiente = el;
+    }
+
     public TipoDato getData(){
         return data;
     }
