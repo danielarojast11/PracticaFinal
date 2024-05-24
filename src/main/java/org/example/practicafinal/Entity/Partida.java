@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Partida {
     private int probabilidadZ = 40;
-    private int probanilidadEjecucionReproduccion = 75;
-    private int probanilidadEjecucionClonacion = 75;
+    private int probabilidadEjecucionReproduccion = 75;
+    private int probabilidadEjecucionClonacion = 75;
     private int id = 0;
     private int maxIndividuos = 3;
     private int maxElementos = 3;
@@ -224,20 +224,20 @@ public class Partida {
         return in;
     }
 
-    public int getProbanilidadEjecucionReproduccion() {
-        return probanilidadEjecucionReproduccion;
+    public int getProbabilidadEjecucionReproduccion() {
+        return probabilidadEjecucionReproduccion;
     }
 
-    public void setProbanilidadEjecucionReproduccion(int probanilidadEjecucionReproduccion) {
-        this.probanilidadEjecucionReproduccion = probanilidadEjecucionReproduccion;
+    public void setProbabilidadEjecucionReproduccion(int probabilidadEjecucionReproduccion) {
+        this.probabilidadEjecucionReproduccion = probabilidadEjecucionReproduccion;
     }
 
-    public int getProbanilidadEjecucionClonacion() {
-        return probanilidadEjecucionClonacion;
+    public int getProbabilidadEjecucionClonacion() {
+        return probabilidadEjecucionClonacion;
     }
 
-    public void setProbanilidadEjecucionClonacion(int probanilidadEjecucionClonacion) {
-        this.probanilidadEjecucionClonacion = probanilidadEjecucionClonacion;
+    public void setProbabilidadEjecucionClonacion(int probabilidadEjecucionClonacion) {
+        this.probabilidadEjecucionClonacion = probabilidadEjecucionClonacion;
     }
 
 
@@ -329,8 +329,6 @@ public class Partida {
         return jsonObject;
     }
 
-
-
     public int getNumeroIndividuosBasicos() {
         return numeroIndividuosBasicos;
     }
@@ -353,14 +351,6 @@ public class Partida {
 
     public void setNumeroIndividuosAvanzados(int numeroIndividuosAvanzados) {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
-    }
-
-    public void removeIndividuo(Individuo individuo) {
-        //this.listaIndividuos.remove(individuo);
-    }
-
-    public void removeIndividuo(int index) {
-        //this.listaIndividuos.remove(index);
     }
 
     //GETTERS AND SETTERS ELEMENTS

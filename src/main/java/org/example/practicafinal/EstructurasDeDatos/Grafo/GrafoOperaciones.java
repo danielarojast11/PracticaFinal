@@ -1,18 +1,17 @@
 package org.example.practicafinal.EstructurasDeDatos.Grafo;
-import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Entity.Operacion;
-import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class GrafoOperaciones {
     private Map<String, String> grafo;
+
     public GrafoOperaciones(){
         this.grafo= new HashMap<>();
     }
+
     public void addOperacionesIndividuo (IndividuoPruebaGrafo individuo){
         String nodoAnterior = null;
         for (Operacion op : individuo.getOperaciones()){
@@ -30,6 +29,7 @@ public class GrafoOperaciones {
             addOperacionesIndividuo(individuo);
         }
     }*/
+
     public void construirGrafo(ArrayList<IndividuoPruebaGrafo> individuos){
         for (IndividuoPruebaGrafo ind:individuos){
             addOperacionesIndividuo(ind);

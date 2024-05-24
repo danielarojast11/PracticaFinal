@@ -130,7 +130,7 @@ public class Bucles {
         elementoLE = casilla.getIndividuos().getPrimero();
         while (elementoLE != null) {
             Individuo individuo = (Individuo) elementoLE.getData();
-            if (individuo.getProbClonacion() > partida.getProbanilidadEjecucionClonacion()) {
+            if (individuo.getProbClonacion() > partida.getProbabilidadEjecucionClonacion()) {
                 Individuo in = partida.colocarIndividuo(casilla, individuo.getRango());
                 in.addPadre(individuo);
                 individuo.addHijo(in);
@@ -143,7 +143,7 @@ public class Bucles {
 
     private boolean reproduccion(Individuo individuo1, Individuo individuo2, Casilla casilla) {
         int probabilidadReproduccion = (individuo1.getProbReproduccion() + individuo2.getProbReproduccion()) / 2;
-        if (probabilidadReproduccion > partida.getProbanilidadEjecucionReproduccion()) {
+        if (probabilidadReproduccion > partida.getProbabilidadEjecucionReproduccion()) {
             Individuo individuo = partida.colocarIndividuo(
                     casilla,
                     Math.max(individuo1.getRango(), individuo2.getRango())

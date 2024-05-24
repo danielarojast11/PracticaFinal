@@ -12,6 +12,7 @@ public class IndividuoPruebaGrafo {
     private double reproductionProb;
     private double cloneProb;
     private ArrayList<Operacion> operaciones;
+
     public IndividuoPruebaGrafo(int id, int generation, int lifeTurns, double reproductionProb, double cloneProb) {
         this.id = id;
         this.generation = generation;
@@ -20,6 +21,7 @@ public class IndividuoPruebaGrafo {
         this.cloneProb = cloneProb;
         this.operaciones = new ArrayList<>();
     }
+
     public void addOperaciones(String description, int turn, int type) {
         operaciones.add(new Operacion(description, turn, type));
     }

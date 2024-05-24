@@ -14,6 +14,7 @@ class Bucles
 class Elemento
 class Individuo
 class Casilla
+class Operacion
 
 class Agua
 class Comida
@@ -28,6 +29,9 @@ Partida <|-- Individuo
 Partida <|-- Casilla
 
 class Partida{
+-probabilidadZ = 40: int
+-probabilidadEjecucionReproduccion = 75: int
+-probabilidadEjecucionClonacion = 75: int
 -id = 0: int
 -maxIndividuos = 3: int
 -maxElementos = 3: int
@@ -48,14 +52,15 @@ class Partida{
 -columnas: int
 -filas: int
 -listaCasillas: ListaEnlazada<Casilla>
+-listaIndividuos: ListaDoblementeEnlazada<Individuo>
 +Partida(turnosVida: int, probClonacion: int, probReproduccion: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int, tiempoActividad: int, columnas: int, filas: int)
 +aumentarId()
 +getId(): int
 +setId(id: int)
-+getMaximosIndividuos(): int
-+setMaximosIndividuos(maxIndividuos: int)
-+getMaximosElementos(): int
-+setMaximosElementos(maxElementos: int)
++getMaxIndividuos(): int
++setMaxIndividuos(maxIndividuos: int)
++getMaxElementos(): int
++setMaxElementos(maxElementos: int)
 +setColumnas(columnas: int)
 +getColumnas(): int
 +setFilas(filas: int)
@@ -69,21 +74,26 @@ class Partida{
 +getProbReproduccion(): int
 +setProbReproduccion(probReproduccion: int)
 +getListaCasillas(): ListaEnlazada<Casilla>
++addIndividuo(individuo: Individuo)
 +aumentarTurno()
--listaIndividuos: ListaDoblementeEnlazada<Individuo>
--listaElementos: ListaDoblementeEnlazada<Elemento>
++moverBasico(): Casilla
++moverNormal(): Casilla
++moverAvanzado(): Casilla
++getProbabilidadZ(): int
++setProbabilidadZ(probabilidadZ: int)
++colocarIndividuo(casilla: Casilla, rango: int): Individuo
++getProbabilidadEjecucionReproduccion(): int
++setProbabilidadEjecucionReproduccion(probabilidadEjecucionReproduccion: int)
++getProbabilidadEjecucionClonacion: int
++setProbabilidadEjecucionClonacion(probabilidadEjecucionClonacion: int)
 +fromJson(jsonObject: JsonObject)
 +toJson(): JsonObject
-+getListaIndividuos(): ListaDoblementeEnlazada<Individuo>
 +getNumeroIndividuosBasicos(): int
 +setNumeroIndividuosBasicos(numeroIndividuosBasicos: int)
 +getNumeroIndividuosNormal(): int
 +setNumeroIndividuosNormal(numeroIndividuosNormal: int)
 +getNumeroIndividuosAvanzado(): int
 +setNumeroIndividuosAvanzado(numeroIndividuosAvanzado: int)
-+setListaIndividuos(listaIndividuos: ListaDoblementeEnlazada<Individuo>)
-+removeIndividuo(individuo: Individuo)
-+removeIndividuo(index: int)
 +getAgua(): int
 +setAgua(agua: int)
 +getComida(): int
@@ -96,33 +106,11 @@ class Partida{
 +setBiblioteca(biblioteca : int)
 +getPozo(): int
 +setPozo(pozo: int)
-+getListaElementos(): ListaDoblementeEnlazada<Elementos>
-+setListaElementos(listaElementos: ListaDoblementeEnlazada<Elementos>)
 +getTiempoActividad(): int
-//
-+setListaCasillas(listaCasillas: List<Casilla>)
-+getListaCasillas(): List<Casilla>
-+crearBasico(): IndividuoBasico
-+crearNormal(): IndividuoNormal
-+crearAvanzado(): IndividuoAvanzado
-+individuosInicio()
-+crearAgua(): Agua
-+crearComida(): Comida
-+crearBiblioteca(): Biblioteca
-+crearMontana(): Montaña
-+crearTesoro(): Tesoro
-+crearPozo(): Pozo
-+elementosPrincipio()
-+moverBasico(): Casilla
-+moverNormal(): Casilla
-+moverAvanzado(): Casilla
-+moverIndividuos(individuo: Individuo)
 +modificarId()
-+modificarTurno()
 +filaAleatoria(): int
 +columnaAleatoria(): int
 +casillaAleatoria(): Casilla
-getIndividuosTotales(): int
 }
 
 class Individuo{
@@ -135,12 +123,23 @@ class Individuo{
 #rango: int
 #longevidad: int
 -casilla: Casilla
--operaciones: ListaSimple<Operacion>
--padres: ListaDoblementeEnlazada<Individuo>
--hijos: ListaDoblementeEnlazada<Individuo>
+-operaciones: ListaEnlazada<Operacion>
+-padres: ListaEnlazada<Individuo>
+-hijos: ListaDEnlazada<Individuo>
 -individuos: ListaDoblementeEnlazada<Individuo>
 +Individuo(id: int, probClonacion: int, probReproduccion: int)
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int, casilla: Casilla)
++restarTurnoVida()
++getLongevidad(): int
++sumarLongevidad()
++getProbReproduccion(): int
++setProbReproduccion(probReproduccion: int)
++getProbMuerte(): int
++setProbMuerte(probReproduccion: int)
++getPadres(): ListaEnlazada<Individuo>
++addPadre(padre: Individuo)
++getHijos(): ListaEnlazada<Individuo>
++addHijo(hijo: Individuo)
 +fromJson(jsonObject: JsonObject)
 +toJson(): JsonObject
 +getId(): int
@@ -149,29 +148,20 @@ class Individuo{
 +setGeneracion(generacion: int)
 +getTurnosVida(): int
 +setTurnosVida(turnosVida: int)
-+getProbReproduccion(): int
-+setProbReproduccion(probReproduccion: int)
 +getProbClonacion(): int
 +setProbClonacion(probClonacion: int)
-+setProbMuerte(probReproduccion: int)
-+setProbabilidadMuerte(probMuerte: int)
 +getRango(): int
 +setRango(rango: int)
-+getLongevidad(): int
-+setLongevidad(longevidad: int)
-+getPadres(): ListaDoblementeEnlazada<Individuo>
-+addPadre(padre: Individuo)
-+getHijos(): ListaDoblementeEnlazada<Individuo>
-+addHijo(hijo: Individuo)
 +getIndividuos(): ListaDoblementeEnlazada<Individuo>
 +addIndividuo(individuo: Individuo)
++setProbMuerte(probReproduccion: int)
++setProbabilidadMuerte(probMuerte: int)
 +modificarReprod()
 +modificarClonacion()
-+modificarTurnosVida()
 +setCasilla(casilla: Casilla)
 +getCasilla(): Casilla
 +addOperation(tipo: String, turno: int)
-+getOperaciones(): ListaSimple<Operacion>
++getOperaciones(): ListaEnlazada<Operacion>
 +compareTo(o: Individuo): int
 }
 
@@ -185,12 +175,18 @@ Elemento <|-- Pozo
 class Elemento{
 -tiempoActividad: int
 -casilla: Casilla
-#type: int
-+Elementos(tiempoActividad: int, type: int)
+-alteracion: int
+-probabilidad: int
++Elemento(tiempoActividad: int, type: int)
 +getTiempoActividad(): int
 +setTiempoActividad(tiempoActividad: int)
++reducirTiempoActividad()
 +getCasilla(): Casilla
 +setCasilla(casilla: Casilla)
++getAlteracion(): int
++setAlteracion(alteracion: int)
++getProbabilidad(): int
++setProbabilidad(probabilidad: int)
 +compareTo(o: Elemento): int
 }
 
@@ -202,7 +198,7 @@ class Agua{
 }
 
 class Comida{
--alteracion: int = 1
+-alteracion: int = 10
 +Comida(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(alteracion: int)
@@ -216,17 +212,17 @@ class Montaña{
 }
 
 class Tesoro{
--alteracion: int
+-probabilidad = 10: int
 +Tesoro(tiempoActividad: int, casilla: Casilla)
-+getAlteracion(): int
-+setAlteracion(valor: int)
++getProbabilidad: int
++setProbabilidad(probabilidad: int)
 }
 
 class Biblioteca{
--alteracion: int
+-probabilidad = 10: int
 +Biblioteca(tiempoActividad: int, casilla: Casilla)
-+getAlteracion(): int
-+setAlteracion(valor: int)
++getProbabilidad: int
++setProbabilidad(probabilidad: int)
 }
 
 class Pozo{
@@ -234,27 +230,14 @@ class Pozo{
 }
 
 class Bucles{
--listaIndividuos: ArrayList<Individuo>
--tablero: ArrayList<Casilla>
--individuo: Individuo
 -partida: Partida
-+Bucles()
-+setPartida(partida: Partida)
-+eliminarIndividuo(listaIndividuos: List<Individuo>)
-+actualizarIndividuos()
-+modificarElementos(elemento: Elementos)
-+eliminarElemento(elemento: Elementos, listaElementos: List<Elementos>)
-+actualizarElementos(listaElementos: List<Elementos>)
-+moverIndividuo(individuo: Individuo)
-+individuoMejorado(listaCasillas: List<Casillas>, listaIndividuos: List<Individuo>, listaElementos: List<Elementos>, partida: Partida): Individuo
-+individuoConRecurso(individuo: Individuo, elemento: Elementos, partida: Partida): Individuo
-+reproducir(a: Individuo, b: Individuo): Individuo
-+clonar(individuo: Individuo, partida: Partida): Individuo
-+evaluarCapacidadCasilla(casilla: Casilla): int
-+evaluarIndividuosCasilla(casilla: Casilla): Individuo
-+reordenar(casilla: Casilla): List<Integer>)
-+evaluacionFinal(casilla: Casilla)
-+aparicionRecurso()
++Bucles(partida: Partida)
++moverIndividuos()
++evaluarElementosCasilla(casilla: Casilla)
++maxCosasCasilla(casilla: Casilla)
++relacionesIndividuos(casilla: Casilla)
+-reproduccion(individuo1: Individuo, individuo2: Individuo, casilla: Casilla)
+-evaluarIndividuoRecurso(individuo: Individuo)
 }
 
 Casilla <-- Pane
@@ -275,12 +258,25 @@ class Casilla{
 +setFila(fila: int)
 +getIndividuos(): ListaEnlazada<Individuo>
 +addIndividuo(individuo: Individuo)
++removeIndividuo(individuo: Individuo)
 +getElementos(): ListaEnlazada<Elemento>
 +addElemento(elemento: Elementos)
 -individuosIdCasilla: ListaDoblementeEnlazada<Integer>
 +fromJson(jsonObject: JsonObject)
 +toJson(): JsonObject
+}
 
+Bucles <-- Operacion
+Individuo <-- Operacion
+
+class Operacion{
+-turno: int
+-descripcion: int
+-tipo: int
++Operacion(descripcion: String, turno: int, tipo: int)
++getDescripcion(): String
++getTurno(): int
++getTipo(): int
 }
 
 class CasillaDialog{
@@ -310,6 +306,7 @@ class ArbolGenealogicoController{
 +salir()
 +setControladorEscenarios(controladorEscenarios: EscenariosController)
 +mostrarIndividuos(listaIndividuos: ListaDoblementeEnlazada<Individuo>)
+-mostrarIndividuo()
 -crearCirculoIndividuo(individuo: Individuo): Circle
 }
 
@@ -358,10 +355,10 @@ class EscenarioJugarController{
 -sliderAvanzado: Slider
 -sliderAgua: Slider
 -sliderComida: Slider
--sliderMontanas: Slider
--sliderCofres: Slider
--sliderBibliotecas: Slider
--sliderPozos: Slider
+-sliderMontana: Slider
+-sliderCofre: Slider
+-sliderBiblioteca: Slider
+-sliderPozo: Slider
 -sliderTiempoActividad: Slider
 -sliderColumnas: Slider
 -sliderFilas: Slider
@@ -430,7 +427,6 @@ class EscenarioJugarController{
 +restablecerEntorno()
 +cargarPartida()
 +salir()
-+handle(now: long)
 -pause()
 -endGame()
 -guardar()

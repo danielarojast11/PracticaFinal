@@ -2,6 +2,8 @@ package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -172,10 +174,20 @@ class PartidaTest {
 
     @Test
     void testMoverNormal(){
+        Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        ListaEnlazada<Casilla> casillasSeleccionables = new ListaEnlazada<>();
+        Casilla casilla1 = new Casilla(3, 1);
+        Casilla casilla2 = new Casilla(1, 2);
+        ElementoLE<Casilla> casillaActual = new ElementoLE<>(casilla1);
+        casillasSeleccionables.add(casilla1);
+        casillasSeleccionables.add(casilla2);
+        partida.moverNormal(casilla2);
+        assertEquals(casilla1, casilla2.getIndividuos());
     }
 
     @Test
     void testMoverAvanzado(){
+        Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
 
     }
 
@@ -198,6 +210,32 @@ class PartidaTest {
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         partida.colocarIndividuo(casilla, 2);
         assertEquals(partida.getListaCasillas(), partida.getListaCasillas());
+    }
+
+    @Test
+    void testGetProbabilidadEjecucionReproduccion(){
+        Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        assertEquals(75, partida.getProbabilidadEjecucionReproduccion());
+    }
+
+    @Test
+    void testSetProbabilidadEjecucionReproduccion(){
+        Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        partida.setProbabilidadEjecucionReproduccion(1);
+        assertEquals(1, partida.getProbabilidadEjecucionReproduccion());
+    }
+
+    @Test
+    void testGetProbabilidadEjecicionClonacion(){
+        Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        assertEquals(75, partida.getProbabilidadEjecucionClonacion());
+    }
+
+    @Test
+    void testSetProbabilidadEjecucionClonacion(){
+        Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        partida.setProbabilidadEjecucionClonacion(1);
+        assertEquals(1, partida.getProbabilidadEjecucionClonacion());
     }
 
     @Test
@@ -302,30 +340,6 @@ class PartidaTest {
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         partida.setNumeroIndividuosAvanzados(2);
         assertEquals(2, partida.getNumeroIndividuosAvanzados());
-    }
-
-    @Test
-    void testRemoveIndividuo(){
-        /*Partida partida = new Partida();
-        Individuo ind1 = new Individuo();
-        Individuo ind2 = new Individuo();
-        List<Individuo> listaIndividuos = new ArrayList<>();
-        listaIndividuos.add(ind1);
-        listaIndividuos.add(ind2);
-        partida.removeIndividuo(ind1);
-        assertEquals(2, listaIndividuos.size());*/
-    }
-
-    @Test
-    void testRemoveIndividuoIndex(){
-        /*Partida partida = new Partida();
-        Individuo ind1 = new Individuo(1, 2, 3, 4);
-        Individuo ind2 = new Individuo(2, 5, 40, 30);
-        ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
-        listaIndividuos.add(ind1);
-        listaIndividuos.add(ind2);
-        partida.removeIndividuo(1);
-        assertEquals(1, partida.getListaIndividuos().size());*/
     }
 
     @Test

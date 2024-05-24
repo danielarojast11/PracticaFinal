@@ -21,6 +21,13 @@ public class Individuo implements Comparable<Individuo>{
     private ListaEnlazada<Operacion> operaciones = new ListaEnlazada<>();
     private ListaEnlazada<Individuo> padres = new ListaEnlazada<>();
     private ListaEnlazada<Individuo> hijos = new ListaEnlazada<>();
+    private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
+
+    public Individuo (int id, int probclonacion, int probreproduc){
+        this.id=id;
+        this.probClonacion=probclonacion;
+        this.probReproduccion=probreproduc;
+    }
 
     public Individuo(
             int id,
@@ -89,20 +96,6 @@ public class Individuo implements Comparable<Individuo>{
     public void addHijo(Individuo hijo){
         this.hijos.add(hijo);
     }
-
-
-
-
-
-
-    private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
-
-    public Individuo (int id, int probclonacion, int probreproduc){
-        this.id=id;
-        this.probClonacion=probclonacion;
-        this.probReproduccion=probreproduc;
-    }
-
 
     public void fromJson(JsonObject jsonObject) {
         this.id = jsonObject.get("id").getAsInt();
@@ -175,7 +168,7 @@ public class Individuo implements Comparable<Individuo>{
         this.individuos.add(individuo);
     }
 
-        //METHODS MODIFY EACH TURN
+    //METHODS MODIFY EACH TURN
     public void modificarReprod(){
         if (this.getProbReproduccion() > 0){
             this.setProbReproduccion(probReproduccion - (10 * probReproduccion /100));
@@ -188,9 +181,7 @@ public class Individuo implements Comparable<Individuo>{
         }
     }
 
-
-
-        //METHODS PLACEHOLDERS
+    //METHODS PLACEHOLDERS
     public void setCasilla (Casilla casilla){this.casilla = casilla;}
 
     public Casilla getCasilla(){

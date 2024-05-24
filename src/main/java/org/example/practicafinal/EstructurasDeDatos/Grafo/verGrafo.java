@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class verGrafo extends JPanel {
     private Map<String, String> grafo;
+
     public verGrafo (Map<String, String> grafo){
         this.grafo = grafo;
     }
@@ -38,6 +39,7 @@ public class verGrafo extends JPanel {
             y += yIncrement;
         }
     }
+
     public static void visualizarGrafo(Map<String, String> graph) {
         JFrame frame = new JFrame("Simulation Graph");
         verGrafo graphVisualizer = new verGrafo(graph);

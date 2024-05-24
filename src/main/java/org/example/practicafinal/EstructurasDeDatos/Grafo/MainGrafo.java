@@ -6,7 +6,7 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.Lis
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainGrafo {
+/*public class MainGrafo {
     public static void main(String[] args) {
         // Crear individuos y agregar operaciones
         IndividuoPruebaGrafo individual1 = new IndividuoPruebaGrafo(1, 1, 10, 0.5, 0.5);
@@ -27,4 +27,4 @@ public class MainGrafo {
         // Visualizar el grafo
         verGrafo.visualizarGrafo(simulationGraph.getGrafo());
     }
-}
+}*/

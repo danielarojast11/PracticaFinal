@@ -16,6 +16,11 @@ class ArbolBinarioDeBusqueda
 class ArbolAVLDeBusqueda
 class Nodo
 
+class GrafoOperaciones
+class IndividuoPruebaGrafo
+class verGrafo
+class Operacion
+
 ListaSimple <-- ElementoLS
 
 class ElementoLS{
@@ -207,6 +212,49 @@ class Nodo{
 +getEquilibrio(): int
 +setEquilibrio(equilibrio: int)
 +compareTo(o: Nodo): int
+}
+
+GrafoOperaciones <-- IndividuoPruebaGrafo
+GrafoOperaciones <-- verGrafo
+GrafoOperaciones <-- Operacion
+IndividuoPruebaGrafo <-- Operacion
+
+class GrafoOperaciones{
+-grafo: Map<String, String>
++GrafoOperaciones()
++addOperacionesIndividuo(individuo: IndividuoPruebaGrafo)
++construirGrafo(individuos: ListaDoblementeEnlazada)
++getGrafo(): Map<String, String>
+}
+
+class IndividuoPruebaGrafo{
+-id: int
+-generation: int
+-lifeTurns: int
+-reproductionProb: double
+-cloneProb: double
+-operaciones: ArrayList<Operacion>
++IndividuoPruebaGrafo(id: int, generation: int, lifeTurns: int, reproductionProb: double, cloneProb: double)
++addOperaciones(description: String, turn: int, type: int)
++getId(): int
++getOperaciones(): ArrayList<Operacion>
+}
+
+class verGrafo{
+-grafo: Map<String, String>
++verGrafo(grafo: Map<String, String>)
+#paintComponent(g: Graphics)
++visualizarGrafo(graph: Map<String, String>)
+}
+
+class Operacion{
+-turno: int
+-descripcion: int
+-tipo: int
++Operacion(descripcion: String, turno: int, tipo: int)
++getDescripcion(): String
++getTurno(): int
++getTipo(): int
 }
 
 @enduml

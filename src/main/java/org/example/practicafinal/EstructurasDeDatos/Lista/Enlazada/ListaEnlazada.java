@@ -170,10 +170,7 @@ public class ListaEnlazada<TipoDato> {
                 auxiliar = auxiliar.getSiguiente();
                 contador++;
             }
-
-            return null;
         }
-
         return null;
     }
 }

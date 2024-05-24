@@ -67,10 +67,6 @@ public class Casilla extends Pane {
         this.elementos.add(elemento);
     }
 
-
-
-
-
     private final ListaDoblementeEnlazada<Integer> individuosIdCasilla = new ListaDoblementeEnlazada<>();
 
     public void fromJson(JsonObject jsonObject) {
