@@ -1,7 +1,5 @@
 package org.example.practicafinal.EstructurasDeDatos.Lista.Simple;
 
-import java.util.Arrays;
-
 public class ListaSimple<TipoDato> {
     private ElementoLS<TipoDato> [] datos;
     private int maximo = 3000;

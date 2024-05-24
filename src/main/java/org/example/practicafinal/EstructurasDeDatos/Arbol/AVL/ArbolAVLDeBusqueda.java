@@ -8,6 +8,7 @@ public class ArbolAVLDeBusqueda {
     private int altura = 0;
     private Nodo raiz;
     private ListaDoblementeEnlazada<Nodo> nodos;
+
     public int getGrado(){
         return grado;
     }

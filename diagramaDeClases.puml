@@ -11,35 +11,30 @@ class EscenariosController
 
 class Partida
 class Bucles
-class Elementos
+class Elemento
 class Individuo
 class Casilla
-class PartidaCasilla
-
-class IndividuoBasico
-class IndividuoNormal
-class IndividuoAvanzado
 
 class Agua
 class Comida
 class Montaña
-class Cofre
+class Tesoro
 class Biblioteca
 class Pozo
 
 Partida <|-- Bucles
-Partida <|-- Elementos
+Partida <|-- Elemento
 Partida <|-- Individuo
 Partida <|-- Casilla
-Partida <|-- PartidaCasilla
 
 class Partida{
--maximosIndividuos = 3: int
--turno: int
--probReproduccion: int
--probClonacion: int
--id: int
+-id = 0: int
+-maxIndividuos = 3: int
+-maxElementos = 3: int
+-turno = 0: int
 -turnosVida: int
+-probClonacion: int
+-probReproduccion: int
 -numeroIndividuosBasicos: int
 -numeroIndividuosNormal: int
 -numeroIndividuosAvanzados: int
@@ -52,30 +47,41 @@ class Partida{
 -tiempoActividad: int
 -columnas: int
 -filas: int
--listaIndividuos: List<Individuo>
--listaElementos: List<Elementos>
--listaCasillas: List<Casilla>
-+Partida(id: int, probReproduccion: int, probClonacion:int, turnosVida: int)
-+Partida(probReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, filas: int, columnas: int)
-+PartidaprobReproduccion: int, probClonacion: int, turnosVida: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int,filas: int, columnas: int)
-+Partida()
-+toJson(): JsonObject
-+getTurno(): int
-+setTurno(turno: int)
-+getMaximosIndividuos(): int
-+getProbReproduccion(): int
-+getProbClonacion(): int
+-listaCasillas: ListaEnlazada<Casilla>
++Partida(turnosVida: int, probClonacion: int, probReproduccion: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int, tiempoActividad: int, columnas: int, filas: int)
++aumentarId()
 +getId(): int
 +setId(id: int)
++getMaximosIndividuos(): int
++setMaximosIndividuos(maxIndividuos: int)
++getMaximosElementos(): int
++setMaximosElementos(maxElementos: int)
++setColumnas(columnas: int)
++getColumnas(): int
++setFilas(filas: int)
++getFilas(): int
++getTurno(): int
++setTurno(turno: int)
 +getTurnosVida(): int
-+getListaIndividuos(): List<Individuo>
++setTurnosVida(turnosVida: int)
++getProbClonacion(): int
++setProbClonacion(probClonacion: int)
++getProbReproduccion(): int
++setProbReproduccion(probReproduccion: int)
++getListaCasillas(): ListaEnlazada<Casilla>
++aumentarTurno()
+-listaIndividuos: ListaDoblementeEnlazada<Individuo>
+-listaElementos: ListaDoblementeEnlazada<Elemento>
++fromJson(jsonObject: JsonObject)
++toJson(): JsonObject
++getListaIndividuos(): ListaDoblementeEnlazada<Individuo>
 +getNumeroIndividuosBasicos(): int
 +setNumeroIndividuosBasicos(numeroIndividuosBasicos: int)
 +getNumeroIndividuosNormal(): int
 +setNumeroIndividuosNormal(numeroIndividuosNormal: int)
 +getNumeroIndividuosAvanzado(): int
 +setNumeroIndividuosAvanzado(numeroIndividuosAvanzado: int)
-+setListaIndividuos(listaIndividuos: List<Individuo>)
++setListaIndividuos(listaIndividuos: ListaDoblementeEnlazada<Individuo>)
 +removeIndividuo(individuo: Individuo)
 +removeIndividuo(index: int)
 +getAgua(): int
@@ -90,13 +96,10 @@ class Partida{
 +setBiblioteca(biblioteca : int)
 +getPozo(): int
 +setPozo(pozo: int)
-+getListaElementos(): List<Elementos>
-+setListaElementos(listaElementos: List<Elementos>)
++getListaElementos(): ListaDoblementeEnlazada<Elementos>
++setListaElementos(listaElementos: ListaDoblementeEnlazada<Elementos>)
 +getTiempoActividad(): int
-+setColumnas(columnas: int)
-+getColumnas(): int
-+setFilas(filas: int)
-+getFilas(): int
+//
 +setListaCasillas(listaCasillas: List<Casilla>)
 +getListaCasillas(): List<Casilla>
 +crearBasico(): IndividuoBasico
@@ -122,10 +125,6 @@ class Partida{
 getIndividuosTotales(): int
 }
 
-Individuo <|-- IndividuoBasico
-Individuo <|-- IndividuoNormal
-Individuo <|-- IndividuoAvanzado
-
 class Individuo{
 #id: int
 #generacion: int
@@ -134,14 +133,15 @@ class Individuo{
 -probClonacion: int
 -probMuerte: int
 #rango: int
--padres: List<Individuo>
--hijos: List<Individuo>
--individuos: List<Individuo>
+#longevidad: int
 -casilla: Casilla
-+Individuo()
-+Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int)
-+Individuo(id: int, turnosVida: int, probReproduccion: int, probClonacion: int)
-+Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int)
+-operaciones: ListaSimple<Operacion>
+-padres: ListaDoblementeEnlazada<Individuo>
+-hijos: ListaDoblementeEnlazada<Individuo>
+-individuos: ListaDoblementeEnlazada<Individuo>
++Individuo(id: int, probClonacion: int, probReproduccion: int)
++Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int, casilla: Casilla)
++fromJson(jsonObject: JsonObject)
 +toJson(): JsonObject
 +getId(): int
 +setId(id: int)
@@ -157,130 +157,80 @@ class Individuo{
 +setProbabilidadMuerte(probMuerte: int)
 +getRango(): int
 +setRango(rango: int)
-+getPadres(): List<Individuo>
++getLongevidad(): int
++setLongevidad(longevidad: int)
++getPadres(): ListaDoblementeEnlazada<Individuo>
 +addPadre(padre: Individuo)
-+getHijos(): List<Individuo>
++getHijos(): ListaDoblementeEnlazada<Individuo>
 +addHijo(hijo: Individuo)
-+getIndividuos(): List<Individuo>
++getIndividuos(): ListaDoblementeEnlazada<Individuo>
 +addIndividuo(individuo: Individuo)
 +modificarReprod()
 +modificarClonacion()
 +modificarTurnosVida()
 +setCasilla(casilla: Casilla)
 +getCasilla(): Casilla
++addOperation(tipo: String, turno: int)
++getOperaciones(): ListaSimple<Operacion>
 +compareTo(o: Individuo): int
 }
 
-class IndividuoBasico{
--rango: int = 1
-+IndividuoBasico()
-+IndividuoBasico(id: int, generacion: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+IndividuoBasico(id: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+getRango(): int
-+reproducir(): IndividuoBasico
-}
+Elemento <|-- Agua
+Elemento <|-- Comida
+Elemento <|-- Montaña
+Elemento <|-- Cofre
+Elemento <|-- Biblioteca
+Elemento <|-- Pozo
 
-class IndividuoNormal{
--rango: int = 2
-+IndividuoNormal()
-+IndividuoNormal(id: int, generacion: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+IndividuoNormal(id: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+getRango(): int
-+reproducir(): IndividuoNormal
-}
-
-class IndividuoAvanzado{
--rango: int = 3
-+IndividuoAvanzado()
-+IndividuoAvanzado(id: int, generacion: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+IndividuoAvanzado(id: int, turnosVida: int,
-probReproduccion: int, probClonacion: int)
-+getRango(): int
-+reproducir(): IndividuoAvanzado
-}
-
-Elementos <|-- Agua
-Elementos <|-- Comida
-Elementos <|-- Montaña
-Elementos <|-- Cofre
-Elementos <|-- Biblioteca
-Elementos <|-- Pozo
-
-class Elementos{
+class Elemento{
 -tiempoActividad: int
 -casilla: Casilla
 #type: int
 +Elementos(tiempoActividad: int, type: int)
-+Elementos()
-+toJson(): JsonObject
 +getTiempoActividad(): int
 +setTiempoActividad(tiempoActividad: int)
 +getCasilla(): Casilla
-+setCasilla(Columna: int, Fila: int)
-+setCasilla2(casilla: Casilla)
-+getType(): int
-+compareTo(o: Elementos): int
++setCasilla(casilla: Casilla)
++compareTo(o: Elemento): int
 }
 
 class Agua{
--type: int = 0
 -alteracion: int = 2
-+Agua(tiempoActividad: int, type: int)
-+Agua()
++Agua(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(alteracion: int)
-+getType(): int
 }
 
 class Comida{
--type: int = 1
 -alteracion: int = 1
-+Comida(tiempoActividad: int, type: int)
-+Comida()
++Comida(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(alteracion: int)
-+getType(): int
 }
 
 class Montaña{
--type: int = 3
 -alteracion: int = -2
-+Montaña(tiempoActividad: int, type: int)
-+Montaña()
++Montaña(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(alteracion: int)
-+getType(): int
 }
 
-class Cofre{
--type: int = 4
+class Tesoro{
 -alteracion: int
-+Tesoro(tiempoActividad: int, type: int)
-+Tesoro()
++Tesoro(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(valor: int)
-+getType(): int
 }
 
 class Biblioteca{
--type: int = 2
 -alteracion: int
-+Biblioteca(tiempoActividad: int, type: int)
-+Biblioteca()
++Biblioteca(tiempoActividad: int, casilla: Casilla)
 +getAlteracion(): int
 +setAlteracion(valor: int)
-+getType(): int
 }
 
 class Pozo{
--type: int = 5
-+Pozo()
-+getType(): int
++Pozo(tiempoActividad: int, casilla: Casilla)
 }
 
 class Bucles{
@@ -310,40 +260,27 @@ class Bucles{
 Casilla <-- Pane
 
 class Casilla{
+-completa = true: Boolean
 -columna: int
 -fila: int
--individuosCasilla: List<Individuo>
--individuosIdCasilla: List<Integer>
--elementosCasilla: List<Elementos>
-+Casilla()
+-individuos: ListaEnlazada<Individuo>
+-elementos: ListaEnlazada<Elemento>
 +Casilla(columna: int, fila: int)
-+toJson(): JsonObject
-+getElementosCasilla(): List<Elementos>
-+setElementosCasilla(elementosCasilla: List<Elementos>)
-+addElementosCasilla(elemento: Elementos)
-removeElementoCasilla(elemento: Elementos)
-+getIndividuosCasilla(): List<Individuo>
-+getIndividuosIdCasilla(): List<Integer>
-+getIndividuosTotales(): int
-+setIndividuosCasilla(listaIndividuos: List<Individuo>)
-+addIndividuoCasilla(individuo: Individuo)
-+addIndividuoCasilla()
-+removeIndividuoCasilla(individuo: Individuo)
++Casilla(completa: Boolean)
++isCompleta(): Boolean
++setCompleta(completa: Boolean)
 +getColumna(): int
 +setColumna(columna: int)
 +getFila(): int
 +setFila(fila: int)
-}
++getIndividuos(): ListaEnlazada<Individuo>
++addIndividuo(individuo: Individuo)
++getElementos(): ListaEnlazada<Elemento>
++addElemento(elemento: Elementos)
+-individuosIdCasilla: ListaDoblementeEnlazada<Integer>
++fromJson(jsonObject: JsonObject)
++toJson(): JsonObject
 
-class PartidaCasilla{
-casilla: Casilla
-partida: Partida
-+PartidaCasilla()
-+PartidaCasilla(casilla: Casilla, partida: Partida)
-+getCasilla(): Casilla
-+setCasilla(casilla: Casilla)
-+getPartida(): Partida
-+setPartida(partida: Partida)
 }
 
 class CasillaDialog{
@@ -360,21 +297,19 @@ class CasillaDialog{
 -btnOk: Button
 -casilla: Casilla
 -partida: Partida
--maxIndividuos = 3: int
--maxElementos = 3: int
 +CasillaDialog(casilla: Casilla, partida: Partida)
 -actualizarDatos()
+-colocarIndividuos(valor: int, rango: int)
 }
 
 class ArbolGenealogicoController{
 +paneArbol: Pane
 -controladorEscenarios: EscenariosController
--listaIndividuos: List<Individuo>
+-listaIndividuos: ListaDoblementeEnlazada<Individuo>
 -btnEnd: Button
 +salir()
 +setControladorEscenarios(controladorEscenarios: EscenariosController)
-+mostrarIndividuos(listaIndividuos: List<Individuo>)
--mostrarIndividuo()
++mostrarIndividuos(listaIndividuos: ListaDoblementeEnlazada<Individuo>)
 -crearCirculoIndividuo(individuo: Individuo): Circle
 }
 
@@ -390,6 +325,7 @@ class Coordenadas{
 
 class EscenarioCargarController{
 -controladorEscenarios: EscenariosController
+-controladorEscenarioJugar: EscenarioJugarController
 -btnJugar: Button
 -btnSalir: Button
 -btnPartida: Button
@@ -401,7 +337,7 @@ class EscenarioCargarController{
 
 
 class EscenarioInicioController{
--controlador: EscenariosController
+-controladorEscenarios: EscenariosController
 -btnCargarPartida: Button
 -btnNuevaPartida: Button
 -lblStart: Label
@@ -412,18 +348,51 @@ class EscenarioInicioController{
 
 class EscenarioJugarController{
 -pruebas = true: Boolean
--controladorEscenarios: EscenariosController
--partida: Partida
+-lblTurno: Label
+-sliderVelocidad: Slider
+-sliderVida: Slider
+-sliderClonacion: Slider
+-sliderReproduccion: Slider
+-sliderBasico: Slider
+-sliderNormal: Slider
+-sliderAvanzado: Slider
+-sliderAgua: Slider
+-sliderComida: Slider
+-sliderMontanas: Slider
+-sliderCofres: Slider
+-sliderBibliotecas: Slider
+-sliderPozos: Slider
+-sliderTiempoActividad: Slider
+-sliderColumnas: Slider
+-sliderFilas: Slider
 -bucle: Bucles
+-partida: Partida
 -tablero: GridPane
+-velocidad = 50 : int
 -tableroCreado = false: Boolean
+
++animationTimer: AnimationTimer
++aceptarTablero()
++cambiarVelocidad()
+-start()
+-crearTablero()
+-mostrarContenidoCasilla(casilla: Casilla)
+-crearVistaElemento(elemento: Elemento, i: int): Rectangle
+-crearVistaIndividuo(individuo: Individuo, i: int)
+-eliminarTablero()
+-crearPartida()
+-validarInicioPartida(): Boolean
+-desabilitarSliders(a: Boolean)
+-crearPruebas(casilla: Casilla)
+-colocarIndividuos(casilla: Casilla, rango: int)
+
+
 -individuosCreados = false: Boolean
 -partidaCreada = false: Boolean
 -listaIndividuos: List<Individuo>
 -listaCasillas: List<Casilla>
 -listaElementos: List<Elementos>
--velocidad = 50 : int
--lblTurno: Label
+
 -lblNumeroIndividuos: Label
 -tabPane: TabPane
 -paneTablero: Pane
@@ -435,74 +404,48 @@ class EscenarioJugarController{
 -lblClonacion: Label
 -lblReproduccion: Label
 -lblVida: Label
--sliderClonacion: Slider
--sliderReproduccion: Slider
--sliderVida: Slider
 -btnAceptarParIndividuo: Button
 -btnRestablecer: Button
 -tabTipoIndividuos: Tab
 -lblBasico: Label
 -lblNormal: Label
 -lblAvanzado: Label
--sliderBasico: Slider
--sliderNormal: Slider
--sliderAvanzado: Slider
 -btnRestablecerTipoIndividuo: Button
 -btnAceptarTipoIndividuo: Button
 -tabEntorno: Tab
--sliderAgua: Slider
--sliderComida: Slider
--sliderMontanas: Slider
--sliderCofres: Slider
--sliderBibliotecas: Slider
--sliderPozos: Slider
--sliderTiempoActividad: Slider
 -btnAceptarParEntorno: Button
 -btnRestablecer1: Button
 -tabTablero: Tab
 -lblColumnas: Label
 -lblVelocidad: Label
 -lblFilas: Label
--sliderColumnas: Slider
--sliderFilas: Slider
--sliderVelocidad: Slider
 -btnAceptarTablero: Slider
 -btnRestablecerTablero: Button
 -btnGuardar: Button
 -btnCargarPartida: Button
 +aceptarParIndividuo()
 +aceptarParEntorno()
-+aceptarTablero()
 +restablecerTablero()
 +restablecerIndividuos()
 +restablecerEntorno()
 +cargarPartida()
 +salir()
-+animationTimer: AnimationTimer
 +handle(now: long)
--start()
 -pause()
 -endGame()
 -guardar()
 -cargar()
--desabilitarSliders(a: Boolean)
-+crearTablero(columnas: int, filas: int)
-+eliminarTablero()
-+cambiarVelocidad()
 +changeStateOfLabelColumnas()
 +changeStateOfLabelFilas()
 +changeStateOfLabelVelocidad()
-+crearPartida()
 +getTamanoIndividuos(): double
 +getTamanoElementos(): double
-+mostrarContenidoCasilla(casilla: Casilla)
 +mostrarCasillas()
 +limpiarCasillas()
 +colorIndividuo(individuo: Individuo, circulo: Circle)
 +colorEelemento(elemento: Elementos, rectangle: Rectangle)
 +setControladorEscenarios(controlador: EscenariosController)
 +initialize()
--validarInicioPartida(): Boolean
 }
 
 class EscenarioPrincipalController{
@@ -516,7 +459,7 @@ class EscenariosController{
 +cargarEscenarioInicio()
 +cargarEscenarioJugar()
 +cargarEscenarioCargar()
-+cargarArbolFinal(listaIndividuos: List<Individuo>)
++cargarArbolFinal(listaIndividuos: ListaDoblementeEnlazada<Individuo>)
 }
 
 @enduml

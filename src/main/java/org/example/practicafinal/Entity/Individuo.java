@@ -2,7 +2,6 @@ package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
-import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,64 +17,9 @@ public class Individuo implements Comparable<Individuo>{
     protected int rango;
     protected int longevidad;
     private Casilla casilla;
-    private ListaEnlazada<Operacion> operaciones = new ListaEnlazada<>();
 
-    public Individuo(
-            int id,
-            int generacion,
-            int turnosVida,
-            int probReproduccion,
-            int probClonacion,
-            int rango,
-            Casilla casilla
-    ) {
-        this.id = id;
-        this.generacion = generacion;
-        this.turnosVida = turnosVida;
-        this.probReproduccion = probReproduccion;
-        this.probClonacion = probClonacion;
-        this.probMuerte = 100 - probReproduccion;
-        this.rango = rango;
-        this.casilla = casilla;
-        this.operaciones.add(new Operacion("Nacimiento", generacion, 0));
-        this.longevidad = 1;
-    }
-
-    public void restarTurnoVida(){
-        if (this.getTurnosVida() > 0){
-            this.setTurnosVida(turnosVida - 1);
-        }
-    }
-
-    public int getLongevidad() {
-        return longevidad;
-    }
-
-    public void sumarLongevidad() {
-        this.longevidad++;
-    }
-
-    public int getProbReproduccion() {
-        return probReproduccion;
-    }
-
-    public void setProbReproduccion(int probReproduccion) {
-        this.probReproduccion = probReproduccion;
-        this.probMuerte = 100 - probReproduccion;
-    }
-
-    public int getProbMuerte() {
-        return this.probMuerte;
-    }
-
-    public void setProbMuerte(int probMuerte) {
-        this.probMuerte = probMuerte;
-    }
-
-
-
-
-
+    //private ListaSimple<Operacion> operaciones = new ListaSimple<>();
+    private ArrayList<Operacion> operaciones = new ArrayList<>();
     private final ListaDoblementeEnlazada<Individuo> padres = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> hijos = new ListaDoblementeEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
@@ -85,7 +29,24 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion=probclonacion;
         this.probReproduccion=probreproduc;
     }
-
+    public Individuo(
+        int id,
+        int generacion,
+        int turnosVida,
+        int probReproduccion,
+        int probClonacion,
+        int rango,
+        Casilla casilla
+    ) {
+        this.id = id;
+        this.generacion = generacion;
+        this.turnosVida = turnosVida;
+        this.probReproduccion = probReproduccion;
+        this.probClonacion = probClonacion;
+        this.probMuerte = 100 - probReproduccion;
+        this.rango = rango;
+        this.casilla = casilla;
+    }
 
     public void fromJson(JsonObject jsonObject) {
         this.id = jsonObject.get("id").getAsInt();
@@ -133,6 +94,14 @@ public class Individuo implements Comparable<Individuo>{
         this.turnosVida = turnosVida;
     }
 
+    public int getProbReproduccion() {
+        return probReproduccion;
+    }
+
+    public void setProbReproduccion(int probReproduccion) {
+        this.probReproduccion = probReproduccion;
+    }
+
     public int getProbClonacion() {
         return probClonacion;
     }
@@ -141,6 +110,13 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion = probClonacion;
     }
 
+    protected void setProbMuerte(int probReproduccion) {
+        this.probMuerte = 100 - probReproduccion;
+    }
+
+    public void setProbabilidadMuerte(int probMuerte) {
+        this.probMuerte = probMuerte;
+    }
 
     public int getRango(){
         return rango;
@@ -150,6 +126,13 @@ public class Individuo implements Comparable<Individuo>{
         this.rango = rango;
     }
 
+    public int getLongevidad() {
+        return longevidad;
+    }
+
+    public void setLongevidad(int longevidad) {
+        this.longevidad = longevidad;
+    }
 
     //FAMILY TREE
     public ListaDoblementeEnlazada<Individuo> getPadres() {
@@ -189,7 +172,11 @@ public class Individuo implements Comparable<Individuo>{
         }
     }
 
-
+    public void modificarTurnosVida(){
+        if (this.getTurnosVida() > 0){
+            this.setTurnosVida(turnosVida - 1);
+        }
+    }
 
         //METHODS PLACEHOLDERS
     public void setCasilla (Casilla casilla){this.casilla = casilla;}
@@ -198,13 +185,18 @@ public class Individuo implements Comparable<Individuo>{
         return casilla;
     }
 
-    public void addOperation(String descripcion, int turno, int tipo){
-        operaciones.add(new Operacion(descripcion, turno, tipo));
+        //GRAFO
+    public  void addOperation(String tipo, int turno){
+        operaciones.add(new Operacion(tipo, turno));
     }
 
-    public ListaEnlazada<Operacion> getOperaciones(){
+    public ArrayList<Operacion> getOperaciones(){
         return operaciones;
     }
+
+    /*public ListaSimple<Operacion> getOperaciones(){
+        return operaciones;
+    }*/
 
 
     @Override
