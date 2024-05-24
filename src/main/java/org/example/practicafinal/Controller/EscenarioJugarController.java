@@ -180,7 +180,6 @@ public class EscenarioJugarController {
     }
 
     private void mostrarContenidoCasilla(Casilla casilla) {
-        bucles.maxCosasCasilla(casilla);
         int i = 1;
         ElementoLE posicionLista;
         if (casilla.getIndividuos().getPrimero() != null) {

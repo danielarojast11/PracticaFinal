@@ -10,6 +10,8 @@ import java.util.Objects;
 
 public class Partida {
     private int probabilidadZ = 40;
+    private int probanilidadEjecucionReproduccion = 75;
+    private int probanilidadEjecucionClonacion = 75;
     private int id = 0;
     private int maxIndividuos = 3;
     private int maxElementos = 3;
@@ -219,6 +221,22 @@ public class Partida {
         );
         casilla.addIndividuo(in);
         addIndividuo(in);
+    }
+
+    public int getProbanilidadEjecucionReproduccion() {
+        return probanilidadEjecucionReproduccion;
+    }
+
+    public void setProbanilidadEjecucionReproduccion(int probanilidadEjecucionReproduccion) {
+        this.probanilidadEjecucionReproduccion = probanilidadEjecucionReproduccion;
+    }
+
+    public int getProbanilidadEjecucionClonacion() {
+        return probanilidadEjecucionClonacion;
+    }
+
+    public void setProbanilidadEjecucionClonacion(int probanilidadEjecucionClonacion) {
+        this.probanilidadEjecucionClonacion = probanilidadEjecucionClonacion;
     }
 
 
