@@ -19,6 +19,8 @@ public class Individuo implements Comparable<Individuo>{
     protected int longevidad;
     private Casilla casilla;
     private ListaEnlazada<Operacion> operaciones = new ListaEnlazada<>();
+    private ListaEnlazada<Individuo> padres = new ListaEnlazada<>();
+    private ListaEnlazada<Individuo> hijos = new ListaEnlazada<>();
 
     public Individuo(
             int id,
@@ -72,12 +74,27 @@ public class Individuo implements Comparable<Individuo>{
         this.probMuerte = probMuerte;
     }
 
+    public ListaEnlazada<Individuo> getPadres() {
+        return padres;
+    }
+
+    public void addPadre(Individuo padre){
+        this.padres.add(padre);
+    }
+
+    public ListaEnlazada<Individuo> getHijos() {
+        return hijos;
+    }
+
+    public void addHijo(Individuo hijo){
+        this.hijos.add(hijo);
+    }
 
 
 
 
-    private final ListaDoblementeEnlazada<Individuo> padres = new ListaDoblementeEnlazada<>();
-    private final ListaDoblementeEnlazada<Individuo> hijos = new ListaDoblementeEnlazada<>();
+
+
     private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
 
     public Individuo (int id, int probclonacion, int probreproduc){
@@ -148,24 +165,6 @@ public class Individuo implements Comparable<Individuo>{
 
     public void setRango(int rango){
         this.rango = rango;
-    }
-
-
-    //FAMILY TREE
-    public ListaDoblementeEnlazada<Individuo> getPadres() {
-        return padres;
-    }
-
-    public void addPadre(Individuo padre){
-        this.padres.add(padre);
-    }
-
-    public ListaDoblementeEnlazada<Individuo> getHijos() {
-        return hijos;
-    }
-
-    public void addHijo(Individuo hijo){
-        this.hijos.add(hijo);
     }
 
     public ListaDoblementeEnlazada<Individuo> getIndividuos() {
