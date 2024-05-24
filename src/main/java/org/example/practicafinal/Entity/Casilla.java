@@ -55,6 +55,10 @@ public class Casilla extends Pane {
         this.individuos.add(individuo);
     }
 
+    public void removeIndividuo(Individuo individuo) {
+        this.individuos.remove(individuo);
+    }
+
     public ListaEnlazada<Elemento> getElementos() {
         return this.elementos;
     }
@@ -112,11 +116,6 @@ public class Casilla extends Pane {
         for (Individuo individuo : individuosCasilla){
             individuosIdCasilla.add(individuo.getId());
         }
-    }
-
-    public void removeIndividuoCasilla(Individuo individuo) {
-        this.individuosCasilla.remove(individuo);
-        addIndividuoCasilla();
     }
 */
 

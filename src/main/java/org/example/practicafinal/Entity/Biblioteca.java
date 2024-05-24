@@ -1,17 +1,19 @@
 package org.example.practicafinal.Entity;
 
 public class Biblioteca extends Elemento {
-    private int alteracion;
+    private int probabilidad = 10;
 
     public Biblioteca(int tiempoActividad, Casilla casilla) {
         super(tiempoActividad, casilla);
     }
 
-    public int getAlteracion(){
-        return alteracion;
+    @Override
+    public int getProbabilidad() {
+        return probabilidad;
     }
 
-    public void setAlteracion(int valor){
-        this.alteracion=valor;
+    @Override
+    public void setProbabilidad(int probabilidad) {
+        this.probabilidad = probabilidad;
     }
 }

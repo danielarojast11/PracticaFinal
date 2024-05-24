@@ -1,7 +1,7 @@
 package org.example.practicafinal.Entity;
 
 public class Comida extends Elemento {
-    private int alteracion = 1;
+    private int alteracion = 10;
 
     public Comida(int tiempoActividad, Casilla casilla) {
         super(tiempoActividad, casilla);

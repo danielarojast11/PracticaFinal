@@ -20,8 +20,8 @@ public class IndividuoPruebaGrafo {
         this.cloneProb = cloneProb;
         this.operaciones = new ArrayList<>();
     }
-    public void addOperaciones(String description, int turn) {
-        operaciones.add(new Operacion(description, turn));
+    public void addOperaciones(String description, int turn, int type) {
+        operaciones.add(new Operacion(description, turn, type));
     }
 
     public int getId() {

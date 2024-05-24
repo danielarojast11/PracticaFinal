@@ -64,8 +64,7 @@ public class EscenarioJugarController {
                 partida.aumentarTurno();
                 lblTurno.setText("Turno: " + partida.getTurno());
 
-                // 1. mover individuos
-                partida.moverIndividuos();
+                bucles.moverIndividuos();
                 /*bucle.evaluacionFinal();
 
                 bucle.actualizarIndividuos();
@@ -376,6 +375,7 @@ public class EscenarioJugarController {
                 casilla
         );
         casilla.addIndividuo(in);
+        this.partida.addIndividuo(in);
     }
 
 
@@ -550,7 +550,7 @@ public class EscenarioJugarController {
         btnStart.setDisable(true);
         desabilitarSliders(true);
         animationTimer.stop();
-        controladorEscenarios.cargarArbolFinal(partida.getListaIndividuos());
+        //controladorEscenarios.cargarArbolFinal(partida.getListaIndividuos());
     }
 
     @FXML

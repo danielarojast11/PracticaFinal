@@ -6,6 +6,8 @@ public class Elemento implements Comparable<Elemento>
 {
     private int tiempoActividad;
     private Casilla casilla;
+    private int alteracion;
+    private int probabilidad;
 
     public Elemento(int tiempoActividad, Casilla casilla) {
         this.tiempoActividad = tiempoActividad;
@@ -20,6 +22,10 @@ public class Elemento implements Comparable<Elemento>
         this.tiempoActividad = tiempoActividad;
     }
 
+    public void reducirTiempoActividad() {
+        tiempoActividad++;
+    }
+
     public Casilla getCasilla(){
         return casilla;
     }
@@ -27,6 +33,22 @@ public class Elemento implements Comparable<Elemento>
 
     public void setCasilla(Casilla casilla){
         this.casilla = casilla;
+    }
+
+    public int getAlteracion() {
+        return alteracion;
+    }
+
+    public void setAlteracion(int alteracion) {
+        this.alteracion = alteracion;
+    }
+
+    public int getProbabilidad() {
+        return probabilidad;
+    }
+
+    public void setProbabilidad(int probabilidad) {
+        this.probabilidad = probabilidad;
     }
 
     @Override

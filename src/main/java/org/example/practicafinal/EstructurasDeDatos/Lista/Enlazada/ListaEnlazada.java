@@ -1,5 +1,7 @@
 package org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada;
 
+import org.example.practicafinal.Entity.Individuo;
+
 public class ListaEnlazada<TipoDato> {
     private ElementoLE<TipoDato> primero;
 
@@ -77,6 +79,23 @@ public class ListaEnlazada<TipoDato> {
         }
     }
 
+    public void remove(TipoDato dato){
+        int contador = 0;
+        ElementoLE<TipoDato> auxiliar;
+        auxiliar = primero;
+        if (auxiliar.getData() == dato) {
+            del(contador);
+        }
+        while (auxiliar.getSiguiente() != null) {
+            auxiliar = auxiliar.getSiguiente();
+            contador++;
+            if (auxiliar.getData() == dato) {
+                del(contador);
+                break;
+            }
+        }
+    }
+
     public int del(int position){
         int contador = 0;
         ElementoLE<TipoDato> auxiliar;
@@ -141,17 +160,20 @@ public class ListaEnlazada<TipoDato> {
 
     public ElementoLE<TipoDato> getElemento(int position){
         int contador = 0;
-        ElementoLE<TipoDato> valor = null;
-        ElementoLE<TipoDato> auxiliar = primero;
-        while (contador<=position){
-            if (contador==position){
-                valor = new ElementoLE<>(auxiliar.getData());
-                break;
-            } else{
+        ElementoLE<TipoDato> auxiliar;
+        if (primero != null){
+            auxiliar = primero;
+            while (auxiliar.getSiguiente() != null){
+                if (contador == position){
+                    return auxiliar;
+                }
                 auxiliar = auxiliar.getSiguiente();
+                contador++;
             }
-            contador++;
+
+            return null;
         }
-        return valor;
+
+        return null;
     }
 }

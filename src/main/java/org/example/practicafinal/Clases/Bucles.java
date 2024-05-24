@@ -1,10 +1,8 @@
 package org.example.practicafinal.Clases;
 
-import org.example.practicafinal.Entity.Elemento;
-import org.example.practicafinal.Entity.Individuo;
-import org.example.practicafinal.Entity.Partida;
-import org.example.practicafinal.Entity.Casilla;
+import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.jetbrains.annotations.NotNull;
 
 public class Bucles {
@@ -12,6 +10,58 @@ public class Bucles {
 
     public Bucles(Partida partida){
         this.partida = partida;
+    }
+
+    public void moverIndividuos(){
+        boolean sigueVivo = true;
+        ElementoLE casillaActual = partida.getListaCasillas().getPrimero();
+        while (casillaActual != null) {
+            Casilla casilla = (Casilla) casillaActual.getData();
+            ElementoLE individuoActual = casilla.getIndividuos().getPrimero();
+            while (individuoActual != null) {
+                Individuo individuo = (Individuo) individuoActual.getData();
+                casilla.removeIndividuo(individuo);
+                individuo.restarTurnoVida();
+                individuo.setProbReproduccion(individuo.getProbReproduccion() - 10);
+                individuo.setProbClonacion(individuo.getProbClonacion() - 10);
+
+                if (individuo.getTurnosVida() == 0) {
+                    individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
+                    continue;
+                } else {
+                    individuo.getOperaciones().add(new Operacion("Cambio casilla", partida.getTurno(), 1));
+                    individuo.sumarLongevidad();
+                    Casilla casillaDestino = null;
+                    switch (individuo.getRango()) {
+                        case 1:
+                            casillaDestino = partida.moverBasico();
+                            break;
+                        case 2:
+                            casillaDestino = partida.moverNormal(casilla);
+                            break;
+                        case 3:
+                            casillaDestino = partida.moverAvanzado(casilla);
+                            break;
+                    }
+
+                    individuo.setCasilla(casillaDestino);
+                    evaluarIndividuoRecursos(individuo);
+                    if (individuo.getProbMuerte() >= 100 || individuo.getTurnosVida() == 0) {
+                        individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
+                        continue; // Continuo el bucle porque el individuo a muerto fijo
+                    }
+
+                    casillaDestino.addIndividuo(individuo);
+                }
+
+                individuoActual = individuoActual.getSiguiente();
+            }
+
+            evaluarElementosCasilla(casilla);
+            maxCosasCasilla(casilla);
+
+            casillaActual = casillaActual.getSiguiente();
+        }
     }
 
     public void maxCosasCasilla(Casilla casilla){
@@ -27,41 +77,66 @@ public class Bucles {
         }
     }
 
+    private void evaluarElementosCasilla(Casilla casilla) {
+        ElementoLE elementoLE = casilla.getElementos().getPrimero();
+        while (elementoLE != null) {
+            Elemento elemento = (Elemento) elementoLE.getData();
+            elemento.reducirTiempoActividad();
+            if (elemento.getTiempoActividad() <= 0) {
+                casilla.getElementos().remove(elemento);
+            }
+
+            elementoLE = elementoLE.getSiguiente();
+        }
+
+        if (casilla.getElementos().getNumeroElementos() < partida.getMaxElementos()) {
+            // Al haber hueco... no tengo claro como va lo de probabilidad "Z" así que lo hago por estadistica...
+            // ... un 40% de probabilidad de que se añada un recurso
+            int probabilidadZ = (int) Math.random() * 100;
+            if (partida.getProbabilidadZ() <= probabilidadZ) {
+                // No veo claro como calcular la probabilidad V así que lo pondero...
+                int probabilidadV = (int) Math.random() * 100;
+
+            }
+        }
+    }
+
+    private void evaluarIndividuoRecursos(Individuo individuo) {
+        ElementoLE elementoLe = individuo.getCasilla().getElementos().getPrimero();
+        while (elementoLe != null) {
+            Elemento elemento = (Elemento) elementoLe.getData();
+            if (elemento instanceof Agua) {
+                individuo.setTurnosVida(individuo.getTurnosVida() + elemento.getAlteracion());
+                individuo.getOperaciones().add(new Operacion("Bebe agua", partida.getTurno(), 3));
+            } else if (elemento instanceof Comida) {
+                individuo.setTurnosVida(individuo.getTurnosVida() + elemento.getAlteracion());
+                individuo.getOperaciones().add(new Operacion("Come", partida.getTurno(), 4));
+            } else if (elemento instanceof Montaña) {
+                individuo.setTurnosVida(individuo.getTurnosVida() + elemento.getAlteracion());
+                individuo.getOperaciones().add(new Operacion("Montaña", partida.getTurno(), 5));
+            } else if (elemento instanceof Tesoro) {
+                individuo.setProbReproduccion(individuo.getProbReproduccion() + elemento.getProbabilidad());
+                individuo.getOperaciones().add(new Operacion("Montaña", partida.getTurno(), 6));
+            } else if (elemento instanceof Biblioteca) {
+                individuo.setProbClonacion(individuo.getProbClonacion() + elemento.getProbabilidad());
+                individuo.getOperaciones().add(new Operacion("Montaña", partida.getTurno(), 7));
+                if (individuo.getRango() < 3) {
+                    individuo.setRango(individuo.getRango() + 1);
+                }
+            } else if (elemento instanceof Pozo) {
+                individuo.setProbMuerte(100);
+                individuo.getOperaciones().add(new Operacion("Montaña", partida.getTurno(), 8));
+            }
+
+            elementoLe = elementoLe.getSiguiente();
+        }
+    }
+
 
 
 
     private ListaDoblementeEnlazada<Individuo> listaIndividuos;
     private ListaDoblementeEnlazada<Casilla> tablero;
-    private Individuo individuo;
-
-    public void eliminarIndividuo(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        ListaDoblementeEnlazada<Individuo> individuoscopia = new ListaDoblementeEnlazada<>();
-        individuoscopia.add(listaIndividuos);
-        listaIndividuos.vaciar();
-        /*for (Individuo individuo: individuoscopia){
-            if (individuo.getTurnosVida()>0){
-                listaIndividuos.add(individuo);
-            }
-        }*/
-    }
-
-    public void actualizarIndividuos(){
-        ListaDoblementeEnlazada<Individuo> listadoIndividuos = new ListaDoblementeEnlazada<>();
-        /*if (partida.getListaIndividuos() != null){
-            for (Individuo individuo : partida.getListaIndividuos()){
-                //Actualizar y Eliminar Individuos
-                if (individuo.getTurnosVida()==0){
-                    individuo.getCasilla().removeIndividuoCasilla(individuo);
-                } else {
-                    individuo.modificarTurnosVida();
-                    individuo.modificarReprod();
-                    individuo.modificarClonacion();
-                    listadoIndividuos.add(individuo);
-                }
-            }
-        }*/
-        partida.setListaIndividuos(listadoIndividuos);
-    }
 
     public void actualizarElementos(){
         ListaDoblementeEnlazada<Elemento> listaElementos = new ListaDoblementeEnlazada<>();
@@ -72,39 +147,11 @@ public class Bucles {
             } else {
                 elemento.getCasilla().removeElementoCasilla(elemento);
             }
-        }*/
-        partida.setListaElementos(listaElementos);
+        }
+        partida.setListaElementos(listaElementos);*/
     }
 
-        //3-Mover Individuos
 
-    public void moverIndividuos(){
-        /*for (Individuo individuo : listaIndividuos) {
-            Casilla casillaVieja = individuo.getCasilla();
-            Casilla casillaNueva = new Casilla();
-            switch (individuo.getRango()) {
-                case 1:
-                    casillaNueva = partida.moverBasico();
-                    break;
-                case 2:
-                    casillaNueva = partida.moverNormal(casillaVieja);
-                    break;
-                case 3:
-                    casillaNueva = partida.moverAvanzado(casillaVieja);
-                    break;
-            }
-
-            individuo.setCasilla(casillaNueva);
-            for (Casilla casilla : partida.getListaCasillas()) {
-                if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
-                    casilla.removeIndividuoCasilla(individuo);
-                }
-                if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
-                    casilla.addIndividuoCasilla(individuo);
-                }
-            }
-        }*/
-    }
 
         //4-Evaluar las mejoras obtenidas por los recursos
     public Individuo individuoMejorado(ListaDoblementeEnlazada<Casilla> listaCasillas,
@@ -117,50 +164,6 @@ public class Bucles {
                     individuoConRecurso(individuo, elemento, partida);
                 }
             }
-        }
-        return individuo;*/
-        return null;
-    }
-
-    protected Individuo individuoConRecurso(Individuo individuo,
-                                            Elemento elemento,
-                                            Partida partida){
-
-       /* if (elemento.getType() == 0){
-            int individuoAgua = individuo.getTurnosVida() +2;
-            individuo.setTurnosVida(individuoAgua);
-            return individuo;
-
-        } else if (elemento.getType() == 1) {
-            int individuoComida = individuo.getTurnosVida() + 10;
-            individuo.setTurnosVida(individuoComida);
-            return individuo;
-
-        } else if (elemento.getType() == 2) {
-            int sliderClon = partida.getProbClonacion();
-            int probClon = (sliderClon * individuo.getProbReproduccion()) / 100;
-            int individuoBiblioteca = individuo.getProbClonacion() - probClon;
-            individuo.setProbClonacion(individuoBiblioteca);
-            if (individuo.getRango() < 3) {
-                int individuoRango = individuo.getRango() + 1;
-                individuo.setRango(individuoRango);
-                return individuo;
-            }
-
-        } else if (elemento.getType() == 3) {
-            int individuoMontana = individuo.getTurnosVida() -2;
-            individuo.setTurnosVida(individuoMontana);
-            return individuo;
-
-        } else if (elemento.getType() == 4) {
-            int sliderRep = partida.getProbReproduccion();
-            int probRep = (sliderRep * individuo.getProbReproduccion()) / 100;
-            int individuoCofre = individuo.getProbReproduccion() + probRep;
-            individuo.setProbReproduccion(individuoCofre);
-            return individuo;
-
-        } else if (elemento.getType() == 5) {
-            individuo.setProbabilidadMuerte(100);
         }
         return individuo;*/
         return null;

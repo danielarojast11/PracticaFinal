@@ -3,11 +3,13 @@ package org.example.practicafinal.Entity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 import java.util.Objects;
 
 public class Partida {
+    private int probabilidadZ = 40;
     private int id = 0;
     private int maxIndividuos = 3;
     private int maxElementos = 3;
@@ -30,6 +32,7 @@ public class Partida {
     private int filas;
 
     private ListaEnlazada<Casilla> listaCasillas = new ListaEnlazada<>();
+    private ListaEnlazada<Individuo> listaIndividuos = new ListaEnlazada<>();
 
     public Partida(
             int turnosVida,
@@ -138,16 +141,71 @@ public class Partida {
         return this.listaCasillas;
     }
 
+    public void addIndividuo(Individuo individuo) {
+        this.listaIndividuos.add(individuo);
+    }
+
     public void aumentarTurno(){
         this.turno++;
     }
 
+    public Casilla moverBasico(){
+        int posicion = (int) (Math.random() * listaCasillas.getNumeroElementos());
+        return listaCasillas.getElemento(posicion).getData();
+    }
 
+    public Casilla moverNormal(Casilla casilla){
+        ListaEnlazada<Casilla> casillasSeleccionables = new ListaEnlazada<>();
+        ElementoLE<Casilla> posicionActual = this.listaCasillas.getPrimero();
+        while (posicionActual != null) {
+            Casilla casillaActual = posicionActual.getData();
+            if (
+                    (
+                            casillaActual.getFila() == casilla.getFila() ||
+                                    casillaActual.getColumna() == casilla.getColumna()
+                    ) &&
+                    casillaActual.getElementos().getNumeroElementos() > 0
+            ) {
+                casillasSeleccionables.add(casillaActual);
+            }
 
+            posicionActual = posicionActual.getSiguiente();
+        }
 
+        Casilla nuevaCasilla;
+        int posicion = (int)(Math.random() * casillasSeleccionables.getNumeroElementos());
+        return casillasSeleccionables.getElemento(posicion).getData();
+    }
 
-    private ListaDoblementeEnlazada<Individuo> listaIndividuos = new ListaDoblementeEnlazada<>();
-    private ListaDoblementeEnlazada <Elemento> listaElementos = new ListaDoblementeEnlazada<>();
+    public Casilla moverAvanzado(Casilla casilla){
+        int distancia = 1000;
+        Casilla casillaDestino = null;
+        ElementoLE<Casilla> posicionActual = this.listaCasillas.getPrimero();
+        while (posicionActual != null) {
+            // Distancia de Chebyshov
+            int d2 = Math.max(
+                    Math.abs(casilla.getFila() - posicionActual.getData().getFila()),
+                    Math.abs(casilla.getColumna() - posicionActual.getData().getColumna())
+            );
+            if (distancia > d2) {
+                distancia = d2;
+                casillaDestino = posicionActual.getData();
+            }
+
+            posicionActual = posicionActual.getSiguiente();
+        }
+
+        return casillaDestino;
+    }
+
+    public int getProbabilidadZ() {
+        return probabilidadZ;
+    }
+
+    public void setProbabilidadZ(int probabilidadZ) {
+        this.probabilidadZ = probabilidadZ;
+    }
+
 
 
 
@@ -241,10 +299,6 @@ public class Partida {
 
 
 
-    public ListaDoblementeEnlazada<Individuo> getListaIndividuos(){
-        return listaIndividuos;
-    }
-
     public int getNumeroIndividuosBasicos() {
         return numeroIndividuosBasicos;
     }
@@ -267,10 +321,6 @@ public class Partida {
 
     public void setNumeroIndividuosAvanzados(int numeroIndividuosAvanzados) {
         this.numeroIndividuosAvanzados = numeroIndividuosAvanzados;
-    }
-
-    public void setListaIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        this.listaIndividuos = listaIndividuos;
     }
 
     public void removeIndividuo(Individuo individuo) {
@@ -329,12 +379,6 @@ public class Partida {
 
     public void setPozo(int pozo) {
         this.pozo = pozo;
-    }
-
-    public ListaDoblementeEnlazada<Elemento> getListaElementos(){return this.listaElementos;}
-
-    public void setListaElementos(ListaDoblementeEnlazada<Elemento> listaElementos) {
-        this.listaElementos = listaElementos;
     }
 
     public int getTiempoActividad() {
@@ -470,76 +514,6 @@ public class Partida {
         return pozo;
     }*/
 
-        //MOVER INDIVIDUOS
-    public Casilla moverBasico(){
-        return casillaAleatoria();
-    }
-
-    public Casilla moverNormal(Casilla casillaVieja){
-        Casilla nuevaCasilla;
-        int indice = (int)(Math.random()*(listaElementos.getNumeroElementos()));
-        System.out.println("longitud: "+listaElementos.getNumeroElementos());
-        System.out.println(indice);
-        /*Elemento elementoAleatorio = getListaElementos().get(indice);
-        Casilla casillaElemento = elementoAleatorio.getCasilla();
-        int eleccion = (int)(Math.random()*2);
-        if (eleccion==0){
-            nuevaCasilla = new Casilla(casillaVieja.getColumna(), casillaElemento.getFila());
-        } else{
-            nuevaCasilla = new Casilla(casillaElemento.getColumna(), casillaVieja.getFila());
-        }
-        return nuevaCasilla;*/
-        return null;
-    }
-
-    public Casilla moverAvanzado(Casilla casillaActual){
-        int distancia = 1000;
-        Casilla casillaDestino = null;
-        /*for(Elemento e: listaElementos) {
-            // Distancia de Chebyshov
-            int d2 = Math.max(
-                    Math.abs(e.getCasilla().getFila() - casillaActual.getFila()),
-                    Math.abs(e.getCasilla().getColumna() - casillaActual.getColumna())
-            );
-            if (distancia > d2) {
-                distancia = d2;
-                casillaDestino = e.getCasilla();
-            }
-        }*/
-
-        return casillaDestino;
-    }
-
-    public void moverIndividuos(){
-        if (listaIndividuos != null){
-            /*for (Individuo individuo : listaIndividuos) {
-                Casilla casillaVieja = individuo.getCasilla();
-                Casilla casillaNueva = new Casilla();
-                switch (individuo.getRango()) {
-                    case 1:
-                        casillaNueva = moverBasico();
-                        break;
-                    case 2:
-                        casillaNueva = moverNormal(casillaVieja);
-                        break;
-                    case 3:
-                        casillaNueva = moverAvanzado(casillaVieja);
-                        break;
-                }
-
-                individuo.setCasilla(casillaNueva);
-                for (Casilla casilla : getListaCasillas()) {
-                    if (Objects.equals(casilla.getId(), casillaVieja.getId())) {
-                        casilla.removeIndividuoCasilla(individuo);
-                    }
-                    if (Objects.equals(casilla.getId(), casillaNueva.getId())) {
-                        casilla.addIndividuoCasilla(individuo);
-                    }
-                }
-            }*/
-        }
-    }
-
         //MODIFY PARAMETERS
     public void modificarId(){
          this.setId(id+1);
@@ -557,10 +531,6 @@ public class Partida {
 
     public Casilla casillaAleatoria(){
         return new Casilla(columnaAleatoria(),filaAleatoria());
-    }
-
-    public int getIndividuosTotales(){
-        return listaIndividuos.getNumeroElementos();
     }
 
 

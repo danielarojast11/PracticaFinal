@@ -182,6 +182,7 @@ public class CasillaDialog extends Dialog<Casilla> {
                     casilla
             );
             this.casilla.addIndividuo(in);
+            this.partida.addIndividuo(in);
         }
     }
 }
