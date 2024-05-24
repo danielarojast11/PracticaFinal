@@ -8,12 +8,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="Revision">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/AguaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/BibliotecaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/CasillaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/ComidaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/ElementoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/IndividuoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/MontañaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/OperacionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/PartidaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/PozoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Entity/TesoroTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Elemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Operacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Operacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Entity/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Grafo/Carretera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Grafo/Ciudad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Grafo/Grafo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Grafo/MainGrafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/Grafo/MainGrafo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/AguaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/BibliotecaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ComidaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/ElementoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/MontañaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/PozoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Entorno/TesoroTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Individuo/IndividuoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Partida/PartidaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/CasillaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/Clases/Tablero/PartidaCasillaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Grafo/CarreteraTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Grafo/CiudadTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/practicafinal/EstructurasDeDatos/Grafo/GrafoTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +54,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -46,9 +71,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AguaTest.executor": "Coverage",
+    "JUnit.BibliotecaTest.executor": "Coverage",
+    "JUnit.CasillaTest.executor": "Coverage",
+    "JUnit.ComidaTest.executor": "Coverage",
+    "JUnit.ElementoTest.executor": "Coverage",
+    "JUnit.IndividuoTest.executor": "Coverage",
+    "JUnit.MontañaTest.executor": "Coverage",
+    "JUnit.OperacionTest.executor": "Coverage",
+    "JUnit.PartidaTest.executor": "Coverage",
+    "JUnit.PozoTest.executor": "Coverage",
+    "JUnit.TesoroTest.executor": "Coverage",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
@@ -65,27 +107,14 @@
       <recent name="org.example.practicafinal" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.practicafinal.Entity" />
       <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol.AVL" />
       <recent name="org.example.practicafinal.EstructurasDeDatos.Grafo" />
       <recent name="org.example.practicafinal.EstructurasDeDatos.Arbol" />
       <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada" />
-      <recent name="org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
-      <module name="PracticaFinal" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.practicafinal.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -95,6 +124,19 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.practicafinal.MainApplication" />
+      <module name="PracticaFinal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.practicafinal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -540,7 +582,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -571,55 +612,61 @@
     <option name="LAST_COMMIT_MESSAGE" value="Revision" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Tablero.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$ComidaTest.ic" NAME="ComidaTest Coverage Results" MODIFIED="1715635367323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoBasicoTest.ic" NAME="IndividuoBasicoTest Coverage Results" MODIFIED="1715634673386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$BibliotecaTest.ic" NAME="BibliotecaTest Coverage Results" MODIFIED="1715635373133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$ListaSimpleTest.ic" NAME="ListaSimpleTest Coverage Results" MODIFIED="1716316235393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.EstructurasDeDatos.Lista.Simple.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1716574503447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$MainApplication.ic" NAME="MainApplication Coverage Results" MODIFIED="1715359139006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.example.practicafinal.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoTest.ic" NAME="IndividuoTest Coverage Results" MODIFIED="1715806577335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$AguaTest.ic" NAME="AguaTest Coverage Results" MODIFIED="1715635379205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$PartidaTest.ic" NAME="PartidaTest Coverage Results" MODIFIED="1715983826284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Partida.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$TesoroTest.ic" NAME="TesoroTest Coverage Results" MODIFIED="1715635347840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoNormalTest.ic" NAME="IndividuoNormalTest Coverage Results" MODIFIED="1715634624225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
+    <SUITE FILE_PATH="coverage/PracticaFinal$PozoTest.ic" NAME="PozoTest Coverage Results" MODIFIED="1716568674666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$BuclesTest.ic" NAME="BuclesTest Coverage Results" MODIFIED="1715880604773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.BuclesDeControl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$ElementosTest.ic" NAME="ElementosTest Coverage Results" MODIFIED="1715806472037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
+    <SUITE FILE_PATH="coverage/PracticaFinal$ComidaTest.ic" NAME="ComidaTest Coverage Results" MODIFIED="1716568734730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$TesoroTest.ic" NAME="TesoroTest Coverage Results" MODIFIED="1716568660273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$BibliotecaTest.ic" NAME="BibliotecaTest Coverage Results" MODIFIED="1716568714145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoBasicoTest.ic" NAME="IndividuoBasicoTest Coverage Results" MODIFIED="1715634673386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$OperacionTest.ic" NAME="OperacionTest Coverage Results" MODIFIED="1716574719935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$PartidaCasillaTest.ic" NAME="PartidaCasillaTest Coverage Results" MODIFIED="1715799202625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Tablero.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$MontañaTest.ic" NAME="MontañaTest Coverage Results" MODIFIED="1716568691356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoTest.ic" NAME="IndividuoTest Coverage Results" MODIFIED="1716577318483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoNormalTest.ic" NAME="IndividuoNormalTest Coverage Results" MODIFIED="1715634624225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/PracticaFinal$IndividuoAvanzadoTest.ic" NAME="IndividuoAvanzadoTest Coverage Results" MODIFIED="1715634656088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Individuo.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$PozoTest.ic" NAME="PozoTest Coverage Results" MODIFIED="1715635353915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
+    <SUITE FILE_PATH="coverage/PracticaFinal$AguaTest.ic" NAME="AguaTest Coverage Results" MODIFIED="1716568726760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/PracticaFinal$MontañaTest.ic" NAME="MontañaTest Coverage Results" MODIFIED="1715635361692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/PracticaFinal$PartidaTest.ic" NAME="PartidaTest Coverage Results" MODIFIED="1716579443105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$ElementoTest.ic" NAME="ElementoTest Coverage Results" MODIFIED="1716569199850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.practicafinal.Entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PracticaFinal$ElementosTest.ic" NAME="ElementosTest Coverage Results" MODIFIED="1715806472037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.example.practicafinal.Clases.Entorno.*</FILTER>
     </SUITE>
   </component>

@@ -222,8 +222,6 @@ public class Partida {
     }
 
 
-
-
     public void fromJson(JsonObject jsonObject) {
         this.turno = jsonObject.get("turno").getAsInt();
         this.probReproduccion = jsonObject.get("probReproduccion").getAsInt();
@@ -400,135 +398,6 @@ public class Partida {
         return tiempoActividad;
     }
 
-        //GETTERS AND SETTERS PLACEHOLDERS
-
-
-    //public void setListaCasillas(ListaDoblementeEnlazada<Casilla> listaCasillas){
-        //this.listaCasillas = listaCasillas;
-    //}
-
-
-
-        //CREATE INDIVIDUALS
-    /*public IndividuoBasico crearBasico(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        IndividuoBasico basico = new IndividuoBasico(id, turno, turnosVida, probReproduccion, probClonacion);
-        modificarId();
-        listaIndividuos.add(basico);
-        Casilla casilla = casillaAleatoria();
-        basico.setCasilla(casilla);
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())){
-                casilla1.addIndividuoCasilla(basico);
-            }
-        }
-        return basico;
-    }
-
-    public IndividuoNormal crearNormal(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        IndividuoNormal normal = new IndividuoNormal(id, turno, turnosVida, probReproduccion, probClonacion);
-        modificarId();
-        listaIndividuos.add(normal);
-        Casilla casilla = casillaAleatoria();
-        normal.setCasilla(casilla);
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())){
-                casilla1.addIndividuoCasilla(normal);
-            }
-        }
-        return normal;
-    }
-
-    public IndividuoAvanzado crearAvanzado(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        IndividuoAvanzado avanzado = new IndividuoAvanzado(id, turno, turnosVida, probReproduccion, probClonacion);
-        modificarId();
-        listaIndividuos.add(avanzado);
-        Casilla casilla = casillaAleatoria();
-        avanzado.setCasilla(casilla);
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())){
-                casilla1.addIndividuoCasilla(avanzado);
-            }
-        }
-        return avanzado;
-    }
-
-        //CREATE ELEMENTS
-    public Agua crearAgua(){
-        Agua agua = new Agua();
-        Casilla casilla = casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(agua);
-                listaElementos.add(agua);
-                agua.setCasilla(casilla);
-            }
-        }
-        return agua;
-    }
-
-    public Comida crearComida(){
-        Comida comida = new Comida();
-        Casilla casilla = casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(comida);
-                listaElementos.add(comida);
-                comida.setCasilla(casilla);
-            }
-        }
-        return comida;
-    }
-    public Biblioteca crearBiblioteca(){
-        Biblioteca biblioteca = new Biblioteca();
-        Casilla casilla =casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(biblioteca);
-                listaElementos.add(biblioteca);
-                biblioteca.setCasilla(casilla);
-            }
-        }
-        return biblioteca;
-    }
-
-    public Montaña crearMontaña(){
-        Montaña montaña = new Montaña();
-        Casilla casilla =casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(montaña);
-                listaElementos.add(montaña);
-                montaña.setCasilla(casilla);
-            }
-        }
-        return montaña;
-    }
-
-    public Tesoro crearTesoro(){
-        Tesoro tesoro = new Tesoro();
-        Casilla casilla = casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(tesoro);
-                listaElementos.add(tesoro);
-                tesoro.setCasilla(casilla);
-            }
-        }
-        return tesoro;
-    }
-    public Pozo crearPozo(){
-        Pozo pozo = new Pozo();
-        Casilla casilla = casillaAleatoria();
-        for (Casilla casilla1 : listaCasillas){
-            if (Objects.equals(casilla1.getId(), casilla.getId())&&casilla1.getElementosCasilla().size()<3){
-                casilla1.addElementoCasilla(pozo);
-                listaElementos.add(pozo);
-                pozo.setCasilla(casilla);
-            }
-        }
-        return pozo;
-    }*/
-
         //MODIFY PARAMETERS
     public void modificarId(){
          this.setId(id+1);
@@ -547,7 +416,4 @@ public class Partida {
     public Casilla casillaAleatoria(){
         return new Casilla(columnaAleatoria(),filaAleatoria());
     }
-
-
-
 }
