@@ -23,7 +23,7 @@ public class Elemento implements Comparable<Elemento>
     }
 
     public void reducirTiempoActividad() {
-        tiempoActividad++;
+        tiempoActividad--;
     }
 
     public Casilla getCasilla(){

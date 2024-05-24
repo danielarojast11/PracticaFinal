@@ -206,6 +206,21 @@ public class Partida {
         this.probabilidadZ = probabilidadZ;
     }
 
+    public void colocarIndividuo(Casilla casilla, int rango) {
+        aumentarid();
+        Individuo in = new Individuo(
+                id,
+                turno,
+                turnosVida,
+                probReproduccion,
+                probClonacion,
+                rango,
+                casilla
+        );
+        casilla.addIndividuo(in);
+        addIndividuo(in);
+    }
+
 
 
 

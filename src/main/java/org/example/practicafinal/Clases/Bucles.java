@@ -13,7 +13,6 @@ public class Bucles {
     }
 
     public void moverIndividuos(){
-        boolean sigueVivo = true;
         ElementoLE casillaActual = partida.getListaCasillas().getPrimero();
         while (casillaActual != null) {
             Casilla casilla = (Casilla) casillaActual.getData();
@@ -57,6 +56,7 @@ public class Bucles {
                 individuoActual = individuoActual.getSiguiente();
             }
 
+            relacionesIndividuos(casilla);
             evaluarElementosCasilla(casilla);
             maxCosasCasilla(casilla);
 
@@ -65,16 +65,44 @@ public class Bucles {
     }
 
     public void maxCosasCasilla(Casilla casilla){
-        int contador = 0;
         while (casilla.getIndividuos().getNumeroElementos() > partida.getMaxIndividuos()) {
             int posicionEliminar = (int) (Math.random() * casilla.getIndividuos().getNumeroElementos());
             casilla.getIndividuos().del(posicionEliminar);
         }
-        contador = 0;
         while (casilla.getElementos().getNumeroElementos() > partida.getMaxElementos()) {
             int posicionEliminar = (int) (Math.random() * casilla.getElementos().getNumeroElementos());
             casilla.getElementos().del(posicionEliminar);
         }
+    }
+
+    private void relacionesIndividuos(Casilla casilla) {
+        // Reproducción
+        ElementoLE elementoLE = casilla.getIndividuos().getPrimero();
+        while (elementoLE != null) {
+            Individuo individuo = (Individuo) elementoLE.getData();
+            if (elementoLE.getSiguiente() != null) {
+                boolean r = reproduccion(individuo, (Individuo) elementoLE.getSiguiente().getData(), casilla);
+                if (r) {
+                    // Solo una reproducción, no acabemos como los chinos
+                    break;
+                }
+            }
+            elementoLE = elementoLE.getSiguiente();
+        }
+
+        // Clonación
+    }
+
+    private boolean reproduccion(Individuo individuo1, Individuo individuo2, Casilla casilla) {
+        int probabilidadReproduccion = (int) (individuo1.getProbReproduccion() + individuo2.getProbReproduccion()) / 2;
+        if (probabilidadReproduccion > 75) {
+            partida.colocarIndividuo(
+                    casilla,
+                    Math.max(individuo1.getRango(), individuo2.getRango())
+            );
+            return true;
+        }
+        return false;
     }
 
     private void evaluarElementosCasilla(Casilla casilla) {
@@ -96,7 +124,19 @@ public class Bucles {
             if (partida.getProbabilidadZ() <= probabilidadZ) {
                 // No veo claro como calcular la probabilidad V así que lo pondero...
                 int probabilidadV = (int) Math.random() * 100;
-
+                if (probabilidadV < 10) {
+                    casilla.addElemento(new Pozo(partida.getTiempoActividad(), casilla));
+                } else if (probabilidadV < 20) {
+                    casilla.addElemento(new Montaña(partida.getTiempoActividad(), casilla));
+                } else if (probabilidadV < 40) {
+                    casilla.addElemento(new Biblioteca(partida.getTiempoActividad(), casilla));
+                } else if (probabilidadV < 60) {
+                    casilla.addElemento(new Tesoro(partida.getTiempoActividad(), casilla));
+                } else if (probabilidadV < 80) {
+                    casilla.addElemento(new Comida(partida.getTiempoActividad(), casilla));
+                } else if (probabilidadV < 100) {
+                    casilla.addElemento(new Agua(partida.getTiempoActividad(), casilla));
+                }
             }
         }
     }

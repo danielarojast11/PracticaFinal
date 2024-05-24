@@ -13,8 +13,11 @@ public class Operacion {
      * 6 - Tesoro
      * 7 - Biblioteca
      * 8 - Pozo
+     * 9 - Mutación
+     * 10 - Reproducción
      */
     private int tipo;
+
     public Operacion(String descripcion, int turno, int tipo){
         this.descripcion = descripcion;
         this.turno = turno;
