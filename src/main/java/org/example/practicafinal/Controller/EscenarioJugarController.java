@@ -41,7 +41,7 @@ import java.util.*;
 import java.util.List;
 
 public class EscenarioJugarController {
-    private final boolean pruebas = false;
+    private final boolean pruebas = true;
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;
@@ -68,7 +68,7 @@ public class EscenarioJugarController {
     private GridPane tablero = new GridPane();
     private int velocidad = 50;
     private Boolean tableroCreado = false;
-    private EstructurasDeDatos estructurasDeDatos;
+    private EstructurasDeDatos estructurasDeDatos = new EstructurasDeDatos();
     private boolean cargar = false;
 
     public void setCargar(boolean bool){
@@ -467,7 +467,7 @@ public class EscenarioJugarController {
         desabilitarSliders(true);
         animationTimer.stop();
         controladorEscenarios.cargarArbolFinal(partida);
-        estructurasDeDatos.imprimirDetalles();
+        //estructurasDeDatos.imprimirDetalles(partida);
     }
 
     @FXML

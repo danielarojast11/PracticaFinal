@@ -7,9 +7,10 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada
 
 public class EstructurasDeDatos {
 
-    private Partida partida;
+    private Partida partida ;
 
-    public void imprimirDetalles() {
+    public void imprimirDetalles(Partida partida) {
+        this.partida = partida;
         System.out.println("Estructuras de datos partida");
         System.out.println("¿Qué individuo ha sido el más longevo?: " + individuoMasLongevo());
         System.out.println("¿Cuántas mutaciones ha habido?: "+ cantidadMutaciones());
