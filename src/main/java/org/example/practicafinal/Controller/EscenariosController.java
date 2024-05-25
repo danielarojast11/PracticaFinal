@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.example.practicafinal.Entity.Individuo;
+import org.example.practicafinal.Entity.Partida;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class EscenariosController {
     public void cargarEscenarioCargar(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("escenarioCargar-view.fxml"));
+            loader.setLocation(getClass().getResource("/org/example/practicafinal/escenarioCargar-view.fxml"));
             AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             EscenarioCargarController c = loader.getController();
@@ -72,15 +73,15 @@ public class EscenariosController {
         }
     }
 
-    public void cargarArbolFinal(ListaDoblementeEnlazada<Individuo> listaIndividuos){
+    public void cargarArbolFinal(Partida partida){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("arbolGenealogico-view.fxml"));
+            loader.setLocation(getClass().getResource("/org/example/practicafinal/arbolGenealogico-view.fxml"));
             AnchorPane pane = loader.load();
             borderPane.setCenter(pane);
             ArbolGenealogicoController a = loader.getController();
             a.setControladorEscenarios(this);
-            a.mostrarIndividuos(listaIndividuos);
+            a.mostrarIndividuos(partida);
         } catch (Exception e){
             e.printStackTrace();
         }

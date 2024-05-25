@@ -562,7 +562,7 @@ public class EscenarioJugarController {
         btnStart.setDisable(true);
         desabilitarSliders(true);
         animationTimer.stop();
-        //controladorEscenarios.cargarArbolFinal(partida.getListaIndividuos());
+        controladorEscenarios.cargarArbolFinal(partida);
     }
 
     @FXML

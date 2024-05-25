@@ -6,9 +6,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import org.example.practicafinal.Entity.Casilla;
 import org.example.practicafinal.Entity.Individuo;
 import org.example.practicafinal.Controller.EscenariosController;
+import org.example.practicafinal.Entity.Partida;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 
 public class ArbolGenealogicoController {
     public Pane paneArbol;
@@ -27,10 +30,19 @@ public class ArbolGenealogicoController {
         this.controladorEscenarios = controladorEscenarios;
     }
 
-    public void mostrarIndividuos(ListaDoblementeEnlazada<Individuo> listaIndividuos){
-        /*for (Individuo individuo : listaIndividuos){
-            mostrarIndiviuo(individuo, null, false, 0, false, true);
-        }*/
+    public void mostrarIndividuos(Partida partida){
+        ElementoLE elementoLE = partida.getListaCasillas().getPrimero();
+        while (elementoLE != null) {
+            Casilla casilla = (Casilla) elementoLE.getData();
+            ElementoLE elementoLE1 = casilla.getIndividuos().getPrimero();
+            while (elementoLE1 != null) {
+                Individuo individuo = (Individuo) elementoLE1.getData();
+                mostrarIndiviuo(individuo, null, false, 0, false, true);
+                elementoLE1 = elementoLE1.getSiguiente();
+            }
+
+            elementoLE = elementoLE.getSiguiente();
+        }
 
         /*Individuo individuo1 = new Individuo();
         individuo1.setRango(1);
@@ -98,15 +110,21 @@ public class ArbolGenealogicoController {
         }
 
         Coordenadas coordenadas = new Coordenadas(x, y);
-        for(int i = 0; i < individuoActual.getPadres().getNumeroElementos(); i++){
+        ElementoLE elementoLE = individuoActual.getPadres().getPrimero();
+        int i = 0;
+        while (elementoLE != null) {
             boolean d = i > 0;
-            //mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().size(), d, false);
+            mostrarIndiviuo((Individuo) elementoLE.getData(), coordenadas, true, individuoActual.getPadres().getNumeroElementos(), d, false);
             //mostrarIndiviuo(individuoActual.getPadres().get(i), coordenadas, true, individuoActual.getPadres().getNumeroElementos(), d);
+            i++;
         }
-        for (int i = 0; i < individuoActual.getHijos().getNumeroElementos(); i++){
+        elementoLE = individuoActual.getHijos().getPrimero();
+        i = 0;
+        while (elementoLE != null) {
             boolean d = i > 0;
-            //mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().size(), d, false);
-            //mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, false, individuoActual.getHijos().getNumeroElementos(), d);
+            mostrarIndiviuo((Individuo) elementoLE.getData(), coordenadas, true, individuoActual.getHijos().getNumeroElementos(), d, false);
+            //mostrarIndiviuo(individuoActual.getHijos().get(i), coordenadas, true, individuoActual.getHijos().getNumeroElementos(), d);
+            i++;
         }
     }
 
