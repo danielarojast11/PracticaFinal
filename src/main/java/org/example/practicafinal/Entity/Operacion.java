@@ -3,6 +3,7 @@ package org.example.practicafinal.Entity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 public class Operacion {
     private int turno;
@@ -24,10 +25,19 @@ public class Operacion {
      */
     private int tipo;
 
+    public Operacion()
+    { }
+
     public Operacion(String descripcion, int turno, int tipo){
         this.descripcion = descripcion;
         this.turno = turno;
         this.tipo = tipo;
+    }
+
+    public void fromJson(JsonObject jsonObject) {
+        this.turno = jsonObject.get("turno").getAsInt();
+        this.descripcion = jsonObject.get("descripcion").getAsString();
+        this.tipo = jsonObject.get("tipo").getAsInt();
     }
 
     public JsonObject toJson() {

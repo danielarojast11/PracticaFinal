@@ -1,5 +1,6 @@
 package org.example.practicafinal.Entity;
 
+import com.google.gson.JsonObject;
 import org.jetbrains.annotations.NotNull;
 
 public class Elemento implements Comparable<Elemento>
@@ -14,6 +15,21 @@ public class Elemento implements Comparable<Elemento>
     public Elemento(int tiempoActividad, Casilla casilla) {
         this.tiempoActividad = tiempoActividad;
         this.casilla = casilla;
+    }
+
+    public void fromJson(JsonObject jsonObject) {
+        this.tiempoActividad = jsonObject.get("tiempoActividad").getAsInt();
+        this.alteracion = jsonObject.get("alteracion").getAsInt();
+        this.probabilidad = jsonObject.get("tipo").getAsInt();
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("tiempoActividad", this.tiempoActividad);
+        jsonObject.addProperty("alteracion", this.alteracion);
+        jsonObject.addProperty("probabilidad", this.probabilidad);
+
+        return jsonObject;
     }
 
     public int getTiempoActividad() {

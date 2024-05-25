@@ -25,6 +25,9 @@ public class Individuo implements Comparable<Individuo>{
     private ListaEnlazada<Individuo> hijos = new ListaEnlazada<>();
     private final ListaDoblementeEnlazada<Individuo> individuos = new ListaDoblementeEnlazada<>();
 
+    public Individuo()
+    { }
+
     public Individuo (int id, int probclonacion, int probreproduc){
         this.id=id;
         this.probClonacion=probclonacion;
@@ -107,6 +110,31 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion = jsonObject.get("probClonacion").getAsInt();
         this.probMuerte = jsonObject.get("probMuerte").getAsInt();
         this.rango = jsonObject.get("rango").getAsInt();
+        this.longevidad = jsonObject.get("longevidad").getAsInt();
+
+        JsonArray datos = jsonObject.getAsJsonArray("operaciones");
+        this.operaciones = new ListaEnlazada<>();
+        for (int i = 0; i < datos.size(); i++) {
+            Operacion operacion = new Operacion();
+            operacion.fromJson(datos.get(i).getAsJsonObject());
+            this.operaciones.add(operacion);
+        }
+
+        datos = jsonObject.getAsJsonArray("padres");
+        this.padres = new ListaEnlazada<>();
+        for (int i = 0; i < datos.size(); i++) {
+            Individuo padre = new Individuo();
+            padre.fromJson(datos.get(i).getAsJsonObject());
+            this.padres.add(padre);
+        }
+
+        datos = jsonObject.getAsJsonArray("hijos");
+        this.hijos = new ListaEnlazada<>();
+        for (int i = 0; i < datos.size(); i++) {
+            Individuo hijo = new Individuo();
+            hijo.fromJson(datos.get(i).getAsJsonObject());
+            this.hijos.add(hijo);
+        }
     }
 
     public JsonObject toJson() {
@@ -125,6 +153,7 @@ public class Individuo implements Comparable<Individuo>{
         while (elementoLE != null) {
             Operacion operacion = (Operacion) elementoLE.getData();
             jsonArrayOperaciones.add(operacion.toJson());
+            elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("operaciones", jsonArrayOperaciones);
 
@@ -141,6 +170,7 @@ public class Individuo implements Comparable<Individuo>{
         while (elementoLE != null) {
             Individuo individuo = (Individuo) elementoLE.getData();
             jsonArrayHijos.add(individuo.toJson());
+            elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("hijos", jsonArrayHijos);
 

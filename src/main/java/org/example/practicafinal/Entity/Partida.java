@@ -270,10 +270,15 @@ public class Partida {
     }
 
     public void fromJson(JsonObject jsonObject) {
-        this.turno = jsonObject.get("turno").getAsInt();
-        this.probReproduccion = jsonObject.get("probReproduccion").getAsInt();
-        this.probClonacion = jsonObject.get("probClonacion").getAsInt();
+        this.probabilidadZ = jsonObject.get("probabilidadZ").getAsInt();
+        this.probabilidadEjecucionReproduccion = jsonObject.get("probabilidadEjecucionReproduccion").getAsInt();
+        this.probabilidadEjecucionClonacion = jsonObject.get("probabilidadEjecucionClonacion").getAsInt();
         this.id = jsonObject.get("id").getAsInt();
+        this.maxIndividuos = jsonObject.get("maxIndividuos").getAsInt();
+        this.maxElementos = jsonObject.get("maxElementos").getAsInt();
+        this.turno = jsonObject.get("turno").getAsInt();
+        this.probClonacion = jsonObject.get("probClonacion").getAsInt();
+        this.probReproduccion = jsonObject.get("probReproduccion").getAsInt();
         this.turnosVida = jsonObject.get("turnosVida").getAsInt();
         this.numeroIndividuosBasicos = jsonObject.get("numeroIndividuosBasicos").getAsInt();
         this.numeroIndividuosNormal = jsonObject.get("numeroIndividuosNormal").getAsInt();
@@ -287,31 +292,22 @@ public class Partida {
         this.tiempoActividad = jsonObject.get("tiempoActividad").getAsInt();
         this.columnas = jsonObject.get("columnas").getAsInt();
         this.filas = jsonObject.get("filas").getAsInt();
-        /*this.maximosIndividuos = jsonObject.get("maximosIndividuos").getAsInt();
 
-        JsonArray datos = jsonObject.getAsJsonArray("listaIndividuos");
-        this.listaIndividuos.clear();
-        for (int i = 0; i < datos.size(); i++) {
-            Individuo individuo = new Individuo();
-            individuo.fromJson(datos.get(i).getAsJsonObject());
-            this.listaIndividuos.add(individuo);
-        }
-
-        datos = jsonObject.getAsJsonArray("listaCasillas");
-        this.listaCasillas.clear();
+        JsonArray datos = jsonObject.getAsJsonArray("listaCasillas");
+        this.listaCasillas = new ListaEnlazada<>();
         for (int i = 0; i < datos.size(); i++) {
             Casilla casilla = new Casilla();
             casilla.fromJson(datos.get(i).getAsJsonObject());
             this.listaCasillas.add(casilla);
         }
 
-        datos = jsonObject.getAsJsonArray("listaElementos");
-        this.listaElementos.clear();
+        datos = jsonObject.getAsJsonArray("listaIndividuos");
+        this.listaIndividuos = new ListaEnlazada<>();
         for (int i = 0; i < datos.size(); i++) {
-            Elemento elemento = new Elemento();
-            elemento.fromJson(datos.get(i).getAsJsonObject());
-            this.listaElementos.add(elemento);
-        }*/
+            Individuo individuo = new Individuo();
+            individuo.fromJson(datos.get(i).getAsJsonObject());
+            this.listaIndividuos.add(individuo);
+        }
     }
 
     public JsonObject toJson() {
@@ -344,6 +340,7 @@ public class Partida {
         while (elementoLE != null) {
             Casilla casilla = (Casilla) elementoLE.getData();
             jsonArrayCasillas.add(casilla.toJson());
+            elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("listaCasillas", jsonArrayCasillas);
 
@@ -352,6 +349,7 @@ public class Partida {
         while (elementoLE != null) {
             Individuo individuo = (Individuo) elementoLE.getData();
             jsonArrayIndividuos.add(individuo.toJson());
+            elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("listaIndividuos", jsonArrayIndividuos);
 

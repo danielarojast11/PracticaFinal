@@ -15,6 +15,9 @@ public class Casilla extends Pane {
     private ListaEnlazada<Individuo> individuos = new ListaEnlazada<>();
     private ListaEnlazada<Elemento> elementos = new ListaEnlazada<>();
 
+    public Casilla()
+    { }
+
     public Casilla(int columna, int fila){
         this.columna=columna;
         this.fila=fila;
@@ -72,8 +75,25 @@ public class Casilla extends Pane {
     private final ListaDoblementeEnlazada<Integer> individuosIdCasilla = new ListaDoblementeEnlazada<>();
 
     public void fromJson(JsonObject jsonObject) {
+        this.completa = jsonObject.get("completa").getAsBoolean();
         this.columna = jsonObject.get("columna").getAsInt();
         this.fila = jsonObject.get("fila").getAsInt();
+
+        JsonArray datos = jsonObject.getAsJsonArray("individuos");
+        this.individuos = new ListaEnlazada<>();
+        for (int i = 0; i < datos.size(); i++) {
+            Individuo individuo = new Individuo();
+            individuo.fromJson(datos.get(i).getAsJsonObject());
+            this.individuos.add(individuo);
+        }
+
+        datos = jsonObject.getAsJsonArray("elementos");
+        this.elementos = new ListaEnlazada<>();
+        for (int i = 0; i < datos.size(); i++) {
+            Elemento elemento = new Elemento();
+            elemento.fromJson(datos.get(i).getAsJsonObject());
+            this.elementos.add(elemento);
+        }
     }
 
     public JsonObject toJson() {
@@ -87,8 +107,18 @@ public class Casilla extends Pane {
         while (elementoLE != null) {
             Individuo individuo = (Individuo) elementoLE.getData();
             jsonArrayIndividuos.add(individuo.toJson());
+            elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("individuos", jsonArrayIndividuos);
+
+        JsonArray jsonArrayElementos = new JsonArray();
+        elementoLE = this.elementos.getPrimero();
+        while (elementoLE != null) {
+            Elemento elemento = (Elemento) elementoLE.getData();
+            jsonArrayIndividuos.add(elemento.toJson());
+            elementoLE = elementoLE.getSiguiente();
+        }
+        jsonObject.add("elementos", jsonArrayElementos);
 
         return jsonObject;
     }
