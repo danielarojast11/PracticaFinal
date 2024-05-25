@@ -1,7 +1,9 @@
 package org.example.practicafinal.EstructurasDeDatos;
 
 import org.example.practicafinal.Entity.*;
+import org.example.practicafinal.EstructurasDeDatos.Grafo.GrafoOperaciones;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 public class EstructurasDeDatos {
 
@@ -18,6 +20,21 @@ public class EstructurasDeDatos {
         System.out.println("Qué individuo ha conseguido llegar a un momento de vida máximo?: " + individuoMasTiempoDeVida());
         System.out.println("¿Cuánto ha sido?: " + duracionIndividuoMasTiempoDeVida());
         System.out.println("¿Coincide con el más longevo?: " + comparaIndividuo());
+    }
+
+    private GrafoOperaciones pintarGrafo(){
+        ListaEnlazada individuos = new ListaEnlazada();
+        GrafoOperaciones grafoOperaciones = new GrafoOperaciones();
+        ElementoLE elementoLE = partida.getListaIndividuos().getPrimero();
+        while (elementoLE != null){
+            Individuo individuo = (Individuo) elementoLE.getData();
+            ElementoLE elementoLE1 = individuo.getOperaciones().getPrimero();
+            if(elementoLE1 != null){
+                individuos.add(individuo);
+            }
+            elementoLE = elementoLE.getSiguiente();
+        }
+        return grafoOperaciones;
     }
 
     private Individuo individuoMasLongevo(){

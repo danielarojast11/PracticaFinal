@@ -1,9 +1,7 @@
 package org.example.practicafinal.EstructurasDeDatos.Grafo;
 
 import org.example.practicafinal.Entity.Operacion;
-
-import java.util.ArrayList;
-import java.util.Deque;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 
 public class IndividuoPruebaGrafo {
     private int id;
@@ -11,7 +9,7 @@ public class IndividuoPruebaGrafo {
     private int lifeTurns;
     private double reproductionProb;
     private double cloneProb;
-    private ArrayList<Operacion> operaciones;
+    private ListaEnlazada<Operacion> operaciones;
 
     public IndividuoPruebaGrafo(int id, int generation, int lifeTurns, double reproductionProb, double cloneProb) {
         this.id = id;
@@ -19,7 +17,7 @@ public class IndividuoPruebaGrafo {
         this.lifeTurns = lifeTurns;
         this.reproductionProb = reproductionProb;
         this.cloneProb = cloneProb;
-        this.operaciones = new ArrayList<>();
+        this.operaciones = new ListaEnlazada<>();
     }
 
     public void addOperaciones(String description, int turn, int type) {
@@ -30,7 +28,7 @@ public class IndividuoPruebaGrafo {
         return id;
     }
 
-    public ArrayList<Operacion> getOperaciones() {
+    public ListaEnlazada<Operacion> getOperaciones() {
         return operaciones;
     }
 }

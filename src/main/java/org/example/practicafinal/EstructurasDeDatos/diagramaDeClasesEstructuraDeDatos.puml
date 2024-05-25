@@ -21,6 +21,8 @@ class IndividuoPruebaGrafo
 class verGrafo
 class Operacion
 
+class EstructuraDeDatos
+
 ListaSimple <-- ElementoLS
 
 class ElementoLS{
@@ -255,6 +257,21 @@ class Operacion{
 +getDescripcion(): String
 +getTurno(): int
 +getTipo(): int
+}
+
+class EstructuraDeDatos{
+-partida: Partida
++EstructuraDeDatos()
+-individuoMasLongevo(): Individuo
+-cantidadMutaciones(): int
+-cantidadReproducciones(): int
+-individuoConMasReproducciones(): Individuo
+-individuoConMasMutaciones(): Individuo
+-individuoMasAgua(): Individuo
+-turnosVida(casilla: Casilla)
+-individuoMasTiempoDeVida(): Individuo
+-duracionIndividuoMasTiempoDeVida(): int
+-comparaIndividuo(): Boolean
 }
 
 @enduml
