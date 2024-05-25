@@ -44,7 +44,7 @@ class Partida{
 -columnas: int
 -filas: int
 -listaCasillas: ListaEnlazada<Casilla>
--listaIndividuos: ListaDoblementeEnlazada<Individuo>
+-listaIndividuos: ListaEnlazada<Individuo>
 +Partida(turnosVida: int, probClonacion: int, probReproduccion: int, numeroIndividuosBasicos: int, numeroIndividuosNormal: int, numeroIndividuosAvanzados: int, agua: int, comida: int, montana: int, cofre: int, biblioteca: int, pozo: int, tiempoActividad: int, columnas: int, filas: int)
 +aumentarId()
 +getId(): int
@@ -66,6 +66,8 @@ class Partida{
 +getProbReproduccion(): int
 +setProbReproduccion(probReproduccion: int)
 +getListaCasillas(): ListaEnlazada<Casilla>
++getListaIndividuos(): ListaEnlazada<Individuo>
++setListaIndividuos(listaIndividuos: ListaEnlazada<Individuo>)
 +addIndividuo(individuo: Individuo)
 +aumentarTurno()
 +moverBasico(): Casilla
@@ -78,6 +80,7 @@ class Partida{
 +setProbabilidadEjecucionReproduccion(probabilidadEjecucionReproduccion: int)
 +getProbabilidadEjecucionClonacion: int
 +setProbabilidadEjecucionClonacion(probabilidadEjecucionClonacion: int)
++getNumIndividuos(): int
 +fromJson(jsonObject: JsonObject)
 +toJson(): JsonObject
 +getNumeroIndividuosBasicos(): int
@@ -119,6 +122,7 @@ class Individuo{
 -padres: ListaEnlazada<Individuo>
 -hijos: ListaDEnlazada<Individuo>
 -individuos: ListaDoblementeEnlazada<Individuo>
++Individuo()
 +Individuo(id: int, probClonacion: int, probReproduccion: int)
 +Individuo(id: int, generacion: int, turnosVida: int, probReproduccion: int, probClonacion: int, rango: int, casilla: Casilla)
 +restarTurnoVida()
@@ -146,13 +150,11 @@ class Individuo{
 +setRango(rango: int)
 +getIndividuos(): ListaDoblementeEnlazada<Individuo>
 +addIndividuo(individuo: Individuo)
-+setProbMuerte(probReproduccion: int)
-+setProbabilidadMuerte(probMuerte: int)
 +modificarReprod()
 +modificarClonacion()
 +setCasilla(casilla: Casilla)
 +getCasilla(): Casilla
-+addOperation(tipo: String, turno: int)
++addOperation(descripcion: String, tipo: String, turno: int)
 +getOperaciones(): ListaEnlazada<Operacion>
 +compareTo(o: Individuo): int
 }
@@ -225,11 +227,13 @@ class Bucles{
 -partida: Partida
 +Bucles(partida: Partida)
 +moverIndividuos()
++evaluarCasillas()
 +evaluarElementosCasilla(casilla: Casilla)
 +maxCosasCasilla(casilla: Casilla)
-+relacionesIndividuos(casilla: Casilla)
--reproduccion(individuo1: Individuo, individuo2: Individuo, casilla: Casilla)
+-relacionesIndividuos(casilla: Casilla)
+-reproduccion(individuo1: Individuo, individuo2: Individuo, casilla: Casilla): Boolean
 -evaluarIndividuoRecurso(individuo: Individuo)
++aparicionRecursos(listaCasillas: ListaDoblementeEnlazada<Casilla>, listaElementos: ListaDoblementeEnlazada<Elemento>): ListaDoblementeEnlazada<Elemento>
 }
 
 Casilla <-- Pane

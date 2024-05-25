@@ -209,7 +209,6 @@ public class Individuo implements Comparable<Individuo>{
         this.probClonacion = probClonacion;
     }
 
-
     public int getRango(){
         return rango;
     }
