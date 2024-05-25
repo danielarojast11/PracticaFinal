@@ -3,7 +3,6 @@
 
 class CasillaDialog
 class ArbolGenealogicoController
-class EscenarioCargarController
 class EscenarioInicioController
 class EscenarioJugarController
 class EscenarioPrincipalController

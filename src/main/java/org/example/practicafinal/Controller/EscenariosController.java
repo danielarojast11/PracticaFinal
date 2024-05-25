@@ -60,19 +60,6 @@ public class EscenariosController {
         }
     }
 
-    public void cargarEscenarioCargar(){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/org/example/practicafinal/escenarioCargar-view.fxml"));
-            AnchorPane pane = loader.load();
-            borderPane.setCenter(pane);
-            EscenarioCargarController c = loader.getController();
-            c.setControladorEscenarios(this);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
     public void cargarArbolFinal(Partida partida){
         try {
             FXMLLoader loader = new FXMLLoader();

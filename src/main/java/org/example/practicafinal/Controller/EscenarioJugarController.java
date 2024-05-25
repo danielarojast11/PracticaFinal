@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class EscenarioJugarController {
-    private final boolean pruebas = false;
+    private final boolean pruebas = true;
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;
