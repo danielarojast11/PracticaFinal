@@ -21,6 +21,7 @@ import javafx.stage.Window;
 import org.example.practicafinal.Clases.Bucles;
 import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.Dialog.CasillaDialog;
+import org.example.practicafinal.EstructurasDeDatos.EstructurasDeDatos;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 
 import java.io.FileReader;
@@ -56,6 +57,7 @@ public class EscenarioJugarController {
     private GridPane tablero = new GridPane();
     private int velocidad = 50;
     private Boolean tableroCreado = false;
+    private EstructurasDeDatos estructurasDeDatos;
 
     AnimationTimer animationTimer = new AnimationTimer() {
         int i = velocidad;
@@ -391,9 +393,6 @@ public class EscenarioJugarController {
     }
 
 
-
-
-
     //Parameters
     EscenariosController controladorEscenarios;
 
@@ -435,34 +434,6 @@ public class EscenarioJugarController {
     @FXML
     private Label lblReproduccion;
 
-    @FXML
-    private Button btnAceptarParIndividuo;
-
-    @FXML
-    private Button btnRestablecer;
-
-        //Modify Individuals Types
-
-    @FXML
-    private Tab tabTipoIndividuos;
-
-
-    @FXML
-    private Button btnRestablecerTipoIndividuo;
-
-    @FXML
-    private Button btnAceptarTipoIndividuo;
-
-        //Modify Elements Parameters
-
-    @FXML
-    private Tab tabEntorno;
-
-    @FXML
-    private Button btnAceptarParEntorno;
-
-    @FXML
-    private Button btnRestablecer1;
 
         //Modify Board Parameters
 
@@ -487,38 +458,11 @@ public class EscenarioJugarController {
     @FXML
     private Button btnCargarPartida;
 
-
-    @FXML
-    public void aceptarParEntorno() {
-        crearPartida();
-    }
-
     @FXML
     public void restablecerTablero(){
         sliderColumnas.setValue(5);     //Valores predeterminados
         sliderFilas.setValue(5);
         sliderVelocidad.setValue(1);
-    }
-
-    @FXML
-    public void restablecerIndividuos() {
-        sliderReproduccion.setValue(50);        //Valores predeterminados
-        sliderClonacion.setValue(50);
-        sliderVida.setValue(10);
-        sliderBasico.setValue(10);
-        sliderNormal.setValue(10);
-        sliderAvanzado.setValue(10);
-    }
-
-    @FXML
-    private void restablecerEntorno(){
-        sliderAgua.setValue(5);
-        sliderComida.setValue(5);
-        sliderMontana.setValue(5);
-        sliderCofre.setValue(5);
-        sliderBiblioteca.setValue(5);
-        sliderPozo.setValue(5);
-        sliderTiempoActividad.setValue(5);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -563,6 +507,8 @@ public class EscenarioJugarController {
         desabilitarSliders(true);
         animationTimer.stop();
         //controladorEscenarios.cargarArbolFinal(partida.getListaIndividuos());
+        estructurasDeDatos.imprimirDetalles(partida);
+        controladorEscenarios.cargarEscenarioInicio();
     }
 
     @FXML

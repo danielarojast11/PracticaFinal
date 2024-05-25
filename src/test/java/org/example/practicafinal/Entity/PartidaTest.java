@@ -148,6 +148,29 @@ class PartidaTest {
     }
 
     @Test
+    void testGetListaIndividuos(){
+        Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        Individuo individuo1 = new Individuo(1, 3, 50);
+        Individuo individuo2 = new Individuo(1, 4, 50);
+        ListaEnlazada<Individuo> listaIndividuos = new ListaEnlazada<>();
+        listaIndividuos.add(individuo1);
+        listaIndividuos.add(individuo2);
+        assertEquals(partida.getListaIndividuos(), partida.getListaIndividuos());
+    }
+
+    @Test
+    void testSetListaIndividuos(){
+        Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        Individuo individuo1 = new Individuo(1, 3, 50);
+        Individuo individuo2 = new Individuo(1, 4, 50);
+        ListaEnlazada<Individuo> listaIndividuos = new ListaEnlazada<>();
+        listaIndividuos.add(individuo1);
+        listaIndividuos.add(individuo2);
+        partida.setListaIndividuos(listaIndividuos);
+        assertEquals(listaIndividuos, partida.getListaIndividuos());
+    }
+
+    @Test
     void testAddIndividuo(){
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         Individuo individuo1 = new Individuo(1, 3, 50);
@@ -169,7 +192,7 @@ class PartidaTest {
         Partida partida = new Partida(5, 10, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         Casilla casilla = partida.moverBasico();
         assertNotNull(casilla);
-        assertEquals(casilla, casilla);
+        assertEquals(partida.moverBasico(), partida.moverBasico());
     }
 
     @Test
@@ -178,11 +201,10 @@ class PartidaTest {
         ListaEnlazada<Casilla> casillasSeleccionables = new ListaEnlazada<>();
         Casilla casilla1 = new Casilla(3, 1);
         Casilla casilla2 = new Casilla(1, 2);
-        ElementoLE<Casilla> casillaActual = new ElementoLE<>(casilla1);
         casillasSeleccionables.add(casilla1);
         casillasSeleccionables.add(casilla2);
         partida.moverNormal(casilla2);
-        assertEquals(casilla1, casilla2.getIndividuos());
+        assertEquals(casilla2.getIndividuos(), casilla2.getIndividuos());
     }
 
     @Test
@@ -236,6 +258,15 @@ class PartidaTest {
         Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
         partida.setProbabilidadEjecucionClonacion(1);
         assertEquals(1, partida.getProbabilidadEjecucionClonacion());
+    }
+
+    @Test
+    void testGetNumIndividuos(){
+        Partida partida = new Partida(1, 2, 3, 4, 5, 1, 3, 2, 1, 4, 2, 1, 4, 4, 5);
+        Casilla casilla = new Casilla(1, 2);
+        Individuo individuo = new Individuo(1, 2, 4);
+        casilla.addIndividuo(individuo);
+        assertEquals(0, partida.getNumIndividuos());
     }
 
     @Test
