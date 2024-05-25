@@ -1,7 +1,9 @@
 package org.example.practicafinal.Entity;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 import org.jetbrains.annotations.NotNull;
@@ -116,6 +118,32 @@ public class Individuo implements Comparable<Individuo>{
         jsonObject.addProperty("probClonacion", this.probClonacion);
         jsonObject.addProperty("probMuerte", this.probMuerte);
         jsonObject.addProperty("rango", this.rango);
+        jsonObject.addProperty("longevidad", this.longevidad);
+
+        JsonArray jsonArrayOperaciones = new JsonArray();
+        ElementoLE elementoLE = this.operaciones.getPrimero();
+        while (elementoLE != null) {
+            Operacion operacion = (Operacion) elementoLE.getData();
+            jsonArrayOperaciones.add(operacion.toJson());
+        }
+        jsonObject.add("operaciones", jsonArrayOperaciones);
+
+        JsonArray jsonArrayPadres = new JsonArray();
+        elementoLE = this.padres.getPrimero();
+        while (elementoLE != null) {
+            Individuo individuo = (Individuo) elementoLE.getData();
+            jsonArrayPadres.add(individuo.toJson());
+        }
+        jsonObject.add("padres", jsonArrayPadres);
+
+        JsonArray jsonArrayHijos = new JsonArray();
+        elementoLE = this.hijos.getPrimero();
+        while (elementoLE != null) {
+            Individuo individuo = (Individuo) elementoLE.getData();
+            jsonArrayHijos.add(individuo.toJson());
+        }
+        jsonObject.add("hijos", jsonArrayHijos);
+
         return jsonObject;
     }
 

@@ -1,8 +1,10 @@
 package org.example.practicafinal.Entity;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import javafx.scene.layout.Pane;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Simple.ListaSimple;
 
@@ -76,8 +78,18 @@ public class Casilla extends Pane {
 
     public JsonObject toJson() {
         JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("completa", completa);
         jsonObject.addProperty("columna", this.columna);
         jsonObject.addProperty("fila", this.fila);
+
+        JsonArray jsonArrayIndividuos = new JsonArray();
+        ElementoLE elementoLE = this.individuos.getPrimero();
+        while (elementoLE != null) {
+            Individuo individuo = (Individuo) elementoLE.getData();
+            jsonArrayIndividuos.add(individuo.toJson());
+        }
+        jsonObject.add("individuos", jsonArrayIndividuos);
+
         return jsonObject;
     }
 

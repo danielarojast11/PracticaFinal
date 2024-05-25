@@ -1,5 +1,9 @@
 package org.example.practicafinal.Entity;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
+
 public class Operacion {
     private int turno;
     private String descripcion;
@@ -24,6 +28,15 @@ public class Operacion {
         this.descripcion = descripcion;
         this.turno = turno;
         this.tipo = tipo;
+    }
+
+    public JsonObject toJson() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("turno", this.turno);
+        jsonObject.addProperty("descripcion", this.descripcion);
+        jsonObject.addProperty("tipo", this.tipo);
+
+        return jsonObject;
     }
 
     public String getDescripcion(){
