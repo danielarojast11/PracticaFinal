@@ -41,7 +41,7 @@ import java.util.*;
 import java.util.List;
 
 public class EscenarioJugarController {
-    private final boolean pruebas = true;
+    private final boolean pruebas = false;
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;
@@ -467,6 +467,7 @@ public class EscenarioJugarController {
         desabilitarSliders(true);
         animationTimer.stop();
         controladorEscenarios.cargarArbolFinal(partida);
+        estructurasDeDatos.imprimirDetalles();
     }
 
     @FXML

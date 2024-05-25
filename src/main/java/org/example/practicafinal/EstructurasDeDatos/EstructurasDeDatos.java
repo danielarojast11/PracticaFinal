@@ -9,7 +9,7 @@ public class EstructurasDeDatos {
 
     private Partida partida;
 
-    public void imprimirDetalles(Partida partida) {
+    public void imprimirDetalles() {
         System.out.println("Estructuras de datos partida");
         System.out.println("¿Qué individuo ha sido el más longevo?: " + individuoMasLongevo());
         System.out.println("¿Cuántas mutaciones ha habido?: "+ cantidadMutaciones());
