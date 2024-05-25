@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant EscenarioInicio
+participant EscenarioJugarController
+participant EscenarioCargarController
+
+activate EscenarioInicio
+User -> EscenarioInicio: Nueva Partida
+
+activate EscenarioJugarController
+EscenarioInicio -> EscenarioJugarController: nuevaPartida()
+EscenarioJugarController -> User: EscenarioJugar
+
+activate EscenarioCargarController
+User -> EscenarioInicio: Cargar Partida
+EscenarioInicio -> EscenarioCargarController: cargarPartida()
+EscenarioCargarController -> User: EscenarioCargar
+
+deactivate EscenarioInicio
+deactivate EscenarioCargarController
+deactivate EscenarioJugarController
+@enduml

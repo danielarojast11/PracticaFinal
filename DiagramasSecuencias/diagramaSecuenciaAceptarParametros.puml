@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant EscenarioJugarView
+participant EscenarioJugarController
+participant Casilla
+participant Partida
+
+activate EscenarioJugarView
+User->EscenarioJugarView: Modificar Tablero
+
+activate EscenarioJugarController
+EscenarioJugarView->EscenarioJugarController: aceptarTablero()/restablecerTablero()
+EscenarioJugarController->EscenarioJugarController: eliminarTablero()
+EscenarioJugarController->EscenarioJugarController: crearTablero()
+
+activate Casilla
+EscenarioJugarController->Casilla: new Casilla()
+Casilla->EscenarioJugarController: Casilla
+EscenarioJugarController->Partida: getListaCasillas().addCasilla()
+EscenarioJugarController->EscenarioJugarView: dibuja el tablero
+EscenarioJugarView->User:Tablero
+
+
+newpage Aceptar Individuos/Entorno
+User->EscenarioJugarView: Modificar Individuos
+EscenarioJugarView->EscenarioJugarController:aceptarTablero()/restablecerTablero()
+EscenarioJugarController->Partida: crearPartida()
+activate Partida
+Partida->EscenarioJugarController: return Partida
+User->EscenarioJugarView: Modificar Recursos
+EscenarioJugarView->EscenarioJugarController:aceptarTablero()/restablecerTablero()
+EscenarioJugarController->Partida: crearPartida()
+Partida->EscenarioJugarController: return Partida
+
+deactivate EscenarioJugarController
+deactivate EscenarioJugarView
+deactivate Partida
+deactivate Casilla
+@enduml

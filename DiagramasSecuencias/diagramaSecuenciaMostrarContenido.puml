@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant EscenarioJugarView
+participant EscenarioJugarController
+participant AnimationTimer
+participant Casilla
+
+activate EscenarioJugarView
+activate EscenarioJugarController
+activate AnimationTimer
+AnimationTimer->EscenarioJugarController: mostrarContenidoCasilla()
+EscenarioJugarController->Casilla: getIndividuos()
+Casilla->EscenarioJugarController: return Individuos
+EscenarioJugarController->EscenarioJugarView: crearVistaIndividuo()
+EscenarioJugarController->Casilla: getElementos()
+Casilla->EscenarioJugarController: return Elementos
+EscenarioJugarController->EscenarioJugarView: crearVistaElemento()
+
+@enduml
