@@ -6,16 +6,16 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.Lis
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*public class MainGrafo {
+public class MainGrafo {
     public static void main(String[] args) {
         // Crear individuos y agregar operaciones
         IndividuoPruebaGrafo individual1 = new IndividuoPruebaGrafo(1, 1, 10, 0.5, 0.5);
-        individual1.addOperaciones("Moved to (2,3)", 1);
-        individual1.addOperaciones("Found Food", 2);
+        individual1.addOperaciones("Mover", 1, 3);
+        individual1.addOperaciones("Comida", 2, 2);
 
         IndividuoPruebaGrafo individual2 = new IndividuoPruebaGrafo(2, 1, 10, 0.5, 0.6);
-        individual2.addOperaciones("Moved to (3,4)", 1);
-        individual2.addOperaciones("Cloned", 2);
+        individual2.addOperaciones("Moved to (3,4)", 1, 6);
+        individual2.addOperaciones("Cloned", 2, 5);
 
         // Crear el grafo de simulación
         GrafoOperaciones simulationGraph = new GrafoOperaciones();
@@ -27,4 +27,4 @@ import java.util.Arrays;
         // Visualizar el grafo
         verGrafo.visualizarGrafo(simulationGraph.getGrafo());
     }
-}*/
+}

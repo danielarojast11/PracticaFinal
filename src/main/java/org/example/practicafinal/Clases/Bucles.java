@@ -291,13 +291,28 @@ public class Bucles {
         //8-Aparición recursos
     public ListaDoblementeEnlazada<Elemento> aparicionRecursos(ListaDoblementeEnlazada<Casilla> listaCasillas,
                                                                ListaDoblementeEnlazada<Elemento> listaElementos){
-        /*for (Casilla casilla : listaCasillas){
-            if (casilla.getElementosCasilla().getNumeroElementos() < 3){
-                for (Elemento elemento : listaElementos){
+
+        for (int i =0; i<listaCasillas.getNumeroElementos(); i++){
+            Casilla casilla = listaCasillas.getElemento(i).getData();
+            if (casilla.getElementos().getNumeroElementos()<3){
+                Elemento elemento = new Elemento();
+                int j = (int) (Math.random()*6);
+                if (j==0){
+                    elemento=new Agua(partida.getTiempoActividad(), casilla);
+                } else if (j==1){
+                    elemento=new Comida(partida.getTiempoActividad(), casilla);
+                } else if (j==2){
+                    elemento = new Biblioteca(partida.getTiempoActividad(), casilla);
+                } else if (j==3){
+                    elemento = new Tesoro(partida.getTiempoActividad(), casilla);
+                } else if (j==4){
+                    elemento = new Montaña(partida.getTiempoActividad(), casilla);
+                } else {
+                    elemento=new Pozo(partida.getTiempoActividad(), casilla);
                 }
+                listaElementos.add(elemento);
             }
         }
-        return listaElementos;*/
-        return null;
+        return listaElementos;
     }
 }
