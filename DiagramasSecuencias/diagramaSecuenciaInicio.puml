@@ -9,16 +9,20 @@ participant EscenarioCargarController
 activate EscenarioInicio
 User -> EscenarioInicio: Nueva Partida
 
-activate EscenarioJugarController
-EscenarioInicio -> EscenarioJugarController: nuevaPartida()
-EscenarioJugarController -> User: EscenarioJugar
 
-activate EscenarioCargarController
+EscenarioInicio -> EscenarioJugarController: nuevaPartida()
+activate EscenarioJugarController
+EscenarioJugarController -> User: EscenarioJugarView
+deactivate EscenarioInicio
+deactivate EscenarioJugarController
+
 User -> EscenarioInicio: Cargar Partida
+activate EscenarioInicio
 EscenarioInicio -> EscenarioCargarController: cargarPartida()
-EscenarioCargarController -> User: EscenarioCargar
+activate EscenarioCargarController
+EscenarioCargarController -> User: EscenarioCargarView
+deactivate EscenarioCargarController
 
 deactivate EscenarioInicio
 deactivate EscenarioCargarController
-deactivate EscenarioJugarController
 @enduml
