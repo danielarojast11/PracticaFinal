@@ -502,7 +502,7 @@ public class EscenarioJugarController {
 
     @FXML
     public void restablecerIndividuos() {
-        sliderReproduccion.setValue(70);        //Valores predeterminados
+        sliderReproduccion.setValue(50);        //Valores predeterminados
         sliderClonacion.setValue(50);
         sliderVida.setValue(10);
         sliderBasico.setValue(10);
