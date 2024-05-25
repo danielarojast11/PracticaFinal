@@ -20,7 +20,7 @@ public class EscenarioInicioController {
 
     @FXML
     void cargarPartida() {
-        escenarioJugar.cargar();
+        controladorEscenarios.cargarEscenarioJugarCargar();
     }
 
     @FXML

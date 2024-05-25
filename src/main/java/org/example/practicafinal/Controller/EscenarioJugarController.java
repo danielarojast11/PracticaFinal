@@ -9,7 +9,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -17,6 +23,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.example.practicafinal.Clases.Bucles;
 import org.example.practicafinal.Entity.*;
@@ -24,10 +32,13 @@ import org.example.practicafinal.Dialog.CasillaDialog;
 import org.example.practicafinal.EstructurasDeDatos.EstructurasDeDatos;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 public class EscenarioJugarController {
     private final boolean pruebas = true;
@@ -58,6 +69,11 @@ public class EscenarioJugarController {
     private int velocidad = 50;
     private Boolean tableroCreado = false;
     private EstructurasDeDatos estructurasDeDatos;
+    private boolean cargar = false;
+
+    public void setCargar(boolean bool){
+        this.cargar = cargar;
+    }
 
     AnimationTimer animationTimer = new AnimationTimer() {
         int i = velocidad;
@@ -646,5 +662,8 @@ public class EscenarioJugarController {
         changeStateOfLabelVelocidad();
         btnPause.setDisable(true);
         btnEnd.setDisable(true);
+        if (cargar){
+            cargar();
+        }
     }
 }
