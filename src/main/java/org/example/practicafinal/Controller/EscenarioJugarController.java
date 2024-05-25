@@ -39,8 +39,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EscenarioJugarController {
+    private static final Logger log = LogManager.getLogger(EscenarioJugarController.class);
     private final boolean pruebas = false;
 
     //@FXML private Button btnAceptarTablero;
@@ -94,6 +97,7 @@ public class EscenarioJugarController {
         @Override
         public void handle(long now) {
             if (i % velocidad == 0) {
+                log.info("Bucle iniciado");
                 partida.aumentarTurno();
                 lblTurno.setText("Turno: " + partida.getTurno());
 
@@ -111,6 +115,7 @@ public class EscenarioJugarController {
                 mostrarCasillas();
             }
             i++;
+            log.info("Bucle finalizado");
         }
     };
 
@@ -121,6 +126,7 @@ public class EscenarioJugarController {
         bucles = new Bucles(partida);
         crearTablero();
         cambiarVelocidad();
+        log.info("Tablero aceptado");
     }
 
     @FXML
@@ -142,12 +148,14 @@ public class EscenarioJugarController {
         } else{
             this.velocidad = 50;
         }
+        log.info("Velocidad cambiada");
     }
 
     @FXML
     private void start() {
         if (tableroCreado){
             if (validarInicioPartida() || true) {
+                log.info("InicioPartida = True");
                 btnStart.setDisable(true);
                 btnPause.setDisable(false);
                 btnEnd.setDisable(false);
@@ -160,6 +168,7 @@ public class EscenarioJugarController {
                 alert.setTitle("Error");
                 alert.setContentText("No has colocado los individuos y los elementos en las casillas");
                 alert.showAndWait();
+                log.error("Individuos y elementos no colocados");
             }
         } else{
             Alert alert = new Alert(Alert.AlertType.ERROR);     //Si el tablero no está creado, da un aviso
@@ -167,6 +176,7 @@ public class EscenarioJugarController {
             alert.setTitle("Error");
             alert.setContentText("No has creado el Tablero");
             alert.showAndWait();
+            log.error("Tablero no creado");
         }
     }
 
@@ -182,6 +192,7 @@ public class EscenarioJugarController {
                 if (pruebas) {
                     crearPruebas(casilla);
                     mostrarContenidoCasilla(casilla);
+                    log.info("Pruebas=True");
                 }
 
                 casilla.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -204,6 +215,7 @@ public class EscenarioJugarController {
             }
         }
         this.tableroCreado = true;
+        log.info("Tablero creado");
     }
 
     public void mostrarCasillas(){
@@ -213,6 +225,7 @@ public class EscenarioJugarController {
             mostrarContenidoCasilla(casilla);
             elementoLE = elementoLE.getSiguiente();
         }
+        log.info("Contenido Casillas mostrado");
     }
 
     public void limpiarCasillas(){
@@ -222,6 +235,7 @@ public class EscenarioJugarController {
             casilla.getChildren().clear();
             elementoLE = elementoLE.getSiguiente();
         }
+        log.info("Contenido Casillas borrado");
     }
 
     private void mostrarContenidoCasilla(Casilla casilla) {
@@ -254,6 +268,7 @@ public class EscenarioJugarController {
                 );
             }
         }
+        log.info("Contenido de una Casilla mostrado");
     }
 
     private Rectangle crearVistaElemento(Elemento elemento, int i) {
@@ -275,6 +290,7 @@ public class EscenarioJugarController {
 
     private void eliminarTablero(){
         tablero.getChildren().clear();
+        log.info("Tablero eliminado");
     }
 
     private void crearPartida(){
@@ -296,6 +312,7 @@ public class EscenarioJugarController {
                 (int) sliderColumnas.getValue(),
                 (int) sliderFilas.getValue()
         );
+        log.info("Partida creada");
     }
 
     private boolean validarInicioPartida() {
@@ -323,6 +340,7 @@ public class EscenarioJugarController {
         sliderBiblioteca.setDisable(a);
         sliderPozo.setDisable(a);
         sliderTiempoActividad.setDisable(a);
+        log.info("Sliders desabilitados");
     }
 
     private void crearPruebas(Casilla casilla) {
@@ -405,6 +423,7 @@ public class EscenarioJugarController {
                 partida.setCofre(partida.getPozo() - 1);
             }
         }
+        log.info("Pruebas creadas");
     }
 
     private void colocarIndividuo(Casilla casilla, int rango) {
@@ -420,6 +439,7 @@ public class EscenarioJugarController {
         );
         casilla.addIndividuo(in);
         this.partida.addIndividuo(in);
+        log.info("Individuo colocado");
     }
 
     @FXML
@@ -427,6 +447,7 @@ public class EscenarioJugarController {
         sliderColumnas.setValue(5);     //Valores predeterminados
         sliderFilas.setValue(5);
         sliderVelocidad.setValue(1);
+        log.info("Tbalero reestablecido");
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -442,6 +463,7 @@ public class EscenarioJugarController {
     @FXML
     public void salir() {
         controladorEscenarios.cargarEscenarioInicio();
+        log.info("Ejecutando salir");
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -457,6 +479,7 @@ public class EscenarioJugarController {
         btnStart.setDisable(false);
         desabilitarSliders(false);
         animationTimer.stop();
+        log.info("Ejecutando pausar");
     }
 
     @FXML
@@ -468,6 +491,7 @@ public class EscenarioJugarController {
         animationTimer.stop();
         controladorEscenarios.cargarArbolFinal(partida);
         //estructurasDeDatos.imprimirDetalles(partida);
+        log.info("Ejecutando Fin del Juego");
     }
 
     @FXML
@@ -483,6 +507,7 @@ public class EscenarioJugarController {
         btnStart.setDisable(false);
         desabilitarSliders(false);
         animationTimer.stop();
+        log.info("Ejecutando guardar");
     }
 
     @FXML
@@ -498,6 +523,7 @@ public class EscenarioJugarController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        log.info("Ejecutando cargar");
     }
 
     ////////////////////////////////////////////////////////////////////////////

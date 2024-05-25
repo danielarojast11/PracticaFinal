@@ -8,19 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="diagramas secuencia">
-      <change afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaStart.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaAceptarParametros.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaAceptarParametros.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaEjecucion.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaEjecucion.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaInicio.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaInicio.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partida.json" beforeDir="false" afterPath="$PROJECT_DIR$/partida.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenariosController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +63,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MainApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Daniela/OneDrive - Universidad de Alcala/Escritorio/metodologia/PracticaFinal/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -84,6 +78,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -92,9 +87,10 @@
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
+      <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
       <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal\Controller" />
       <recent name="C:\Users\sanzm\OneDrive\Escritorio\UAH\1º Año\2º Cuatrimestre\PracticaFinal\src\main\java\org\example\practicafinal" />
-      <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources\org\example\practicafinal" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -141,8 +137,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -210,6 +205,7 @@
       <workItem from="1716461282831" duration="2453000" />
       <workItem from="1716590919428" duration="1071000" />
       <workItem from="1716663259070" duration="1669000" />
+      <workItem from="1716670099752" duration="1958000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -591,7 +587,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716663226557</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="diagramas secuencia">
+      <option name="closed" value="true" />
+      <created>1716670336855</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1716670336855</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +636,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aparicion individuos" />
     <MESSAGE value="Comienzo arbol" />
     <MESSAGE value="getRandom" />
     <MESSAGE value="Arbol" />
@@ -657,7 +660,8 @@
     <MESSAGE value="Detalles" />
     <MESSAGE value="UMLControllers" />
     <MESSAGE value="diagrama" />
-    <option name="LAST_COMMIT_MESSAGE" value="diagrama" />
+    <MESSAGE value="diagramas secuencia" />
+    <option name="LAST_COMMIT_MESSAGE" value="diagramas secuencia" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

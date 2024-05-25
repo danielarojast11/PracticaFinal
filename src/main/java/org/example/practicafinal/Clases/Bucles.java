@@ -1,11 +1,14 @@
 package org.example.practicafinal.Clases;
 
+import org.example.practicafinal.Controller.EscenarioJugarController;
 import org.example.practicafinal.Entity.*;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.jetbrains.annotations.NotNull;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class Bucles {
+    private static final Logger log = LogManager.getLogger(Bucles.class);
     private Partida partida;
 
     public Bucles(Partida partida){
@@ -13,6 +16,7 @@ public class Bucles {
     }
 
     public void moverIndividuos(){
+        log.info("Ejecutando moverIndividuos");
         ElementoLE casillaActual = partida.getListaCasillas().getPrimero();
         while (casillaActual != null) {
             Casilla casilla = (Casilla) casillaActual.getData();
@@ -66,6 +70,7 @@ public class Bucles {
     }
 
     public void evaluarCasillas() {
+        log.info("Ejecutando evaluarCasillas");
         ElementoLE casillaActual = partida.getListaCasillas().getPrimero();
         while (casillaActual != null) {
             Casilla casilla = (Casilla) casillaActual.getData();
@@ -77,6 +82,7 @@ public class Bucles {
     }
 
     public void evaluarElementosCasilla(Casilla casilla) {
+        log.info("Ejecutando evaluarElementosCasilla");
         ElementoLE elementoLE = casilla.getElementos().getPrimero();
         while (elementoLE != null) {
             Elemento elemento = (Elemento) elementoLE.getData();
@@ -124,6 +130,7 @@ public class Bucles {
     }
 
     private void relacionesIndividuos(Casilla casilla) {
+        log.info("Evaluando relacionesIndividuos");
         // Reproducción
         ElementoLE elementoLE = casilla.getIndividuos().getPrimero();
         while (elementoLE != null) {
@@ -172,6 +179,7 @@ public class Bucles {
     }
 
     private void evaluarIndividuoRecursos(Individuo individuo) {
+        log.info("Ejecutando evaluarIndividuosRecursos");
         ElementoLE elementoLe = individuo.getCasilla().getElementos().getPrimero();
         while (elementoLe != null) {
             Elemento elemento = (Elemento) elementoLe.getData();

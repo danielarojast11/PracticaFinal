@@ -11,7 +11,12 @@ import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.Lis
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 public class EscenariosController {
+    private static final Logger log = LogManager.getLogger(EscenariosController.class);
     private final Stage stagePrincipal;
     private BorderPane borderPane;
 
@@ -32,6 +37,7 @@ public class EscenariosController {
         }catch (IOException e){
             throw new RuntimeException(e);
         }
+        log.info("Escenario Cargado");
     }
 
     public void cargarEscenarioInicio(){
@@ -44,7 +50,9 @@ public class EscenariosController {
             c.setControladorEscenarios(this);
         } catch (Exception e){
             e.printStackTrace();
+            log.trace("Exception");
         }
+        log.info("Escenario Inicio Cargado");
     }
 
     public void cargarEscenarioJugar(){
@@ -57,7 +65,9 @@ public class EscenariosController {
             c.setControladorEscenarios(this);
         } catch (Exception e){
             e.printStackTrace();
+            log.trace("Exception");
         }
+        log.info("Escenario Jugar Cargado");
     }
 
     public void cargarEscenarioJugarCargar(){
@@ -72,6 +82,7 @@ public class EscenariosController {
         } catch (Exception e){
             e.printStackTrace();
         }
+        log.info("Escenario Jugar Cargar Cargado");
     }
 
     public void cargarArbolFinal(Partida partida){
@@ -86,5 +97,6 @@ public class EscenariosController {
         } catch (Exception e){
             e.printStackTrace();
         }
+        log.info("Arbol Final Cargado");
     }
 }

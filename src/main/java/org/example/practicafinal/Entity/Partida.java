@@ -2,13 +2,17 @@ package org.example.practicafinal.Entity;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.example.practicafinal.Controller.EscenarioJugarController;
 import org.example.practicafinal.EstructurasDeDatos.Lista.DoblementeEnlazada.ListaDoblementeEnlazada;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ElementoLE;
 import org.example.practicafinal.EstructurasDeDatos.Lista.Enlazada.ListaEnlazada;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Partida {
+    private static final Logger log = LogManager.getLogger(Partida.class);
     private int probabilidadZ = 40;
     private int probabilidadEjecucionReproduccion = 75;
     private int probabilidadEjecucionClonacion = 75;
@@ -69,6 +73,7 @@ public class Partida {
         this.tiempoActividad = tiempoActividad;
         this.columnas = columnas;
         this.filas = filas;
+        log.info("Partida creada");
     }
 
     public void aumentarid() {
@@ -160,6 +165,7 @@ public class Partida {
     }
 
     public Casilla moverBasico(){
+        log.info("Ejecutando MoverBasico");
         int posicion = (int) (Math.random() * listaCasillas.getNumeroElementos());
         ElementoLE pos = listaCasillas.getElemento(posicion);
         if (pos == null) {
@@ -170,6 +176,7 @@ public class Partida {
     }
 
     public Casilla moverNormal(Casilla casilla){
+        log.info("Ejecutando MoverNormal");
         ListaEnlazada<Casilla> casillasSeleccionables = new ListaEnlazada<>();
         ElementoLE<Casilla> posicionActual = this.listaCasillas.getPrimero();
         while (posicionActual != null) {
@@ -196,6 +203,7 @@ public class Partida {
     }
 
     public Casilla moverAvanzado(Casilla casilla){
+        log.info("Ejecutando MoverAvanzado");
         int distancia = 1000;
         Casilla casillaDestino = null;
         ElementoLE<Casilla> posicionActual = this.listaCasillas.getPrimero();
@@ -225,6 +233,7 @@ public class Partida {
     }
 
     public Individuo colocarIndividuo(Casilla casilla, int rango) {
+        log.info("Ejecutando ColocarIndividuo");
         aumentarid();
         Individuo in = new Individuo(
                 id,
@@ -308,6 +317,7 @@ public class Partida {
             individuo.fromJson(datos.get(i).getAsJsonObject());
             this.listaIndividuos.add(individuo);
         }
+        log.info("fromJson");
     }
 
     public JsonObject toJson() {
@@ -352,6 +362,7 @@ public class Partida {
             elementoLE = elementoLE.getSiguiente();
         }
         jsonObject.add("listaIndividuos", jsonArrayIndividuos);
+        log.info("toJson");
 
         return jsonObject;
     }
