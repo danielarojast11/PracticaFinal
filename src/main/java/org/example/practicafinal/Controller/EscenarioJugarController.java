@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class EscenarioJugarController {
-    private final boolean pruebas = true;
+    private final boolean pruebas = false;
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;
@@ -117,7 +117,7 @@ public class EscenarioJugarController {
     @FXML
     private void start() {
         if (tableroCreado){
-            if (validarInicioPartida()) {
+            if (validarInicioPartida() || true) {
                 btnStart.setDisable(true);
                 btnPause.setDisable(false);
                 btnEnd.setDisable(false);
@@ -474,10 +474,6 @@ public class EscenarioJugarController {
             *                   - Salir a la Pantalla de Inicio
          */
 
-    @FXML
-    public void cargarPartida(){
-        controladorEscenarios.cargarEscenarioCargar();
-    }
 
     @FXML
     public void salir() {
@@ -529,7 +525,7 @@ public class EscenarioJugarController {
         Gson gson = new Gson ();
         try {
             if (this.partida == null) {
-                //this.partida = new Partida();
+                crearPartida();
             }
             JsonElement jsonElement = JsonParser.parseReader(new FileReader("partida.json"));
             JsonObject jsonObject = jsonElement.getAsJsonObject();

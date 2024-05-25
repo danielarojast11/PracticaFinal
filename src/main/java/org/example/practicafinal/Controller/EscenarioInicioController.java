@@ -7,6 +7,7 @@ import org.example.practicafinal.Controller.EscenariosController;
 
 public class EscenarioInicioController {
     EscenariosController controladorEscenarios;
+    EscenarioJugarController escenarioJugar;
 
     @FXML
     private Button btnCargarPartida;
@@ -19,7 +20,7 @@ public class EscenarioInicioController {
 
     @FXML
     void cargarPartida() {
-        controladorEscenarios.cargarEscenarioCargar();
+        escenarioJugar.cargar();
     }
 
     @FXML

@@ -230,7 +230,7 @@
                   <Font name="Britannic Bold" size="17.0" />
                </font>
             </Label>
-          <Button mnemonicParsing="false" onAction="#cargarPartida" style="-fx-background-color: #DAD5B5;" text="Cargar Partida">
+          <Button mnemonicParsing="false" onAction="#cargar" style="-fx-background-color: #DAD5B5;" text="Cargar Partida">
                <effect>
                   <InnerShadow>
                      <color>
