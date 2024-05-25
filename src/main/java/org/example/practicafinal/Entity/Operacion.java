@@ -16,6 +16,7 @@ public class Operacion {
      * 9 - Mutación
      * 10 - Reproducción
      * 11 - Movimiento
+     * 12 - Turnos Vida
      */
     private int tipo;
 

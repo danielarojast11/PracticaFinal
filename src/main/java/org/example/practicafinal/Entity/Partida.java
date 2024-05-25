@@ -143,6 +143,14 @@ public class Partida {
         return this.listaCasillas;
     }
 
+    public ListaEnlazada<Individuo> getListaIndividuos() {
+        return listaIndividuos;
+    }
+
+    public void setListaIndividuos(ListaEnlazada<Individuo> listaIndividuos) {
+        this.listaIndividuos = listaIndividuos;
+    }
+
     public void addIndividuo(Individuo individuo) {
         this.listaIndividuos.add(individuo);
     }

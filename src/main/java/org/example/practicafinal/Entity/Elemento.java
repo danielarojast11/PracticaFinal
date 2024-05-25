@@ -10,6 +10,7 @@ public class Elemento implements Comparable<Elemento>
     private int probabilidad;
 
     public Elemento(){}
+
     public Elemento(int tiempoActividad, Casilla casilla) {
         this.tiempoActividad = tiempoActividad;
         this.casilla = casilla;
