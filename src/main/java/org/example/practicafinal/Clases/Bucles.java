@@ -50,7 +50,7 @@ public class Bucles {
                     if (individuo.getProbMuerte() >= 100 || individuo.getTurnosVida() == 0) {
                         individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
                         individuoActual = individuoActual.getSiguiente();
-                        continue; // Continuo el bucle porque el individuo a muerto fijo
+                        continue; // Continuo el bucle porque el individuo ha muerto fijo
                     }
 
                     casillaDestino.addIndividuo(individuo);

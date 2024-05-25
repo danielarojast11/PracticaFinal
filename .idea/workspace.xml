@@ -7,10 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="UML">
+    <list default="true" id="477561aa-a7f7-45e6-baad-6378207ee9a6" name="Changes" comment="diagramas secuencia">
+      <change afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaStart.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaAceptarParametros.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaAceptarParametros.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaEjecucion.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaEjecucion.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaInicio.puml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramasSecuencias/diagramaSecuenciaInicio.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partida.json" beforeDir="false" afterPath="$PROJECT_DIR$/partida.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Bucles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Clases/Partida/FuncionamientoPartida.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/ArbolGenealogicoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/Controller/EscenarioJugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/EstructurasDeDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/EstructurasDeDatos/EstructurasDeDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/practicafinal/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/practicafinal/escenarioJugar-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +69,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Daniela\OneDrive - Universidad de Alcala\Escritorio\metodologia\PracticaFinal\src\main\resources" />
@@ -192,8 +209,7 @@
       <workItem from="1716321499360" duration="666000" />
       <workItem from="1716461282831" duration="2453000" />
       <workItem from="1716590919428" duration="1071000" />
-      <workItem from="1716663259070" duration="1817000" />
-      <workItem from="1716665098502" duration="1899000" />
+      <workItem from="1716663259070" duration="1669000" />
     </task>
     <task id="LOCAL-00001" summary="2604">
       <option name="closed" value="true" />
@@ -575,15 +591,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716663226557</updated>
     </task>
-    <task id="LOCAL-00049" summary="UML">
-      <option name="closed" value="true" />
-      <created>1716665080809</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1716665080809</updated>
-    </task>
-    <option name="localTasksCounter" value="50" />
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,6 +643,7 @@
     <MESSAGE value="modificaciones" />
     <MESSAGE value="Guardar" />
     <MESSAGE value="bucle8" />
+    <MESSAGE value="UML" />
     <MESSAGE value="solucion numero individuos" />
     <MESSAGE value="intento final" />
     <MESSAGE value="turno vida = 0" />
@@ -648,8 +657,7 @@
     <MESSAGE value="Detalles" />
     <MESSAGE value="UMLControllers" />
     <MESSAGE value="diagrama" />
-    <MESSAGE value="UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="diagrama" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PracticaFinal$CasillaTest.ic" NAME="CasillaTest Coverage Results" MODIFIED="1715806411787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

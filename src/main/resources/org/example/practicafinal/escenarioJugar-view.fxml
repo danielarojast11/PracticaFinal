@@ -225,7 +225,7 @@
                   <Font name="Britannic Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="lblNumeroIndividuos" prefHeight="18.0" prefWidth="205.0" text="Nº Individuos:" textFill="WHITE">
+            <Label fx:id="lblNumeroIndividuos" prefHeight="18.0" prefWidth="414.0" text="Nº Individuos:" textFill="WHITE">
                <font>
                   <Font name="Britannic Bold" size="17.0" />
                </font>
@@ -254,15 +254,6 @@
                      </color>
                   </InnerShadow>
                </effect></Button>
-            <Button fx:id="btnCaracteristicas" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #DAD5B5;" text="Leyenda">
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.7490196228027344" green="0.7254902124404907" blue="0.615686297416687" />
-                     </color>
-                  </InnerShadow>
-               </effect>
-            </Button>
         </items>
          <effect>
             <InnerShadow choke="0.14" height="40.88" radius="26.082500000000003" width="65.45">

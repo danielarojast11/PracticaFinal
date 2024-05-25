@@ -34,8 +34,37 @@ EscenarioJugarView->EscenarioJugarController:aceptarTablero()/restablecerTablero
 EscenarioJugarController->Partida: crearPartida()
 Partida->EscenarioJugarController: return Partida
 
-deactivate EscenarioJugarController
-deactivate EscenarioJugarView
+
 deactivate Partida
 deactivate Casilla
+
+newpage Aceptar General
+
+participant Bucles
+
+User->EscenarioJugarView: Aceptar
+EscenarioJugarView->EscenarioJugarController:aceptarTablero()
+
+EscenarioJugarController->EscenarioJugarController:eliminarTablero()
+
+EscenarioJugarController->Partida:crearPartida()
+Partida->EscenarioJugarController:return Partida
+
+EscenarioJugarController->Bucles: new Bucles()
+Bucles->EscenarioJugarController:return Bucles
+
+EscenarioJugarController->EscenarioJugarController:crearTablero
+activate EscenarioJugarController #FFBBBB
+EscenarioJugarController->Partida:getColumnas(), getFilas()
+Partida->EscenarioJugarController:return Columnas, Filas
+EscenarioJugarController->Casilla: new Casilla(i,j)
+Casilla->EscenarioJugarController:return Casilla
+EscenarioJugarController->Casilla:addEventFilter()
+EscenarioJugarController->Partida:getListaCasillas.addCasilla()
+EscenarioJugarController->EscenarioJugarView:return Tablero
+deactivate EscenarioJugarController
+EscenarioJugarView->User: Tablero
+EscenarioJugarController->EscenarioJugarController:cambiarVelocidad()
+deactivate EscenarioJugarController
+deactivate EscenarioJugarView
 @enduml

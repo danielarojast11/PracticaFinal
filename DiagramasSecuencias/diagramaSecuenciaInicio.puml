@@ -2,27 +2,31 @@
 'https://plantuml.com/sequence-diagram
 
 actor User
-participant EscenarioInicio
+participant EscenarioInicioView
+participant EscenarioInicioController
 participant EscenarioJugarController
-participant EscenarioCargarController
+participant EscenariosController
 
-activate EscenarioInicio
-User -> EscenarioInicio: Nueva Partida
+activate EscenariosController
+activate EscenarioInicioView
+activate EscenarioInicioController
+User -> EscenarioInicioView: Nueva Partida
+EscenarioInicioView->EscenarioInicioController: nuevapartida()
+EscenarioInicioController->EscenariosController: cargarEscenarioJugar()
+deactivate EscenarioInicioController
+deactivate EscenarioInicioView
+EscenariosController->EscenarioJugarController: nuevo controlador
+EscenariosController->User: EscenarioJugarView
 
+activate EscenarioInicioView
+activate EscenarioInicioController
+User -> EscenarioInicioView: Cargar Partida
+EscenarioInicioView->EscenarioInicioController: cargarpartida()
+EscenarioInicioController->EscenariosController: cargarEscenarioJugarCargar()
+deactivate EscenarioInicioController
+deactivate EscenarioInicioView
+EscenariosController->EscenarioJugarController: nuevo controlador, setCargar()
+EscenarioJugarController->EscenarioJugarController: cargar()
+EscenariosController->User: EscenarioJugarView
 
-EscenarioInicio -> EscenarioJugarController: nuevaPartida()
-activate EscenarioJugarController
-EscenarioJugarController -> User: EscenarioJugarView
-deactivate EscenarioInicio
-deactivate EscenarioJugarController
-
-User -> EscenarioInicio: Cargar Partida
-activate EscenarioInicio
-EscenarioInicio -> EscenarioCargarController: cargarPartida()
-activate EscenarioCargarController
-EscenarioCargarController -> User: EscenarioCargarView
-deactivate EscenarioCargarController
-
-deactivate EscenarioInicio
-deactivate EscenarioCargarController
 @enduml

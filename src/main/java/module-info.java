@@ -8,6 +8,7 @@ module org.example.practicafinal {
     requires java.desktop;
     requires org.jetbrains.annotations;
     requires com.google.gson;
+    requires org.apache.logging.log4j;
 
     opens org.example.practicafinal to javafx.fxml;
     exports org.example.practicafinal;

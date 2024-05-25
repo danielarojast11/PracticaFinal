@@ -41,7 +41,7 @@ import java.util.*;
 import java.util.List;
 
 public class EscenarioJugarController {
-    private final boolean pruebas = true;
+    private final boolean pruebas = false;
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;

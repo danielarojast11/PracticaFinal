@@ -1,0 +1,89 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant EscenarioJugarView
+participant EscenarioJugarController
+participant AnimationTimer
+participant Partida
+participant Bucles
+participant Individuo
+participant Casilla
+participant Elemento
+
+activate EscenarioJugarView
+activate EscenarioJugarController
+User->EscenarioJugarView:Start
+EscenarioJugarView->EscenarioJugarController:start()
+EscenarioJugarController->EscenarioJugarController:validarInicioPartida()
+EscenarioJugarController->AnimationTimer:start()
+
+activate AnimationTimer
+
+AnimationTimer->Partida: aumentarTurno
+activate Partida
+Partida->AnimationTimer:return Turno
+deactivate Partida
+AnimationTimer->EscenarioJugarController: lblTurno.setText()
+EscenarioJugarController->EscenarioJugarView: mostrar Turno
+
+AnimationTimer->Bucles: actualizarIndividuos()
+activate Bucles
+Bucles->Individuo:restarTurnoVida()
+Bucles->Individuo:setProbReproduccion()
+Bucles->Individuo:setProbClonacion()
+Bucles->Individuo:getTurnosVida()
+
+AnimationTimer->Bucles:moverIndividuos()
+activate Bucles #DarkSalmon
+Bucles->Partida:mover Basico, Normal, Avanzado
+activate Partida
+Partida->Bucles:return casillaDestino
+deactivate Partida
+Bucles->Individuo:setCasilla()
+Bucles->Casilla:addIndividuo()
+deactivate Bucles
+
+AnimationTimer->Bucles:relacionesIndividuos()
+activate Bucles #FFFBBB
+Bucles->Casilla:getIndividuos()
+Casilla->Bucles:return Individuo
+Bucles->Bucles:reproduccion()
+Bucles->Partida:getProbabilidadEjecucionReproduccion()
+Partida->Bucles: return Probabilidad
+Bucles->Partida:colocarIndividuo()
+Partida->Casilla:addIndividuo()
+Partida->Partida:addIndividuo()
+Bucles->Individuo:addHijo(), addPadre()
+deactivate Bucles
+
+AnimationTimer->Bucles:evaluarIndividuosRecursos()
+activate Bucles #FFBBBB
+Bucles->Individuo:getCasilla()
+Individuo->Casilla:getElementos()
+Casilla->Bucles:return Elemento
+Bucles->Individuo: modifica
+deactivate Bucles
+
+AnimationTimer->Bucles:evaluarCasillas()
+activate Bucles #BBFFFF
+Bucles->Partida:getListaCasillas()
+Partida->Bucles:return Casilla
+Bucles->Bucles:evaluarElementosCasilla()
+Bucles->Casilla:getElementos()
+Casilla->Bucles:return Elemento
+Bucles->Elemento:reducirTiempoActividad()
+deactivate Bucles
+deactivate Bucles
+
+AnimationTimer->Partida:getNumeroIndividuos()
+Partida->AnimationTimer:return Numero Individuos
+AnimationTimer->EscenarioJugarController:lblNumeroIndividuos.setText()
+EscenarioJugarController->EscenarioJugarView:mostrar Nº Individuos
+AnimationTimer-[#red]>EscenarioJugarController:endGame()
+EscenarioJugarController-[#red]>AnimationTimer:stop()
+EscenarioJugarController-[#red]>EscenarioJugarView:cargarArbol()
+AnimationTimer->EscenarioJugarController:limpiarCasillas()
+AnimationTimer->EscenarioJugarController: mostrarCasillas()
+
+@enduml

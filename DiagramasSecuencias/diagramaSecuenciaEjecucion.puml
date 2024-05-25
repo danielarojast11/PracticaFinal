@@ -7,7 +7,7 @@ participant EscenarioJugarController
 participant AnimationTimer
 participant Partida
 participant Bucles
-Participant Gson
+
 
 activate EscenarioJugarController
 activate EscenarioJugarView
@@ -18,39 +18,14 @@ EscenarioJugarView->EscenarioJugarController:start()
 EscenarioJugarController->EscenarioJugarController: validarInicioPartida()
 EscenarioJugarController->EscenarioJugarController: desabilitarSliders()
 
-activate AnimationTimer #FFBBBB
+
 EscenarioJugarController->AnimationTimer: start()
-activate AnimationTimer #DarkSalmon
+activate AnimationTimer
 
-AnimationTimer->Partida: aumentarTurno()
-activate Partida
-Partida->AnimationTimer: return Turno
-deactivate Partida
-
-AnimationTimer->EscenarioJugarController:lblTurno.setText()
-EscenarioJugarController->EscenarioJugarView: mostrar Turno
-EscenarioJugarView->User: Turno
-
-
-AnimationTimer->Bucles: bucles de control
-activate Bucles
-Bucles->AnimationTimer: return Resultados
-deactivate Bucles
-
-AnimationTimer->Partida: getNumIndividuos()
-Partida->AnimationTimer: return NumIndividuos
-AnimationTimer-[#red]>EscenarioJugarController:endGame()
-EscenarioJugarController-[#red]>AnimationTimer:stop()
-deactivate AnimationTimer
-
-EscenarioJugarController-[#red]>EscenarioJugarView:cargarArbol()
-EscenarioJugarView-[#red]>User: Arbol Genealogico
-
-AnimationTimer->EscenarioJugarController:limpiarCasillas()
-AnimationTimer->EscenarioJugarController:mostrarCasillas()
 
 User->EscenarioJugarView: Pausar Partida
 EscenarioJugarView->EscenarioJugarController: pause()
+EscenarioJugarController->AnimationTimer:stop()
 User->EscenarioJugarView: Terminar Partida
 EscenarioJugarView->EscenarioJugarController:endGame()
 EscenarioJugarController->AnimationTimer: stop()
@@ -61,9 +36,12 @@ EscenarioJugarView->User: Arbol Genealogico
 
 
 
-newpage Cargar/Guardar Partida
+newpage Botones Superiores
 
-activate AnimationTimer #FFBBBB
+Participant Gson
+Participant EscenariosController
+
+
 User->EscenarioJugarView: Guardar Partida
 EscenarioJugarView->EscenarioJugarController:guardar()
 EscenarioJugarController->Gson: toJson()
@@ -79,5 +57,11 @@ EscenarioJugarController->Gson
 Gson->Partida: fromJson()
 Partida->EscenarioJugarController: return Partida
 
+User->EscenarioJugarView:Menú Principal
+EscenarioJugarView->EscenarioJugarController:salir()
+EscenarioJugarController->EscenariosController: cargarEscenarioInicio()
+deactivate EscenarioJugarController
+deactivate EscenarioJugarView
+EscenariosController->User: EscenarioInicioView
 
 @enduml

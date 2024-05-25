@@ -67,7 +67,7 @@ public class ArbolGenealogicoController {
         Individuo individuo8 = new Individuo();
         individuo8.setRango(1);
         individuo7.addHijo(individuo8);
-        mostrarIndiviuo(individuo1, null, false, 0, false);*/
+        mostrarIndiviuo(individuo1, null, false, 0, false, false);*/
     }
 
     private void mostrarIndiviuo(
