@@ -161,7 +161,12 @@ public class Partida {
 
     public Casilla moverBasico(){
         int posicion = (int) (Math.random() * listaCasillas.getNumeroElementos());
-        return listaCasillas.getElemento(posicion).getData();
+        ElementoLE pos = listaCasillas.getElemento(posicion);
+        if (pos == null) {
+            return moverBasico();
+        } else {
+            return (Casilla) pos.getData();
+        }
     }
 
     public Casilla moverNormal(Casilla casilla){

@@ -26,6 +26,7 @@ public class Bucles {
 
                 if (individuo.getTurnosVida() == 0) {
                     individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
+                    individuoActual = individuoActual.getSiguiente();
                     continue;
                 } else {
                     individuo.getOperaciones().add(new Operacion("Cambio casilla", partida.getTurno(), 1));
@@ -48,6 +49,7 @@ public class Bucles {
                     evaluarIndividuoRecursos(individuo);
                     if (individuo.getProbMuerte() >= 100 || individuo.getTurnosVida() == 0) {
                         individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
+                        individuoActual = individuoActual.getSiguiente();
                         continue; // Continuo el bucle porque el individuo a muerto fijo
                     }
 
@@ -58,6 +60,15 @@ public class Bucles {
             }
 
             relacionesIndividuos(casilla);
+
+            casillaActual = casillaActual.getSiguiente();
+        }
+    }
+
+    public void evaluarCasillas() {
+        ElementoLE casillaActual = partida.getListaCasillas().getPrimero();
+        while (casillaActual != null) {
+            Casilla casilla = (Casilla) casillaActual.getData();
             evaluarElementosCasilla(casilla);
             maxCosasCasilla(casilla);
 

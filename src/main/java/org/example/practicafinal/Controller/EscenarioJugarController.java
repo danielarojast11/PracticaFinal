@@ -66,6 +66,7 @@ public class EscenarioJugarController {
                 lblTurno.setText("Turno: " + partida.getTurno());
 
                 bucles.moverIndividuos();
+                bucles.evaluarCasillas();
 
                 lblNumeroIndividuos.setText("Nº Individuos: " + partida.getNumIndividuos());
 

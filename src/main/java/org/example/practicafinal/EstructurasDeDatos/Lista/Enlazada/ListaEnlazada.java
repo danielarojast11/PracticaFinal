@@ -83,10 +83,10 @@ public class ListaEnlazada<TipoDato> {
         int contador = 0;
         ElementoLE<TipoDato> auxiliar;
         auxiliar = primero;
-        if (auxiliar.getData() == dato) {
+        if (auxiliar != null && auxiliar.getData() == dato) {
             del(contador);
         }
-        while (auxiliar.getSiguiente() != null) {
+        while (auxiliar != null && auxiliar.getSiguiente() != null) {
             auxiliar = auxiliar.getSiguiente();
             contador++;
             if (auxiliar.getData() == dato) {
