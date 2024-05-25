@@ -59,6 +59,20 @@ public class EscenarioJugarController {
     private Boolean tableroCreado = false;
     private EstructurasDeDatos estructurasDeDatos;
 
+    //Parameters
+    EscenariosController controladorEscenarios;
+    @FXML private Pane paneTablero;
+    @FXML private Button btnStart;
+    @FXML private Button btnPause;
+    @FXML private Button btnEnd;
+    @FXML private Button btnCaracteristicas;
+    @FXML private Label lblColumnas;
+    @FXML private Label lblVelocidad;
+    @FXML private Label lblFilas;
+    @FXML private Button btnRestablecerTablero;
+    @FXML private Button btnGuardar;
+    @FXML private Button btnCargarPartida;
+
     AnimationTimer animationTimer = new AnimationTimer() {
         int i = velocidad;
         @Override
@@ -391,72 +405,6 @@ public class EscenarioJugarController {
         casilla.addIndividuo(in);
         this.partida.addIndividuo(in);
     }
-
-
-    //Parameters
-    EscenariosController controladorEscenarios;
-
-    private final Boolean individuosCreados = false;
-
-    private Boolean partidaCreada = false;
-
-    private List<Individuo> listaIndividuos = new ArrayList<>();
-
-    private final List<Elemento> listaElementos = new ArrayList<>();
-
-
-    @FXML
-    private TabPane tabPane;
-
-    @FXML
-    private Pane paneTablero;
-
-    @FXML
-    private Button btnStart;
-
-    @FXML
-    private Button btnPause;
-
-    @FXML
-    private Button btnEnd;
-
-    @FXML
-    private Button btnCaracteristicas;
-
-        //Modify Individuals Parameters
-
-    @FXML
-    private Tab tabIndividuos;
-
-    @FXML
-    private Label lblClonacion;
-
-    @FXML
-    private Label lblReproduccion;
-
-
-        //Modify Board Parameters
-
-    @FXML
-    private Tab tabTablero;
-
-    @FXML
-    private Label lblColumnas;
-
-    @FXML
-    private Label lblVelocidad;
-
-    @FXML
-    private Label lblFilas;
-
-    @FXML
-    private Button btnRestablecerTablero;
-
-    @FXML
-    private Button btnGuardar;
-
-    @FXML
-    private Button btnCargarPartida;
 
     @FXML
     public void restablecerTablero(){
