@@ -1,0 +1,83 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant EscenarioJugarView
+participant EscenarioJugarController
+participant AnimationTimer
+participant Partida
+participant Bucles
+Participant Gson
+
+activate EscenarioJugarController
+activate EscenarioJugarView
+
+User->EscenarioJugarView: Empezar Partida
+
+EscenarioJugarView->EscenarioJugarController:start()
+EscenarioJugarController->EscenarioJugarController: validarInicioPartida()
+EscenarioJugarController->EscenarioJugarController: desabilitarSliders()
+
+activate AnimationTimer #FFBBBB
+EscenarioJugarController->AnimationTimer: start()
+activate AnimationTimer #DarkSalmon
+
+AnimationTimer->Partida: aumentarTurno()
+activate Partida
+Partida->AnimationTimer: return Turno
+deactivate Partida
+
+AnimationTimer->EscenarioJugarController:lblTurno.setText()
+EscenarioJugarController->EscenarioJugarView: mostrar Turno
+EscenarioJugarView->User: Turno
+
+
+AnimationTimer->Bucles: bucles de control
+activate Bucles
+Bucles->AnimationTimer: return Resultados
+deactivate Bucles
+
+AnimationTimer->Partida: getNumIndividuos()
+Partida->AnimationTimer: return NumIndividuos
+AnimationTimer-[#red]>EscenarioJugarController:endGame()
+EscenarioJugarController-[#red]>AnimationTimer:stop()
+deactivate AnimationTimer
+
+EscenarioJugarController-[#red]>EscenarioJugarView:cargarArbol()
+EscenarioJugarView-[#red]>User: Arbol Genealogico
+
+AnimationTimer->EscenarioJugarController:limpiarCasillas()
+AnimationTimer->EscenarioJugarController:mostrarCasillas()
+
+User->EscenarioJugarView: Pausar Partida
+EscenarioJugarView->EscenarioJugarController: pause()
+User->EscenarioJugarView: Terminar Partida
+EscenarioJugarView->EscenarioJugarController:endGame()
+EscenarioJugarController->AnimationTimer: stop()
+deactivate AnimationTimer
+EscenarioJugarController->EscenarioJugarView: cargarArbol()
+EscenarioJugarView->User: Arbol Genealogico
+
+
+
+
+newpage Cargar/Guardar Partida
+
+activate AnimationTimer #FFBBBB
+User->EscenarioJugarView: Guardar Partida
+EscenarioJugarView->EscenarioJugarController:guardar()
+EscenarioJugarController->Gson: toJson()
+activate Gson
+Gson->Partida: toJson()
+deactivate Gson
+EscenarioJugarController->AnimationTimer:stop()
+deactivate AnimationTimer
+
+User->EscenarioJugarView: Cargar Partida
+EscenarioJugarView->EscenarioJugarController:cargar()
+EscenarioJugarController->Gson
+Gson->Partida: fromJson()
+Partida->EscenarioJugarController: return Partida
+
+
+@enduml
