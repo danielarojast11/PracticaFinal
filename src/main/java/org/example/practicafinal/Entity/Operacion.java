@@ -15,6 +15,7 @@ public class Operacion {
      * 8 - Pozo
      * 9 - Mutación
      * 10 - Reproducción
+     * 11 - Movimiento
      */
     private int tipo;
 

@@ -33,6 +33,7 @@ public class EscenarioJugarController {
 
     //@FXML private Button btnAceptarTablero;
     @FXML private Label lblTurno;
+    @FXML private Label lblNumeroIndividuos;
     @FXML private Slider sliderVelocidad;
     @FXML private Slider sliderVida;
     @FXML private Slider sliderClonacion;
@@ -65,23 +66,16 @@ public class EscenarioJugarController {
                 lblTurno.setText("Turno: " + partida.getTurno());
 
                 bucles.moverIndividuos();
-                /*bucle.evaluacionFinal();
 
-                bucle.actualizarIndividuos();
-                bucle.reproducir(listaIndividuos.get(1), listaIndividuos.get(2), partida.getListaIndividuos());
-                bucle.actualizarElementos();
-                bucle.individuoMejorado(listaCasillas, listaIndividuos, listaElementos, partida);
+                lblNumeroIndividuos.setText("Nº Individuos: " + partida.getNumIndividuos());
+
+                if (partida.getNumIndividuos() <= 0){
+                    endGame();
+                }
+
 
                 limpiarCasillas();
                 mostrarCasillas();
-                lblNumeroIndividuos.setText("Nº Individuos: "+partida.getListaIndividuos().size());
-
-                if (
-                        partida.getListaIndividuos() == null ||
-                                partida.getListaIndividuos().size() == 0
-                ){
-                    endGame();
-                }*/
             }
             i++;
         }
@@ -177,6 +171,24 @@ public class EscenarioJugarController {
             }
         }
         this.tableroCreado = true;
+    }
+
+    public void mostrarCasillas(){
+        ElementoLE elementoLE = partida.getListaCasillas().getPrimero();
+        while (elementoLE != null) {
+            Casilla casilla = (Casilla) elementoLE.getData();
+            mostrarContenidoCasilla(casilla);
+            elementoLE = elementoLE.getSiguiente();
+        }
+    }
+
+    public void limpiarCasillas(){
+        ElementoLE elementoLE = partida.getListaCasillas().getPrimero();
+        while (elementoLE != null) {
+            Casilla casilla = (Casilla) elementoLE.getData();
+            casilla.getChildren().clear();
+            elementoLE = elementoLE.getSiguiente();
+        }
     }
 
     private void mostrarContenidoCasilla(Casilla casilla) {
@@ -644,18 +656,6 @@ public class EscenarioJugarController {
             lado = b/partida.getMaxElementos();
         }
         return lado;
-    }
-
-    public void mostrarCasillas(){
-        /*for (Casilla casilla : listaCasillas){
-            mostrarContenidoCasilla(casilla);
-        }*/
-    }
-
-    public void limpiarCasillas(){
-        /*for (Casilla casilla:listaCasillas){
-            casilla.getChildren().clear();
-        }*/
     }
 
     public void colorIndividuo(Individuo individuo, Circle circulo){

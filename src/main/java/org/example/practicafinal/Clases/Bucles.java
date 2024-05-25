@@ -44,6 +44,7 @@ public class Bucles {
                     }
 
                     individuo.setCasilla(casillaDestino);
+                    individuo.getOperaciones().add(new Operacion("Se mueve a la casilla", partida.getTurno(), 11));
                     evaluarIndividuoRecursos(individuo);
                     if (individuo.getProbMuerte() >= 100 || individuo.getTurnosVida() == 0) {
                         individuo.getOperaciones().add(new Operacion("Muerte", partida.getTurno(), 2));
@@ -183,7 +184,7 @@ public class Bucles {
                 }
             } else if (elemento instanceof Pozo) {
                 individuo.setProbMuerte(100);
-                individuo.getOperaciones().add(new Operacion("Montaña", partida.getTurno(), 8));
+                individuo.getOperaciones().add(new Operacion("Cae en Pozo", partida.getTurno(), 8));
             }
 
             elementoLe = elementoLe.getSiguiente();

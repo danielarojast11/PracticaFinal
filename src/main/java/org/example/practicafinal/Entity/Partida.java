@@ -174,9 +174,12 @@ public class Partida {
             posicionActual = posicionActual.getSiguiente();
         }
 
-        Casilla nuevaCasilla;
         int posicion = (int)(Math.random() * casillasSeleccionables.getNumeroElementos());
-        return casillasSeleccionables.getElemento(posicion).getData();
+        Casilla casillaDestino = casilla;
+        if (casillasSeleccionables.getElemento(posicion) != null) {
+            casillaDestino = casillasSeleccionables.getElemento(posicion).getData();
+        }
+        return casillaDestino;
     }
 
     public Casilla moverAvanzado(Casilla casilla){
@@ -189,7 +192,7 @@ public class Partida {
                     Math.abs(casilla.getFila() - posicionActual.getData().getFila()),
                     Math.abs(casilla.getColumna() - posicionActual.getData().getColumna())
             );
-            if (distancia > d2) {
+            if ((distancia > d2) &&  (d2 > 0)) {
                 distancia = d2;
                 casillaDestino = posicionActual.getData();
             }
@@ -238,6 +241,19 @@ public class Partida {
 
     public void setProbabilidadEjecucionClonacion(int probabilidadEjecucionClonacion) {
         this.probabilidadEjecucionClonacion = probabilidadEjecucionClonacion;
+    }
+
+    public int getNumIndividuos() {
+        int numIndividuos = 0;
+        ElementoLE casillaActual = listaCasillas.getPrimero();
+        while (casillaActual != null) {
+            Casilla casilla = (Casilla) casillaActual.getData();
+            numIndividuos += casilla.getIndividuos().getNumeroElementos();
+
+            casillaActual = casillaActual.getSiguiente();
+        }
+
+        return numIndividuos;
     }
 
 
